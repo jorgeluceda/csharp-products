@@ -29,6 +29,11 @@ class MainForm : Form
         this.SetupComponents();
     }
 
+
+    /**
+     * Create all of our components and fill the controls
+     * name
+     */
     private void SetupComponents()
     {
         this.bottomPanel = new Panel();
@@ -136,7 +141,7 @@ class MainForm : Form
 
             string controlCenter = prefix + 
                     (string.IsNullOrWhiteSpace(control.Name) ? control.GetType().Name : control.Name);
-                    
+
             list.Items.Add(controlName);
 
             if (control.Controls.Count > 0)
@@ -145,24 +150,7 @@ class MainForm : Form
     }
 }
 
-class Program
-{
-	static void Main(String[] args)
-	{
-		string name = "No Name Provided";
-		string title = "No Title Provided";
 
-		if(args.Length >= 1)
-		{
-			title = args[0];
-
-			if(args.Length > 1)
-				name = args[1];
-		}
-
-		Application.Run(new MainForm(title, name));
-	}
-}
 
 
 
