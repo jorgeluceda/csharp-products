@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 /*
@@ -16,6 +17,17 @@ class MainForm : Form
     {
         this.title = title;
         this.name = name;
+        this.SetupComponents();
+    }
+
+    private void SetupComponents()
+    {
+        // The form
+        this.AutoScaleMode = AutoScaleMode.Font;
+        this.Size = new Size(600, 370);
+        this.Name = "MainForm";
+        this.Text = this.title;
+
     }
 }
 
