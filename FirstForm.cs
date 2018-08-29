@@ -24,7 +24,7 @@ class FirstForm: Form {
 	private void panelOne() {
 		panel1 = new Panel();
 
-		//Coloring Panel 1
+		//Coloring Panel
 		panel1.BackColor = Color.Orange;
 		
 		//Sizing Panel
@@ -46,6 +46,19 @@ class FirstForm: Form {
 	//Setting up Panel 2
 	private void panelTwo() {
 		panel2 = new Panel();
+		
+		//Coloring Panel
+		panel2.BackColor = Color.SkyBlue;
+		
+		//Docking Panel
+		panel2.Dock = DockStyle.Fill;
+		
+		//Labeling Panel
+		Label label2 = new Label();
+		label2.Text = "Comment: ";
+
+		//Adding label and panel
+		panel1.Controls.Add(label2);
 		this.Controls.Add(panel2);
 	}
 	
