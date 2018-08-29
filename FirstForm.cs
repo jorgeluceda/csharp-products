@@ -23,7 +23,6 @@ class FirstForm: Form {
 	//Setting up Panel 1
 	private void panelOne() {
 		panel1 = new Panel();
-		panel1.
 		this.Controls.Add(panel1);
 	}
 	
