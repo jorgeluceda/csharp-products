@@ -1,4 +1,4 @@
-//0Homework 1 Form
+//Homework 1 Form
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -23,12 +23,14 @@ class FirstForm: Form {
 	//Setting up Panel 1
 	private void panelOne() {
 		panel1 = new Panel();
+		panel1.BackColor = Color.Orange;
 		this.Controls.Add(panel1);
 	}
 	
 	//Setting up Panel 2
 	private void panelTwo() {
-		
+		panel2 = new Panel();
+		this.Controls.Add(panel2);
 	}
 	
 }
