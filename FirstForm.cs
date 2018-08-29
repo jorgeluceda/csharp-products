@@ -56,9 +56,11 @@ class FirstForm: Form {
 		//Labeling Panel
 		Label label2 = new Label();
 		label2.Text = "Comment: ";
+		label2.Top = 40;
+		label2.Left = 40;
 
 		//Adding label and panel
-		panel1.Controls.Add(label2);
+		panel2.Controls.Add(label2);
 		this.Controls.Add(panel2);
 	}
 	
