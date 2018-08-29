@@ -24,6 +24,9 @@ class FirstForm: Form {
 	private void panelOne() {
 		panel1 = new Panel();
 		panel1.BackColor = Color.Orange;
+		Label label1 = new Label();
+		label1.Text = userName;
+		panel1.Controls.Add(label1);
 		this.Controls.Add(panel1);
 	}
 	
