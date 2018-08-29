@@ -100,7 +100,7 @@ namespace WindowsFormProkect
         {
             Console.WriteLine("Controls");
 
-            foreach (Control c in container.Controls)
+            foreach (Control c in controls.Controls)
             {
                 ListControls(c);
                 this.ControlList.Add(c);
