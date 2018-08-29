@@ -41,6 +41,9 @@ class FirstForm: Form {
 		//Adding label and panel
 		panel1.Controls.Add(label1);
 		this.Controls.Add(panel1);
+
+		//Apropiate control for the panel
+		
 	}
 	
 	//Setting up Panel 2
@@ -58,9 +61,20 @@ class FirstForm: Form {
 		label2.Text = "Comment: ";
 		label2.Top = 40;
 		label2.Left = 40;
-
+		
+		//Textbox
+		TextBox textbox2 = new TextBox();
+		textbox2.Top = 40;
+		textbox2.Left = 50;
+		textbox2.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+		
+		//Button
+		
+		
+		
 		//Adding label and panel
 		panel2.Controls.Add(label2);
+		panel2.Controls.Add(textbox2);
 		this.Controls.Add(panel2);
 	}
 	
