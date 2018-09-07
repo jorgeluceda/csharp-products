@@ -25,7 +25,7 @@ namespace Application.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        [global::System.Configuration.DefaultSettingValueAttribute("321")]
         public int MainFormClientSizeWidth {
             get {
                 return ((int)(this["MainFormClientSizeWidth"]));
@@ -37,7 +37,7 @@ namespace Application.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
         public int MainFormClientSizeHeight {
             get {
                 return ((int)(this["MainFormClientSizeHeight"]));

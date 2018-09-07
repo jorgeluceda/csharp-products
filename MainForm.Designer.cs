@@ -35,7 +35,7 @@
             this.btnSaveSize = new System.Windows.Forms.Button();
             this.btnSaveLocation = new System.Windows.Forms.Button();
             this.btnResetSettings = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvNamesList = new System.Windows.Forms.ListView();
             this.gbSetteingsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,21 +113,21 @@
             this.btnResetSettings.Text = "Reset Settings";
             this.btnResetSettings.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lvNamesList
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(10, 110);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(285, 142);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvNamesList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvNamesList.Location = new System.Drawing.Point(10, 110);
+            this.lvNamesList.Name = "lvNamesList";
+            this.lvNamesList.Size = new System.Drawing.Size(285, 142);
+            this.lvNamesList.TabIndex = 1;
+            this.lvNamesList.UseCompatibleStateImageBehavior = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 262);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvNamesList);
             this.Controls.Add(this.gbSetteingsContainer);
             this.MinimumSize = new System.Drawing.Size(321, 300);
             this.Name = "MainForm";
@@ -149,7 +149,7 @@
         private System.Windows.Forms.Button btnSaveLocation;
         private System.Windows.Forms.Button btnSaveSize;
         private System.Windows.Forms.Button btnResetSettings;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvNamesList;
     }
 }
 

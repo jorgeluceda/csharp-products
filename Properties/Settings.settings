@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="MainFormClientSizeWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">800</Value>
+      <Value Profile="(Default)">321</Value>
     </Setting>
     <Setting Name="MainFormClientSizeHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">600</Value>
+      <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="MainFormLocationX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
