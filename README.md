@@ -1,4 +1,4 @@
-# 1808-uha-repo3 Group #3
+# Group #3
 
 ## Tasks of the Project: Module 2 Assigment
 
