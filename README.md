@@ -2,6 +2,18 @@
 
 ## Tasks of the Project
 
+### Alejandro
+* Create a main form that will have a group box and a list view
+* Create properties in the main form to access the user settings. Use these properties to encapsulate access to the settings.
+* Set the client size and desktop location to the settings when the form loads.
+* Dock the groupbox to the top. Add four buttons and a text box to the group box.
+* Anchor the text box to the top edge of the group box.
+* Add name button: Anchor the button to the top edge of the group box, next to the name text box.
+* Save Size button: Anchor the button to the lower left corner of the group box.
+* Save Location button: Anchor the button to thelower right corner of the group box.
+* Reset Settings button: Anchor the button to the bottom edge of the group box.
+* Dock the list view so it fills the remaining available space in the form.
+
 ### Jorge
 * Add a validating handler for the text box.
 * Validate that the name is not empty, contains a non-space character and is no longer than 15 characters.
