@@ -30,7 +30,6 @@ namespace Application
 
         private void CustomInitialization()
         {
-            this.Text = "Application";
             this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
