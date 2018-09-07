@@ -16,5 +16,26 @@ namespace Application
         {
             InitializeComponent();
         }
+
+        #region Listeners
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            this.CustomInitialization();
+        }
+
+        #endregion
+
+        #region Helpers
+
+        private void CustomInitialization()
+        {
+            this.Text = "Application";
+            this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
+        }
+
+        #endregion
     }
 }
