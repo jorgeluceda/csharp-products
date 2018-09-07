@@ -1,0 +1,10 @@
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\bin\Debug\Application.exe.config
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\bin\Debug\Application.exe
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\bin\Debug\Application.pdb
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.csprojResolveAssemblyReference.cache
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.Properties.Resources.resources
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.csproj.GenerateResource.Cache
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.exe
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.pdb
+C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.MainForm.resources

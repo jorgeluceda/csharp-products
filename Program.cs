@@ -1,21 +1,18 @@
-using System;
-using System.Windows.Forms;
+﻿using System;
 
-class Program
+namespace Application
 {
-	static void Main(String[] args)
-	{
-		string name = "No Name Provided";
-		string title = "No Title Provided";
-
-		if(args.Length >= 1)
-		{
-			title = args[0];
-
-			if(args.Length > 1)
-				name = args[1];
-		}
-
-		Application.Run(new MainForm(title, name));
-	}
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.Run(new MainForm());
+        }
+    }
 }
