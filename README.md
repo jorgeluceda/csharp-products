@@ -1,6 +1,6 @@
 # 1808-uha-repo3 Group #3
 
-## Tasks of the Project
+## Tasks of the Project: Module 2 Assigment
 
 ### Alejandro
 * Create a main form that will have a group box and a list view
