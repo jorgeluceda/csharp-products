@@ -12,6 +12,7 @@ namespace Application
 {
     public partial class MainForm : Form
     {
+        private const int MAX_NAME_LENGTH = 15;
         private System.Windows.Forms.ErrorProvider nameErrorProvider;
 
         public MainForm()
@@ -81,7 +82,7 @@ namespace Application
                 validNameStatus = false;
             }
 
-            else if (textBox1.Text.Length > 15)
+            else if (textBox1.Text.Length > MAX_NAME_LENGTH)
             {
                 nameErrorProvider.SetError(textBox1, "Please Enter A Name No Longer Than 15 Characters");
                 validNameStatus = false;
