@@ -25,6 +25,12 @@ namespace Application
         {
             this.CustomInitialization();
         }
+        private void btnAddName_Click(object sender, System.EventArgs e)
+        {
+            AddNameToListView();
+            this.Focus(); // make our button click lose focus as detailed in requirements
+
+        }
 
         #endregion
 
@@ -42,21 +48,56 @@ namespace Application
             this.nameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 
             this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
-        }
 
+
+            this.btnAddName.Click += new System.EventHandler(this.btnAddName_Click);
+        }
+        private void AddNameToListView()
+        {
+            bool bValidName = ValidateName();
+            if (bValidName)
+            {
+                lvNamesList.Items.Add(textBox1.Text);
+                textBox1.Text = "";
+            }
+
+        }
         #endregion
+
+        #region Validation
+
         protected void textBox1_Validating(object sender,
            System.ComponentModel.CancelEventArgs e)
         {
-            if (textBox1.Text == "")
-                nameErrorProvider.SetError(textBox1, "Please Enter Your Name");
-            else if (textBox1.Text.Length > 15)
-                nameErrorProvider.SetError(textBox1, "Please Enter A Name No Longer Than 15 Characters");
-            else if (textBox1.Text.Contains(" "))
-                nameErrorProvider.SetError(textBox1, "Please Enter a Name Without Spaces");
-            else
-                nameErrorProvider.SetError(textBox1, "");
-           
+            ValidateName();
         }
+
+        protected bool ValidateName()
+        {
+            bool validNameStatus = true;
+            if (textBox1.Text == "")
+            {
+                nameErrorProvider.SetError(textBox1, "Please Enter Your Name");
+                validNameStatus = false;
+            }
+
+            else if (textBox1.Text.Length > 15)
+            {
+                nameErrorProvider.SetError(textBox1, "Please Enter A Name No Longer Than 15 Characters");
+                validNameStatus = false;
+            }
+            else if (textBox1.Text.Contains(" "))
+            {
+                nameErrorProvider.SetError(textBox1, "Please Enter a Name Without Spaces");
+                validNameStatus = false;
+            }
+            else
+            {
+                nameErrorProvider.SetError(textBox1, "");
+                validNameStatus = true;
+            }
+            return validNameStatus;
+        }
+        #endregion
     }
 }

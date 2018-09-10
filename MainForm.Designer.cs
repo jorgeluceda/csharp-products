@@ -49,9 +49,9 @@
             this.gbSetteingsContainer.Controls.Add(this.textBox1);
             this.gbSetteingsContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbSetteingsContainer.Location = new System.Drawing.Point(13, 12);
-            this.gbSetteingsContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSetteingsContainer.Margin = new System.Windows.Forms.Padding(4);
             this.gbSetteingsContainer.Name = "gbSetteingsContainer";
-            this.gbSetteingsContainer.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSetteingsContainer.Padding = new System.Windows.Forms.Padding(4);
             this.gbSetteingsContainer.Size = new System.Drawing.Size(381, 123);
             this.gbSetteingsContainer.TabIndex = 0;
             this.gbSetteingsContainer.TabStop = false;
@@ -61,7 +61,7 @@
             // 
             this.btnResetSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnResetSettings.Location = new System.Drawing.Point(117, 87);
-            this.btnResetSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetSettings.Name = "btnResetSettings";
             this.btnResetSettings.Size = new System.Drawing.Size(127, 28);
             this.btnResetSettings.TabIndex = 5;
@@ -72,7 +72,7 @@
             // 
             this.btnSaveLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveLocation.Location = new System.Drawing.Point(253, 87);
-            this.btnSaveLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveLocation.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveLocation.Name = "btnSaveLocation";
             this.btnSaveLocation.Size = new System.Drawing.Size(120, 28);
             this.btnSaveLocation.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             this.btnSaveSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSaveSize.Location = new System.Drawing.Point(9, 87);
-            this.btnSaveSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveSize.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveSize.Name = "btnSaveSize";
             this.btnSaveSize.Size = new System.Drawing.Size(100, 28);
             this.btnSaveSize.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             this.btnAddName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddName.Location = new System.Drawing.Point(254, 48);
-            this.btnAddName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddName.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddName.Name = "btnAddName";
             this.btnAddName.Size = new System.Drawing.Size(119, 28);
             this.btnAddName.TabIndex = 2;
@@ -116,7 +116,7 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(8, 50);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(237, 22);
             this.textBox1.TabIndex = 0;
@@ -125,7 +125,7 @@
             // 
             this.lvNamesList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvNamesList.Location = new System.Drawing.Point(13, 135);
-            this.lvNamesList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvNamesList.Margin = new System.Windows.Forms.Padding(4);
             this.lvNamesList.Name = "lvNamesList";
             this.lvNamesList.Size = new System.Drawing.Size(381, 175);
             this.lvNamesList.TabIndex = 1;
@@ -138,7 +138,7 @@
             this.ClientSize = new System.Drawing.Size(407, 322);
             this.Controls.Add(this.lvNamesList);
             this.Controls.Add(this.gbSetteingsContainer);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(422, 358);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
