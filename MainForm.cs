@@ -39,6 +39,11 @@ namespace Application
 
         private void CustomInitialization()
         {
+            ColumnHeader header = new ColumnHeader();
+            header.Text = "";
+            header.Name = "col1";
+
+
             this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
@@ -49,7 +54,10 @@ namespace Application
             this.nameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 
             this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
-
+            this.lvNamesList.Scrollable = true;
+            this.lvNamesList.View = View.Details;
+            this.lvNamesList.Columns.Add(header);
+            this.lvNamesList.HeaderStyle = ColumnHeaderStyle.None;
 
             this.btnAddName.Click += new System.EventHandler(this.btnAddName_Click);
         }
@@ -66,7 +74,6 @@ namespace Application
         #endregion
 
         #region Validation
-
         protected void textBox1_Validating(object sender,
            System.ComponentModel.CancelEventArgs e)
         {
