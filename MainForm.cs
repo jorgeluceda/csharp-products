@@ -29,7 +29,7 @@ namespace Application
         private void btnAddName_Click(object sender, System.EventArgs e)
         {
             AddNameToListView();
-            this.Focus(); // make our button click lose focus as detailed in requirements
+            textBox1.Focus(); // allow focus change on button click
 
         }
 
