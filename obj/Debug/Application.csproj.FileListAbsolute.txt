@@ -8,3 +8,13 @@ C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\A
 C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.exe
 C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.pdb
 C:\Users\alejandro\Desktop\Code\FIU\COP 4226\Module 2\1808-uha-repo3\obj\Debug\Application.MainForm.resources
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\bin\Debug\Application.exe.config
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\bin\Debug\Application.exe
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\bin\Debug\Application.pdb
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.MainForm.resources
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.Properties.Resources.resources
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.csproj.GenerateResource.cache
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.exe
+C:\Users\Eph96\Documents\University\Fall 2018\COP 4226\Module 2\1808-uha-repo3-emmanuel-module-2\1808-uha-repo3-emmanuel-module-2\obj\Debug\Application.pdb
