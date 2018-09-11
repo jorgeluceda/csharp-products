@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace Application
 {
+    /*
+    The MainForm partial class called in Program.cs
+    Contains our form, event handlers, initialization, 
+    and validation.
+    */
     public partial class MainForm : Form
     {
         private const int MAX_NAME_LENGTH = 15;
@@ -17,6 +22,7 @@ namespace Application
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ErrorProvider nameErrorProvider;
 
+        // MainForm constructor, do not modify InitializeComponent()
         public MainForm()
         {
             InitializeComponent();
@@ -24,11 +30,13 @@ namespace Application
 
         #region Listeners
 
+        // Our main loading method, modify customInitialization
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.CustomInitialization();
         }
 
+        // Click event handler for add name button
         private void btnAddName_Click(object sender, EventArgs e)
         {
             AddNameToListView();
@@ -36,6 +44,7 @@ namespace Application
 
         }
 
+        // Form closing handler that displays message box
         private void MainForm_FormClosing(object sender, CancelEventArgs e)
         {
 
@@ -47,28 +56,24 @@ namespace Application
             }
         }
 
+        // Hides our form when it is called (usually when out of focus)
         private void MainForm_Deactivate(object sender, System.EventArgs e)
         {
             this.Hide();
         }
 
+        // NotifyIcon handler for when it is clicked
         private void NotifyIcon_Click(object sender, EventArgs e)
         {
             this.Show(); //show the form
             this.Activate(); //activate the form
 
         }
-
-        private void MainForm_FormClosing(object sender, EventArgs e)
-        {
-            Form testForm = new Form();
-            testForm.ShowDialog();
-        }
-
         #endregion
 
         #region Helpers
-
+        //custonInitialization() to be used instead of InitializeComponent()
+        //as our custom way of Initializing our component.
         private void CustomInitialization()
         {
 
@@ -82,6 +87,7 @@ namespace Application
                 Name = "col1"
             };
 
+            //set the client size and with based on custom user settings if needed.
             this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
@@ -117,6 +123,7 @@ namespace Application
             this.notifyIcon1.Click += new System.EventHandler(this.NotifyIcon_Click);
         }
 
+        // adds a name to our list view if correctly validated
         private void AddNameToListView()
         {
             bool bValidName = ValidateName();
@@ -127,13 +134,9 @@ namespace Application
             }
 
         }
-
-        void MainForm_FormClosingEvent(object sender, FormClosedEventArgs e)
-        {
-            // Do stuff here
-        }
         #endregion
 
+        // called our validation method for the textbox when CancelEventArgs is handled
         #region Validation
         protected void textBox1_Validating(object sender,
            System.ComponentModel.CancelEventArgs e)
@@ -141,15 +144,16 @@ namespace Application
             ValidateName();
         }
 
+        // Validates a name based on the guidelines provided
         protected bool ValidateName()
         {
             bool validNameStatus = true;
+
             if (textBox1.Text == "")
             {
                 nameErrorProvider.SetError(textBox1, "Please Enter Your Name");
                 validNameStatus = false;
             }
-
             else if (textBox1.Text.Length > MAX_NAME_LENGTH)
             {
                 nameErrorProvider.SetError(textBox1, "Please Enter A Name No Longer Than 15 Characters");
@@ -159,8 +163,7 @@ namespace Application
             {
                 nameErrorProvider.SetError(textBox1, "Please Enter a Name Without Spaces");
                 validNameStatus = false;
-            }
-            else
+            } else
             {
                 nameErrorProvider.SetError(textBox1, "");
                 validNameStatus = true;
@@ -170,6 +173,7 @@ namespace Application
         #endregion
 
         #region Button Save and Reset
+        // saves the our form client width and height based on handler
         private void btnSaveSize_Click(object sender, EventArgs e)
         {
             CustomUserSettings.MainFormClientSizeWidth = this.ClientSize.Width;
@@ -177,6 +181,7 @@ namespace Application
             Properties.Settings.Default.Save();
         }
 
+        // resets all of our custom form settings based on handler
         private void btnResetSettings_Click(object sender, EventArgs e)
         {
             int defaultWidth = 321;
@@ -194,6 +199,8 @@ namespace Application
             Properties.Settings.Default.Save();
         }
 
+        // saves the location of our form client based on its desktop location
+        // using handler
         private void btnSaveLocation_Click(object sender, EventArgs e)
         {
             CustomUserSettings.MainFormLocationX = this.DesktopLocation.X;
