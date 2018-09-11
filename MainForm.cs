@@ -24,6 +24,13 @@ namespace Application
             this.CustomInitialization();
         }
 
+        private void MainForm_FormClosing(object sender, EventArgs e)
+        {
+            Form testForm = new Form();
+            testForm.ShowDialog();
+            Console.WriteLine("works");
+        }
+
         #endregion
 
         #region Helpers
@@ -66,6 +73,11 @@ namespace Application
             CustomUserSettings.MainFormLocationX = this.DesktopLocation.X;
             CustomUserSettings.MainFormLocationY = this.DesktopLocation.Y;
             Properties.Settings.Default.Save();
+        }
+
+        void MainForm_FormClosingEvent(object sender, FormClosedEventArgs e)
+        {
+            // Do stuff here
         }
     }
 }

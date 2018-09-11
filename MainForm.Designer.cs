@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.gbSetteingsContainer = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAddName = new System.Windows.Forms.Button();
-            this.btnSaveSize = new System.Windows.Forms.Button();
-            this.btnSaveLocation = new System.Windows.Forms.Button();
             this.btnResetSettings = new System.Windows.Forms.Button();
+            this.btnSaveLocation = new System.Windows.Forms.Button();
+            this.btnSaveSize = new System.Windows.Forms.Button();
+            this.btnAddName = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lvNamesList = new System.Windows.Forms.ListView();
+            this.moduleIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.gbSetteingsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,23 +58,38 @@
             this.gbSetteingsContainer.TabStop = false;
             this.gbSetteingsContainer.Text = "Settings";
             // 
-            // textBox1
+            // btnResetSettings
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(6, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
-            this.textBox1.TabIndex = 0;
+            this.btnResetSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnResetSettings.Location = new System.Drawing.Point(88, 71);
+            this.btnResetSettings.Name = "btnResetSettings";
+            this.btnResetSettings.Size = new System.Drawing.Size(95, 23);
+            this.btnResetSettings.TabIndex = 5;
+            this.btnResetSettings.Text = "Reset Settings";
+            this.btnResetSettings.UseVisualStyleBackColor = true;
+            this.btnResetSettings.Click += new System.EventHandler(this.btnResetSettings_Click);
             // 
-            // label1
+            // btnSaveLocation
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Enter a name:";
+            this.btnSaveLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveLocation.Location = new System.Drawing.Point(189, 71);
+            this.btnSaveLocation.Name = "btnSaveLocation";
+            this.btnSaveLocation.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveLocation.TabIndex = 4;
+            this.btnSaveLocation.Text = "Save Location";
+            this.btnSaveLocation.UseVisualStyleBackColor = true;
+            this.btnSaveLocation.Click += new System.EventHandler(this.btnSaveLocation_Click);
+            // 
+            // btnSaveSize
+            // 
+            this.btnSaveSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSaveSize.Location = new System.Drawing.Point(7, 71);
+            this.btnSaveSize.Name = "btnSaveSize";
+            this.btnSaveSize.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveSize.TabIndex = 3;
+            this.btnSaveSize.Text = "Save Size";
+            this.btnSaveSize.UseVisualStyleBackColor = true;
+            this.btnSaveSize.Click += new System.EventHandler(this.btnSaveSize_Click);
             // 
             // btnAddName
             // 
@@ -83,35 +101,23 @@
             this.btnAddName.Text = "Add Name";
             this.btnAddName.UseVisualStyleBackColor = true;
             // 
-            // btnSaveSize
+            // label1
             // 
-            this.btnSaveSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveSize.Location = new System.Drawing.Point(7, 71);
-            this.btnSaveSize.Name = "btnSaveSize";
-            this.btnSaveSize.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveSize.TabIndex = 3;
-            this.btnSaveSize.Text = "Save Size";
-            this.btnSaveSize.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Enter a name:";
             // 
-            // btnSaveLocation
+            // textBox1
             // 
-            this.btnSaveLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveLocation.Location = new System.Drawing.Point(189, 71);
-            this.btnSaveLocation.Name = "btnSaveLocation";
-            this.btnSaveLocation.Size = new System.Drawing.Size(90, 23);
-            this.btnSaveLocation.TabIndex = 4;
-            this.btnSaveLocation.Text = "Save Location";
-            this.btnSaveLocation.UseVisualStyleBackColor = true;
-            // 
-            // btnResetSettings
-            // 
-            this.btnResetSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnResetSettings.Location = new System.Drawing.Point(88, 71);
-            this.btnResetSettings.Name = "btnResetSettings";
-            this.btnResetSettings.Size = new System.Drawing.Size(95, 23);
-            this.btnResetSettings.TabIndex = 5;
-            this.btnResetSettings.Text = "Reset Settings";
-            this.btnResetSettings.UseVisualStyleBackColor = true;
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(6, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(178, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // lvNamesList
             // 
@@ -121,6 +127,12 @@
             this.lvNamesList.Size = new System.Drawing.Size(285, 142);
             this.lvNamesList.TabIndex = 1;
             this.lvNamesList.UseCompatibleStateImageBehavior = false;
+            // 
+            // moduleIcon
+            // 
+            this.moduleIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("moduleIcon.Icon")));
+            this.moduleIcon.Text = "moduleIcon";
+            this.moduleIcon.Visible = true;
             // 
             // MainForm
             // 
@@ -133,6 +145,7 @@
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "User Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.gbSetteingsContainer.ResumeLayout(false);
             this.gbSetteingsContainer.PerformLayout();
@@ -150,6 +163,7 @@
         private System.Windows.Forms.Button btnSaveSize;
         private System.Windows.Forms.Button btnResetSettings;
         private System.Windows.Forms.ListView lvNamesList;
+        private System.Windows.Forms.NotifyIcon moduleIcon;
     }
 }
 

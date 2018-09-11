@@ -4,6 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/*
+
+
+Save Size button: set the user setting for the size to the current client size and save the settings. 
+    Anchor the button to the lower left corner of the group box.
+Save Location button: set the user setting for the location to the current desktop location and save the settings. 
+    Anchor the button to thelower right corner of the group box.
+Reset Settings button: reset the user settings to the original default values. 
+    Set the client size and desktop location to the reset settings. 
+    Anchor the button to the bottom edge of the group box. 
+     
+     
+*/
+
 namespace Application
 {
     class CustomUserSettings
