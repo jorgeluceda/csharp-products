@@ -36,5 +36,36 @@ namespace Application
         }
 
         #endregion
+
+        private void btnSaveSize_Click(object sender, EventArgs e)
+        {
+            CustomUserSettings.MainFormClientSizeWidth = this.ClientSize.Width;
+            CustomUserSettings.MainFormClientSizeHeight = this.ClientSize.Height;
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnResetSettings_Click(object sender, EventArgs e)
+        {
+            int defaultWidth = 321;
+            int defaultHeight = 300;
+            int defaultX = 0;
+            int defaultY = 0;
+
+            this.ClientSize = new Size(defaultWidth, defaultHeight);
+            this.DesktopLocation = new Point(defaultX, defaultY);
+
+            CustomUserSettings.MainFormClientSizeWidth = defaultWidth;
+            CustomUserSettings.MainFormClientSizeHeight = defaultHeight;
+            CustomUserSettings.MainFormLocationX = defaultX;
+            CustomUserSettings.MainFormLocationY = defaultY;
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnSaveLocation_Click(object sender, EventArgs e)
+        {
+            CustomUserSettings.MainFormLocationX = this.DesktopLocation.X;
+            CustomUserSettings.MainFormLocationY = this.DesktopLocation.Y;
+            Properties.Settings.Default.Save();
+        }
     }
 }
