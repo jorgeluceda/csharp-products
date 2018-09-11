@@ -13,6 +13,7 @@ namespace Application
     public partial class MainForm : Form
     {
         private const int MAX_NAME_LENGTH = 15;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ErrorProvider nameErrorProvider;
 
         public MainForm()
@@ -50,22 +51,29 @@ namespace Application
             header.Text = "";
             header.Name = "col1";
 
-
             this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
 
+            //notifyIcon
+            //this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+
+            //nameErrorProvider
             this.nameErrorProvider = new System.Windows.Forms.ErrorProvider();
             this.nameErrorProvider.SetIconAlignment(this.textBox1, ErrorIconAlignment.MiddleRight);
             this.nameErrorProvider.SetIconPadding(this.textBox1, 2);
             this.nameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 
+            //validating textbox
             this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+
+            //lvNamesList
             this.lvNamesList.Scrollable = true;
             this.lvNamesList.View = View.Details;
             this.lvNamesList.Columns.Add(header);
             this.lvNamesList.HeaderStyle = ColumnHeaderStyle.None;
 
+            //button click handlers
             this.btnAddName.Click += new System.EventHandler(this.btnAddName_Click);
             this.btnSaveSize.Click += new System.EventHandler(this.btnSaveSize_Click);
             this.btnResetSettings.Click += new System.EventHandler(this.btnResetSettings_Click);
