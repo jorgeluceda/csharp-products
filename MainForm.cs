@@ -63,7 +63,6 @@ namespace Application
         {
             Form testForm = new Form();
             testForm.ShowDialog();
-            Console.WriteLine("works");
         }
 
         #endregion
@@ -92,7 +91,7 @@ namespace Application
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIcon1.Icon = Properties.Resources.Notify3Icon;
             this.notifyIcon1.ContextMenu = this.contextMenu1;
-            this.notifyIcon1.Text = "Form1 (NotifyIcon example)";
+            this.notifyIcon1.Text = "User Settings";
             this.notifyIcon1.Visible = true;
 
             //nameErrorProvider

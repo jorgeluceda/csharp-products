@@ -1,6 +1,6 @@
 # Group #3
 
-## Tasks of the Project: Module 2 Assigment
+## Module 2 Assignment: Tasks Completed
 
 ### Alejandro
 * Create a main form that will have a group box and a list view
@@ -20,6 +20,7 @@
 * Perform thorough validation and allow focus change when the button is clicked.
 * Use an error provider to display an error when the name does not validate.
 * If the name is valid, then add the name to the list view. Clear the name in the text box, after it is added to the list view.
+* When the notify icon is clicked, make the application visible and activate it.
 
 ### Laz
 * Save Size button: set the user setting for the size to the current client size and save the settings. Anchor the button to the lower left corner of the group box.
@@ -28,7 +29,6 @@
 
 ### Emmanuel
 * Create a simple icon for it in the resource editor. Visual Studio cannot edit 32-bit images. Remove all the 32-bit Image Types and only edit the 8-bit icons. If you want to add color, you will have to add 24-bit Image Types and delete the 8-bit image types.
-* When the notify icon is clicked, make the application visible and activate it.
 
 ### MoeBhat
 * When the application closes, display a message box if the user has added a name to the list view.
