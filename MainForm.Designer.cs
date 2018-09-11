@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.gbSetteingsContainer = new System.Windows.Forms.GroupBox();
             this.btnResetSettings = new System.Windows.Forms.Button();
             this.btnSaveLocation = new System.Windows.Forms.Button();
@@ -36,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lvNamesList = new System.Windows.Forms.ListView();
+            this.moduleIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.gbSetteingsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +110,7 @@
             this.label1.Location = new System.Drawing.Point(4, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(97, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter a name:";
             // 
@@ -130,6 +133,13 @@
             this.lvNamesList.Size = new System.Drawing.Size(381, 175);
             this.lvNamesList.TabIndex = 1;
             this.lvNamesList.UseCompatibleStateImageBehavior = false;
+            // 
+            // moduleIcon
+            // 
+            this.moduleIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("moduleIcon.Icon")));
+            this.moduleIcon.Text = "moduleIcon";
+            this.moduleIcon.Visible = true;
+            this.moduleIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.moduleIcon_MouseClick);
             // 
             // MainForm
             // 
@@ -160,6 +170,7 @@
         private System.Windows.Forms.Button btnSaveSize;
         private System.Windows.Forms.Button btnResetSettings;
         private System.Windows.Forms.ListView lvNamesList;
+        private System.Windows.Forms.NotifyIcon moduleIcon;
     }
 }
 
