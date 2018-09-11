@@ -18,3 +18,13 @@ C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\obj\Debug\Application.pdb
 C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\bin\Debug\Application.exe.config
 C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\bin\Debug\Application.exe
 C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\bin\Debug\Application.pdb
+C:\Users\Home\Desktop\1808-uha-repo3-master111\bin\Debug\Application.exe.config
+C:\Users\Home\Desktop\1808-uha-repo3-master111\bin\Debug\Application.exe
+C:\Users\Home\Desktop\1808-uha-repo3-master111\bin\Debug\Application.pdb
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.MainForm.resources
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.Properties.Resources.resources
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.csproj.GenerateResource.cache
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.exe
+C:\Users\Home\Desktop\1808-uha-repo3-master111\obj\Debug\Application.pdb

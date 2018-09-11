@@ -48,9 +48,11 @@
             this.gbSetteingsContainer.Controls.Add(this.label1);
             this.gbSetteingsContainer.Controls.Add(this.textBox1);
             this.gbSetteingsContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbSetteingsContainer.Location = new System.Drawing.Point(10, 10);
+            this.gbSetteingsContainer.Location = new System.Drawing.Point(26, 23);
+            this.gbSetteingsContainer.Margin = new System.Windows.Forms.Padding(8);
             this.gbSetteingsContainer.Name = "gbSetteingsContainer";
-            this.gbSetteingsContainer.Size = new System.Drawing.Size(304, 100);
+            this.gbSetteingsContainer.Padding = new System.Windows.Forms.Padding(8);
+            this.gbSetteingsContainer.Size = new System.Drawing.Size(762, 238);
             this.gbSetteingsContainer.TabIndex = 0;
             this.gbSetteingsContainer.TabStop = false;
             this.gbSetteingsContainer.Text = "Settings";
@@ -58,9 +60,10 @@
             // btnResetSettings
             // 
             this.btnResetSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnResetSettings.Location = new System.Drawing.Point(88, 71);
+            this.btnResetSettings.Location = new System.Drawing.Point(234, 169);
+            this.btnResetSettings.Margin = new System.Windows.Forms.Padding(8);
             this.btnResetSettings.Name = "btnResetSettings";
-            this.btnResetSettings.Size = new System.Drawing.Size(95, 23);
+            this.btnResetSettings.Size = new System.Drawing.Size(254, 54);
             this.btnResetSettings.TabIndex = 5;
             this.btnResetSettings.Text = "Reset Settings";
             this.btnResetSettings.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@
             // btnSaveLocation
             // 
             this.btnSaveLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveLocation.Location = new System.Drawing.Point(208, 71);
+            this.btnSaveLocation.Location = new System.Drawing.Point(506, 169);
+            this.btnSaveLocation.Margin = new System.Windows.Forms.Padding(8);
             this.btnSaveLocation.Name = "btnSaveLocation";
-            this.btnSaveLocation.Size = new System.Drawing.Size(90, 23);
+            this.btnSaveLocation.Size = new System.Drawing.Size(240, 54);
             this.btnSaveLocation.TabIndex = 4;
             this.btnSaveLocation.Text = "Save Location";
             this.btnSaveLocation.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // btnSaveSize
             // 
             this.btnSaveSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveSize.Location = new System.Drawing.Point(7, 71);
+            this.btnSaveSize.Location = new System.Drawing.Point(18, 169);
+            this.btnSaveSize.Margin = new System.Windows.Forms.Padding(8);
             this.btnSaveSize.Name = "btnSaveSize";
-            this.btnSaveSize.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveSize.Size = new System.Drawing.Size(200, 54);
             this.btnSaveSize.TabIndex = 3;
             this.btnSaveSize.Text = "Save Size";
             this.btnSaveSize.UseVisualStyleBackColor = true;
@@ -88,9 +93,10 @@
             // btnAddName
             // 
             this.btnAddName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddName.Location = new System.Drawing.Point(208, 39);
+            this.btnAddName.Location = new System.Drawing.Point(508, 93);
+            this.btnAddName.Margin = new System.Windows.Forms.Padding(8);
             this.btnAddName.Name = "btnAddName";
-            this.btnAddName.Size = new System.Drawing.Size(89, 23);
+            this.btnAddName.Size = new System.Drawing.Size(238, 54);
             this.btnAddName.TabIndex = 2;
             this.btnAddName.Text = "Add Name";
             this.btnAddName.UseVisualStyleBackColor = true;
@@ -98,9 +104,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Location = new System.Drawing.Point(8, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(192, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter a name:";
             // 
@@ -108,31 +115,36 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(7, 41);
+            this.textBox1.Location = new System.Drawing.Point(16, 97);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(8);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 20);
+            this.textBox1.Size = new System.Drawing.Size(470, 38);
             this.textBox1.TabIndex = 0;
             // 
             // lvNamesList
             // 
             this.lvNamesList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvNamesList.Location = new System.Drawing.Point(10, 110);
+            this.lvNamesList.Location = new System.Drawing.Point(26, 261);
+            this.lvNamesList.Margin = new System.Windows.Forms.Padding(8);
             this.lvNamesList.Name = "lvNamesList";
-            this.lvNamesList.Size = new System.Drawing.Size(304, 158);
+            this.lvNamesList.Size = new System.Drawing.Size(762, 340);
             this.lvNamesList.TabIndex = 1;
             this.lvNamesList.UseCompatibleStateImageBehavior = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 278);
+            this.ClientSize = new System.Drawing.Size(814, 624);
             this.Controls.Add(this.lvNamesList);
             this.Controls.Add(this.gbSetteingsContainer);
-            this.MinimumSize = new System.Drawing.Size(320, 298);
+            this.Margin = new System.Windows.Forms.Padding(8);
+            this.MinimumSize = new System.Drawing.Size(812, 611);
             this.Name = "MainForm";
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(26, 23, 26, 23);
             this.Text = "User Settings";
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.gbSetteingsContainer.ResumeLayout(false);
             this.gbSetteingsContainer.PerformLayout();

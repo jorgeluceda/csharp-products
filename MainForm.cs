@@ -26,6 +26,22 @@ namespace Application
         {
             this.CustomInitialization();
         }
+
+        private void MainForm_FormClosing(object sender, CancelEventArgs e)
+        { 
+       
+            if (lvNamesList.Items.Count >= 1)
+            {
+                DialogResult result = MessageBox.Show("The list has been updated, are you sure you want to quit?", "", MessageBoxButtons.OKCancel);
+                e.Cancel = (result==DialogResult.Cancel);
+            }
+        }
+
+        private void MainForm_Deactivate(object sender, System.EventArgs e)
+        {
+            this.Hide();
+        }
+
         private void btnAddName_Click(object sender, System.EventArgs e)
         {
             AddNameToListView();
