@@ -13,6 +13,7 @@ namespace Application
     public partial class MainForm : Form
     {
         private const int MAX_NAME_LENGTH = 15;
+        private System.Windows.Forms.ContextMenu contextMenu1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ErrorProvider nameErrorProvider;
 
@@ -27,10 +28,17 @@ namespace Application
         {
             this.CustomInitialization();
         }
-        private void btnAddName_Click(object sender, System.EventArgs e)
+        private void btnAddName_Click(object sender, EventArgs e)
         {
             AddNameToListView();
             textBox1.Focus(); // allow focus change on button click
+
+        }
+
+        private void NotifyIcon_Click(object sender, EventArgs e)
+        {
+            this.Show(); //show the form
+            this.Activate(); //activate the form
 
         }
 
@@ -47,16 +55,28 @@ namespace Application
 
         private void CustomInitialization()
         {
-            ColumnHeader header = new ColumnHeader();
-            header.Text = "";
-            header.Name = "col1";
+
+            //create container component
+            this.components = new System.ComponentModel.Container();
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+
+            ColumnHeader header = new ColumnHeader
+            {
+                Text = "",
+                Name = "col1"
+            };
 
             this.ClientSize = new Size(CustomUserSettings.MainFormClientSizeWidth, CustomUserSettings.MainFormClientSizeHeight);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(CustomUserSettings.MainFormLocationX, CustomUserSettings.MainFormLocationY);
 
-            //notifyIcon
-            //this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            
+            //notifyIcon setup
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon1.Icon = Properties.Resources.Notify3Icon;
+            this.notifyIcon1.ContextMenu = this.contextMenu1;
+            this.notifyIcon1.Text = "Form1 (NotifyIcon example)";
+            this.notifyIcon1.Visible = true;
 
             //nameErrorProvider
             this.nameErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -78,6 +98,7 @@ namespace Application
             this.btnSaveSize.Click += new System.EventHandler(this.btnSaveSize_Click);
             this.btnResetSettings.Click += new System.EventHandler(this.btnResetSettings_Click);
             this.btnSaveLocation.Click += new System.EventHandler(this.btnSaveLocation_Click);
+            this.notifyIcon1.Click += new System.EventHandler(this.NotifyIcon_Click);
         }
 
         private void AddNameToListView()
