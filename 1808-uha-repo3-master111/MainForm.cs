@@ -36,6 +36,12 @@ namespace Application
                 e.Cancel = (result==DialogResult.Cancel);
             }
         }
+
+        private void MainForm_Deactivate(object sender, System.EventArgs e)
+        {
+            this.Hide();
+        }
+
         private void btnAddName_Click(object sender, System.EventArgs e)
         {
             AddNameToListView();
