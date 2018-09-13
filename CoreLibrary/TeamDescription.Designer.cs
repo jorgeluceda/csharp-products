@@ -42,6 +42,7 @@
             // 
             // lblTeamNumber
             // 
+            this.lblTeamNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTeamNumber.AutoSize = true;
             this.lblTeamNumber.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamNumber.ForeColor = System.Drawing.Color.White;
@@ -73,8 +74,8 @@
             // 
             // lblMember6
             // 
+            this.lblMember6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember6.AutoSize = true;
-            this.lblMember6.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember6.Location = new System.Drawing.Point(8, 171);
             this.lblMember6.Name = "lblMember6";
             this.lblMember6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -84,8 +85,8 @@
             // 
             // lblMember5
             // 
+            this.lblMember5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember5.AutoSize = true;
-            this.lblMember5.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember5.Location = new System.Drawing.Point(8, 143);
             this.lblMember5.Name = "lblMember5";
             this.lblMember5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -95,8 +96,8 @@
             // 
             // lblMember4
             // 
+            this.lblMember4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember4.AutoSize = true;
-            this.lblMember4.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember4.Location = new System.Drawing.Point(8, 115);
             this.lblMember4.Name = "lblMember4";
             this.lblMember4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -106,8 +107,8 @@
             // 
             // lblMember3
             // 
+            this.lblMember3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember3.AutoSize = true;
-            this.lblMember3.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember3.Location = new System.Drawing.Point(8, 87);
             this.lblMember3.Name = "lblMember3";
             this.lblMember3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -117,8 +118,8 @@
             // 
             // lblMember2
             // 
+            this.lblMember2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember2.AutoSize = true;
-            this.lblMember2.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember2.Location = new System.Drawing.Point(8, 59);
             this.lblMember2.Name = "lblMember2";
             this.lblMember2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -128,8 +129,8 @@
             // 
             // lblMember1
             // 
+            this.lblMember1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember1.AutoSize = true;
-            this.lblMember1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblMember1.Location = new System.Drawing.Point(8, 31);
             this.lblMember1.Name = "lblMember1";
             this.lblMember1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -139,8 +140,7 @@
             // 
             // lblTeamName
             // 
-            this.lblTeamName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTeamName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTeamName.AutoSize = true;
             this.lblTeamName.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamName.ForeColor = System.Drawing.Color.White;

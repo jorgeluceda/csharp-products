@@ -34,8 +34,8 @@
             // 
             // lblCourseName
             // 
+            this.lblCourseName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblCourseName.AutoSize = true;
-            this.lblCourseName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblCourseName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourseName.ForeColor = System.Drawing.Color.White;
             this.lblCourseName.Location = new System.Drawing.Point(10, 10);
@@ -47,14 +47,13 @@
             // 
             // lblSemesterName
             // 
+            this.lblSemesterName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblSemesterName.AutoSize = true;
-            this.lblSemesterName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSemesterName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSemesterName.ForeColor = System.Drawing.Color.White;
-            this.lblSemesterName.Location = new System.Drawing.Point(10, 42);
+            this.lblSemesterName.Location = new System.Drawing.Point(25, 42);
             this.lblSemesterName.Name = "lblSemesterName";
-            this.lblSemesterName.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.lblSemesterName.Size = new System.Drawing.Size(106, 23);
+            this.lblSemesterName.Size = new System.Drawing.Size(91, 23);
             this.lblSemesterName.TabIndex = 1;
             this.lblSemesterName.Text = "Fall 2018";
             // 
@@ -69,6 +68,7 @@
             this.Name = "CourseDescription";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(141, 75);
+            this.Load += new System.EventHandler(this.CourseDescription_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

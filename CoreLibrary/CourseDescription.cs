@@ -16,5 +16,15 @@ namespace CoreLibrary
         {
             InitializeComponent();
         }
+
+        private void CourseDescription_Load(object sender, EventArgs e)
+        {
+            if (this.Parent == null)
+                return;
+
+            this.BackColor = this.Parent.BackColor;
+            this.lblCourseName.ForeColor = this.Parent.ForeColor;
+            this.lblSemesterName.ForeColor = this.Parent.ForeColor;
+        }
     }
 }
