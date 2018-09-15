@@ -47,6 +47,23 @@
     <Compile Include="CourseDescription.Designer.cs">
       <DependentUpon>CourseDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog Form.Designer.cs">
+      <DependentUpon>Dialog Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base Form.Designer.cs">
+      <DependentUpon>Base Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TeamDescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +76,16 @@
   <ItemGroup>
     <EmbeddedResource Include="CourseDescription.resx">
       <DependentUpon>CourseDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog Form.resx">
+      <DependentUpon>Dialog Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base Form.resx">
+      <DependentUpon>Base Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamDescription.resx">
       <DependentUpon>TeamDescription.cs</DependentUpon>
