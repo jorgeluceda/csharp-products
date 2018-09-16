@@ -11,15 +11,19 @@ using System.Drawing.Drawing2D;
 
 namespace Application
 {
-    public partial class Elliptic : Form, BaseForm
+    public partial class Rectangular : Form, BaseForm
     {
-        public Elliptic(float perm, int width)
+        public Rectangular(float perm, int width)
         {
             InitializeComponent();
             GraphicsPath path = new GraphicsPath();
-            path.AddEllipse(0, 0, width, width * perm);
+            Rectangle rect = new Rectangle();
+            rect.Height = width * (int)perm;
+            rect.Width = rect.Width * rect.Height;
+            path.AddRectangle(rect);
             Region region = new Region(path);
             this.Region = region;
+
         }
     }
 }

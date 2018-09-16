@@ -1,6 +1,6 @@
 ﻿namespace Application
 {
-    partial class Elliptic
+    partial class Rectangular
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Elliptic
+            // Rectangle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Elliptic";
-            this.Text = "Form1";
-            this.TransparencyKey = System.Drawing.Color.White;
-            //this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Name = "Rectangle";
+            this.Text = "Rectangle";
+            this.Load += new System.EventHandler(this.Rectangle_Load);
             this.ResumeLayout(false);
 
         }
