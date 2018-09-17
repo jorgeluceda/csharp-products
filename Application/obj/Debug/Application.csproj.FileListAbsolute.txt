@@ -1,0 +1,12 @@
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\bin\Debug\Application.exe.config
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\bin\Debug\Application.exe
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\bin\Debug\Application.pdb
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\bin\Debug\CoreLibrary.dll
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\bin\Debug\CoreLibrary.pdb
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.Properties.Resources.resources
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.csproj.GenerateResource.cache
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.exe
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\Application\obj\Debug\Application.pdb
