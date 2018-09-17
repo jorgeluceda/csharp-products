@@ -68,7 +68,7 @@ namespace Application
             if (height == null || height.Length == 0 || !height.All(char.IsDigit) ||
                 Int32.Parse(height) < 10 || Int32.Parse(height) > 500)
             {
-                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Invalid Width");
+                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Invalid Height");
                 return false;
 
             }
@@ -76,9 +76,9 @@ namespace Application
             String ratio = this.preferencesRatioTextBox.Text;
 
             if (ratio == null || ratio.Length == 0 || !ratio.All(char.IsDigit) ||
-                Int32.Parse(ratio) < 10 || Int32.Parse(ratio) > 500)
+                Int32.Parse(ratio) < 10 || Int32.Parse(ratio) > 100)
             {
-                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Invalid Width");
+                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Invalid Ratio");
                 return false;
 
             }
