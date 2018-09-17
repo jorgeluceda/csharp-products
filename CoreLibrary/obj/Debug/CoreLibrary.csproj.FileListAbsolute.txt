@@ -2,7 +2,6 @@ C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\bin\Deb
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\bin\Debug\CoreLibrary.pdb
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.BaseForm.resources
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.CourseDescription.resources
-C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.Dialog_Form.resources
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.Properties.Resources.resources
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.TeamDescription.resources
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.csproj.GenerateResource.cache
@@ -10,3 +9,4 @@ C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Deb
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.dll
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.pdb
 C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.csprojAssemblyReference.cache
+C:\Users\Eph96\source\repos\1808-uha-repo3-emmanuel-module-3\CoreLibrary\obj\Debug\CoreLibrary.BaseDialogForm.resources

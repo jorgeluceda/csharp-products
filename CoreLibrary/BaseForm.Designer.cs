@@ -59,7 +59,7 @@
             // colorsToolStripMenuItem
             // 
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
-            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.colorsToolStripMenuItem.Text = "Colors";
             this.colorsToolStripMenuItem.Click += new System.EventHandler(this.colorsToolStripMenuItem_Click);
             // 
@@ -91,6 +91,8 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Name = "BaseForm";
             this.Text = "Base Form";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
