@@ -41,23 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseDescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CourseDescription.Designer.cs">
       <DependentUpon>CourseDescription.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialog Form.cs">
+    <Compile Include="DialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog Form.Designer.cs">
-      <DependentUpon>Dialog Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Base Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Base Form.Designer.cs">
-      <DependentUpon>Base Form.cs</DependentUpon>
+    <Compile Include="DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,14 +74,14 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseDescription.resx">
       <DependentUpon>CourseDescription.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialog Form.resx">
-      <DependentUpon>Dialog Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Base Form.resx">
-      <DependentUpon>Base Form.cs</DependentUpon>
+    <EmbeddedResource Include="DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
