@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 using CoreLibrary;
+using System.Drawing.Drawing2D;
 
 namespace Application
 {
-    public partial class Rectangular : BaseForm
+    public partial class Ellipse : CoreLibrary.BaseForm
     {
-        public Rectangular(float perm, int width)
+        public Ellipse(float perm, int width)
         {
             InitializeComponent();
             GraphicsPath path = new GraphicsPath();
-            Rectangle rect = new Rectangle(0, 0, width, (int)(perm * width));
-            path.AddRectangle(rect);
+            path.AddEllipse(0, 0, width, (int)(perm * width));
             this.Region = new Region(path);
         }
     }

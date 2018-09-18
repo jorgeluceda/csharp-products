@@ -1,6 +1,6 @@
 ﻿namespace Application
 {
-    partial class Rectangular
+    partial class Ellipse
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Rectangular
+            // Ellipse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Rectangular";
-            this.Text = "Rectangular";
+            this.Name = "Ellipse";
+            this.Text = "Ellipse";
             this.ResumeLayout(false);
 
         }
