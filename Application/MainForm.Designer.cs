@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Application
+﻿namespace Application
 {
     partial class MainForm
     {
@@ -30,37 +28,123 @@ namespace Application
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.File = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ellipsesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeRectanglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.File.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // File
             // 
-            this.button1.Location = new System.Drawing.Point(489, 468);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.File.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.File.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.preferencesToolStripMenuItem});
+            this.File.Location = new System.Drawing.Point(0, 0);
+            this.File.Name = "File";
+            this.File.Size = new System.Drawing.Size(800, 28);
+            this.File.TabIndex = 0;
+            this.File.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ellipseToolStripMenuItem,
+            this.rectangleToolStripMenuItem});
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // ellipseToolStripMenuItem
+            // 
+            this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.ellipseToolStripMenuItem.Text = "Ellipse";
+            this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
+            // 
+            // rectangleToolStripMenuItem
+            // 
+            this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.rectangleToolStripMenuItem.Text = "Rectangle";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ellipsesToolStripMenuItem,
+            this.closeRectanglesToolStripMenuItem,
+            this.closeApplicationToolStripMenuItem});
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.closeToolStripMenuItem.Text = "Close";
+            // 
+            // ellipsesToolStripMenuItem
+            // 
+            this.ellipsesToolStripMenuItem.Name = "ellipsesToolStripMenuItem";
+            this.ellipsesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.ellipsesToolStripMenuItem.Text = "Close Ellipses";
+            // 
+            // closeRectanglesToolStripMenuItem
+            // 
+            this.closeRectanglesToolStripMenuItem.Name = "closeRectanglesToolStripMenuItem";
+            this.closeRectanglesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.closeRectanglesToolStripMenuItem.Text = "Close Rectangles";
+            // 
+            // closeApplicationToolStripMenuItem
+            // 
+            this.closeApplicationToolStripMenuItem.Name = "closeApplicationToolStripMenuItem";
+            this.closeApplicationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.closeApplicationToolStripMenuItem.Text = "Close Application";
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 521);
-            this.Controls.Add(this.button1);
-            this.IsMdiContainer = true;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.File);
+            this.MainMenuStrip = this.File;
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.MainForm_Load_1);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
+            this.Text = "MainForm";
+            this.File.ResumeLayout(false);
+            this.File.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Button button1;
+        private System.Windows.Forms.MenuStrip File;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ellipsesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeRectanglesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
     }
 }
-

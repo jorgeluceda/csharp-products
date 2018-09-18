@@ -13,12 +13,27 @@ namespace Application
 {
     public partial class PreferencesDialog : BaseForm
     {
+        private float ratio = 0;
+        private int width = 0;
+
         public PreferencesDialog()
         {
             InitializeComponent();
         }
 
-        
+        float Ratio
+        {
+            get { return ratio; }
+            set { setRatio(); }
+        }
+
+        int Width
+        {
+            get { return width; }
+            set { }
+        }
+
+
 
         private void PreferencesDialog_Load(object sender, EventArgs e)
         {
@@ -55,63 +70,86 @@ namespace Application
 
         public bool validateForm()
         {
-            bool result = true;
+            bool result = false;
 
             String width = this.preferencesWidthTextBox.Text;
 
-            if (width == null || width.Length == 0 || !width.All(char.IsDigit) || 
-                Int32.Parse(width) < 10 || Int32.Parse(width) > 500)
+            if(width == null || width.Length == 0)
             {
-                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "Invalid Width");
-                result = false;
+                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "Please enter a width");
+            }
+
+            if (!width.All(char.IsDigit))
+            {
+                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "Please enter integers only");
+            }
+
+            if (Int32.Parse(width) < 10 || Int32.Parse(width) > 500)
+            {
+                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "Width must be between 10 and 500 pixels");
             }
             else
             {
-                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, null);
+                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "");
+                result = true;
             }
 
             String height = this.preferencesHeightTextBox.Text;
 
-            if (height == null || height.Length == 0 || !height.All(char.IsDigit) ||
-                Int32.Parse(height) < 10 || Int32.Parse(height) > 500)
+            if (height == null || height.Length == 0)
             {
-                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Invalid Height");
-                result = false;
+                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Please enter a height");
+            }
+
+            if (!height.All(char.IsDigit))
+            {
+                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Please enter integers only");
+            }
+
+            if (Int32.Parse(height) < 10 || Int32.Parse(height) > 500)
+            {
+                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Height must be between 10 and 500 pixels");
             }
             else
             {
-                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, null);
+                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "");
+                result = true;
             }
 
             String ratio = this.preferencesRatioTextBox.Text;
 
-            if (ratio == null || ratio.Length == 0 || !ratio.All(char.IsDigit) ||
-                Int32.Parse(ratio) < 10 || Int32.Parse(ratio) > 100)
+            if (ratio == null || ratio.Length == 0)
             {
-                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Invalid Ratio");
-                result = false;
+                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Please enter a ratio");
+            }
+
+            if (!ratio.All(char.IsDigit))
+            {
+                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Please enter integers only");
+            }
+
+            if (Int32.Parse(ratio) < 10 || Int32.Parse(ratio) > 100)
+            {
+                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Ratio must be between 10 and 100");
             }
             else
             {
-                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, null);
+                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "");
+                result = true;
             }
 
             return result;
 
         }
 
-        public float setRatio()
+        public void setRatio()
         {
-
             String width = this.preferencesWidthTextBox.Text;
             String height = this.preferencesHeightTextBox.Text;
 
-            float result = 0;
             if ( (width != null && width.All(char.IsDigit) && width.Length != 0) &&
                  (height != null && height.All(char.IsDigit) && height.Length != 0) )
-                result = float.Parse(width) / float.Parse(height);
-
-                return result;
+                ratio = float.Parse(width) / float.Parse(height);
         }
 
         public void basedOnRatio()
@@ -137,13 +175,13 @@ namespace Application
         private void preferencesHeightTextBox_TextChanged(object sender, EventArgs e)
         {
 
-            this.preferencesRatioTextBox.Text = setRatio().ToString();
+            this.preferencesRatioTextBox.Text = ratio.ToString();
 
         }
 
         private void preferencesWidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            this.preferencesRatioTextBox.Text = setRatio().ToString();
+            this.preferencesRatioTextBox.Text = ratio.ToString();
 
         }
 
@@ -154,10 +192,7 @@ namespace Application
 
         public void drawRectangle()
         {
-            //Rectangle rect = this.ClientRectangle();
             this.Close();
-
-
         }
 
         private void validateNumberField(TextBox textBox, System.ComponentModel.CancelEventArgs e, double min, double max)
@@ -165,22 +200,31 @@ namespace Application
             String checkControl = textBox.Text;
             preferencesErrorProvider.SetError(textBox, "");
 
-            if (checkControl == null || checkControl.Length == 0 || !checkControl.All(char.IsDigit) ||
-               double.Parse(checkControl) < min || double.Parse(checkControl) > max)
+            if(checkControl == null || checkControl.Length == 0)
             {
-                preferencesErrorProvider.SetError(textBox,"Invalid Input");
+                preferencesErrorProvider.SetError(textBox, "Please enter a value");
+                e.Cancel = true;
+            }
+            else if (!checkControl.All(char.IsDigit))
+            {
+                preferencesErrorProvider.SetError(textBox, "Please enter numbers only");
+                e.Cancel = true;
+            }
+            else if(double.Parse(checkControl) < min || double.Parse(checkControl) > max)
+            {
+                preferencesErrorProvider.SetError(textBox, "Please enter a number between " + min + " and " + max + ".");
                 e.Cancel = true;
             }
         }
 
         private void preferencesWidthTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesWidthTextBox, e, 10, this.ClientSize.Width);
+            validateNumberField(preferencesWidthTextBox, e, 10, 700);
         }
 
         private void preferencesHeightTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesHeightTextBox, e, 10, this.ClientSize.Height);
+            validateNumberField(preferencesHeightTextBox, e, 10, 700);
         }
 
         private void preferencesRatioTextBox_Validating(object sender, CancelEventArgs e)
