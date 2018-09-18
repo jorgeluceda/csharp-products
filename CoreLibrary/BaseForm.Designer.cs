@@ -93,6 +93,7 @@
             this.Text = "Base Form";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

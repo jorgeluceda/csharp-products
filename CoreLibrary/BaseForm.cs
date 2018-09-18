@@ -12,6 +12,8 @@ namespace CoreLibrary
 {
     public partial class BaseForm : Form
     {
+        Point downPoint = Point.Empty;
+
         public BaseForm()
         {
             InitializeComponent();
@@ -32,25 +34,27 @@ namespace CoreLibrary
             }
         }
 
-        //Dragging
-        private Point mouseDownLocation;    //to save original position where mouse was clicked so that it does not
-                                            //cause the MouseMove to go crazy with where the mouse is position.
+        /*
+         *  The following three event handlers implement drag and click functionality on our BaseForm.
+         *  Implementation is taken straight from the book.
+         */
         private void BaseForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                mouseDownLocation = e.Location;
-            }
+            if(e.Button != MouseButtons.Left) return;
+            downPoint = new Point(e.X, e.Y);
         }
-        //For moving the form in client area
+        
         private void BaseForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left = e.X + this.Left - mouseDownLocation.X;
-                this.Top = e.Y + this.Top - mouseDownLocation.Y;
+            if (downPoint == Point.Empty) return;
+            Point location = new Point(this.Left + e.X - downPoint.X, this.Top + e.Y - downPoint.Y);
+            this.Location = location;
+        }
 
-            }
+        private void BaseForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            downPoint = Point.Empty;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Application
         {
             InitializeComponent();
             GraphicsPath path = new GraphicsPath();
-            Rectangle rect = new Rectangle(0, 0, width, (int)(perm * width));
+            Rectangle rect = new Rectangle(0, 0, width, (int)perm*width);
             path.AddRectangle(rect);
             this.Region = new Region(path);
         }

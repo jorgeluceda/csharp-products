@@ -39,19 +39,19 @@
             this.middlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middlePanel.Location = new System.Drawing.Point(0, 60);
             this.middlePanel.Name = "middlePanel";
-            this.middlePanel.Size = new System.Drawing.Size(505, 132);
+            this.middlePanel.Size = new System.Drawing.Size(444, 75);
             this.middlePanel.TabIndex = 2;
             // 
             // teamDescription
             // 
             this.teamDescription.BackColor = System.Drawing.Color.MediumPurple;
             this.teamDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.teamDescription.Location = new System.Drawing.Point(0, 192);
+            this.teamDescription.Location = new System.Drawing.Point(0, 135);
             this.teamDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.teamDescription.MinimumSize = new System.Drawing.Size(219, 268);
             this.teamDescription.Name = "teamDescription";
             this.teamDescription.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.teamDescription.Size = new System.Drawing.Size(505, 268);
+            this.teamDescription.Size = new System.Drawing.Size(444, 268);
             this.teamDescription.TabIndex = 1;
             // 
             // courseDescription
@@ -63,14 +63,14 @@
             this.courseDescription.MinimumSize = new System.Drawing.Size(125, 60);
             this.courseDescription.Name = "courseDescription";
             this.courseDescription.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.courseDescription.Size = new System.Drawing.Size(505, 60);
+            this.courseDescription.Size = new System.Drawing.Size(444, 60);
             this.courseDescription.TabIndex = 0;
             // 
             // BaseDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 460);
+            this.ClientSize = new System.Drawing.Size(444, 403);
             this.Controls.Add(this.middlePanel);
             this.Controls.Add(this.teamDescription);
             this.Controls.Add(this.courseDescription);
