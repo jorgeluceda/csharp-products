@@ -100,10 +100,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rectangular.resx">
       <DependentUpon>Rectangular.cs</DependentUpon>
-    </EmbeddedResource>>
-      <EmbeddedResource Include="TestingForm.resx">      
-          <DependentUpon>TestingForm.cs</DependentUpon>
-        </EmbeddedResource>
+    </EmbeddedResource>
       <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
