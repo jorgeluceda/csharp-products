@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PreferencesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreferencesDialog.Designer.cs">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ellipse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </Compile>
     <EmbeddedResource Include="Rectangular.resx">
       <DependentUpon>Rectangular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesDialog.resx">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
