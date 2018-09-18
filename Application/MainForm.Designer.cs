@@ -40,6 +40,7 @@
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+          
             this.File.SuspendLayout();
             this.SuspendLayout();
             // 
