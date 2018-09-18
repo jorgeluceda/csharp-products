@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace Application
 {
-    interface Team3Interface
+    interface ITeam3Interface
     {
-        int Width
+        int ShapeWidth
         {
             get;
             set;
         }
 
-        int Height
+        int ShapeHeight
         {
             get;
             set;
         }
 
-        float Ratio
+        float ShapeRatio
         {
             get;
             set;
         }
+
+        event EventHandler Apply;
     }
 }
