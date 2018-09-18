@@ -154,6 +154,7 @@ namespace Application
             this.preferencesCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.preferencesCancelButton.Location = new System.Drawing.Point(270, 304);
             this.preferencesCancelButton.Margin = new System.Windows.Forms.Padding(4);
+
             this.preferencesCancelButton.Name = "preferencesCancelButton";
             this.preferencesCancelButton.Size = new System.Drawing.Size(100, 28);
             this.preferencesCancelButton.TabIndex = 6;
