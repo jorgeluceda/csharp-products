@@ -38,6 +38,9 @@
             this.closeRectanglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+          
             this.File.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,9 +117,25 @@
             // 
             // preferencesToolStripMenuItem
             // 
+            this.preferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openModallyToolStripMenuItem,
+            this.openModelesslyToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.preferencesToolStripMenuItem.Text = "Preferences";
+            // 
+            // openModallyToolStripMenuItem
+            // 
+            this.openModallyToolStripMenuItem.Name = "openModallyToolStripMenuItem";
+            this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openModallyToolStripMenuItem.Text = "Open Modally";
+            // 
+            // openModelesslyToolStripMenuItem
+            // 
+            this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
+            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
+            this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openModelesslyToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -146,5 +165,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeRectanglesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openModallyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openModelesslyToolStripMenuItem;
     }
 }

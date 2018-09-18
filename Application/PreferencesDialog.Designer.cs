@@ -53,8 +53,6 @@ namespace Application
             this.preferencesWidthTextBox.Name = "preferencesWidthTextBox";
             this.preferencesWidthTextBox.Size = new System.Drawing.Size(132, 22);
             this.preferencesWidthTextBox.TabIndex = 3;
-            this.preferencesWidthTextBox.TextAlignChanged += new System.EventHandler(this.preferencesHeightTextBox_TextChanged);
-            this.preferencesWidthTextBox.TextChanged += new System.EventHandler(this.preferencesWidthTextBox_TextChanged);
             this.preferencesWidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesWidthTextBox_Validating);
             // 
             // preferencesHeightTextBox
@@ -64,7 +62,6 @@ namespace Application
             this.preferencesHeightTextBox.Name = "preferencesHeightTextBox";
             this.preferencesHeightTextBox.Size = new System.Drawing.Size(132, 22);
             this.preferencesHeightTextBox.TabIndex = 4;
-            this.preferencesHeightTextBox.TextChanged += new System.EventHandler(this.preferencesHeightTextBox_TextChanged);
             this.preferencesHeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesHeightTextBox_Validating);
             // 
             // preferencesRatioTextBox
@@ -74,7 +71,6 @@ namespace Application
             this.preferencesRatioTextBox.Name = "preferencesRatioTextBox";
             this.preferencesRatioTextBox.Size = new System.Drawing.Size(132, 22);
             this.preferencesRatioTextBox.TabIndex = 5;
-            this.preferencesRatioTextBox.TextChanged += new System.EventHandler(this.preferencesRatioTextBox_TextChanged);
             this.preferencesRatioTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesRatioTextBox_Validating);
             // 
             // preferencesWidthLabel
@@ -154,7 +150,6 @@ namespace Application
             this.preferencesCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.preferencesCancelButton.Location = new System.Drawing.Point(270, 304);
             this.preferencesCancelButton.Margin = new System.Windows.Forms.Padding(4);
-
             this.preferencesCancelButton.Name = "preferencesCancelButton";
             this.preferencesCancelButton.Size = new System.Drawing.Size(100, 28);
             this.preferencesCancelButton.TabIndex = 6;
@@ -181,7 +176,6 @@ namespace Application
             this.MinimumSize = new System.Drawing.Size(354, 305);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
-            this.Load += new System.EventHandler(this.PreferencesDialog_Load);
             this.preferencesPanel.ResumeLayout(false);
             this.preferencesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).EndInit();
