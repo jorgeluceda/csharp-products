@@ -122,11 +122,5 @@
       <Name>CoreLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GitHub-Mark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GitHub-Mark1.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
