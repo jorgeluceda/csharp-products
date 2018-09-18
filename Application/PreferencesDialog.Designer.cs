@@ -1,4 +1,4 @@
-﻿using CoreLibrary;
+using CoreLibrary;
 
 namespace Application
 {

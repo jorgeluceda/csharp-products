@@ -1,4 +1,4 @@
-﻿using Application;
+using CoreLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,6 @@ namespace Application
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             System.Windows.Forms.Application.Run(new MainForm());
-            
         }
     }
 }
