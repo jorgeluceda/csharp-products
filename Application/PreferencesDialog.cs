@@ -28,8 +28,18 @@ namespace Application
          */
         private void preferencesOkButton_Click(object sender, EventArgs e)
         {
-            preferencesApplyButton_Click(sender, e);
-            this.Close();
+            if (this.Modal)
+            {
+                this.DialogResult = DialogResult.OK;
+                ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
+                ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
+                ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
+            }
+            else
+            {
+                preferencesApplyButton_Click(sender, e);
+                this.Close();
+            }
         }
 
         /**
@@ -54,7 +64,14 @@ namespace Application
          */
         private void preferencesCancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.Modal)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         public void setRatio()
@@ -167,6 +184,18 @@ namespace Application
             validateNumberField(preferencesRatioTextBox, e, 0.1, 100);
         }
 
-        
+        private void PreferencesDialog_Load(object sender, EventArgs e)
+        {
+            if (this.Modal)
+            {
+                this.preferencesApplyButton.Visible = false;
+            }
+        }
+
+        private void PreferencesDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+
+        }
     }
 }

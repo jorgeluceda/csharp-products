@@ -67,7 +67,36 @@ namespace Application
         private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreferencesDialog dlg = new PreferencesDialog();
+
+            // Update the properties for the dialog before it's shown
+            dlg.ShapeHeight = this.ShapeHeight;
+            dlg.ShapeWidth = this.ShapeWidth;
+            dlg.ShapeRatio = this.ShapeRatio;
+
+            // Open Modally
+            DialogResult result = dlg.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                this.ShapeRatio = dlg.ShapeRatio;
+                this.ShapeHeight = dlg.ShapeHeight;
+                this.ShapeWidth = dlg.ShapeWidth;
+            }
+        }
+
+        private void openPreferencesModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PreferencesDialog dlg = new PreferencesDialog();
+
+            // Update the properties for the dialog before it's shown
+            dlg.ShapeHeight = this.ShapeHeight;
+            dlg.ShapeWidth = this.ShapeWidth;
+            dlg.ShapeRatio = this.ShapeRatio;
+
+            // Subscribe to the dialog's Apply event
             dlg.Apply += preferences_Apply;
+
+            // Open Modelessly
             dlg.Show();
         }
     }

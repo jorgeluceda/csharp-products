@@ -113,7 +113,7 @@ namespace Application
             this.preferencesPanel.Controls.Add(this.preferencesHeightLabel);
             this.preferencesPanel.Controls.Add(this.preferencesRatioTextBox);
             this.preferencesPanel.Controls.Add(this.preferencesHeightTextBox);
-            this.preferencesPanel.Location = new System.Drawing.Point(83, 87);
+            this.preferencesPanel.Location = new System.Drawing.Point(40, 44);
             this.preferencesPanel.Margin = new System.Windows.Forms.Padding(4);
             this.preferencesPanel.Name = "preferencesPanel";
             this.preferencesPanel.Size = new System.Drawing.Size(253, 127);
@@ -123,7 +123,7 @@ namespace Application
             // 
             this.preferencesOkButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.preferencesOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.preferencesOkButton.Location = new System.Drawing.Point(54, 304);
+            this.preferencesOkButton.Location = new System.Drawing.Point(11, 218);
             this.preferencesOkButton.Margin = new System.Windows.Forms.Padding(4);
             this.preferencesOkButton.Name = "preferencesOkButton";
             this.preferencesOkButton.Size = new System.Drawing.Size(100, 28);
@@ -135,7 +135,7 @@ namespace Application
             // preferencesApplyButton
             // 
             this.preferencesApplyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.preferencesApplyButton.Location = new System.Drawing.Point(162, 304);
+            this.preferencesApplyButton.Location = new System.Drawing.Point(119, 218);
             this.preferencesApplyButton.Margin = new System.Windows.Forms.Padding(4);
             this.preferencesApplyButton.Name = "preferencesApplyButton";
             this.preferencesApplyButton.Size = new System.Drawing.Size(100, 28);
@@ -148,7 +148,7 @@ namespace Application
             // 
             this.preferencesCancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.preferencesCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.preferencesCancelButton.Location = new System.Drawing.Point(270, 304);
+            this.preferencesCancelButton.Location = new System.Drawing.Point(227, 218);
             this.preferencesCancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.preferencesCancelButton.Name = "preferencesCancelButton";
             this.preferencesCancelButton.Size = new System.Drawing.Size(100, 28);
@@ -162,12 +162,12 @@ namespace Application
             this.preferencesErrorProvider.ContainerControl = this;
             // 
             // PreferencesDialog
-            // 
-            this.AcceptButton = this.preferencesApplyButton;
+            //
+            this.AcceptButton = this.preferencesOkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this.preferencesCancelButton;
-            this.ClientSize = new System.Drawing.Size(422, 344);
+            this.ClientSize = new System.Drawing.Size(336, 258);
             this.Controls.Add(this.preferencesCancelButton);
             this.Controls.Add(this.preferencesApplyButton);
             this.Controls.Add(this.preferencesPanel);
@@ -176,13 +176,13 @@ namespace Application
             this.MinimumSize = new System.Drawing.Size(354, 305);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PreferencesDialog_FormClosing);
+            this.Load += new System.EventHandler(this.PreferencesDialog_Load);
             this.preferencesPanel.ResumeLayout(false);
             this.preferencesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).EndInit();
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
         private System.Windows.Forms.TextBox preferencesWidthTextBox;
