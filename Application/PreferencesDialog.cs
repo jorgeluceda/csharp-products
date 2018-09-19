@@ -28,18 +28,9 @@ namespace Application
          */
         private void preferencesOkButton_Click(object sender, EventArgs e)
         {
-            if (this.Modal)
-            {
-                this.DialogResult = DialogResult.OK;
-                ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
-                ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
-                ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
-            }
-            else
-            {
-                preferencesApplyButton_Click(sender, e);
-                this.Close();
-            }
+            SetPreferencesValues();
+            preferencesApplyButton_Click(sender, e);
+            this.Close();
         }
 
         /**
@@ -54,6 +45,7 @@ namespace Application
                     ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
                     ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
                     ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
+                    SetPreferencesValues();
                     Apply(this, EventArgs.Empty);
                 }
             }
@@ -64,14 +56,7 @@ namespace Application
          */
         private void preferencesCancelButton_Click(object sender, EventArgs e)
         {
-            if (this.Modal)
-            {
-                this.DialogResult = DialogResult.Cancel;
-            }
-            else
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         public void setRatio()
@@ -186,16 +171,19 @@ namespace Application
 
         private void PreferencesDialog_Load(object sender, EventArgs e)
         {
-            if (this.Modal)
-            {
-                this.preferencesApplyButton.Visible = false;
-            }
+
+            //initializing values
+            preferencesWidthTextBox.Text = Properties.Settings.Default.PreferredWidth.ToString();
+            preferencesHeightTextBox.Text = Properties.Settings.Default.PreferredHeight.ToString();
+            preferencesRatioTextBox.Text = Properties.Settings.Default.PreferredRatio.ToString();
+
         }
 
-        private void PreferencesDialog_FormClosing(object sender, FormClosingEventArgs e)
+        public void SetPreferencesValues()
         {
-            
-
+            Properties.Settings.Default.PreferredWidth = int.Parse(preferencesWidthTextBox.Text);
+            Properties.Settings.Default.PreferredHeight = int.Parse(preferencesHeightTextBox.Text);
+            Properties.Settings.Default.PreferredRatio = int.Parse(preferencesRatioTextBox.Text);
         }
     }
 }
