@@ -1,8 +1,10 @@
+﻿using Application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,94 +12,119 @@ using System.Windows.Forms;
 
 namespace Application
 {
-    public partial class MainForm : Form, ITeam3Interface
+    public partial class MainForm : Form
     {
-        public int ShapeWidth { get; set; }
-        public int ShapeHeight { get; set; }
-        public float ShapeRatio { get; set; }
-        public event EventHandler Apply;
-
-
         public MainForm()
         {
             InitializeComponent();
         }
 
-        void preferences_Apply(object sender, EventArgs e)
+        /*
+        private void InitializeComponent()
         {
-            ITeam3Interface preferencesDlg = sender as ITeam3Interface;
-            this.ShapeWidth = preferencesDlg.ShapeWidth;
-            this.ShapeHeight = preferencesDlg.ShapeHeight;
-            this.ShapeRatio = preferencesDlg.ShapeRatio;
-        }
+            this.SuspendLayout();
+            // 
+            // MainForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ResumeLayout(false);
 
-        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
-            ellipse.Show();
-        }
-
-        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
-            rectangle.Show();
-        }
-
-        private void closeRectanglesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            Form preferences = new PreferencesDialog();
+            preferences.Show();
 
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        */
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to exit the application?", 
-                "Closing Application", MessageBoxButtons.YesNo);
+            this.Paint += MainForm_Paint;
+        }
 
-            if(result == DialogResult.No)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form preferences = new PreferencesDialog();
+            preferences.Show();
+            //OnPaint();
+            this.Invalidate();
+
+
+        }
+
+      
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+
+
+
+            Graphics g = e.Graphics;
+            Pen pen = new Pen(Color.Blue, 5);
+            g.DrawRectangle(pen, new Rectangle(150,150,100,200) );
+            //g.Dispose();
+            this.Invalidate();
+
+          /*  g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Rectangle rec = this.ClientRectangle;
+            int cx = rec.Width;
+            int cy = rec.Height;
+            float scale = (float)cy / (float)cx;
+
+            LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.Empty, Color.Empty, 45);
+
+            try
             {
-                e.Cancel = true;
+
+                ColorBlend blend = new ColorBlend();
+                blend.Colors = new Color[] { Color.Red, Color.Green, Color.Blue };
+
+                blend.Positions = new float[] { 0, 0.5f, 1 };
+
+                brush.InterpolationColors = blend;
+                Pen pen = new Pen(brush);
+
+                try
+                {
+                    for (int i = 0; i < cx; i+=7)
+                    {
+                        g.DrawLine(pen, 0, i*scale, cx - i, 0);
+                        g.DrawLine(pen, 0, (cx -i) * scale, cx - i, cx * scale);
+                        g.DrawLine(pen, cx - i, 0 * scale, cx, (cx - i)  * scale);
+                        g.DrawLine(pen, cx - i, cx * scale, cx, i * scale);
+
+                    }
+                }
+                finally
+                {
+                    pen.Dispose();
+                }
+
+                StringFormat format = new StringFormat();
+
+                try
+                {
+                    format.Alignment = StringAlignment.Center;
+                    format.LineAlignment = StringAlignment.Center;
+                    String s = "It works!";
+                    g.DrawString(s, this.Font, brush, rec, format);
+                }
+                finally
+                {
+                    format.Dispose();
+                }
+
             }
-        }
-
-        private void closeApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PreferencesDialog dlg = new PreferencesDialog();
-
-            // Update the properties for the dialog before it's shown
-            dlg.ShapeHeight = this.ShapeHeight;
-            dlg.ShapeWidth = this.ShapeWidth;
-            dlg.ShapeRatio = this.ShapeRatio;
-
-            // Open Modally
-            DialogResult result = dlg.ShowDialog();
-
-            if(result == DialogResult.OK)
+            finally
             {
-                this.ShapeRatio = dlg.ShapeRatio;
-                this.ShapeHeight = dlg.ShapeHeight;
-                this.ShapeWidth = dlg.ShapeWidth;
-            }
+                brush.Dispose();
+            }*/
         }
 
-        private void openPreferencesModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MainForm_Load_1(object sender, EventArgs e)
         {
-            PreferencesDialog dlg = new PreferencesDialog();
 
-            // Update the properties for the dialog before it's shown
-            dlg.ShapeHeight = this.ShapeHeight;
-            dlg.ShapeWidth = this.ShapeWidth;
-            dlg.ShapeRatio = this.ShapeRatio;
-
-            // Subscribe to the dialog's Apply event
-            dlg.Apply += preferences_Apply;
-
-            // Open Modelessly
-            dlg.Show();
         }
     }
 }
