@@ -31,6 +31,7 @@ namespace Application
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesDialog));
             this.preferencesWidthTextBox = new System.Windows.Forms.TextBox();
             this.preferencesHeightTextBox = new System.Windows.Forms.TextBox();
             this.preferencesRatioTextBox = new System.Windows.Forms.TextBox();
@@ -156,13 +157,14 @@ namespace Application
             this.AcceptButton = this.preferencesApplyButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.preferencesCancelButton;
             this.ClientSize = new System.Drawing.Size(316, 280);
             this.Controls.Add(this.preferencesCancelButton);
             this.Controls.Add(this.preferencesApplyButton);
             this.Controls.Add(this.preferencesPanel);
             this.Controls.Add(this.preferencesOkButton);
-            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.MinimumSize = new System.Drawing.Size(270, 255);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
