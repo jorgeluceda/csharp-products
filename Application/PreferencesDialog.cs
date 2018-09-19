@@ -185,5 +185,12 @@ namespace Application
             Properties.Settings.Default.PreferredHeight = int.Parse(preferencesHeightTextBox.Text);
             Properties.Settings.Default.PreferredRatio = int.Parse(preferencesRatioTextBox.Text);
         }
+        private void PreferencesDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.PreferredWidth = Properties.Settings.Default.InitialDialogWidth;
+            Properties.Settings.Default.PreferredHeight = Properties.Settings.Default.InitialDialogHeight;
+            Properties.Settings.Default.PreferredRatio = Properties.Settings.Default.InitialDialogRatio;
+        }
+
     }
 }
