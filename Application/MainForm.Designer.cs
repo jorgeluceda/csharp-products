@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.File = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,11 @@
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainFormContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openPreferencesModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.File.SuspendLayout();
+            this.MainFormContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // File
@@ -85,6 +90,7 @@
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
             this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
+            this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
@@ -107,12 +113,14 @@
             this.closeRectanglesToolStripMenuItem.Name = "closeRectanglesToolStripMenuItem";
             this.closeRectanglesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.closeRectanglesToolStripMenuItem.Text = "Close Rectangles";
+            this.closeRectanglesToolStripMenuItem.Click += new System.EventHandler(this.closeRectanglesToolStripMenuItem_Click);
             // 
             // closeApplicationToolStripMenuItem
             // 
             this.closeApplicationToolStripMenuItem.Name = "closeApplicationToolStripMenuItem";
             this.closeApplicationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.closeApplicationToolStripMenuItem.Text = "Close Application";
+            this.closeApplicationToolStripMenuItem.Click += new System.EventHandler(this.closeApplicationToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
@@ -134,19 +142,43 @@
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
             this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
-            this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openModelesslyToolStripMenuItem_Click);
+            // 
+            // MainFormContext
+            // 
+            this.MainFormContext.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MainFormContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openPreferencesModelesslyToolStripMenuItem,
+            this.openPreferencesModallyToolStripMenuItem});
+            this.MainFormContext.Name = "MainFormContext";
+            this.MainFormContext.Size = new System.Drawing.Size(273, 80);
+            // 
+            // openPreferencesModelesslyToolStripMenuItem
+            // 
+            this.openPreferencesModelesslyToolStripMenuItem.Name = "openPreferencesModelesslyToolStripMenuItem";
+            this.openPreferencesModelesslyToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.openPreferencesModelesslyToolStripMenuItem.Text = "Open Preferences Modelessly";
+            // 
+            // openPreferencesModallyToolStripMenuItem
+            // 
+            this.openPreferencesModallyToolStripMenuItem.Name = "openPreferencesModallyToolStripMenuItem";
+            this.openPreferencesModallyToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.openPreferencesModallyToolStripMenuItem.Text = "Open Preferences Modally";
+            this.openPreferencesModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ContextMenuStrip = this.MainFormContext;
             this.Controls.Add(this.File);
             this.MainMenuStrip = this.File;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.File.ResumeLayout(false);
             this.File.PerformLayout();
+            this.MainFormContext.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +198,8 @@
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openModallyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openModelesslyToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip MainFormContext;
+        private System.Windows.Forms.ToolStripMenuItem openPreferencesModelesslyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openPreferencesModallyToolStripMenuItem;
     }
 }

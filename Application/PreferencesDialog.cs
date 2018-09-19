@@ -154,12 +154,12 @@ namespace Application
 
         private void preferencesWidthTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesWidthTextBox, e, 10, 700);
+            validateNumberField(preferencesWidthTextBox, e, 10, this.ClientSize.Width);
         }
 
         private void preferencesHeightTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesHeightTextBox, e, 10, 700);
+            validateNumberField(preferencesHeightTextBox, e, 10, this.ClientSize.Height);
         }
 
         private void preferencesRatioTextBox_Validating(object sender, CancelEventArgs e)
