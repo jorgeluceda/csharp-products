@@ -14,11 +14,11 @@ namespace Application
 {
     public partial class Rectangular : BaseForm
     {
-        public Rectangular(float perm, int width)
+        public Rectangular(float perm, int height)
         {
             InitializeComponent();
             GraphicsPath path = new GraphicsPath();
-            Rectangle rect = new Rectangle(0, 0, width, (int)(perm * width));
+            Rectangle rect = new Rectangle(0, 0, height, (int)perm*height);
             path.AddRectangle(rect);
             this.Region = new Region(path);
         }

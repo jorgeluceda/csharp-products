@@ -11,181 +11,186 @@ using CoreLibrary;
 
 namespace Application
 {
-    public partial class PreferencesDialog : BaseForm
+    public partial class PreferencesDialog : BaseForm, ITeam3Interface
     {
+        public float ShapeRatio { get; set; }
+        public int ShapeWidth { get; set; }
+        public int ShapeHeight { get; set; }
+        public event EventHandler Apply;        // Event to fire when Apply is pressed
+
         public PreferencesDialog()
         {
             InitializeComponent();
         }
 
-        
-
-        private void PreferencesDialog_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /**
+         *  OK button click handler for PreferencesDialog
+         */
         private void preferencesOkButton_Click(object sender, EventArgs e)
         {
-
-            if (validateForm())
-            {
-                Console.Write("Process result");
-                this.Close();
-            }
-
-
+            SetPreferencesValues();
+            preferencesApplyButton_Click(sender, e);
+            this.Close();
         }
 
+        /**
+         *  Apply button click handler for PreferencesDialog 
+         */
         private void preferencesApplyButton_Click(object sender, EventArgs e)
         {
-
-            if (validateForm())
+            if (Apply != null)
             {
-                drawRectangle();
-                Console.Write("Process result");
+                if (this.ValidateChildren())
+                {
+                    ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
+                    ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
+                    ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
+                    SetPreferencesValues();
+                    Apply(this, EventArgs.Empty);
+                }
             }
-
         }
 
+        /**
+         *  Cancel button click handler for PreferencesDialog 
+         */
         private void preferencesCancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        public bool validateForm()
+        public void setRatio()
         {
-            bool result = true;
-
-            String width = this.preferencesWidthTextBox.Text;
-
-            if (width == null || width.Length == 0 || !width.All(char.IsDigit) || 
-                Int32.Parse(width) < 10 || Int32.Parse(width) > 500)
-            {
-                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, "Invalid Width");
-                result = false;
-            }
-            else
-            {
-                this.preferencesErrorProvider.SetError(preferencesWidthTextBox, null);
-            }
-
-            String height = this.preferencesHeightTextBox.Text;
-
-            if (height == null || height.Length == 0 || !height.All(char.IsDigit) ||
-                Int32.Parse(height) < 10 || Int32.Parse(height) > 500)
-            {
-                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, "Invalid Height");
-                result = false;
-            }
-            else
-            {
-                this.preferencesErrorProvider.SetError(preferencesHeightTextBox, null);
-            }
-
-            String ratio = this.preferencesRatioTextBox.Text;
-
-            if (ratio == null || ratio.Length == 0 || !ratio.All(char.IsDigit) ||
-                Int32.Parse(ratio) < 10 || Int32.Parse(ratio) > 100)
-            {
-                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, "Invalid Ratio");
-                result = false;
-            }
-            else
-            {
-                this.preferencesErrorProvider.SetError(preferencesRatioTextBox, null);
-            }
-
-            return result;
-
-        }
-
-        public float setRatio()
-        {
-
             String width = this.preferencesWidthTextBox.Text;
             String height = this.preferencesHeightTextBox.Text;
 
-            float result = 0;
             if ( (width != null && width.All(char.IsDigit) && width.Length != 0) &&
                  (height != null && height.All(char.IsDigit) && height.Length != 0) )
-                result = float.Parse(width) / float.Parse(height);
-
-                return result;
+                ShapeRatio = float.Parse(width) / float.Parse(height);
         }
 
-        public void basedOnRatio()
-        {
-            String  width = this.preferencesWidthTextBox.Text;
-            String height = this.preferencesHeightTextBox.Text;
+        //public void SetDimensions()
+        //{
+        //    String width = this.preferencesWidthTextBox.Text;
+        //    String height = this.preferencesHeightTextBox.Text;
 
-            float result = 0;
+        //    if (width != null && width.All(char.IsDigit) && width.Length != 0)
+        //    {
+        //        Width = int.Parse(width);
 
-            if (width != null && width.All(char.IsDigit) && width.Length != 0)
-            {
-                result = float.Parse(width);
+        //    }
+        //    else if(height != null && height.All(char.IsDigit) && height.Length != 0)
+        //    {
+        //        Height = int.Parse(height);
 
-            }
-            else if(height != null && height.All(char.IsDigit) && height.Length != 0)
-            {
-                result = float.Parse(height);
+        //    }
 
-            }
+        //}
 
-        }
+        //private void preferencesHeightTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    if(this.preferencesWidthTextBox.Text.Length != 0 && this.preferencesRatioTextBox.Text.Length == 0)
+        //    {
+        //        // update ratio text box
+        //    }
+        //    if(this.preferencesWidthTextBox.Text.Length == 0 && this.preferencesRatioTextBox.Text.Length != 0)
+        //    {
+        //        // update width text box
+        //    }
+        //}
 
-        private void preferencesHeightTextBox_TextChanged(object sender, EventArgs e)
-        {
+        //private void preferencesWidthTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (this.preferencesHeightTextBox.Text.Length != 0 && this.preferencesRatioTextBox.Text.Length == 0)
+        //    {
+        //        // update ratio text box
+        //    }
+        //    if (this.preferencesHeightTextBox.Text.Length == 0 && this.preferencesRatioTextBox.Text.Length != 0)
+        //    {
+        //        // update height text box
+        //    }
+        //}
 
-            this.preferencesRatioTextBox.Text = setRatio().ToString();
+        //private void preferencesRatioTextBox_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (this.preferencesHeightTextBox.Text.Length != 0 && this.preferencesWidthTextBox.Text.Length == 0)
+        //    {
+        //        // update width text box
+        //    }
+        //    if (this.preferencesHeightTextBox.Text.Length == 0 && this.preferencesWidthTextBox.Text.Length != 0)
+        //    {
+        //        // update height text box
+        //    }
+        //}
 
-        }
-
-        private void preferencesWidthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            this.preferencesRatioTextBox.Text = setRatio().ToString();
-
-        }
-
-        private void preferencesRatioTextBox_TextChanged(object sender, EventArgs e)
-        {
-            basedOnRatio();
-        }
-
-        public void drawRectangle()
-        {
-            //Rectangle rect = this.ClientRectangle();
-            this.Close();
+        //private int calculateWidth()
+        //{
+        //    int height = int.Parse(this.preferencesHeightTextBox.Text);     // Grab the height from the textbox
+        //    float ratio = float.Parse(this.preferencesRatioTextBox.Text);   // Grab the ratio from the textbox
 
 
-        }
+        //    return 
+        //}
 
         private void validateNumberField(TextBox textBox, System.ComponentModel.CancelEventArgs e, double min, double max)
         {
             String checkControl = textBox.Text;
             preferencesErrorProvider.SetError(textBox, "");
 
-            if (checkControl == null || checkControl.Length == 0 || !checkControl.All(char.IsDigit) ||
-               double.Parse(checkControl) < min || double.Parse(checkControl) > max)
+            if(checkControl == null || checkControl.Length == 0)
             {
-                preferencesErrorProvider.SetError(textBox,"Invalid Input");
+                preferencesErrorProvider.SetError(textBox, "Please enter a value");
+                e.Cancel = true;
+            }
+            else if (!checkControl.All(char.IsDigit))
+            {
+                preferencesErrorProvider.SetError(textBox, "Please enter numbers only");
+                e.Cancel = true;
+            }
+            else if(double.Parse(checkControl) < min || double.Parse(checkControl) > max)
+            {
+                preferencesErrorProvider.SetError(textBox, "Please enter a number between " + min + " and " + max + ".");
                 e.Cancel = true;
             }
         }
 
         private void preferencesWidthTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesWidthTextBox, e, 10, this.ClientSize.Width);
+            validateNumberField(preferencesWidthTextBox, e, 10, 700);
         }
 
         private void preferencesHeightTextBox_Validating(object sender, CancelEventArgs e)
         {
-            validateNumberField(preferencesHeightTextBox, e, 10, this.ClientSize.Height);
+            validateNumberField(preferencesHeightTextBox, e, 10, 700);
         }
 
         private void preferencesRatioTextBox_Validating(object sender, CancelEventArgs e)
         {
             validateNumberField(preferencesRatioTextBox, e, 0.1, 100);
         }
+
+        private void PreferencesDialog_Load(object sender, EventArgs e)
+        {
+
+            //initializing values
+            preferencesWidthTextBox.Text = Properties.Settings.Default.PreferredWidth.ToString();
+            preferencesHeightTextBox.Text = Properties.Settings.Default.PreferredHeight.ToString();
+            preferencesRatioTextBox.Text = Properties.Settings.Default.PreferredRatio.ToString();
+
+        }
+
+        public void SetPreferencesValues()
+        {
+            Properties.Settings.Default.PreferredWidth = int.Parse(preferencesWidthTextBox.Text);
+            Properties.Settings.Default.PreferredHeight = int.Parse(preferencesHeightTextBox.Text);
+            Properties.Settings.Default.PreferredRatio = int.Parse(preferencesRatioTextBox.Text);
+        }
+        private void PreferencesDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.PreferredWidth = Properties.Settings.Default.InitialDialogWidth;
+            Properties.Settings.Default.PreferredHeight = Properties.Settings.Default.InitialDialogHeight;
+            Properties.Settings.Default.PreferredRatio = Properties.Settings.Default.InitialDialogRatio;
+        }
+
     }
 }
