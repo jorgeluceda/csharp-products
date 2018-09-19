@@ -106,6 +106,7 @@ namespace Application
             // preferencesPanel
             // 
             this.preferencesPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.preferencesPanel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.preferencesPanel.Controls.Add(this.preferencesWidthLabel);
             this.preferencesPanel.Controls.Add(this.preferencesRatioLabel);
             this.preferencesPanel.Controls.Add(this.preferencesWidthTextBox);
@@ -161,7 +162,7 @@ namespace Application
             this.preferencesErrorProvider.ContainerControl = this;
             // 
             // PreferencesDialog
-            // 
+            //
             this.AcceptButton = this.preferencesOkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
@@ -181,9 +182,7 @@ namespace Application
             this.preferencesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).EndInit();
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
         private System.Windows.Forms.TextBox preferencesWidthTextBox;

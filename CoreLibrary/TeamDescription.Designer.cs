@@ -46,9 +46,10 @@
             this.lblTeamNumber.AutoSize = true;
             this.lblTeamNumber.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTeamNumber.Location = new System.Drawing.Point(47, 10);
+            this.lblTeamNumber.Location = new System.Drawing.Point(31, 6);
+            this.lblTeamNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamNumber.Name = "lblTeamNumber";
-            this.lblTeamNumber.Size = new System.Drawing.Size(145, 36);
+            this.lblTeamNumber.Size = new System.Drawing.Size(102, 25);
             this.lblTeamNumber.TabIndex = 0;
             this.lblTeamNumber.Text = "Team #3:";
             // 
@@ -64,10 +65,11 @@
             this.gbNamesContainer.Controls.Add(this.lblMember1);
             this.gbNamesContainer.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNamesContainer.ForeColor = System.Drawing.Color.White;
-            this.gbNamesContainer.Location = new System.Drawing.Point(13, 107);
+            this.gbNamesContainer.Location = new System.Drawing.Point(9, 70);
+            this.gbNamesContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbNamesContainer.Name = "gbNamesContainer";
-            this.gbNamesContainer.Padding = new System.Windows.Forms.Padding(8);
-            this.gbNamesContainer.Size = new System.Drawing.Size(220, 215);
+            this.gbNamesContainer.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gbNamesContainer.Size = new System.Drawing.Size(147, 140);
             this.gbNamesContainer.TabIndex = 1;
             this.gbNamesContainer.TabStop = false;
             this.gbNamesContainer.Text = "Team Members";
@@ -76,10 +78,11 @@
             // 
             this.lblMember6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember6.AutoSize = true;
-            this.lblMember6.Location = new System.Drawing.Point(8, 171);
+            this.lblMember6.Location = new System.Drawing.Point(5, 111);
+            this.lblMember6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember6.Name = "lblMember6";
-            this.lblMember6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember6.Size = new System.Drawing.Size(152, 28);
+            this.lblMember6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember6.Size = new System.Drawing.Size(109, 19);
             this.lblMember6.TabIndex = 5;
             this.lblMember6.Text = "- Lazaro Alvarez";
             // 
@@ -87,10 +90,11 @@
             // 
             this.lblMember5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember5.AutoSize = true;
-            this.lblMember5.Location = new System.Drawing.Point(8, 143);
+            this.lblMember5.Location = new System.Drawing.Point(5, 93);
+            this.lblMember5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember5.Name = "lblMember5";
-            this.lblMember5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember5.Size = new System.Drawing.Size(182, 28);
+            this.lblMember5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember5.Size = new System.Drawing.Size(130, 19);
             this.lblMember5.TabIndex = 4;
             this.lblMember5.Text = "- Mohammed Bhatti";
             // 
@@ -98,10 +102,11 @@
             // 
             this.lblMember4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember4.AutoSize = true;
-            this.lblMember4.Location = new System.Drawing.Point(8, 115);
+            this.lblMember4.Location = new System.Drawing.Point(5, 75);
+            this.lblMember4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember4.Name = "lblMember4";
-            this.lblMember4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember4.Size = new System.Drawing.Size(145, 28);
+            this.lblMember4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember4.Size = new System.Drawing.Size(104, 19);
             this.lblMember4.TabIndex = 3;
             this.lblMember4.Text = "- Jorge Euceda";
             // 
@@ -109,10 +114,11 @@
             // 
             this.lblMember3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember3.AutoSize = true;
-            this.lblMember3.Location = new System.Drawing.Point(8, 87);
+            this.lblMember3.Location = new System.Drawing.Point(5, 57);
+            this.lblMember3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember3.Name = "lblMember3";
-            this.lblMember3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember3.Size = new System.Drawing.Size(171, 28);
+            this.lblMember3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember3.Size = new System.Drawing.Size(123, 19);
             this.lblMember3.TabIndex = 2;
             this.lblMember3.Text = "- Emmanuel Perez";
             // 
@@ -120,21 +126,23 @@
             // 
             this.lblMember2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember2.AutoSize = true;
-            this.lblMember2.Location = new System.Drawing.Point(8, 59);
+            this.lblMember2.Location = new System.Drawing.Point(5, 38);
+            this.lblMember2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember2.Name = "lblMember2";
-            this.lblMember2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember2.Size = new System.Drawing.Size(170, 28);
+            this.lblMember2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember2.Size = new System.Drawing.Size(118, 19);
             this.lblMember2.TabIndex = 1;
-            this.lblMember2.Text = "- Darrien Morrison";
+            this.lblMember2.Text = "- Darien Morrison";
             // 
             // lblMember1
             // 
             this.lblMember1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMember1.AutoSize = true;
-            this.lblMember1.Location = new System.Drawing.Point(8, 31);
+            this.lblMember1.Location = new System.Drawing.Point(5, 20);
+            this.lblMember1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMember1.Name = "lblMember1";
-            this.lblMember1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblMember1.Size = new System.Drawing.Size(161, 28);
+            this.lblMember1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblMember1.Size = new System.Drawing.Size(116, 19);
             this.lblMember1.TabIndex = 0;
             this.lblMember1.Text = "- Alejandro Perez";
             // 
@@ -144,24 +152,26 @@
             this.lblTeamName.AutoSize = true;
             this.lblTeamName.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamName.ForeColor = System.Drawing.Color.White;
-            this.lblTeamName.Location = new System.Drawing.Point(19, 58);
+            this.lblTeamName.Location = new System.Drawing.Point(13, 38);
+            this.lblTeamName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTeamName.Name = "lblTeamName";
-            this.lblTeamName.Size = new System.Drawing.Size(199, 36);
+            this.lblTeamName.Size = new System.Drawing.Size(136, 25);
             this.lblTeamName.TabIndex = 2;
             this.lblTeamName.Text = "Windows 3.0";
             // 
             // TeamDescription
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.Controls.Add(this.lblTeamName);
             this.Controls.Add(this.gbNamesContainer);
             this.Controls.Add(this.lblTeamNumber);
-            this.MinimumSize = new System.Drawing.Size(246, 335);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(164, 218);
             this.Name = "TeamDescription";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(246, 335);
+            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Size = new System.Drawing.Size(164, 218);
             this.gbNamesContainer.ResumeLayout(false);
             this.gbNamesContainer.PerformLayout();
             this.ResumeLayout(false);
