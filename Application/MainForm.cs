@@ -99,5 +99,18 @@ namespace Application
             // Open Modelessly
             dlg.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();
+            dlg.Show();
+        }
+
     }
 }

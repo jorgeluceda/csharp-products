@@ -38,10 +38,10 @@
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCourseName.ForeColor = System.Drawing.Color.White;
-            this.lblCourseName.Location = new System.Drawing.Point(10, 10);
+            this.lblCourseName.Location = new System.Drawing.Point(9, 8);
             this.lblCourseName.Name = "lblCourseName";
-            this.lblCourseName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblCourseName.Size = new System.Drawing.Size(123, 32);
+            this.lblCourseName.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblCourseName.Size = new System.Drawing.Size(103, 27);
             this.lblCourseName.TabIndex = 0;
             this.lblCourseName.Text = "COP 4226";
             // 
@@ -51,23 +51,24 @@
             this.lblSemesterName.AutoSize = true;
             this.lblSemesterName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSemesterName.ForeColor = System.Drawing.Color.White;
-            this.lblSemesterName.Location = new System.Drawing.Point(25, 42);
+            this.lblSemesterName.Location = new System.Drawing.Point(22, 34);
             this.lblSemesterName.Name = "lblSemesterName";
-            this.lblSemesterName.Size = new System.Drawing.Size(91, 23);
+            this.lblSemesterName.Size = new System.Drawing.Size(75, 19);
             this.lblSemesterName.TabIndex = 1;
             this.lblSemesterName.Text = "Fall 2018";
             // 
             // CourseDescription
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.Controls.Add(this.lblSemesterName);
             this.Controls.Add(this.lblCourseName);
-            this.MinimumSize = new System.Drawing.Size(141, 75);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(125, 60);
             this.Name = "CourseDescription";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(141, 75);
+            this.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.Size = new System.Drawing.Size(125, 60);
             this.Load += new System.EventHandler(this.CourseDescription_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

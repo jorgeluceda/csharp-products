@@ -44,6 +44,8 @@
             this.MainFormContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openPreferencesModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.File.SuspendLayout();
             this.MainFormContext.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +152,7 @@
             this.openPreferencesModelesslyToolStripMenuItem,
             this.openPreferencesModallyToolStripMenuItem});
             this.MainFormContext.Name = "MainFormContext";
-            this.MainFormContext.Size = new System.Drawing.Size(273, 80);
+            this.MainFormContext.Size = new System.Drawing.Size(273, 52);
             // 
             // openPreferencesModelesslyToolStripMenuItem
             // 
@@ -166,12 +168,34 @@
             this.openPreferencesModallyToolStripMenuItem.Text = "Open Preferences Modally";
             this.openPreferencesModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(498, 208);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(236, 166);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ContextMenuStrip = this.MainFormContext;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.File);
             this.MainMenuStrip = this.File;
             this.Name = "MainForm";
@@ -202,5 +226,7 @@
         private System.Windows.Forms.ContextMenuStrip MainFormContext;
         private System.Windows.Forms.ToolStripMenuItem openPreferencesModelesslyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openPreferencesModallyToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

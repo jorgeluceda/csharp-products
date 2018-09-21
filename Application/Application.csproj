@@ -146,5 +146,11 @@
   <ItemGroup>
     <None Include="Resources\GitHub-Mark1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FIU_Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grilled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
