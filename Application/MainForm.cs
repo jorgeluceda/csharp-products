@@ -16,16 +16,10 @@ namespace Application
         public int ShapeHeight { get; set; }
         public float ShapeRatio { get; set; }
         public event EventHandler Apply;
-        List<Ellipse> ellipses = new List<Ellipse>();
-        List<Rectangular> rectangles = new List<Rectangular>();
 
 
         public MainForm()
         {
-            ShapeWidth = Properties.Settings.Default.DefaultWidth;
-            ShapeHeight = Properties.Settings.Default.DefaultHeight;
-            ShapeRatio = Properties.Settings.Default.DefaultRatio;
-
             InitializeComponent();
         }
 
@@ -40,23 +34,18 @@ namespace Application
         private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
-            ellipses.Add(ellipse);
             ellipse.Show();
         }
 
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
-            rectangles.Add(rectangle);
             rectangle.Show();
         }
 
         private void closeRectanglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Rectangular rect in rectangles)
-            {
-                rect.Close();
-            }
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,46 +67,55 @@ namespace Application
         private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreferencesDialog dlg = new PreferencesDialog();
-            dlg.Apply += preferences_Apply;
-            dlg.Show();
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+            // Update the properties for the dialog before it's shown
+            dlg.ShapeHeight = this.ShapeHeight;
+            dlg.ShapeWidth = this.ShapeWidth;
+            dlg.ShapeRatio = this.ShapeRatio;
 
-        }
+            // Open Modally
+            DialogResult result = dlg.ShowDialog();
 
-        private void ellipsesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            foreach(Ellipse elip in ellipses)
+            if(result == DialogResult.OK)
             {
-                elip.Close();
+                this.ShapeRatio = dlg.ShapeRatio;
+                this.ShapeHeight = dlg.ShapeHeight;
+                this.ShapeWidth = dlg.ShapeWidth;
             }
-
-        }
-
-        private void openModallyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            PreferencesDialog dlg = new PreferencesDialog();
-            dlg.Apply += preferences_Apply;
-            dlg.ShowDialog(this);
-
-        }
-
-        private void openModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PreferencesDialog dlg = new PreferencesDialog();
-            dlg.Apply += preferences_Apply;
-            dlg.Show(this);
         }
 
         private void openPreferencesModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PreferencesDialog dlg = new PreferencesDialog();
+
+            // Update the properties for the dialog before it's shown
+            dlg.ShapeHeight = this.ShapeHeight;
+            dlg.ShapeWidth = this.ShapeWidth;
+            dlg.ShapeRatio = this.ShapeRatio;
+
+            // Subscribe to the dialog's Apply event
             dlg.Apply += preferences_Apply;
-            dlg.Show(this);
+
+            // Open Modelessly
+            dlg.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();
+            dlg.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TestBaseDialog dlg = new TestBaseDialog();
+            dlg.Show();
         }
     }
 }
