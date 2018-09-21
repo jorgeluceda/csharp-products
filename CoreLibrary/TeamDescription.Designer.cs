@@ -1,4 +1,4 @@
-﻿namespace CoreLibrary
+namespace CoreLibrary
 {
     partial class TeamDescription
     {
@@ -126,7 +126,7 @@
             this.lblMember2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.lblMember2.Size = new System.Drawing.Size(144, 23);
             this.lblMember2.TabIndex = 1;
-            this.lblMember2.Text = "- Darrien Morrison";
+            this.lblMember2.Text = "- Darien Morrison";
             // 
             // lblMember1
             // 
