@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Application.Properties.Resources.grilled;
-            this.ClientSize = new System.Drawing.Size(605, 525);
+            this.ClientSize = new System.Drawing.Size(391, 626);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
