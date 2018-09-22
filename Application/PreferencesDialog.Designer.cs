@@ -43,58 +43,75 @@ namespace Application
             this.preferencesApplyButton = new System.Windows.Forms.Button();
             this.preferencesCancelButton = new System.Windows.Forms.Button();
             this.preferencesErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.hpHelp = new System.Windows.Forms.HelpProvider();
+            this.ttToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.preferencesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // preferencesWidthTextBox
             // 
-            this.preferencesWidthTextBox.Location = new System.Drawing.Point(64, 16);
+            this.hpHelp.SetHelpString(this.preferencesWidthTextBox, "Width of the child windows. Double [10 - 700]");
+            this.preferencesWidthTextBox.Location = new System.Drawing.Point(96, 25);
+            this.preferencesWidthTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesWidthTextBox.Name = "preferencesWidthTextBox";
-            this.preferencesWidthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hpHelp.SetShowHelp(this.preferencesWidthTextBox, true);
+            this.preferencesWidthTextBox.Size = new System.Drawing.Size(148, 26);
             this.preferencesWidthTextBox.TabIndex = 3;
+            this.ttToolTip.SetToolTip(this.preferencesWidthTextBox, "Width of the child windows. Double [10 - 700]");
             this.preferencesWidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesWidthTextBox_Validating);
             // 
             // preferencesHeightTextBox
             // 
-            this.preferencesHeightTextBox.Location = new System.Drawing.Point(64, 42);
+            this.hpHelp.SetHelpString(this.preferencesHeightTextBox, "Height of the child windows. Double [10 - 700]");
+            this.preferencesHeightTextBox.Location = new System.Drawing.Point(96, 65);
+            this.preferencesHeightTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesHeightTextBox.Name = "preferencesHeightTextBox";
-            this.preferencesHeightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hpHelp.SetShowHelp(this.preferencesHeightTextBox, true);
+            this.preferencesHeightTextBox.Size = new System.Drawing.Size(148, 26);
             this.preferencesHeightTextBox.TabIndex = 4;
+            this.ttToolTip.SetToolTip(this.preferencesHeightTextBox, "Height of the child windows. Double [10 - 700]");
             this.preferencesHeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesHeightTextBox_Validating);
             // 
             // preferencesRatioTextBox
             // 
-            this.preferencesRatioTextBox.Location = new System.Drawing.Point(64, 68);
+            this.hpHelp.SetHelpString(this.preferencesRatioTextBox, "Ratio between the width and heigth of the child windows. Double [0.1 - 100]");
+            this.preferencesRatioTextBox.Location = new System.Drawing.Point(96, 105);
+            this.preferencesRatioTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesRatioTextBox.Name = "preferencesRatioTextBox";
-            this.preferencesRatioTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hpHelp.SetShowHelp(this.preferencesRatioTextBox, true);
+            this.preferencesRatioTextBox.Size = new System.Drawing.Size(148, 26);
             this.preferencesRatioTextBox.TabIndex = 5;
+            this.ttToolTip.SetToolTip(this.preferencesRatioTextBox, "Ratio between the width and heigth of the child windows. Double [0.1 - 100]");
             this.preferencesRatioTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesRatioTextBox_Validating);
             // 
             // preferencesWidthLabel
             // 
             this.preferencesWidthLabel.AutoSize = true;
-            this.preferencesWidthLabel.Location = new System.Drawing.Point(5, 19);
+            this.preferencesWidthLabel.Location = new System.Drawing.Point(8, 29);
+            this.preferencesWidthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesWidthLabel.Name = "preferencesWidthLabel";
-            this.preferencesWidthLabel.Size = new System.Drawing.Size(35, 13);
+            this.preferencesWidthLabel.Size = new System.Drawing.Size(50, 20);
             this.preferencesWidthLabel.TabIndex = 9;
             this.preferencesWidthLabel.Text = "Width";
             // 
             // preferencesHeightLabel
             // 
             this.preferencesHeightLabel.AutoSize = true;
-            this.preferencesHeightLabel.Location = new System.Drawing.Point(5, 45);
+            this.preferencesHeightLabel.Location = new System.Drawing.Point(8, 69);
+            this.preferencesHeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesHeightLabel.Name = "preferencesHeightLabel";
-            this.preferencesHeightLabel.Size = new System.Drawing.Size(38, 13);
+            this.preferencesHeightLabel.Size = new System.Drawing.Size(56, 20);
             this.preferencesHeightLabel.TabIndex = 10;
             this.preferencesHeightLabel.Text = "Height";
             // 
             // preferencesRatioLabel
             // 
             this.preferencesRatioLabel.AutoSize = true;
-            this.preferencesRatioLabel.Location = new System.Drawing.Point(6, 70);
+            this.preferencesRatioLabel.Location = new System.Drawing.Point(9, 108);
+            this.preferencesRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesRatioLabel.Name = "preferencesRatioLabel";
-            this.preferencesRatioLabel.Size = new System.Drawing.Size(32, 13);
+            this.preferencesRatioLabel.Size = new System.Drawing.Size(47, 20);
             this.preferencesRatioLabel.TabIndex = 11;
             this.preferencesRatioLabel.Text = "Ratio";
             // 
@@ -108,18 +125,22 @@ namespace Application
             this.preferencesPanel.Controls.Add(this.preferencesHeightLabel);
             this.preferencesPanel.Controls.Add(this.preferencesRatioTextBox);
             this.preferencesPanel.Controls.Add(this.preferencesHeightTextBox);
-            this.preferencesPanel.Location = new System.Drawing.Point(62, 71);
+            this.preferencesPanel.Location = new System.Drawing.Point(93, 109);
+            this.preferencesPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesPanel.Name = "preferencesPanel";
-            this.preferencesPanel.Size = new System.Drawing.Size(190, 103);
+            this.preferencesPanel.Size = new System.Drawing.Size(285, 158);
             this.preferencesPanel.TabIndex = 12;
             // 
             // preferencesOkButton
             // 
-            this.preferencesOkButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.preferencesOkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.preferencesOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.preferencesOkButton.Location = new System.Drawing.Point(40, 247);
+            this.hpHelp.SetHelpString(this.preferencesOkButton, "Save the current values");
+            this.preferencesOkButton.Location = new System.Drawing.Point(109, 380);
+            this.preferencesOkButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesOkButton.Name = "preferencesOkButton";
-            this.preferencesOkButton.Size = new System.Drawing.Size(75, 23);
+            this.hpHelp.SetShowHelp(this.preferencesOkButton, true);
+            this.preferencesOkButton.Size = new System.Drawing.Size(112, 35);
             this.preferencesOkButton.TabIndex = 8;
             this.preferencesOkButton.Text = "Ok";
             this.preferencesOkButton.UseVisualStyleBackColor = true;
@@ -127,10 +148,13 @@ namespace Application
             // 
             // preferencesApplyButton
             // 
-            this.preferencesApplyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.preferencesApplyButton.Location = new System.Drawing.Point(122, 247);
+            this.preferencesApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.hpHelp.SetHelpString(this.preferencesApplyButton, "Apply the current values");
+            this.preferencesApplyButton.Location = new System.Drawing.Point(229, 380);
+            this.preferencesApplyButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesApplyButton.Name = "preferencesApplyButton";
-            this.preferencesApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.hpHelp.SetShowHelp(this.preferencesApplyButton, true);
+            this.preferencesApplyButton.Size = new System.Drawing.Size(112, 35);
             this.preferencesApplyButton.TabIndex = 7;
             this.preferencesApplyButton.Text = "Apply";
             this.preferencesApplyButton.UseVisualStyleBackColor = true;
@@ -138,11 +162,14 @@ namespace Application
             // 
             // preferencesCancelButton
             // 
-            this.preferencesCancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.preferencesCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.preferencesCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.preferencesCancelButton.Location = new System.Drawing.Point(202, 247);
+            this.hpHelp.SetHelpString(this.preferencesCancelButton, "Cancel edition of current values");
+            this.preferencesCancelButton.Location = new System.Drawing.Point(349, 380);
+            this.preferencesCancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.preferencesCancelButton.Name = "preferencesCancelButton";
-            this.preferencesCancelButton.Size = new System.Drawing.Size(75, 23);
+            this.hpHelp.SetShowHelp(this.preferencesCancelButton, true);
+            this.preferencesCancelButton.Size = new System.Drawing.Size(112, 35);
             this.preferencesCancelButton.TabIndex = 6;
             this.preferencesCancelButton.Text = "Cancel";
             this.preferencesCancelButton.UseVisualStyleBackColor = true;
@@ -155,17 +182,20 @@ namespace Application
             // PreferencesDialog
             // 
             this.AcceptButton = this.preferencesApplyButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.preferencesCancelButton;
-            this.ClientSize = new System.Drawing.Size(316, 280);
+            this.ClientSize = new System.Drawing.Size(474, 431);
             this.Controls.Add(this.preferencesCancelButton);
             this.Controls.Add(this.preferencesApplyButton);
             this.Controls.Add(this.preferencesPanel);
             this.Controls.Add(this.preferencesOkButton);
-            this.Margin = new System.Windows.Forms.Padding(3);
-            this.MinimumSize = new System.Drawing.Size(270, 255);
+            this.HelpButton = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(394, 362);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
             this.Load += new System.EventHandler(this.PreferencesDialog_Load);
@@ -189,5 +219,7 @@ namespace Application
         private System.Windows.Forms.Button preferencesApplyButton;
         private System.Windows.Forms.Button preferencesCancelButton;
         private System.Windows.Forms.ErrorProvider preferencesErrorProvider;
+        private System.Windows.Forms.HelpProvider hpHelp;
+        private System.Windows.Forms.ToolTip ttToolTip;
     }
 }

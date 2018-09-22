@@ -17,6 +17,21 @@ namespace Application
         public float ShapeRatio { get; set; }
         public event EventHandler Apply;
 
+        public bool ShowLogin
+        {
+            get
+            {
+                return Properties.Settings.Default.ShowLogin;
+            }
+            set
+            {
+                Properties.Settings.Default.ShowLogin = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private PreferencesDialog preferencesDialog = null;
+
 
         public MainForm()
         {
@@ -66,38 +81,59 @@ namespace Application
 
         private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PreferencesDialog dlg = new PreferencesDialog();
+            if (this.preferencesDialog != null)
+            {
+                this.preferencesDialog.BringToFront();
+                return;
+            }
+
+            this.preferencesDialog = new PreferencesDialog();
 
             // Update the properties for the dialog before it's shown
-            dlg.ShapeHeight = this.ShapeHeight;
-            dlg.ShapeWidth = this.ShapeWidth;
-            dlg.ShapeRatio = this.ShapeRatio;
+            this.preferencesDialog.ShapeHeight = this.ShapeHeight;
+            this.preferencesDialog.ShapeWidth = this.ShapeWidth;
+            this.preferencesDialog.ShapeRatio = this.ShapeRatio;
 
             // Open Modally
-            DialogResult result = dlg.ShowDialog();
+            DialogResult result = this.preferencesDialog.ShowDialog();
 
             if(result == DialogResult.OK)
             {
-                this.ShapeRatio = dlg.ShapeRatio;
-                this.ShapeHeight = dlg.ShapeHeight;
-                this.ShapeWidth = dlg.ShapeWidth;
+                this.ShapeRatio = this.preferencesDialog.ShapeRatio;
+                this.ShapeHeight = this.preferencesDialog.ShapeHeight;
+                this.ShapeWidth = this.preferencesDialog.ShapeWidth;
+                this.preferencesDialog = null;
             }
         }
 
         private void openPreferencesModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PreferencesDialog dlg = new PreferencesDialog();
+            if(this.preferencesDialog != null)
+            {
+                this.preferencesDialog.BringToFront();
+            }
+            else
+            {
+                this.preferencesDialog = new PreferencesDialog();
 
-            // Update the properties for the dialog before it's shown
-            dlg.ShapeHeight = this.ShapeHeight;
-            dlg.ShapeWidth = this.ShapeWidth;
-            dlg.ShapeRatio = this.ShapeRatio;
+                // Update the properties for the dialog before it's shown
+                this.preferencesDialog.ShapeHeight = this.ShapeHeight;
+                this.preferencesDialog.ShapeWidth = this.ShapeWidth;
+                this.preferencesDialog.ShapeRatio = this.ShapeRatio;
 
-            // Subscribe to the dialog's Apply event
-            dlg.Apply += preferences_Apply;
+                // Subscribe to the dialog's Apply event
+                this.preferencesDialog.Apply += preferences_Apply;
 
-            // Open Modelessly
-            dlg.Show();
+                // Open Modelessly
+                this.preferencesDialog.Show();
+
+                this.preferencesDialog.FormClosed += PreferencesDialog_FormClosed;
+            }
+        }
+
+        private void PreferencesDialog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.preferencesDialog = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -112,6 +148,30 @@ namespace Application
             dlg.Show();
         }
 
-       
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            if(this.preferencesDialog != null)
+            {
+                this.preferencesDialog.Opacity = 0.5;
+            }
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (this.preferencesDialog != null)
+            {
+                this.preferencesDialog.Opacity = 1;
+            }
+        }
+
+        private void showLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowLogin = true;
+        }
+
+        private void hideLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowLogin = false;
+        }
     }
 }

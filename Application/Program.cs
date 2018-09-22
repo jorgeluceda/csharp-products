@@ -17,7 +17,18 @@ namespace Application
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new MainForm());
+
+            DialogResult result = DialogResult.Yes;
+
+            if (Properties.Settings.Default.ShowLogin)
+            {
+                result = MessageBox.Show("WARNING! You are about to see top " +
+                    "secret information. After seeing the content of this application your " +
+                    "life could be in danger. Proceed at your own risk.", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+
+            if(result == DialogResult.Yes)
+                System.Windows.Forms.Application.Run(new MainForm());
         }
     }
 }
