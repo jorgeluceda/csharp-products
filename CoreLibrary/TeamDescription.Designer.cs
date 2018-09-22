@@ -29,158 +29,140 @@ namespace CoreLibrary
         private void InitializeComponent()
         {
             this.lblTeamNumber = new System.Windows.Forms.Label();
-            this.gbNamesContainer = new System.Windows.Forms.GroupBox();
-            this.lblMember6 = new System.Windows.Forms.Label();
-            this.lblMember5 = new System.Windows.Forms.Label();
-            this.lblMember4 = new System.Windows.Forms.Label();
-            this.lblMember3 = new System.Windows.Forms.Label();
-            this.lblMember2 = new System.Windows.Forms.Label();
-            this.lblMember1 = new System.Windows.Forms.Label();
-            this.lblTeamName = new System.Windows.Forms.Label();
-            this.gbNamesContainer.SuspendLayout();
+            this.teamMembers = new System.Windows.Forms.GroupBox();
+            this.lazaro = new System.Windows.Forms.Label();
+            this.mohammed = new System.Windows.Forms.Label();
+            this.jorge = new System.Windows.Forms.Label();
+            this.emmanuel = new System.Windows.Forms.Label();
+            this.darien = new System.Windows.Forms.Label();
+            this.alejandro = new System.Windows.Forms.Label();
+            this.teamMembers.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTeamNumber
             // 
-            this.lblTeamNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTeamNumber.AutoSize = true;
+            this.lblTeamNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTeamNumber.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTeamNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTeamNumber.Location = new System.Drawing.Point(42, 8);
+            this.lblTeamNumber.Location = new System.Drawing.Point(9, 8);
             this.lblTeamNumber.Name = "lblTeamNumber";
-            this.lblTeamNumber.Size = new System.Drawing.Size(126, 32);
+            this.lblTeamNumber.Size = new System.Drawing.Size(212, 80);
             this.lblTeamNumber.TabIndex = 0;
             this.lblTeamNumber.Text = "Team #3:";
+            this.lblTeamNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gbNamesContainer
+            // teamMembers
             // 
-            this.gbNamesContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbNamesContainer.Controls.Add(this.lblMember6);
-            this.gbNamesContainer.Controls.Add(this.lblMember5);
-            this.gbNamesContainer.Controls.Add(this.lblMember4);
-            this.gbNamesContainer.Controls.Add(this.lblMember3);
-            this.gbNamesContainer.Controls.Add(this.lblMember2);
-            this.gbNamesContainer.Controls.Add(this.lblMember1);
-            this.gbNamesContainer.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbNamesContainer.ForeColor = System.Drawing.Color.White;
-            this.gbNamesContainer.Location = new System.Drawing.Point(12, 86);
-            this.gbNamesContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbNamesContainer.Name = "gbNamesContainer";
-            this.gbNamesContainer.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.gbNamesContainer.Size = new System.Drawing.Size(196, 172);
-            this.gbNamesContainer.TabIndex = 1;
-            this.gbNamesContainer.TabStop = false;
-            this.gbNamesContainer.Text = "Team Members";
+            this.teamMembers.Controls.Add(this.lazaro);
+            this.teamMembers.Controls.Add(this.mohammed);
+            this.teamMembers.Controls.Add(this.jorge);
+            this.teamMembers.Controls.Add(this.emmanuel);
+            this.teamMembers.Controls.Add(this.darien);
+            this.teamMembers.Controls.Add(this.alejandro);
+            this.teamMembers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.teamMembers.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teamMembers.ForeColor = System.Drawing.Color.White;
+            this.teamMembers.Location = new System.Drawing.Point(9, 88);
+            this.teamMembers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.teamMembers.Name = "teamMembers";
+            this.teamMembers.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.teamMembers.Size = new System.Drawing.Size(212, 172);
+            this.teamMembers.TabIndex = 1;
+            this.teamMembers.TabStop = false;
+            this.teamMembers.Text = "Team Members";
             // 
-            // lblMember6
+            // lazaro
             // 
-            this.lblMember6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember6.AutoSize = true;
-            this.lblMember6.Location = new System.Drawing.Point(7, 137);
-            this.lblMember6.Name = "lblMember6";
-            this.lblMember6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember6.Size = new System.Drawing.Size(127, 23);
-            this.lblMember6.TabIndex = 5;
-            this.lblMember6.Text = "- Lazaro Alvarez";
+            this.lazaro.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lazaro.Location = new System.Drawing.Point(7, 28);
+            this.lazaro.Name = "lazaro";
+            this.lazaro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lazaro.Size = new System.Drawing.Size(198, 23);
+            this.lazaro.TabIndex = 5;
+            this.lazaro.Text = "- Lazaro Alvarez";
+            this.lazaro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMember5
+            // mohammed
             // 
-            this.lblMember5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember5.AutoSize = true;
-            this.lblMember5.Location = new System.Drawing.Point(7, 114);
-            this.lblMember5.Name = "lblMember5";
-            this.lblMember5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember5.Size = new System.Drawing.Size(150, 23);
-            this.lblMember5.TabIndex = 4;
-            this.lblMember5.Text = "- Mohammed Bhatti";
+            this.mohammed.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mohammed.Location = new System.Drawing.Point(7, 51);
+            this.mohammed.Name = "mohammed";
+            this.mohammed.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.mohammed.Size = new System.Drawing.Size(198, 23);
+            this.mohammed.TabIndex = 4;
+            this.mohammed.Text = "- Mohammed Bhatti";
+            this.mohammed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMember4
+            // jorge
             // 
-            this.lblMember4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember4.AutoSize = true;
-            this.lblMember4.Location = new System.Drawing.Point(7, 92);
-            this.lblMember4.Name = "lblMember4";
-            this.lblMember4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember4.Size = new System.Drawing.Size(123, 23);
-            this.lblMember4.TabIndex = 3;
-            this.lblMember4.Text = "- Jorge Euceda";
+            this.jorge.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.jorge.Location = new System.Drawing.Point(7, 74);
+            this.jorge.Name = "jorge";
+            this.jorge.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.jorge.Size = new System.Drawing.Size(198, 23);
+            this.jorge.TabIndex = 3;
+            this.jorge.Text = "- Jorge Euceda";
+            this.jorge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMember3
+            // emmanuel
             // 
-            this.lblMember3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember3.AutoSize = true;
-            this.lblMember3.Location = new System.Drawing.Point(7, 70);
-            this.lblMember3.Name = "lblMember3";
-            this.lblMember3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember3.Size = new System.Drawing.Size(144, 23);
-            this.lblMember3.TabIndex = 2;
-            this.lblMember3.Text = "- Emmanuel Perez";
+            this.emmanuel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.emmanuel.Location = new System.Drawing.Point(7, 97);
+            this.emmanuel.Name = "emmanuel";
+            this.emmanuel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.emmanuel.Size = new System.Drawing.Size(198, 23);
+            this.emmanuel.TabIndex = 2;
+            this.emmanuel.Text = "- Emmanuel Perez";
+            this.emmanuel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMember2
+            // darien
             // 
-            this.lblMember2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember2.AutoSize = true;
-            this.lblMember2.Location = new System.Drawing.Point(7, 47);
-            this.lblMember2.Name = "lblMember2";
-            this.lblMember2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember2.Size = new System.Drawing.Size(144, 23);
-            this.lblMember2.TabIndex = 1;
-            this.lblMember2.Text = "- Darien Morrison";
+            this.darien.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.darien.Location = new System.Drawing.Point(7, 120);
+            this.darien.Name = "darien";
+            this.darien.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.darien.Size = new System.Drawing.Size(198, 23);
+            this.darien.TabIndex = 1;
+            this.darien.Text = "- Darien Morrison";
+            this.darien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblMember1
+            // alejandro
             // 
-            this.lblMember1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblMember1.AutoSize = true;
-            this.lblMember1.Location = new System.Drawing.Point(7, 25);
-            this.lblMember1.Name = "lblMember1";
-            this.lblMember1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lblMember1.Size = new System.Drawing.Size(135, 23);
-            this.lblMember1.TabIndex = 0;
-            this.lblMember1.Text = "- Alejandro Perez";
-            // 
-            // lblTeamName
-            // 
-            this.lblTeamName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTeamName.AutoSize = true;
-            this.lblTeamName.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamName.ForeColor = System.Drawing.Color.White;
-            this.lblTeamName.Location = new System.Drawing.Point(17, 46);
-            this.lblTeamName.Name = "lblTeamName";
-            this.lblTeamName.Size = new System.Drawing.Size(173, 32);
-            this.lblTeamName.TabIndex = 2;
-            this.lblTeamName.Text = "Windows 3.0";
+            this.alejandro.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.alejandro.Location = new System.Drawing.Point(7, 143);
+            this.alejandro.Name = "alejandro";
+            this.alejandro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.alejandro.Size = new System.Drawing.Size(198, 23);
+            this.alejandro.TabIndex = 0;
+            this.alejandro.Text = "- Alejandro Perez";
+            this.alejandro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TeamDescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
-            this.Controls.Add(this.lblTeamName);
-            this.Controls.Add(this.gbNamesContainer);
             this.Controls.Add(this.lblTeamNumber);
+            this.Controls.Add(this.teamMembers);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(219, 268);
             this.Name = "TeamDescription";
             this.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.Size = new System.Drawing.Size(219, 268);
-            this.gbNamesContainer.ResumeLayout(false);
-            this.gbNamesContainer.PerformLayout();
+            this.Size = new System.Drawing.Size(230, 268);
+            this.teamMembers.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label lblTeamNumber;
-        private System.Windows.Forms.GroupBox gbNamesContainer;
-        private System.Windows.Forms.Label lblMember6;
-        private System.Windows.Forms.Label lblMember5;
-        private System.Windows.Forms.Label lblMember4;
-        private System.Windows.Forms.Label lblMember3;
-        private System.Windows.Forms.Label lblMember2;
-        private System.Windows.Forms.Label lblMember1;
-        private System.Windows.Forms.Label lblTeamName;
+        private System.Windows.Forms.GroupBox teamMembers;
+        private System.Windows.Forms.Label lazaro;
+        private System.Windows.Forms.Label mohammed;
+        private System.Windows.Forms.Label jorge;
+        private System.Windows.Forms.Label emmanuel;
+        private System.Windows.Forms.Label darien;
+        private System.Windows.Forms.Label alejandro;
     }
 }

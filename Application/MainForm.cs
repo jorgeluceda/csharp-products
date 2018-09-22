@@ -112,10 +112,6 @@ namespace Application
             dlg.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            TestBaseDialog dlg = new TestBaseDialog();
-            dlg.Show();
-        }
+       
     }
 }
