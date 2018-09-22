@@ -64,6 +64,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Oath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Oath.Designer.cs">
+      <DependentUpon>Oath.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeamDescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oath.resx">
+      <DependentUpon>Oath.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamDescription.resx">
       <DependentUpon>TeamDescription.cs</DependentUpon>
