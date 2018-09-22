@@ -23,6 +23,7 @@ namespace CoreLibrary
                 return;
 
             this.BackColor = this.Parent.BackColor;
+            this.BackgroundImage = this.Parent.BackgroundImage;
             this.lblCourseName.ForeColor = this.Parent.ForeColor;
             this.lblSemesterName.ForeColor = this.Parent.ForeColor;
         }

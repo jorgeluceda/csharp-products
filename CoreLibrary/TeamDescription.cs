@@ -44,14 +44,13 @@ namespace CoreLibrary
             {
                 this.textColor = value;
                 this.lblTeamNumber.ForeColor = this.textColor;
-                this.lblTeamName.ForeColor = this.textColor;
-                this.gbNamesContainer.ForeColor = this.textColor;
-                this.lblMember1.ForeColor = this.textColor;
-                this.lblMember2.ForeColor = this.textColor;
-                this.lblMember3.ForeColor = this.textColor;
-                this.lblMember4.ForeColor = this.textColor;
-                this.lblMember5.ForeColor = this.textColor;
-                this.lblMember6.ForeColor = this.textColor;
+                this.teamMembers.ForeColor = this.textColor;
+                this.alejandro.ForeColor = this.textColor;
+                this.darien.ForeColor = this.textColor;
+                this.emmanuel.ForeColor = this.textColor;
+                this.jorge.ForeColor = this.textColor;
+                this.mohammed.ForeColor = this.textColor;
+                this.lazaro.ForeColor = this.textColor;
             }
         }
     }
