@@ -46,6 +46,9 @@ namespace Application
             this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.File.SuspendLayout();
             this.MainFormContext.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +58,12 @@ namespace Application
             this.File.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.File.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.preferencesToolStripMenuItem});
+            this.preferencesToolStripMenuItem,
+            this.loginToolStripMenuItem});
             this.File.Location = new System.Drawing.Point(0, 0);
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(886, 28);
+            this.File.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.File.Size = new System.Drawing.Size(997, 33);
             this.File.TabIndex = 0;
             this.File.Text = "menuStrip1";
             // 
@@ -68,7 +73,7 @@ namespace Application
             this.openToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
@@ -77,20 +82,20 @@ namespace Application
             this.ellipseToolStripMenuItem,
             this.rectangleToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // ellipseToolStripMenuItem
             // 
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
-            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(172, 30);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
             // 
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(172, 30);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -101,26 +106,26 @@ namespace Application
             this.closeRectanglesToolStripMenuItem,
             this.closeApplicationToolStripMenuItem});
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // ellipsesToolStripMenuItem
             // 
             this.ellipsesToolStripMenuItem.Name = "ellipsesToolStripMenuItem";
-            this.ellipsesToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.ellipsesToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.ellipsesToolStripMenuItem.Text = "Close Ellipses";
             // 
             // closeRectanglesToolStripMenuItem
             // 
             this.closeRectanglesToolStripMenuItem.Name = "closeRectanglesToolStripMenuItem";
-            this.closeRectanglesToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.closeRectanglesToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.closeRectanglesToolStripMenuItem.Text = "Close Rectangles";
             this.closeRectanglesToolStripMenuItem.Click += new System.EventHandler(this.closeRectanglesToolStripMenuItem_Click);
             // 
             // closeApplicationToolStripMenuItem
             // 
             this.closeApplicationToolStripMenuItem.Name = "closeApplicationToolStripMenuItem";
-            this.closeApplicationToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.closeApplicationToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.closeApplicationToolStripMenuItem.Text = "Close Application";
             this.closeApplicationToolStripMenuItem.Click += new System.EventHandler(this.closeApplicationToolStripMenuItem_Click);
             // 
@@ -130,19 +135,19 @@ namespace Application
             this.openModallyToolStripMenuItem,
             this.openModelesslyToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // openModallyToolStripMenuItem
             // 
             this.openModallyToolStripMenuItem.Name = "openModallyToolStripMenuItem";
-            this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.openModallyToolStripMenuItem.Text = "Open Modally";
             // 
             // openModelesslyToolStripMenuItem
             // 
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
-            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
             // 
             // MainFormContext
@@ -152,27 +157,28 @@ namespace Application
             this.openPreferencesModelesslyToolStripMenuItem,
             this.openPreferencesModallyToolStripMenuItem});
             this.MainFormContext.Name = "MainFormContext";
-            this.MainFormContext.Size = new System.Drawing.Size(273, 52);
+            this.MainFormContext.Size = new System.Drawing.Size(318, 64);
             // 
             // openPreferencesModelesslyToolStripMenuItem
             // 
             this.openPreferencesModelesslyToolStripMenuItem.Name = "openPreferencesModelesslyToolStripMenuItem";
-            this.openPreferencesModelesslyToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.openPreferencesModelesslyToolStripMenuItem.Size = new System.Drawing.Size(317, 30);
             this.openPreferencesModelesslyToolStripMenuItem.Text = "Open Preferences Modelessly";
             this.openPreferencesModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModelesslyToolStripMenuItem_Click);
             // 
             // openPreferencesModallyToolStripMenuItem
             // 
             this.openPreferencesModallyToolStripMenuItem.Name = "openPreferencesModallyToolStripMenuItem";
-            this.openPreferencesModallyToolStripMenuItem.Size = new System.Drawing.Size(272, 24);
+            this.openPreferencesModallyToolStripMenuItem.Size = new System.Drawing.Size(317, 30);
             this.openPreferencesModallyToolStripMenuItem.Text = "Open Preferences Modally";
             this.openPreferencesModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 31);
+            this.button1.Location = new System.Drawing.Point(105, 39);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(84, 29);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -180,26 +186,53 @@ namespace Application
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 31);
+            this.button2.Location = new System.Drawing.Point(14, 39);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(84, 29);
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLoginToolStripMenuItem,
+            this.hideLoginToolStripMenuItem});
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
+            this.loginToolStripMenuItem.Text = "Login";
+            // 
+            // showLoginToolStripMenuItem
+            // 
+            this.showLoginToolStripMenuItem.Name = "showLoginToolStripMenuItem";
+            this.showLoginToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.showLoginToolStripMenuItem.Text = "Show Login";
+            this.showLoginToolStripMenuItem.Click += new System.EventHandler(this.showLoginToolStripMenuItem_Click);
+            // 
+            // hideLoginToolStripMenuItem
+            // 
+            this.hideLoginToolStripMenuItem.Name = "hideLoginToolStripMenuItem";
+            this.hideLoginToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.hideLoginToolStripMenuItem.Text = "Hide Login";
+            this.hideLoginToolStripMenuItem.Click += new System.EventHandler(this.hideLoginToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 450);
+            this.ClientSize = new System.Drawing.Size(997, 562);
             this.ContextMenuStrip = this.MainFormContext;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.File);
             this.MainMenuStrip = this.File;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.File.ResumeLayout(false);
             this.File.PerformLayout();
@@ -228,5 +261,8 @@ namespace Application
         private System.Windows.Forms.ToolStripMenuItem openPreferencesModallyToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showLoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideLoginToolStripMenuItem;
     }
 }
