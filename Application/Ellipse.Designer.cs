@@ -38,7 +38,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ellipse";
             this.Text = "Ellipse";
+            this.Activated += new System.EventHandler(this.Ellipse_Activated);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
