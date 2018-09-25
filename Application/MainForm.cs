@@ -147,6 +147,8 @@ namespace Application
         private void helpMenuOath_Click(object sender, EventArgs e)
         {
             OathDialog oathDlg = new OathDialog();
+            oathDlg.Location = new Point (this.Location.X + this.ClientSize.Width, this.Location.Y);    //Position of the dialog for start up
+            oathDlg.StartPosition = FormStartPosition.Manual;
             oathDlg.ShowDialog();
             this.AddOwnedForm(oathDlg);
         }
@@ -158,6 +160,8 @@ namespace Application
             //To allow one About form to display.
             if (!this.OwnedForms.Contains(aboutDlg)) {
                 aboutDlg = new AboutDialog();
+                aboutDlg.Location = new Point(this.Location.X, this.Location.Y + this.Height);    //Position of the dialog for start up, GOES TOO LOW
+                aboutDlg.StartPosition = FormStartPosition.Manual;
                 aboutDlg.Show();
                 this.AddOwnedForm(aboutDlg);
             }
