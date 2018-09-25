@@ -16,6 +16,10 @@ namespace Application
         public int ShapeHeight { get; set; }
         public float ShapeRatio { get; set; }
         public event EventHandler Apply;
+        public Color ellipseColor;
+        public Color rectangleColor;
+        public Color customColor;
+        private Ellipse ellipsetest;
 
         public bool ShowLogin
         {
@@ -50,6 +54,7 @@ namespace Application
         {
             Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
             ellipse.MdiParent = this;
+            ellipseColor = ellipse.BackColor;
             ellipse.Activated += ellipseActivatedHandler;
             ellipse.Show();
         }
@@ -58,6 +63,7 @@ namespace Application
         {
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
             rectangle.MdiParent = this;
+            rectangleColor = rectangle.BackColor;
             rectangle.Activated += rectangleActivatedHandler;
             rectangle.Show();
         }
@@ -69,10 +75,10 @@ namespace Application
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to exit the application?", 
+            DialogResult result = MessageBox.Show("Are you sure you want to exit the application?",
                 "Closing Application", MessageBoxButtons.YesNo);
 
-            if(result == DialogResult.No)
+            if (result == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -132,17 +138,18 @@ namespace Application
 
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
-            if(this.preferencesDialog != null)
+            if (this.preferencesDialog != null)
             {
                 this.preferencesDialog.Opacity = 0.5;
             }
+
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
             if (this.preferencesDialog != null)
             {
-                this.preferencesDialog.Opacity = 1;
+               // this.preferencesDialog.Opacity = 1;
             }
         }
 
@@ -188,11 +195,12 @@ namespace Application
         void ellipseActivatedHandler(object sender, EventArgs e)
         {
             StatusLabel.Text = "Ellipse";
+            StatusLabel.BackColor = this.ActiveMdiChild.BackColor;
         }
 
         private void closeAllChildrenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach(Form mdiChildForm in MdiChildren)
+            foreach (Form mdiChildForm in MdiChildren)
             {
                 mdiChildForm.Close();
             }
@@ -202,19 +210,22 @@ namespace Application
         {
             CustomForm custom = new CustomForm(this.ShapeRatio, this.ShapeWidth);
             custom.MdiParent = this;
+            customColor = custom.BackColor;
             custom.Activated += customActivatedHandler;
             custom.Show();
         }
-        
+
         void rectangleActivatedHandler(object sender, EventArgs e)
         {
             StatusLabel.Text = "Rectangle";
+            StatusLabel.BackColor = this.ActiveMdiChild.BackColor;
 
         }
         
         void customActivatedHandler(object sender, EventArgs e)
         {
             StatusLabel.Text = "Custom";
+            StatusLabel.BackColor = this.ActiveMdiChild.BackColor;
         }
     }
 }
