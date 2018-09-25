@@ -50,6 +50,7 @@ namespace Application
         {
             Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
             ellipse.MdiParent = this;
+            ellipse.Activated += ellipseActivatedHandler;
             ellipse.Show();
         }
 
@@ -57,6 +58,7 @@ namespace Application
         {
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
             rectangle.MdiParent = this;
+            rectangle.Activated += rectangleActivatedHandler;
             rectangle.Show();
         }
 
@@ -165,6 +167,43 @@ namespace Application
                 aboutDlg.Show();
                 this.AddOwnedForm(aboutDlg);
             }
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        void ellipseActivatedHandler(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Ellipse";
+        }
+
+        private void closeAllChildrenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(Form mdiChildForm in MdiChildren)
+            {
+                mdiChildForm.Close();
+            }
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomForm custom = new CustomForm(this.ShapeRatio, this.ShapeWidth);
+            custom.MdiParent = this;
+            custom.Activated += customActivatedHandler;
+            custom.Show();
+        }
+        
+        void rectangleActivatedHandler(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Rectangle";
+
+        }
+        
+        void customActivatedHandler(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Custom";
         }
     }
 }
