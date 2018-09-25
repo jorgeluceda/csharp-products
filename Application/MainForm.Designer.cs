@@ -29,6 +29,7 @@ namespace Application
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.File = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,9 @@ namespace Application
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuOath = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFormContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openPreferencesModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +68,8 @@ namespace Application
             this.File.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.preferencesToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.menuHelp});
             this.File.Location = new System.Drawing.Point(0, 0);
             this.File.Name = "File";
             this.File.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
@@ -95,6 +100,7 @@ namespace Application
             // ellipseToolStripMenuItem
             // 
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
+            this.ellipseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
@@ -119,12 +125,15 @@ namespace Application
             // ellipsesToolStripMenuItem
             // 
             this.ellipsesToolStripMenuItem.Name = "ellipsesToolStripMenuItem";
+            this.ellipsesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.E)));
             this.ellipsesToolStripMenuItem.Size = new System.Drawing.Size(363, 46);
             this.ellipsesToolStripMenuItem.Text = "Close Ellipses";
             // 
             // closeRectanglesToolStripMenuItem
             // 
             this.closeRectanglesToolStripMenuItem.Name = "closeRectanglesToolStripMenuItem";
+          
+            this.closeRectanglesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.R)));
             this.closeRectanglesToolStripMenuItem.Size = new System.Drawing.Size(363, 46);
             this.closeRectanglesToolStripMenuItem.Text = "Close Rectangles";
             this.closeRectanglesToolStripMenuItem.Click += new System.EventHandler(this.closeRectanglesToolStripMenuItem_Click);
@@ -132,6 +141,7 @@ namespace Application
             // closeApplicationToolStripMenuItem
             // 
             this.closeApplicationToolStripMenuItem.Name = "closeApplicationToolStripMenuItem";
+            this.closeApplicationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.X)));
             this.closeApplicationToolStripMenuItem.Size = new System.Drawing.Size(363, 46);
             this.closeApplicationToolStripMenuItem.Text = "Close Application";
             this.closeApplicationToolStripMenuItem.Click += new System.EventHandler(this.closeApplicationToolStripMenuItem_Click);
@@ -155,6 +165,7 @@ namespace Application
             // openModallyToolStripMenuItem
             // 
             this.openModallyToolStripMenuItem.Name = "openModallyToolStripMenuItem";
+            this.openModallyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(364, 46);
             this.openModallyToolStripMenuItem.Text = "Open Modally";
             this.openModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
@@ -162,6 +173,7 @@ namespace Application
             // openModelesslyToolStripMenuItem
             // 
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
+            this.openModelesslyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(364, 46);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
             this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModelesslyToolStripMenuItem_Click);
@@ -178,6 +190,7 @@ namespace Application
             // showLoginToolStripMenuItem
             // 
             this.showLoginToolStripMenuItem.Name = "showLoginToolStripMenuItem";
+            this.showLoginToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.showLoginToolStripMenuItem.Size = new System.Drawing.Size(287, 46);
             this.showLoginToolStripMenuItem.Text = "Show Login";
             this.showLoginToolStripMenuItem.Click += new System.EventHandler(this.showLoginToolStripMenuItem_Click);
@@ -185,9 +198,35 @@ namespace Application
             // hideLoginToolStripMenuItem
             // 
             this.hideLoginToolStripMenuItem.Name = "hideLoginToolStripMenuItem";
+            this.hideLoginToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) | System.Windows.Forms.Keys.S)));
             this.hideLoginToolStripMenuItem.Size = new System.Drawing.Size(287, 46);
             this.hideLoginToolStripMenuItem.Text = "Hide Login";
             this.hideLoginToolStripMenuItem.Click += new System.EventHandler(this.hideLoginToolStripMenuItem_Click);
+            // 
+            // menuHelp
+            // 
+            this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpMenuOath,
+            this.helpMenuAbout});
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(53, 24);
+            this.menuHelp.Text = "Help";
+            // 
+            // helpMenuOath
+            // 
+            this.helpMenuOath.Name = "helpMenuOath";
+            this.helpMenuOath.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.helpMenuOath.Size = new System.Drawing.Size(216, 26);
+            this.helpMenuOath.Text = "Oath";
+            this.helpMenuOath.Click += new System.EventHandler(this.helpMenuOath_Click);
+            // 
+            // helpMenuAbout
+            // 
+            this.helpMenuAbout.Name = "helpMenuAbout";
+            this.helpMenuAbout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.helpMenuAbout.Size = new System.Drawing.Size(216, 26);
+            this.helpMenuAbout.Text = "About";
+            this.helpMenuAbout.Click += new System.EventHandler(this.helpMenuAbout_Click);
             // 
             // MainFormContext
             // 
@@ -313,5 +352,8 @@ namespace Application
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.ToolStripMenuItem closeAllChildrenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuHelp;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuOath;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuAbout;
     }
 }
