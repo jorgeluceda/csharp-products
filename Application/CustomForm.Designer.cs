@@ -1,6 +1,6 @@
 ﻿namespace Application
 {
-    partial class Ellipse
+    partial class CustomForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Ellipse
+            // CustomForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Ellipse";
-            this.Text = "Ellipse";
-            this.Activated += new System.EventHandler(this.Ellipse_Activated);
+            this.Name = "CustomForm";
+            this.Text = "CustomForm";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

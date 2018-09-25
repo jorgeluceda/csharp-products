@@ -50,6 +50,7 @@ namespace Application
         {
             Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
             ellipse.MdiParent = this;
+            ellipse.Activated += ellipseActivatedHandler;
             ellipse.Show();
         }
 
@@ -155,10 +156,22 @@ namespace Application
             this.ShowLogin = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            LoginDialog dlg = new LoginDialog();
-            dlg.Show();
+
+        }
+
+        void ellipseActivatedHandler(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Ellipse";
+        }
+
+        private void closeAllChildrenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(Form mdiChildForm in MdiChildren)
+            {
+                mdiChildForm.Close();
+            }
         }
     }
 }
