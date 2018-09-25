@@ -143,12 +143,14 @@ namespace Application
             this.openModallyToolStripMenuItem.Name = "openModallyToolStripMenuItem";
             this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
             this.openModallyToolStripMenuItem.Text = "Open Modally";
+            this.openModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
             // 
             // openModelesslyToolStripMenuItem
             // 
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
             this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
+            this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModelesslyToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
@@ -226,6 +228,7 @@ namespace Application
             this.Controls.Add(this.button1);
             this.Controls.Add(this.File);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.File;
             this.Name = "MainForm";
             this.Text = "MainForm";

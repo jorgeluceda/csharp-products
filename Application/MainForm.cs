@@ -49,12 +49,14 @@ namespace Application
         private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Ellipse ellipse = new Ellipse(this.ShapeRatio, this.ShapeWidth);
+            ellipse.MdiParent = this;
             ellipse.Show();
         }
 
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
+            rectangle.MdiParent = this;
             rectangle.Show();
         }
 
@@ -81,12 +83,6 @@ namespace Application
 
         private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.preferencesDialog != null)
-            {
-                this.preferencesDialog.BringToFront();
-                return;
-            }
-
             this.preferencesDialog = new PreferencesDialog();
 
             // Update the properties for the dialog before it's shown
@@ -95,45 +91,30 @@ namespace Application
             this.preferencesDialog.ShapeRatio = this.ShapeRatio;
 
             // Open Modally
-            DialogResult result = this.preferencesDialog.ShowDialog();
+            DialogResult result = this.preferencesDialog.ShowDialog(this);
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 this.ShapeRatio = this.preferencesDialog.ShapeRatio;
                 this.ShapeHeight = this.preferencesDialog.ShapeHeight;
                 this.ShapeWidth = this.preferencesDialog.ShapeWidth;
-                this.preferencesDialog = null;
             }
         }
 
         private void openPreferencesModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(this.preferencesDialog != null)
-            {
-                this.preferencesDialog.BringToFront();
-            }
-            else
-            {
-                this.preferencesDialog = new PreferencesDialog();
+            this.preferencesDialog = new PreferencesDialog();
 
-                // Update the properties for the dialog before it's shown
-                this.preferencesDialog.ShapeHeight = this.ShapeHeight;
-                this.preferencesDialog.ShapeWidth = this.ShapeWidth;
-                this.preferencesDialog.ShapeRatio = this.ShapeRatio;
+            // Update the properties for the dialog before it's shown
+            this.preferencesDialog.ShapeHeight = this.ShapeHeight;
+            this.preferencesDialog.ShapeWidth = this.ShapeWidth;
+            this.preferencesDialog.ShapeRatio = this.ShapeRatio;
 
-                // Subscribe to the dialog's Apply event
-                this.preferencesDialog.Apply += preferences_Apply;
+            // Subscribe to the dialog's Apply event
+            this.preferencesDialog.Apply += preferences_Apply;
 
-                // Open Modelessly
-                this.preferencesDialog.Show();
-
-                this.preferencesDialog.FormClosed += PreferencesDialog_FormClosed;
-            }
-        }
-
-        private void PreferencesDialog_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.preferencesDialog = null;
+            // Open Modelessly
+            this.preferencesDialog.Show(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
