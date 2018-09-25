@@ -22,5 +22,10 @@ namespace Application
             path.AddRectangle(rect);
             this.Region = new Region(path);
         }
+
+        private void Rectangular_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

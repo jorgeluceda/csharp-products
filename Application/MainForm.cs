@@ -58,6 +58,7 @@ namespace Application
         {
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
             rectangle.MdiParent = this;
+            rectangle.Activated += rectangleActivatedHandler;
             rectangle.Show();
         }
 
@@ -172,6 +173,17 @@ namespace Application
             {
                 mdiChildForm.Close();
             }
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        void rectangleActivatedHandler(object sender, EventArgs e)
+        {
+            StatusLabel.Text = "Rectangle";
+
         }
     }
 }
