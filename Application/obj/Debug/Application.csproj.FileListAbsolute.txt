@@ -16,3 +16,23 @@ C:\Users\Eph96\source\repos\1808-uha-repo3-master\Application\obj\Debug\Applicat
 C:\Users\Eph96\source\repos\1808-uha-repo3-master\Application\obj\Debug\Application.csproj.CopyComplete
 C:\Users\Eph96\source\repos\1808-uha-repo3-master\Application\obj\Debug\Application.exe
 C:\Users\Eph96\source\repos\1808-uha-repo3-master\Application\obj\Debug\Application.pdb
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.AboutDialog.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.LoginDialog.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.CustomForm.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.MainForm.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.OathDialog.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.PreferencesDialog.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.Ellipse.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.Properties.Resources.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.Rectangular.resources
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.csproj.GenerateResource.cache
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.exe
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.pdb
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\bin\Debug\Application.exe.config
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\bin\Debug\Application.exe
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\bin\Debug\Application.pdb
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\bin\Debug\CoreLibrary.dll
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\bin\Debug\CoreLibrary.pdb
+C:\Users\Jorge Euceda\source\repos\1808-uha-repo3\Application\obj\Debug\Application.csproj.CopyComplete
