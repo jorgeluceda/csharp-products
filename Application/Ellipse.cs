@@ -21,5 +21,10 @@ namespace Application
             path.AddEllipse(0, 0, width, (int)(perm * width));
             this.Region = new Region(path);
         }
+
+        private void Ellipse_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }
