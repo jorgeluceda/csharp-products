@@ -33,14 +33,12 @@ namespace CoreLibrary
             // 
             // lblOath
             // 
-            this.lblOath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblOath.AutoSize = true;
+            this.lblOath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOath.Font = new System.Drawing.Font("Arial", 9F);
             this.lblOath.ForeColor = System.Drawing.Color.White;
-            this.lblOath.Location = new System.Drawing.Point(-5, 127);
-            this.lblOath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOath.Location = new System.Drawing.Point(9, 7);
             this.lblOath.Name = "lblOath";
-            this.lblOath.Size = new System.Drawing.Size(427, 60);
+            this.lblOath.Size = new System.Drawing.Size(201, 254);
             this.lblOath.TabIndex = 2;
             this.lblOath.Text = "I understand that this is a group project.\r\n\r\nIt is in my best interest to partic" +
     "ipate in writing the homework and study all the\r\ncode from the homework.";
@@ -48,17 +46,16 @@ namespace CoreLibrary
             // 
             // Oath
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.Controls.Add(this.lblOath);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(164, 218);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(219, 268);
             this.Name = "Oath";
-            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.Size = new System.Drawing.Size(596, 298);
+            this.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.Size = new System.Drawing.Size(219, 268);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
