@@ -117,18 +117,6 @@ namespace Application
             this.preferencesDialog.Show(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AboutDialog dlg = new AboutDialog();
-            dlg.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OathDialog dlg = new OathDialog();
-            dlg.Show();
-        }
-
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
             if(this.preferencesDialog != null)
@@ -153,6 +141,26 @@ namespace Application
         private void hideLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ShowLogin = false;
+        }
+
+        //Oath Menu item
+        private void helpMenuOath_Click(object sender, EventArgs e)
+        {
+            OathDialog oathDlg = new OathDialog();
+            oathDlg.ShowDialog();
+            this.AddOwnedForm(oathDlg);
+        }
+
+        //About Menu item
+        AboutDialog aboutDlg;
+        private void helpMenuAbout_Click(object sender, EventArgs e)
+        {
+            //To allow one About form to display.
+            if (!this.OwnedForms.Contains(aboutDlg)) {
+                aboutDlg = new AboutDialog();
+                aboutDlg.Show();
+                this.AddOwnedForm(aboutDlg);
+            }
         }
     }
 }
