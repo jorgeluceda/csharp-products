@@ -38,7 +38,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rectangular";
             this.Text = "Rectangular";
+            this.Activated += new System.EventHandler(this.Rectangular_Activated);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
