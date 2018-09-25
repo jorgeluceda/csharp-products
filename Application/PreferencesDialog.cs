@@ -21,6 +21,7 @@ namespace Application
         public PreferencesDialog()
         {
             InitializeComponent();
+            
         }
 
         /**
@@ -28,8 +29,20 @@ namespace Application
          */
         private void preferencesOkButton_Click(object sender, EventArgs e)
         {
-            SetPreferencesValues();
-            preferencesApplyButton_Click(sender, e);
+            if (this.ValidateChildren())
+            {
+                if (this.Modal)
+                {
+                    ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
+                    ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
+                    ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
+                }
+                else
+                {
+                    preferencesApplyButton_Click(sender, e);
+                }
+            }
+
             this.Close();
         }
 
@@ -45,8 +58,11 @@ namespace Application
                     ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
                     ShapeWidth = int.Parse(this.preferencesWidthTextBox.Text);
                     ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
-                    SetPreferencesValues();
-                    Apply(this, EventArgs.Empty);
+                    //SetPreferencesValues();
+                    if (!this.Modal)
+                    {
+                        Apply(this, EventArgs.Empty);
+                    }
                 }
             }
         }
@@ -171,25 +187,29 @@ namespace Application
 
         private void PreferencesDialog_Load(object sender, EventArgs e)
         {
+            if (this.Modal)
+            {
+                this.preferencesApplyButton.Visible = false;
+            }
 
             //initializing values
-            preferencesWidthTextBox.Text = Properties.Settings.Default.PreferredWidth.ToString();
-            preferencesHeightTextBox.Text = Properties.Settings.Default.PreferredHeight.ToString();
-            preferencesRatioTextBox.Text = Properties.Settings.Default.PreferredRatio.ToString();
+            //preferencesWidthTextBox.Text = Properties.Settings.Default.PreferredWidth.ToString();
+            //preferencesHeightTextBox.Text = Properties.Settings.Default.PreferredHeight.ToString();
+            //preferencesRatioTextBox.Text = Properties.Settings.Default.PreferredRatio.ToString();
 
         }
 
         public void SetPreferencesValues()
         {
-            Properties.Settings.Default.PreferredWidth = int.Parse(preferencesWidthTextBox.Text);
-            Properties.Settings.Default.PreferredHeight = int.Parse(preferencesHeightTextBox.Text);
-            Properties.Settings.Default.PreferredRatio = int.Parse(preferencesRatioTextBox.Text);
+            //Properties.Settings.Default.PreferredWidth = int.Parse(preferencesWidthTextBox.Text);
+            //Properties.Settings.Default.PreferredHeight = int.Parse(preferencesHeightTextBox.Text);
+            //Properties.Settings.Default.PreferredRatio = int.Parse(preferencesRatioTextBox.Text);
         }
         private void PreferencesDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.PreferredWidth = Properties.Settings.Default.InitialDialogWidth;
-            Properties.Settings.Default.PreferredHeight = Properties.Settings.Default.InitialDialogHeight;
-            Properties.Settings.Default.PreferredRatio = Properties.Settings.Default.InitialDialogRatio;
+            //Properties.Settings.Default.PreferredWidth = Properties.Settings.Default.InitialDialogWidth;
+            //Properties.Settings.Default.PreferredHeight = Properties.Settings.Default.InitialDialogHeight;
+            //Properties.Settings.Default.PreferredRatio = Properties.Settings.Default.InitialDialogRatio;
         }
 
     }
