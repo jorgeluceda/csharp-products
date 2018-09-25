@@ -119,18 +119,6 @@ namespace Application
             this.preferencesDialog.Show(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AboutDialog dlg = new AboutDialog();
-            dlg.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OathDialog dlg = new OathDialog();
-            dlg.Show();
-        }
-
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
             if(this.preferencesDialog != null)
@@ -155,6 +143,30 @@ namespace Application
         private void hideLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ShowLogin = false;
+        }
+
+        //Oath Menu item
+        private void helpMenuOath_Click(object sender, EventArgs e)
+        {
+            OathDialog oathDlg = new OathDialog();
+            oathDlg.Location = new Point (this.Location.X + this.ClientSize.Width, this.Location.Y);    //Position of the dialog for start up
+            oathDlg.StartPosition = FormStartPosition.Manual;
+            oathDlg.ShowDialog();
+            this.AddOwnedForm(oathDlg);
+        }
+
+        //About Menu item
+        AboutDialog aboutDlg;
+        private void helpMenuAbout_Click(object sender, EventArgs e)
+        {
+            //To allow one About form to display.
+            if (!this.OwnedForms.Contains(aboutDlg)) {
+                aboutDlg = new AboutDialog();
+                aboutDlg.Location = new Point(this.Location.X, this.Location.Y + this.Height);    //Position of the dialog for start up, GOES TOO LOW
+                aboutDlg.StartPosition = FormStartPosition.Manual;
+                aboutDlg.Show();
+                this.AddOwnedForm(aboutDlg);
+            }
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -188,10 +200,10 @@ namespace Application
             StatusLabel.Text = "Rectangle";
 
         }
+        
         void customActivatedHandler(object sender, EventArgs e)
         {
             StatusLabel.Text = "Custom";
-
         }
     }
 }
