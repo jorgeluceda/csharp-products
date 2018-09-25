@@ -15,6 +15,8 @@ namespace CoreLibrary
         public BaseDialogForm()
         {
             InitializeComponent();
+            this.middlePanel.BackColor = this.BackColor;                // Middle panel should show background color of parent
+            this.middlePanel.BackgroundImage = this.BackgroundImage;    // Middle panel should show background image of parent
         }
     }
 }

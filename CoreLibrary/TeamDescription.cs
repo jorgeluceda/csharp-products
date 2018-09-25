@@ -50,7 +50,6 @@ namespace CoreLibrary
                 this.emmanuel.ForeColor = this.textColor;
                 this.jorge.ForeColor = this.textColor;
                 this.mohammed.ForeColor = this.textColor;
-                this.lazaro.ForeColor = this.textColor;
             }
         }
     }

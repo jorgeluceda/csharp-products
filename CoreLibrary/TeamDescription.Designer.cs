@@ -46,7 +46,7 @@ namespace CoreLibrary
             this.lblTeamNumber.ForeColor = System.Drawing.Color.White;
             this.lblTeamNumber.Location = new System.Drawing.Point(9, 8);
             this.lblTeamNumber.Name = "lblTeamNumber";
-            this.lblTeamNumber.Size = new System.Drawing.Size(212, 80);
+            this.lblTeamNumber.Size = new System.Drawing.Size(201, 80);
             this.lblTeamNumber.TabIndex = 0;
             this.lblTeamNumber.Text = "Team #3:";
             this.lblTeamNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,7 +66,7 @@ namespace CoreLibrary
             this.teamMembers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.teamMembers.Name = "teamMembers";
             this.teamMembers.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.teamMembers.Size = new System.Drawing.Size(212, 172);
+            this.teamMembers.Size = new System.Drawing.Size(201, 172);
             this.teamMembers.TabIndex = 1;
             this.teamMembers.TabStop = false;
             this.teamMembers.Text = "Team Members";
@@ -77,7 +77,7 @@ namespace CoreLibrary
             this.lazaro.Location = new System.Drawing.Point(7, 28);
             this.lazaro.Name = "lazaro";
             this.lazaro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.lazaro.Size = new System.Drawing.Size(198, 23);
+            this.lazaro.Size = new System.Drawing.Size(187, 23);
             this.lazaro.TabIndex = 5;
             this.lazaro.Text = "- Lazaro Alvarez";
             this.lazaro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,7 +88,7 @@ namespace CoreLibrary
             this.mohammed.Location = new System.Drawing.Point(7, 51);
             this.mohammed.Name = "mohammed";
             this.mohammed.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.mohammed.Size = new System.Drawing.Size(198, 23);
+            this.mohammed.Size = new System.Drawing.Size(187, 23);
             this.mohammed.TabIndex = 4;
             this.mohammed.Text = "- Mohammed Bhatti";
             this.mohammed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,7 +99,7 @@ namespace CoreLibrary
             this.jorge.Location = new System.Drawing.Point(7, 74);
             this.jorge.Name = "jorge";
             this.jorge.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.jorge.Size = new System.Drawing.Size(198, 23);
+            this.jorge.Size = new System.Drawing.Size(187, 23);
             this.jorge.TabIndex = 3;
             this.jorge.Text = "- Jorge Euceda";
             this.jorge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,7 +110,7 @@ namespace CoreLibrary
             this.emmanuel.Location = new System.Drawing.Point(7, 97);
             this.emmanuel.Name = "emmanuel";
             this.emmanuel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.emmanuel.Size = new System.Drawing.Size(198, 23);
+            this.emmanuel.Size = new System.Drawing.Size(187, 23);
             this.emmanuel.TabIndex = 2;
             this.emmanuel.Text = "- Emmanuel Perez";
             this.emmanuel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,7 +121,7 @@ namespace CoreLibrary
             this.darien.Location = new System.Drawing.Point(7, 120);
             this.darien.Name = "darien";
             this.darien.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.darien.Size = new System.Drawing.Size(198, 23);
+            this.darien.Size = new System.Drawing.Size(187, 23);
             this.darien.TabIndex = 1;
             this.darien.Text = "- Darien Morrison";
             this.darien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,7 +132,7 @@ namespace CoreLibrary
             this.alejandro.Location = new System.Drawing.Point(7, 143);
             this.alejandro.Name = "alejandro";
             this.alejandro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.alejandro.Size = new System.Drawing.Size(198, 23);
+            this.alejandro.Size = new System.Drawing.Size(187, 23);
             this.alejandro.TabIndex = 0;
             this.alejandro.Text = "- Alejandro Perez";
             this.alejandro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,7 +148,7 @@ namespace CoreLibrary
             this.MinimumSize = new System.Drawing.Size(219, 268);
             this.Name = "TeamDescription";
             this.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.Size = new System.Drawing.Size(230, 268);
+            this.Size = new System.Drawing.Size(219, 268);
             this.teamMembers.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -47,6 +47,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="courseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="courseControl.Designer.cs">
+      <DependentUpon>courseControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseDescription.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     </Compile>
     <Compile Include="BaseDialogForm.Designer.cs">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="oathControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="oathControl.Designer.cs">
+      <DependentUpon>oathControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -77,17 +89,29 @@
       <DependentUpon>TeamDescription.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="teamDescription2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="teamDescription2.Designer.cs">
+      <DependentUpon>teamDescription2.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="courseControl.resx">
+      <DependentUpon>courseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseDescription.resx">
       <DependentUpon>CourseDescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseDialogForm.resx">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oathControl.resx">
+      <DependentUpon>oathControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeamDescription.resx">
       <DependentUpon>TeamDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="teamDescription2.resx">
+      <DependentUpon>teamDescription2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

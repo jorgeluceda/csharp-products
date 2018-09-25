@@ -40,7 +40,7 @@ namespace CoreLibrary
          */
         private void BaseForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button != MouseButtons.Left) return;   // If the event is not a left mousen click event, exit
+            if(e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
             downPoint = new Point(e.X, e.Y);            // Store the X, Y coordinates of the event
         }
         
@@ -48,16 +48,34 @@ namespace CoreLibrary
         {
             if (downPoint == Point.Empty) return;       // Check for empty downPoint (anomaly case)
 
-            // Store new location of the mouse. One way to calculate it is to add the Left coordinate of the BaseForm (this)
-            // to the event's X coordinate (where the mouse currently is, remember, this is the MouseMove event)
+            // Store the location the form should be after the move
             Point location = new Point(this.Left + e.X - downPoint.X, this.Top + e.Y - downPoint.Y);    
-            this.Location = location;
+            this.Location = location;                   // Set this form's location to the new location
         }
 
         private void BaseForm_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left) return;
-            downPoint = Point.Empty;
+            if (e.Button != MouseButtons.Left) return;  // If the event is not a left mouse click event, exit
+            downPoint = Point.Empty;                    // Reset the downPoint back to empty 
+        }
+
+        /**
+         *  Click handler for the top level menu item: File -> Close Child
+         */
+        private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /**
+         *  Click handler for the top level menu item: Preferences -> Colors
+         */
+        private void colorsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (BackgroundColor.ShowDialog() == DialogResult.OK)
+            {
+                this.BackColor = BackgroundColor.Color;
+            }
         }
     }
 }

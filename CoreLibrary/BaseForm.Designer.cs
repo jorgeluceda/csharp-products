@@ -29,24 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.baseFormContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.preferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackgroundColor = new System.Windows.Forms.ColorDialog();
-            this.contextMenuStrip1.SuspendLayout();
+            this.baseFormMenu = new System.Windows.Forms.MenuStrip();
+            this.baseFormMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseFormMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseFormContext.SuspendLayout();
+            this.baseFormMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // contextMenuStrip1
+            // baseFormContext
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.baseFormContext.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.baseFormContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.preferenceToolStripMenuItem,
             this.fileToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 52);
-            this.contextMenuStrip1.Text = "Menu";
+            this.baseFormContext.Name = "contextMenuStrip1";
+            this.baseFormContext.Size = new System.Drawing.Size(149, 52);
+            this.baseFormContext.Text = "Menu";
             // 
             // preferenceToolStripMenuItem
             // 
@@ -82,30 +88,85 @@
             // 
             this.BackgroundColor.HelpRequest += new System.EventHandler(this.colorsToolStripMenuItem_Click);
             // 
+            // baseFormMenu
+            // 
+            this.baseFormMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.baseFormMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.baseFormMenuItem1,
+            this.baseFormMenuItem2});
+            this.baseFormMenu.Location = new System.Drawing.Point(0, 0);
+            this.baseFormMenu.Name = "baseFormMenu";
+            this.baseFormMenu.Size = new System.Drawing.Size(636, 28);
+            this.baseFormMenu.TabIndex = 1;
+            this.baseFormMenu.Text = "menuStrip1";
+            this.baseFormMenu.Visible = false;
+            // 
+            // baseFormMenuItem1
+            // 
+            this.baseFormMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.colorsToolStripMenuItem1});
+            this.baseFormMenuItem1.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.baseFormMenuItem1.Name = "baseFormMenuItem1";
+            this.baseFormMenuItem1.Size = new System.Drawing.Size(44, 24);
+            this.baseFormMenuItem1.Text = "File";
+            // 
+            // colorsToolStripMenuItem1
+            // 
+            this.colorsToolStripMenuItem1.Name = "colorsToolStripMenuItem1";
+            this.colorsToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.colorsToolStripMenuItem1.Text = "Close Child";
+            this.colorsToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
+            // 
+            // baseFormMenuItem2
+            // 
+            this.baseFormMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.colorsToolStripMenuItem2});
+            this.baseFormMenuItem2.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.baseFormMenuItem2.Name = "baseFormMenuItem2";
+            this.baseFormMenuItem2.Size = new System.Drawing.Size(97, 24);
+            this.baseFormMenuItem2.Text = "Preferences";
+            // 
+            // colorsToolStripMenuItem2
+            // 
+            this.colorsToolStripMenuItem2.Name = "colorsToolStripMenuItem2";
+            this.colorsToolStripMenuItem2.Size = new System.Drawing.Size(126, 26);
+            this.colorsToolStripMenuItem2.Text = "Colors";
+            this.colorsToolStripMenuItem2.Click += new System.EventHandler(this.colorsToolStripMenuItem1_Click);
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(636, 326);
-            this.ContextMenuStrip = this.contextMenuStrip1;
+            this.ContextMenuStrip = this.baseFormContext;
+            this.Controls.Add(this.baseFormMenu);
+            this.MainMenuStrip = this.baseFormMenu;
             this.Name = "BaseForm";
             this.Text = "Base Form";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.baseFormContext.ResumeLayout(false);
+            this.baseFormMenu.ResumeLayout(false);
+            this.baseFormMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip baseFormContext;
         private System.Windows.Forms.ToolStripMenuItem preferenceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem;
         private System.Windows.Forms.ColorDialog BackgroundColor;
+        private System.Windows.Forms.MenuStrip baseFormMenu;
+        private System.Windows.Forms.ToolStripMenuItem baseFormMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem baseFormMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem2;
     }
 }

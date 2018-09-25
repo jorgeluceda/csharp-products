@@ -9,22 +9,13 @@ namespace Application
     interface ITeam3Interface
     {
         int ShapeWidth
-        {
-            get;
-            set;
-        }
+        { get; set; }
 
         int ShapeHeight
-        {
-            get;
-            set;
-        }
+        { get; set; }
 
         float ShapeRatio
-        {
-            get;
-            set;
-        }
+        { get; set; }
 
         event EventHandler Apply;
     }

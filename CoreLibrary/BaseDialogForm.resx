@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="assignmentDescription.Text" xml:space="preserve">
-    <value>For Assignment 3 part B, we'll be extending the previous application to create a 
-Multiple Document Interface (MDI) application. The application's new features 
-include Oath, Login, and About dialogs, help information, tool tips, menu merging, 
-custom shapes, status bars, and shortcut keys for all menu items.</value>
-  </data>
 </root>
