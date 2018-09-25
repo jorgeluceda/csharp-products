@@ -50,6 +50,9 @@ namespace Application
             this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuOath = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.File.SuspendLayout();
             this.MainFormContext.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +63,8 @@ namespace Application
             this.File.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.preferencesToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.menuHelp});
             this.File.Location = new System.Drawing.Point(0, 0);
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(886, 28);
@@ -82,7 +86,7 @@ namespace Application
             this.ellipseToolStripMenuItem,
             this.rectangleToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // ellipseToolStripMenuItem
@@ -106,7 +110,7 @@ namespace Application
             this.closeRectanglesToolStripMenuItem,
             this.closeApplicationToolStripMenuItem});
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // ellipsesToolStripMenuItem
@@ -218,6 +222,27 @@ namespace Application
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // menuHelp
+            // 
+            this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpMenuOath,
+            this.helpMenuAbout});
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(53, 24);
+            this.menuHelp.Text = "Help";
+            // 
+            // helpMenuOath
+            // 
+            this.helpMenuOath.Name = "helpMenuOath";
+            this.helpMenuOath.Size = new System.Drawing.Size(216, 26);
+            this.helpMenuOath.Text = "Oath";
+            // 
+            // helpMenuAbout
+            // 
+            this.helpMenuAbout.Name = "helpMenuAbout";
+            this.helpMenuAbout.Size = new System.Drawing.Size(216, 26);
+            this.helpMenuAbout.Text = "About";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,5 +290,8 @@ namespace Application
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showLoginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideLoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuHelp;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuOath;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuAbout;
     }
 }
