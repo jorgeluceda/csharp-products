@@ -154,5 +154,11 @@ namespace Application
         {
             this.ShowLogin = false;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoginDialog dlg = new LoginDialog();
+            dlg.Show();
+        }
     }
 }

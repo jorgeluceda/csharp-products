@@ -49,6 +49,7 @@ namespace Application
             this.openPreferencesModallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.File.SuspendLayout();
             this.MainFormContext.SuspendLayout();
             this.SuspendLayout();
@@ -140,14 +141,14 @@ namespace Application
             // openModallyToolStripMenuItem
             // 
             this.openModallyToolStripMenuItem.Name = "openModallyToolStripMenuItem";
-            this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openModallyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
             this.openModallyToolStripMenuItem.Text = "Open Modally";
             this.openModallyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModallyToolStripMenuItem_Click);
             // 
             // openModelesslyToolStripMenuItem
             // 
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
-            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
             this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openPreferencesModelesslyToolStripMenuItem_Click);
             // 
@@ -217,12 +218,23 @@ namespace Application
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(366, 278);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 450);
             this.ContextMenuStrip = this.MainFormContext;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.File);
@@ -263,5 +275,6 @@ namespace Application
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showLoginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideLoginToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }
