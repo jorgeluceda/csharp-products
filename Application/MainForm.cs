@@ -56,6 +56,7 @@ namespace Application
             ellipse.MdiParent = this;
             ellipseColor = ellipse.BackColor;
             ellipse.Activated += ellipseActivatedHandler;
+            ellipse.BackColorChanged += ellipseActivatedHandler;
             ellipse.Show();
         }
 
@@ -64,6 +65,7 @@ namespace Application
             Rectangular rectangle = new Rectangular(this.ShapeRatio, this.ShapeHeight);
             rectangle.MdiParent = this;
             rectangleColor = rectangle.BackColor;
+            rectangle.BackColorChanged += rectangleActivatedHandler;
             rectangle.Activated += rectangleActivatedHandler;
             rectangle.Show();
         }
@@ -189,6 +191,7 @@ namespace Application
             custom.MdiParent = this;
             customColor = custom.BackColor;
             custom.Activated += customActivatedHandler;
+            custom.BackColorChanged += customActivatedHandler;
             custom.Show();
         }
 
