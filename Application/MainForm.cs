@@ -131,16 +131,23 @@ namespace Application
         {
             if (this.preferencesDialog != null)
             {
-                this.preferencesDialog.Opacity = 0.5;
+                this.preferencesDialog.Opacity = 0.75;
             }
 
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            if (this.preferencesDialog != null)
+            if (preferencesDialog != null)
             {
-               // this.preferencesDialog.Opacity = 1;
+               try
+                {
+                    preferencesDialog.Opacity = 1;
+                } catch(ObjectDisposedException exception)
+                {
+                    Console.WriteLine("preferences Dialog was disposed");
+                }
+
             }
         }
 
