@@ -37,9 +37,10 @@
             // 
             this.teamDescription.BackColor = System.Drawing.Color.MediumPurple;
             this.teamDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.teamDescription.Location = new System.Drawing.Point(0, 437);
+            this.teamDescription.Location = new System.Drawing.Point(0, 355);
+            this.teamDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.teamDescription.Name = "teamDescription";
-            this.teamDescription.Size = new System.Drawing.Size(819, 65);
+            this.teamDescription.Size = new System.Drawing.Size(614, 53);
             this.teamDescription.TabIndex = 0;
             // 
             // courseControl
@@ -47,37 +48,44 @@
             this.courseControl.BackColor = System.Drawing.Color.Transparent;
             this.courseControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseControl.Location = new System.Drawing.Point(0, 0);
+            this.courseControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.courseControl.Name = "courseControl";
-            this.courseControl.Size = new System.Drawing.Size(819, 45);
+            this.courseControl.Size = new System.Drawing.Size(614, 37);
             this.courseControl.TabIndex = 1;
+            this.courseControl.Load += new System.EventHandler(this.courseControl_Load);
             // 
             // middlePanel
             // 
             this.middlePanel.BackColor = System.Drawing.Color.Transparent;
             this.middlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middlePanel.Location = new System.Drawing.Point(0, 45);
+            this.middlePanel.Location = new System.Drawing.Point(0, 37);
+            this.middlePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.middlePanel.Name = "middlePanel";
-            this.middlePanel.Size = new System.Drawing.Size(819, 392);
+            this.middlePanel.Size = new System.Drawing.Size(614, 318);
             this.middlePanel.TabIndex = 2;
             // 
             // BaseDialogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 502);
+            this.ClientSize = new System.Drawing.Size(614, 408);
             this.Controls.Add(this.middlePanel);
             this.Controls.Add(this.courseControl);
             this.Controls.Add(this.teamDescription);
             this.Name = "BaseDialogForm";
             this.Text = "BaseDialogForm";
+            this.Controls.SetChildIndex(this.teamDescription, 0);
+            this.Controls.SetChildIndex(this.courseControl, 0);
+            this.Controls.SetChildIndex(this.middlePanel, 0);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private teamDescription2 teamDescription;
-        private courseControl courseControl;
+        protected teamDescription2 teamDescription;
+        protected courseControl courseControl;
         protected System.Windows.Forms.Panel middlePanel;
     }
 }

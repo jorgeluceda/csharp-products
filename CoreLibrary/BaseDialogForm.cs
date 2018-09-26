@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace CoreLibrary
 {
-    public partial class BaseDialogForm : Form
+    public partial class BaseDialogForm : BaseForm
     {
         public BaseDialogForm()
         {
             InitializeComponent();
             this.middlePanel.BackColor = this.BackColor;                // Middle panel should show background color of parent
             this.middlePanel.BackgroundImage = this.BackgroundImage;    // Middle panel should show background image of parent
+        }
+
+        private void courseControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

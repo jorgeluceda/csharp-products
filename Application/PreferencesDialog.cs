@@ -11,7 +11,7 @@ using CoreLibrary;
 
 namespace Application
 {
-    public partial class PreferencesDialog : BaseForm, ITeam3Interface
+    public partial class PreferencesDialog : BaseDialogForm, ITeam3Interface
     {
         public float ShapeRatio { get; set; }
         public int ShapeWidth { get; set; }
@@ -21,7 +21,9 @@ namespace Application
         public PreferencesDialog()
         {
             InitializeComponent();
-            
+            this.middlePanel.BackColor = Color.Transparent;
+            this.courseControl.BackColor = Color.MediumPurple;
+
         }
 
         /**
