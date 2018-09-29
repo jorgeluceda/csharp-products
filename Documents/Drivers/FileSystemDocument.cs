@@ -42,11 +42,16 @@ namespace SingleDocumentInterface.Documents.Drivers
 
         #region DocumentLocation
 
-        private string documentLocation = "";
-        public string DocumentLocation
+        private int documentLocationX = 0;
+        private int documentLocationY = 0;
+        public Point DocumentLocation
         {
-            get { return this.documentLocation; }
-            set { this.documentLocation = value; }
+            get { return new Point(this.documentLocationX, this.documentLocationY); }
+            set
+            {
+                this.documentLocationX = value.X;
+                this.documentLocationY = value.Y;
+            }
         }
 
         #endregion
@@ -90,7 +95,8 @@ namespace SingleDocumentInterface.Documents.Drivers
         {
             this.argbColor = info.GetInt32("argbColor");
             this.documentTitle = info.GetString("documentTitle");
-            this.documentLocation = info.GetString("documentLocation");
+            this.documentLocationX = info.GetInt32("documentLocationX");
+            this.documentLocationY = info.GetInt32("documentLocationY");
 
             this.fontFamily = info.GetString("fontFamily");
             this.fontSize = (float)info.GetDouble("fontSize");
@@ -103,7 +109,8 @@ namespace SingleDocumentInterface.Documents.Drivers
         {
             info.AddValue("argbColor", this.argbColor);
             info.AddValue("documentTitle", this.documentTitle);
-            info.AddValue("documentLocation", this.documentLocation);
+            info.AddValue("documentLocationX", this.documentLocationX);
+            info.AddValue("documentLocationY", this.documentLocationY);
 
             info.AddValue("fontFamily", this.fontFamily);
             info.AddValue("fontSize", this.fontSize);
