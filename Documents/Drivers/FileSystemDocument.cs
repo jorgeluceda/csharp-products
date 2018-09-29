@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SingleDocumentInterface.Documents.Drivers
 {
     [Serializable]
-    class FileSystemDocument : IDocument
+    public class FileSystemDocument : IDocument, ISerializable
     {
         #region BackColor
 
         private int argbColor = 0;
-
         public Color BackColor
         {
             get
@@ -65,7 +67,7 @@ namespace SingleDocumentInterface.Documents.Drivers
             {
                 this.fontFamily = value.FontFamily.Name;
                 this.fontSize = value.Size;
-                this.fontFamily = this.SerializeFontStyle(value);
+                this.fontStyle = this.SerializeFontStyle(value);
             }
         }
 
@@ -81,6 +83,64 @@ namespace SingleDocumentInterface.Documents.Drivers
         }
 
         #endregion
+
+        public FileSystemDocument() { }
+
+        protected FileSystemDocument(SerializationInfo info, StreamingContext context)
+        {
+            this.argbColor = info.GetInt32("argbColor");
+            this.documentTitle = info.GetString("documentTitle");
+            this.documentLocation = info.GetString("documentLocation");
+
+            this.fontFamily = info.GetString("fontFamily");
+            this.fontSize = (float)info.GetDouble("fontSize");
+            this.fontStyle = info.GetString("fontStyle");
+
+            this.text = info.GetString("text");
+        }
+
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("argbColor", this.argbColor);
+            info.AddValue("documentTitle", this.documentTitle);
+            info.AddValue("documentLocation", this.documentLocation);
+
+            info.AddValue("fontFamily", this.fontFamily);
+            info.AddValue("fontSize", this.fontSize);
+            info.AddValue("fontStyle", this.fontStyle);
+
+            info.AddValue("text", this.text);
+        }
+
+        public IDocument Load(object data)
+        {
+            string filePath = (string)data;
+
+            // Restore from file
+            FileStream stream = File.OpenRead(filePath);
+            var formatter = new BinaryFormatter();
+            var desirializedDocument = (FileSystemDocument)formatter.Deserialize(stream);
+            stream.Close();
+
+            return desirializedDocument;
+        }
+
+        public bool Save(object data)
+        {
+            string filePath = (string)data;
+
+            // Delete old file, if it exists
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            // Persist to file
+            FileStream stream = File.Create(filePath);
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, this);
+            stream.Close();
+
+            return true;
+        }
 
         #region Helpers
 

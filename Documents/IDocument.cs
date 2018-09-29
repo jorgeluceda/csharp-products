@@ -9,5 +9,8 @@ namespace SingleDocumentInterface.Documents
         string DocumentTitle { get; set; }
         Font Font { get; set; }
         string Text { get; set; }
+
+        IDocument Load(object data);
+        bool Save(object data);
     }
 }
