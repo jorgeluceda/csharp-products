@@ -8,8 +8,6 @@ namespace SingleDocumentInterface.Documents
         string DocumentLocation { get; set; }
         string DocumentTitle { get; set; }
         Font Font { get; set; }
-        float FontSize { get; set; }
-        Color FontColor { get; set; }
         string Text { get; set; }
     }
 }
