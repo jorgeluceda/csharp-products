@@ -50,7 +50,7 @@ namespace SingleDocumentInterface.Documents.Drivers
         #endregion
 
         #region Font
-        // fontFamily, size, style, graphicsUnit
+
         private string fontFamily = "Arial";
         private float fontSize = 12.0f;
         private string fontStyle = "R";
@@ -59,30 +59,76 @@ namespace SingleDocumentInterface.Documents.Drivers
         {
             get
             {
-                FontStyle style;
-
-                if (this.fontStyle.Contains("R"))
-                    style = FontStyle.Regular;
-                else
-                {
-                    if(this.fontStyle.Contains("B"))
-                }
-
-                return new Font(this.fontFamily, this.fontSize, style);
+                return new Font(this.fontFamily, this.fontSize, this.DesirializeFontStyle());
             }
-            set { this.documentLocation = value; }
+            set
+            {
+                this.fontFamily = value.FontFamily.Name;
+                this.fontSize = value.Size;
+                this.fontFamily = this.SerializeFontStyle(value);
+            }
         }
 
         #endregion
 
-        
-        public string Text { get; set; }
+        #region Text
+
+        private string text = "";
+        public string Text
+        {
+            get { return this.text; }
+            set { this.text = value; }
+        }
+
+        #endregion
 
         #region Helpers
 
-        private string SetFontStyle(FontStyle style)
+        private string SerializeFontStyle(Font font)
         {
-            if(style == null)
+            string fontStyle = "";
+
+            if (font.Style.Equals(FontStyle.Regular))
+                fontStyle += "R";
+            else
+            {
+                if (font.Bold)
+                    fontStyle += "B";
+                if (font.Italic)
+                    fontStyle += "I";
+                if (font.Strikeout)
+                    fontStyle += "S";
+                if (font.Underline)
+                    fontStyle += "U";
+            }
+
+            return fontStyle;
+        }
+
+        private FontStyle DesirializeFontStyle()
+        {
+            FontStyle? style = null;
+
+            if (this.fontStyle.Contains("B"))
+                this.SetFontStyle(ref style, FontStyle.Bold);
+            if (this.fontStyle.Contains("I"))
+                this.SetFontStyle(ref style, FontStyle.Italic);
+            if (this.fontStyle.Contains("R"))
+                this.SetFontStyle(ref style, FontStyle.Regular);
+            if (this.fontStyle.Contains("S"))
+                this.SetFontStyle(ref style, FontStyle.Strikeout);
+            if (this.fontStyle.Contains("U"))
+                this.SetFontStyle(ref style, FontStyle.Underline);
+
+            return style ?? default(FontStyle);
+        }
+
+        private void SetFontStyle(ref FontStyle? style, FontStyle s)
+        {
+            if (style == null)
+                style = s;
+            else
+                style = style | s;
         }
 
         #endregion
