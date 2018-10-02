@@ -226,5 +226,10 @@ namespace SingleDocumentInterface
                 }
             }
         }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextBox.Paste();
+        }
     }
 }
