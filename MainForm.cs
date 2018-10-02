@@ -12,6 +12,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 namespace SingleDocumentInterface
 {
     public partial class MainForm : System.Windows.Forms.Form
@@ -179,9 +180,26 @@ namespace SingleDocumentInterface
                 return;
             }
 
+
             Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
             this.TextBox.Text = "";                     // Empty the text in the text editor
             this.StatusLabel.Text = "Cut";
+
+            if(this.TextBox.SelectionLength > 0)
+            {
+                int start = this.TextBox.SelectionStart;
+                int length = this.TextBox.SelectionLength;
+
+                Clipboard.SetText(this.TextBox.SelectedText);
+                this.TextBox.Text = this.TextBox.Text.Remove(start, length);
+                this.TextBox.SelectionStart = start;
+            }
+            else
+            {
+                Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
+                this.TextBox.Text = "";                     // Empty the text in the text editor
+            }
+
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,8 +210,20 @@ namespace SingleDocumentInterface
                 return;
             }
 
+
             Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
             this.StatusLabel.Text = "Copied";
+
+            if(this.TextBox.SelectionLength > 0)
+            {
+                Clipboard.SetText(this.TextBox.SelectedText);
+            }
+            else
+            {
+                Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
+
+            }
+
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,11 +234,19 @@ namespace SingleDocumentInterface
                 return;
             }
 
+
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
             this.StatusLabel.Text = "Pasted";
+            int tempStart = this.TextBox.SelectionStart;
+           
+            this.TextBox.Text = this.TextBox.Text.Insert(this.TextBox.SelectionStart, Clipboard.GetText());
+            this.TextBox.SelectionStart = tempStart;
+            
         }
 
         #endregion
+
+        #region PreferencesMenuItems
 
         /**
          *  Click handler for the Preferences -> Font MainMenu item. Opens an instance of the FontDialog class
@@ -232,6 +270,9 @@ namespace SingleDocumentInterface
         {
             TextBox.Undo();
         }
+
+        #endregion
+
 
         /**
          *  Handler for TextChanged event for the text editor. Tacks an asterisk onto the application's Title Bar Text.

@@ -190,6 +190,7 @@
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+
             this.fontToolStripMenuItem.Size = new System.Drawing.Size(392, 46);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
@@ -197,12 +198,15 @@
             // backgroundColorToolStripMenuItem
             // 
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
+
             this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(392, 46);
+
             this.backgroundColorToolStripMenuItem.Text = "Background  Color";
             // 
             // textColorToolStripMenuItem
             // 
             this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
+
             this.textColorToolStripMenuItem.Size = new System.Drawing.Size(392, 46);
             this.textColorToolStripMenuItem.Text = "Text Color";
             // 
