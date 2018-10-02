@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleDocumentInterface", "SingleDocumentInterface.csproj", "{DD67FFB9-F538-44CB-BB2C-388753906828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLibrary", "..\..\..\Users\dmorr\OneDrive\Documents\COP4226\CoreLibrary\CoreLibrary.csproj", "{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLibrary", "CoreLibrary\CoreLibrary.csproj", "{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
