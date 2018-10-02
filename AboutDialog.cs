@@ -9,13 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CoreLibrary;
 
-
-
 namespace SingleDocumentInterface
 {
-    public partial class OathDialog : BaseDialogForm
+    public partial class AboutDialog : BaseDialogForm
     {
-        public OathDialog()
+        public AboutDialog()
         {
             InitializeComponent();
         }
