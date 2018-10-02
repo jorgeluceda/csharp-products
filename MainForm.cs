@@ -199,5 +199,10 @@ namespace SingleDocumentInterface
 
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
         }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

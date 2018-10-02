@@ -47,6 +47,7 @@
             this.documentSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             this.newToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveToolStripMenuItem1,
-            this.saveAsToolStripMenuItem});
+            this.saveAsToolStripMenuItem,
+            this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
@@ -199,6 +201,13 @@
             this.documentTitleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.documentTitleToolStripMenuItem.Text = "Document Title";
             // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,7 +218,7 @@
             this.MainMenuStrip = this.MainMenu;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Notepad--";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -238,6 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem documentSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentLocationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentTitleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }
 
