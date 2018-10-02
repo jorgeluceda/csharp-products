@@ -19,10 +19,11 @@ namespace SingleDocumentInterface
         // The Document itself
         protected Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
 
+        protected PreferencesDialog prefDialog = null;
         public MainForm()
         {
             InitializeComponent();
-            
+
         }
 
         #region FileMainMenuItems
@@ -58,7 +59,7 @@ namespace SingleDocumentInterface
                 {
                     IFormatter formatter = new BinaryFormatter();
 
-                    Documents.Drivers.FileSystemDocument document = 
+                    Documents.Drivers.FileSystemDocument document =
                         (Documents.Drivers.FileSystemDocument)formatter.Deserialize(stream);
 
                     document.FilePath = dlg.FileName;
@@ -83,8 +84,8 @@ namespace SingleDocumentInterface
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // If the document is new, i.e. has never been saved before
-            if(string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
-            { 
+            if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
+            {
                 using (SaveFileDialog dlg = new SaveFileDialog())
                 {
                     if (dlg.ShowDialog() != DialogResult.OK) return;
@@ -113,7 +114,7 @@ namespace SingleDocumentInterface
             // If the document not new, and has been saved before
             else
             {
-                using(Stream stream = new FileStream(this.document.FilePath, FileMode.Create, FileAccess.Write))
+                using (Stream stream = new FileStream(this.document.FilePath, FileMode.Create, FileAccess.Write))
                 {
                     IFormatter formatter = new BinaryFormatter();
 
@@ -126,7 +127,7 @@ namespace SingleDocumentInterface
 
                 this.Text = this.document.DocumentTitle;
             }
-            
+
         }
 
         /**
@@ -215,7 +216,7 @@ namespace SingleDocumentInterface
          */
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(FontDialog dlg = new FontDialog())
+            using (FontDialog dlg = new FontDialog())
             {
                 dlg.ShowColor = true;
                 dlg.Font = document.Font;
@@ -232,7 +233,7 @@ namespace SingleDocumentInterface
          */
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
+            if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
             {
                 this.Text = "Notepad-- *";
             }
@@ -241,5 +242,39 @@ namespace SingleDocumentInterface
                 this.Text = this.document.DocumentTitle + "*";
             }
         }
+
+        #region Preferences Dialog items and events
+        private void openModelesslyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.prefDialog = new PreferencesDialog();
+
+            // Update the properties for the dialog before it's shown
+            this.prefDialog.BackColor = this.document.BackColor;
+            this.prefDialog.TextColor = this.document.TextColor;
+            this.prefDialog.Font = this.document.Font;
+            this.prefDialog.DocumentSize = this.document.DocumentSize;
+            this.prefDialog.DocumentLocation = this.document.DocumentLocation;
+            this.prefDialog.DocumentTitle = this.document.DocumentTitle;
+
+            // Subscribe to the dialog's Apply event
+            this.prefDialog.Apply += preferences_Apply;
+
+            // Open Modelessly
+            this.prefDialog.Show(this);
+        }
+
+        void preferences_Apply(object sender, EventArgs e)
+        {
+            PreferencesDialog preferencesDlg = sender as PreferencesDialog;
+
+            this.document.BackColor = this.prefDialog.BackColor;
+            this.document.Font = this.prefDialog.Font;
+            this.document.TextColor = this.prefDialog.TextColor;
+            this.document.DocumentSize = this.prefDialog.DocumentSize;
+            this.document.DocumentLocation = this.prefDialog.DocumentLocation;
+            this.document.DocumentTitle = this.prefDialog.DocumentTitle;
+        }
+        #endregion
+
     }
 }
