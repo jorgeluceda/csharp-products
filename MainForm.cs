@@ -41,7 +41,7 @@ namespace SingleDocumentInterface
             this.document = document;
             this.TextBox.Text = this.document.Text;
             this.Text = "Notepad--";
-            this.StatusLabel.Text = "New file";
+            this.StatusLabel.Text = "New File";
         }
 
         /**
@@ -71,7 +71,7 @@ namespace SingleDocumentInterface
                     // Set this instance of the application's document properties to the ones just retrieved from
                     // deserialization - needed for detecting if a file has been saved before in File->Save
                     this.document = document;
-                    this.StatusLabel.Text = "Opening file";
+                    this.StatusLabel.Text = "File opened: "+document.DocumentTitle;
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace SingleDocumentInterface
 
                         formatter.Serialize(stream, document);
                         this.document = document;
-                        this.StatusLabel.Text = "saved";
+                        this.StatusLabel.Text = "Saved";
                     }
 
                 }
@@ -181,7 +181,7 @@ namespace SingleDocumentInterface
 
             Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
             this.TextBox.Text = "";                     // Empty the text in the text editor
-            this.StatusLabel.Text = "cut";
+            this.StatusLabel.Text = "Cut";
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace SingleDocumentInterface
             }
 
             Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-            this.StatusLabel.Text = "copied";
+            this.StatusLabel.Text = "Copied";
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace SingleDocumentInterface
             }
 
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
-            this.StatusLabel.Text = "pasted";
+            this.StatusLabel.Text = "Pasted";
         }
 
         #endregion
