@@ -11,6 +11,7 @@ using SingleDocumentInterface;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Preferences;
 
 namespace SingleDocumentInterface
 {
@@ -18,11 +19,27 @@ namespace SingleDocumentInterface
     {
         // The Document itself
         protected Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
+        
+        // The Preferences Dialog
+        private PreferencesDialog preferencesDialog = null;
 
         public MainForm()
         {
             InitializeComponent();
             
+        }
+
+        void preferences_Apply(object sender, EventArgs e)
+        {
+            PreferencesDialog preferencesDlg = sender as PreferencesDialog;
+
+            this.document.BackColor = this.preferencesDialog.BackColor;
+            this.document.Font = this.preferencesDialog.Font;
+            this.document.TextColor = this.preferencesDialog.TextColor;
+            this.document.DocumentSize = this.preferencesDialog.DocumentSize;
+            this.document.DocumentLocation = this.preferencesDialog.DocumentLocation;
+            this.document.DocumentTitle = this.preferencesDialog.DocumentTitle;
+
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -241,6 +258,25 @@ namespace SingleDocumentInterface
             }
 
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
+        }
+
+        private void openModelessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.preferencesDialog = new PreferencesDialog();
+
+            // Update the properties for the dialog before it's shown
+            this.preferencesDialog.BackColor = this.document.BackColor;
+            this.preferencesDialog.Font = this.document.Font;
+            this.preferencesDialog.TextColor = this.document.TextColor;
+            this.preferencesDialog.DocumentSize = this.document.DocumentSize;
+            this.preferencesDialog.DocumentLocation = this.document.DocumentLocation;
+            this.preferencesDialog.DocumentTitle = this.document.DocumentTitle;
+
+            // Subscribe to the dialog's Apply event
+            this.preferencesDialog.Apply += preferences_Apply;
+
+            // Open Modelessly
+            this.preferencesDialog.Show(this);
         }
     }
 }
