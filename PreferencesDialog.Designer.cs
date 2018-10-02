@@ -38,7 +38,6 @@ namespace SingleDocumentInterface
             this.preferencesDocumentSizeTextBox = new System.Windows.Forms.TextBox();
             this.preferencesDocumentLocationTextBox = new System.Windows.Forms.TextBox();
             this.preferencesDocumentTitleTextBox = new System.Windows.Forms.TextBox();
-
             this.preferencesBackColorLabel = new System.Windows.Forms.Label();
             this.preferencesFontLabel = new System.Windows.Forms.Label();
             this.preferencesTextColorLabel = new System.Windows.Forms.Label();
@@ -135,7 +134,7 @@ namespace SingleDocumentInterface
             // preferencesBackColorLabel
             // 
             this.preferencesBackColorLabel.AutoSize = true;
-            this.preferencesBackColorLabel.Location = new System.Drawing.Point(7, 23);
+            this.preferencesBackColorLabel.Location = new System.Drawing.Point(11, 27);
             this.preferencesBackColorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesBackColorLabel.Name = "preferencesBackColorLabel";
             this.preferencesBackColorLabel.Size = new System.Drawing.Size(93, 17);
@@ -145,7 +144,7 @@ namespace SingleDocumentInterface
             // preferencesFontLabel
             // 
             this.preferencesFontLabel.AutoSize = true;
-            this.preferencesFontLabel.Location = new System.Drawing.Point(7, 55);
+            this.preferencesFontLabel.Location = new System.Drawing.Point(11, 59);
             this.preferencesFontLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesFontLabel.Name = "preferencesFontLabel";
             this.preferencesFontLabel.Size = new System.Drawing.Size(58, 17);
@@ -155,7 +154,7 @@ namespace SingleDocumentInterface
             // preferencesTextColorLabel
             // 
             this.preferencesTextColorLabel.AutoSize = true;
-            this.preferencesTextColorLabel.Location = new System.Drawing.Point(8, 86);
+            this.preferencesTextColorLabel.Location = new System.Drawing.Point(12, 90);
             this.preferencesTextColorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesTextColorLabel.Name = "preferencesTextColorLabel";
             this.preferencesTextColorLabel.Size = new System.Drawing.Size(67, 17);
@@ -165,7 +164,7 @@ namespace SingleDocumentInterface
             // preferencesDocumentSizeLabel
             // 
             this.preferencesDocumentSizeLabel.AutoSize = true;
-            this.preferencesDocumentSizeLabel.Location = new System.Drawing.Point(276, 23);
+            this.preferencesDocumentSizeLabel.Location = new System.Drawing.Point(280, 27);
             this.preferencesDocumentSizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesDocumentSizeLabel.Name = "preferencesDocumentSizeLabel";
             this.preferencesDocumentSizeLabel.Size = new System.Drawing.Size(103, 17);
@@ -177,7 +176,7 @@ namespace SingleDocumentInterface
             // preferencesDocumentLocationLabel
             // 
             this.preferencesDocumentLocationLabel.AutoSize = true;
-            this.preferencesDocumentLocationLabel.Location = new System.Drawing.Point(277, 86);
+            this.preferencesDocumentLocationLabel.Location = new System.Drawing.Point(281, 90);
             this.preferencesDocumentLocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesDocumentLocationLabel.Name = "preferencesDocumentLocationLabel";
             this.preferencesDocumentLocationLabel.Size = new System.Drawing.Size(130, 17);
@@ -187,7 +186,7 @@ namespace SingleDocumentInterface
             // preferencesDocumentTitleLabel
             // 
             this.preferencesDocumentTitleLabel.AutoSize = true;
-            this.preferencesDocumentTitleLabel.Location = new System.Drawing.Point(276, 55);
+            this.preferencesDocumentTitleLabel.Location = new System.Drawing.Point(280, 59);
             this.preferencesDocumentTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preferencesDocumentTitleLabel.Name = "preferencesDocumentTitleLabel";
             this.preferencesDocumentTitleLabel.Size = new System.Drawing.Size(103, 17);
@@ -196,6 +195,7 @@ namespace SingleDocumentInterface
             // 
             // preferencesPanel
             // 
+            this.preferencesPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.preferencesPanel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.preferencesPanel.Controls.Add(this.preferencesDocumentTitleTextBox);
             this.preferencesPanel.Controls.Add(this.preferencesDocumentSizeTextBox);
@@ -211,7 +211,9 @@ namespace SingleDocumentInterface
             this.preferencesPanel.Controls.Add(this.preferencesFontTextBox);
             this.preferencesPanel.Location = new System.Drawing.Point(13, 73);
             this.preferencesPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.preferencesPanel.MinimumSize = new System.Drawing.Size(570, 133);
             this.preferencesPanel.Name = "preferencesPanel";
+            this.preferencesPanel.Padding = new System.Windows.Forms.Padding(4);
             this.preferencesPanel.Size = new System.Drawing.Size(570, 133);
             this.preferencesPanel.TabIndex = 12;
             // 
@@ -279,7 +281,7 @@ namespace SingleDocumentInterface
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(352, 299);
+            this.MinimumSize = new System.Drawing.Size(612, 361);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
             this.Load += new System.EventHandler(this.PreferencesDialog_Load);
