@@ -43,6 +43,10 @@
             this.TextBox = new System.Windows.Forms.TextBox();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,7 +138,11 @@
             // 
             this.preferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fontToolStripMenuItem,
-            this.backgroundColorToolStripMenuItem});
+            this.backgroundColorToolStripMenuItem,
+            this.textColorToolStripMenuItem,
+            this.documentSizeToolStripMenuItem,
+            this.documentLocationToolStripMenuItem,
+            this.documentTitleToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.preferencesToolStripMenuItem.Text = "Preferences";
@@ -166,6 +174,30 @@
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
             this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.backgroundColorToolStripMenuItem.Text = "Background  Color";
+            // 
+            // textColorToolStripMenuItem
+            // 
+            this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
+            this.textColorToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.textColorToolStripMenuItem.Text = "Text Color";
+            // 
+            // documentSizeToolStripMenuItem
+            // 
+            this.documentSizeToolStripMenuItem.Name = "documentSizeToolStripMenuItem";
+            this.documentSizeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.documentSizeToolStripMenuItem.Text = "Document Size";
+            // 
+            // documentLocationToolStripMenuItem
+            // 
+            this.documentLocationToolStripMenuItem.Name = "documentLocationToolStripMenuItem";
+            this.documentLocationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.documentLocationToolStripMenuItem.Text = "Document Location";
+            // 
+            // documentTitleToolStripMenuItem
+            // 
+            this.documentTitleToolStripMenuItem.Name = "documentTitleToolStripMenuItem";
+            this.documentTitleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.documentTitleToolStripMenuItem.Text = "Document Title";
             // 
             // MainForm
             // 
@@ -202,6 +234,10 @@
         private System.Windows.Forms.TextBox TextBox;
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentSizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentLocationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentTitleToolStripMenuItem;
     }
 }
 

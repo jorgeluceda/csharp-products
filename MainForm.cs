@@ -45,12 +45,19 @@ namespace SingleDocumentInterface
                     new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read))
                 {
                     IFormatter formatter = new BinaryFormatter();
+
                     Documents.Drivers.FileSystemDocument document = 
                         (Documents.Drivers.FileSystemDocument)formatter.Deserialize(stream);
+
+                    document.FilePath = dlg.FileName;
 
                     this.TextBox.Text = document.Text;
                     this.Location = document.DocumentLocation;
                     this.Text = document.DocumentTitle;
+
+                    // Set this instance of the application's document properties to the ones just retrieved from
+                    // deserialization - needed for detecting if a file has been saved before in File->Save
+                    this.document = document;
                 }
             }
         }
@@ -62,22 +69,50 @@ namespace SingleDocumentInterface
          */
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog dlg = new SaveFileDialog())
-            {
-                if (dlg.ShowDialog() != DialogResult.OK) return;
+            // If the document is new, i.e. has never been saved before
+            if(string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
+            { 
+                using (SaveFileDialog dlg = new SaveFileDialog())
+                {
+                    if (dlg.ShowDialog() != DialogResult.OK) return;
 
-                using (Stream stream =
-                    new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                    using (Stream stream =
+                        new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+
+                        Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
+
+                        document.Text = this.TextBox.Text;
+                        document.DocumentLocation = this.Location;
+                        document.DocumentTitle = Path.GetFileName(dlg.FileName);
+                        document.FilePath = dlg.FileName;
+
+                        formatter.Serialize(stream, document);
+                        this.document = document;
+                    }
+
+                }
+
+                this.Text = this.document.DocumentTitle;
+            }
+            // If the document not new, and has been saved before
+            else
+            {
+                using(Stream stream = new FileStream(this.document.FilePath, FileMode.Create, FileAccess.Write))
                 {
                     IFormatter formatter = new BinaryFormatter();
 
                     this.document.Text = this.TextBox.Text;
                     this.document.DocumentLocation = this.Location;
-                    this.document.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    this.document.DocumentTitle = Path.GetFileName(document.FilePath);
 
                     formatter.Serialize(stream, document);
                 }
+
+                this.Text = this.document.DocumentTitle;
             }
+            
         }
 
         /**
@@ -100,10 +135,13 @@ namespace SingleDocumentInterface
                     this.document.Text = this.TextBox.Text;
                     this.document.DocumentLocation = this.Location;
                     this.document.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    this.document.FilePath = dlg.FileName;
 
-                    formatter.Serialize(stream, document);
+                    formatter.Serialize(stream, this.document);
                 }
             }
+
+            this.Text = this.document.DocumentTitle;
         }
 
         /**
