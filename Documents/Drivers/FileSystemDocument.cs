@@ -29,6 +29,26 @@ namespace SingleDocumentInterface.Documents.Drivers
 
         #endregion
 
+        #region TextColor
+
+        private int argbColor2 = 0;
+        public Color TextColor
+        {
+            get
+            {
+                if (this.argbColor2 == 0)
+                    return Color.Black;
+
+                return Color.FromArgb(this.argbColor2);
+            }
+            set
+            {
+                this.argbColor2 = value.ToArgb();
+            }
+        }
+
+        #endregion
+
         #region DocumentTitle
 
         private string documentTitle = "";
@@ -51,6 +71,22 @@ namespace SingleDocumentInterface.Documents.Drivers
             {
                 this.documentLocationX = value.X;
                 this.documentLocationY = value.Y;
+            }
+        }
+
+        #endregion
+
+        #region DocumentSize
+
+        private int documentHeight = 0;
+        private int documentWidth = 0;
+        public Size DocumentSize
+        {
+            get { return new Size(this.documentWidth, this.documentHeight); }
+            set
+            {
+                this.documentHeight = value.Height;
+                this.documentWidth = value.Width;
             }
         }
 
@@ -85,6 +121,17 @@ namespace SingleDocumentInterface.Documents.Drivers
         {
             get { return this.text; }
             set { this.text = value; }
+        }
+
+        #endregion
+
+        #region FilePath
+
+        private string filePath = "";
+        public string FilePath
+        {
+            get { return this.filePath; }
+            set { this.filePath = value; }
         }
 
         #endregion
