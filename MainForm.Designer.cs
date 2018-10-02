@@ -239,8 +239,13 @@
             this.TextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
+
+
+
             this.TextBox.Size = new System.Drawing.Size(1662, 722);
+
             this.TextBox.TabIndex = 1;
+            this.TextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ToolStrip
             // 
@@ -362,8 +367,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
+  
+
             this.ClientSize = new System.Drawing.Size(1662, 823);
             this.Controls.Add(this.statusStrip1);
+
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.MainMenu);

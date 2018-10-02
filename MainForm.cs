@@ -226,5 +226,20 @@ namespace SingleDocumentInterface
                 }
             }
         }
+
+        /**
+         *  Handler for TextChanged event for the text editor. Tacks an asterisk onto the application's Title Bar Text.
+         */
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
+            {
+                this.Text = "Notepad-- *";
+            }
+            else
+            {
+                this.Text = this.document.DocumentTitle + "*";
+            }
+        }
     }
 }
