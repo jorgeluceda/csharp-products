@@ -25,10 +25,21 @@ namespace SingleDocumentInterface
             
         }
 
+        #region FileMainMenuItems
+
+        /**
+         *  Click handler for the File -> New MainMenu item. Implements creating a new file/document by creating a 
+         *  new instance of the FileSystemDocument class and setting this application's document to the newly 
+         *  created document. The current application insance's TextBox and Text (title bar) are reset. Setting this
+         *  application insance's document to the newly created document also resets the FilePath associated with the
+         *  document.
+         */
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
             this.document = document;
+            this.TextBox.Text = this.document.Text;
+            this.Text = "Notepad--";
         }
 
         /**
@@ -144,24 +155,14 @@ namespace SingleDocumentInterface
             this.Text = this.document.DocumentTitle;
         }
 
-        /**
-         *  Click handler for the Preferences -> Font MainMenu item. Opens an instance of the FontDialog class
-         *  provided by .NET. Sets the document's Font property to whichever Font is set in the FontDialog.
-         */
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(FontDialog dlg = new FontDialog())
-            {
-                dlg.ShowColor = true;
-                dlg.Font = document.Font;
-
-                if (dlg.ShowDialog() != DialogResult.Cancel)
-                {
-                    document.Font = dlg.Font;
-                }
-            }
+            this.Close();
         }
 
+        #endregion
+
+        #region EditMainMenuItems
         /**
          * Click handler for the Edit -> Cut MainMenu item. Implements cutting text from the text editor into the
          * Clipboard.
@@ -200,59 +201,24 @@ namespace SingleDocumentInterface
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        
-        private void newToolStripButton_Click(object sender, EventArgs e)
-        {
+        #endregion
 
-        }
-
-        private void cutToolStripButton_Click(object sender, EventArgs e)
+        /**
+         *  Click handler for the Preferences -> Font MainMenu item. Opens an instance of the FontDialog class
+         *  provided by .NET. Sets the document's Font property to whichever Font is set in the FontDialog.
+         */
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // If the text editor is empty
-            if (string.IsNullOrWhiteSpace(this.TextBox.Text) || string.IsNullOrEmpty(this.TextBox.Text))
+            using(FontDialog dlg = new FontDialog())
             {
-                return;
+                dlg.ShowColor = true;
+                dlg.Font = document.Font;
+
+                if (dlg.ShowDialog() != DialogResult.Cancel)
+                {
+                    document.Font = dlg.Font;
+                }
             }
-
-            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-            this.TextBox.Text = "";                     // Empty the text in the text editor
-        }
-
-        private void copyToolStripButton_Click(object sender, EventArgs e)
-        {
-            // If the text editor is empty
-            if (string.IsNullOrWhiteSpace(this.TextBox.Text) || string.IsNullOrEmpty(this.TextBox.Text))
-            {
-                return;
-            }
-
-            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-        }
-
-        private void pasteToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (!Clipboard.ContainsText())
-            {
-                return;
-            }
-
-            this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
-        }
-
-        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OathDialog dlg = new OathDialog();
-            dlg.Show();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutDialog dlg = new AboutDialog();
-            dlg.Show();
         }
     }
 }
