@@ -245,9 +245,10 @@ namespace SingleDocumentInterface
             }
         }
 
+        //Displays Closing Form if text has not been save and it is not empty.
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (changedText || !string.IsNullOrEmpty(this.TextBox.Text)) {
+            if (changedText && !string.IsNullOrEmpty(this.TextBox.Text)) {
                 DialogResult result = MessageBox.Show("Are you sure you want to exit the application without saving?",
                     "Closing Application", MessageBoxButtons.YesNo);
 
