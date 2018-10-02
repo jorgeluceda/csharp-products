@@ -227,6 +227,11 @@ namespace SingleDocumentInterface
                 }
             }
         }
+        
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TextBox.Undo();
+        }
 
         /**
          *  Handler for TextChanged event for the text editor. Tacks an asterisk onto the application's Title Bar Text.
@@ -275,6 +280,5 @@ namespace SingleDocumentInterface
             this.document.DocumentTitle = this.prefDialog.DocumentTitle;
         }
         #endregion
-
     }
 }
