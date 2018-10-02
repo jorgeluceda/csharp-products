@@ -123,5 +123,43 @@ namespace SingleDocumentInterface
                 }
             }
         }
+
+        /**
+         * Click handler for the Edit -> Cut MainMenu item. Implements cutting text from the text editor into the
+         * Clipboard.
+         */
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the text editor is empty
+            if (string.IsNullOrWhiteSpace(this.TextBox.Text) || string.IsNullOrEmpty(this.TextBox.Text))
+            {
+                return;
+            }
+
+            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
+            this.TextBox.Text = "";                     // Empty the text in the text editor
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the text editor is empty
+            if (string.IsNullOrWhiteSpace(this.TextBox.Text) || string.IsNullOrEmpty(this.TextBox.Text))
+            {
+                return;
+            }
+
+            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the clipboard is empty, return
+            if (!Clipboard.ContainsText())
+            {
+                return;
+            }
+
+            this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
+        }
     }
 }
