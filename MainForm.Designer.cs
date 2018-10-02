@@ -234,8 +234,9 @@
             this.TextBox.Location = new System.Drawing.Point(0, 75);
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(831, 350);
+            this.TextBox.Size = new System.Drawing.Size(831, 389);
             this.TextBox.TabIndex = 1;
+            this.TextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ToolStrip
             // 
@@ -340,7 +341,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 425);
+            this.ClientSize = new System.Drawing.Size(831, 464);
             this.Controls.Add(this.TextBox);
             this.Controls.Add(this.ToolStrip);
             this.Controls.Add(this.MainMenu);
