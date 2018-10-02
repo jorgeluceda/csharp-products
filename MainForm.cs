@@ -242,5 +242,17 @@ namespace SingleDocumentInterface
 
             this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
         }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();
+            dlg.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Show();
+        }
     }
 }
