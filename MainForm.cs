@@ -19,7 +19,7 @@ namespace SingleDocumentInterface
     {
         // The Document itself
         protected Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
-
+        private bool changedText = false;
         protected PreferencesDialog prefDialog = null;
         public MainForm()
         {
@@ -105,7 +105,9 @@ namespace SingleDocumentInterface
 
                         formatter.Serialize(stream, document);
                         this.document = document;
-                        this.StatusLabel.Text = "Saved";
+                        changedText = false;
+                        this.StatusLabel.Text = "saved";
+
                     }
 
                 }
@@ -125,7 +127,7 @@ namespace SingleDocumentInterface
 
                     formatter.Serialize(stream, document);
                 }
-
+                changedText = false;
                 this.Text = this.document.DocumentTitle;
             }
 
@@ -152,7 +154,7 @@ namespace SingleDocumentInterface
                     this.document.DocumentLocation = this.Location;
                     this.document.DocumentTitle = Path.GetFileName(dlg.FileName);
                     this.document.FilePath = dlg.FileName;
-
+                    changedText = false;
                     formatter.Serialize(stream, this.document);
                 }
             }
@@ -279,6 +281,7 @@ namespace SingleDocumentInterface
          */
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
+            changedText = true;
             if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
             {
                 this.Text = "Notepad-- *";
@@ -321,5 +324,19 @@ namespace SingleDocumentInterface
             this.document.DocumentTitle = this.prefDialog.DocumentTitle;
         }
         #endregion
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changedText && !string.IsNullOrEmpty(this.TextBox.Text))
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to exit the application without saving?",
+                    "Closing Application", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }
