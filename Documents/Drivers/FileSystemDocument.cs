@@ -126,10 +126,10 @@ namespace SingleDocumentInterface.Documents.Drivers
             // Restore from file
             FileStream stream = File.OpenRead(filePath);
             var formatter = new BinaryFormatter();
-            var desirializedDocument = (FileSystemDocument)formatter.Deserialize(stream);
+            var deserializedDocument = (FileSystemDocument)formatter.Deserialize(stream);
             stream.Close();
 
-            return desirializedDocument;
+            return deserializedDocument;
         }
 
         public bool Save(object data)
