@@ -37,10 +37,19 @@ namespace SingleDocumentInterface
 
         private void PreferencesDialog_Load(object sender, EventArgs e)
         {
-            //initializing values
-            //preferencesWidthTextBox.Text = Properties.Settings.Default.PreferredWidth.ToString();
-            //preferencesHeightTextBox.Text = Properties.Settings.Default.PreferredHeight.ToString();
-            //preferencesRatioTextBox.Text = Properties.Settings.Default.PreferredRatio.ToString();
+            if (TextColor.GetBrightness() <= 0.6f)
+            {
+                this.TextColorButton.ForeColor = Color.White;
+            }
+
+            if(BackColor.GetBrightness() <= 0.6f)
+            {
+                this.BackColorButton.ForeColor = Color.White;
+            }
+            this.TextColorButton.BackColor = TextColor;
+            this.BackColorButton.BackColor = BackColor;
+            this.TextFontButton.Font = Font;
+           
         }
         /**
          *  OK button click handler for PreferencesDialog
@@ -66,14 +75,16 @@ namespace SingleDocumentInterface
             {
                 if (this.ValidateChildren())
                 {
-                    //ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
-                    //ShapeWidth = int.Parse(this.preferencesBackColor.Text);
-                    //ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
-                    //SetPreferencesValues();
-                    if (!this.Modal)
-                    {
-                        Apply(this, EventArgs.Empty);
-                    }
+                    TextColor = TextColorButton.BackColor;
+                    BackColor = TextColorButton.BackColor;
+                    Font = TextFontButton.Font;
+                    DocumentTitle = DocumentTitleTextBox.Text;
+                    DocumentSize = new Size(int.Parse(DocumentSizeWidthTextBox.Text), 
+                                            int.Parse(DocumentSizeHeightTextBox.Text));
+                    DocumentLocation = new Point(int.Parse(DocumentLocationXTextBox.Text),
+                                                    int.Parse(DocumentLocationYTextBox.Text));
+
+                    Apply(this, EventArgs.Empty);
                 }
             }
         }
@@ -86,15 +97,6 @@ namespace SingleDocumentInterface
             this.Close();
         }
 
-        public void setRatio()
-        {
-            String width = this.preferencesBackColorTextBox.Text;
-            String height = this.preferencesFontTextBox.Text;
-
-            //if ( (width != null && width.All(char.IsDigit) && width.Length != 0) &&
-              //   (height != null && height.All(char.IsDigit) && height.Length != 0) )
-                //ShapeRatio = float.Parse(width) / float.Parse(height);
-        }
 
         private void validateNumberField(TextBox textBox, System.ComponentModel.CancelEventArgs e, double min, double max)
         {
@@ -118,6 +120,8 @@ namespace SingleDocumentInterface
             }
         }
 
+
+        /* TODO: VALIDATION 
         private void preferencesBackColor_Validating(object sender, CancelEventArgs e)
         {
             validateNumberField(preferencesBackColorTextBox, e, 10, 700);
@@ -133,5 +137,50 @@ namespace SingleDocumentInterface
             validateNumberField(preferencesTextColorTextBox, e, 0.1, 100);
         }
 
+        */
+
+        private void BackColorButton_Click(object sender, EventArgs e)
+        {
+            //Show the dialog
+            DialogResult result = preferencesBackColorDialog.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                //Get color
+                Color color = preferencesBackColorDialog.Color;
+                //set Color properties
+                this.BackColorButton.BackColor = color;
+            }
+
+        }
+
+        private void TextFontButton_Click(object sender, EventArgs e)
+        {
+            // Show the dialog.
+            DialogResult result = preferencesFontDialog.ShowDialog();
+            // See if OK was pressed.
+            if (result == DialogResult.OK)
+            {
+                // Get Font.
+                Font font = preferencesFontDialog.Font;
+                // Set TextBox properties.
+                this.TextFontButton.Font = font;
+            }
+        }
+
+        private void TextColorButton_Click(object sender, EventArgs e)
+        {
+            //Show the dialog
+            DialogResult result = preferencesTextColorDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                //Get color
+                Color color = preferencesTextColorDialog.Color;
+                //set Color properties
+                this.TextColorButton.BackColor = color;
+            }
+
+        }
     }
 }
