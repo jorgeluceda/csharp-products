@@ -51,12 +51,12 @@ namespace SingleDocumentInterface
 
 
             //Preferences Submenu
-            helpItems.Add("Font Submenu","Opens Font Dialog. It allows to set a different font from a Font's List");
+            /*helpItems.Add("Font Submenu","Opens Font Dialog. It allows to set a different font from a Font's List");
             helpItems.Add("Backgrpound Color Submenu", "Opens Color Dialog. It allows to set the Document's background color");
             helpItems.Add("Text Color Submenu", "Opens Color Dialog. It allows to set the Font's color");
             helpItems.Add("Document Size Submenu", "Sets the Document's dimensions");
             helpItems.Add("Document Title Submenu", "Sets the Title of the Document");
-            helpItems.Add("Document Location Submenu", "Sets the position of the Document.");
+            helpItems.Add("Document Location Submenu", "Sets the position of the Document.");*/
             helpItems.Add("Open Modelessly Submenu", "Opens the Preferences Dialog Modelessly");
 
 
