@@ -56,6 +56,9 @@ namespace SingleDocumentInterface
             this.preferencesFontDialog = new System.Windows.Forms.FontDialog();
             this.preferencesBackColorDialog = new System.Windows.Forms.ColorDialog();
             this.preferencesTextColorDialog = new System.Windows.Forms.ColorDialog();
+            this.documentTitleActualLabel = new System.Windows.Forms.Label();
+            this.DocumentTitleLabel = new System.Windows.Forms.Label();
+            this.TextTitleLabel = new System.Windows.Forms.Label();
             this.preferencesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +99,6 @@ namespace SingleDocumentInterface
             this.DocumentSizeWidthTextBox.Size = new System.Drawing.Size(132, 22);
             this.DocumentSizeWidthTextBox.TabIndex = 0;
             this.ttToolTip.SetToolTip(this.DocumentSizeWidthTextBox, "Height of the child windows. Enter an integer [10 - 700]");
-
             // 
             // preferencesDocumentLocationLabel
             // 
@@ -122,6 +124,9 @@ namespace SingleDocumentInterface
             // 
             this.preferencesPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.preferencesPanel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.preferencesPanel.Controls.Add(this.TextTitleLabel);
+            this.preferencesPanel.Controls.Add(this.DocumentTitleLabel);
+            this.preferencesPanel.Controls.Add(this.documentTitleActualLabel);
             this.preferencesPanel.Controls.Add(this.preferencesYLabel);
             this.preferencesPanel.Controls.Add(this.preferencesXLabel);
             this.preferencesPanel.Controls.Add(this.DocumentLocationYTextBox);
@@ -304,6 +309,38 @@ namespace SingleDocumentInterface
             // 
             this.preferencesFontDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
+            // documentTitleActualLabel
+            // 
+            this.documentTitleActualLabel.AutoSize = true;
+            this.documentTitleActualLabel.Location = new System.Drawing.Point(245, 53);
+            this.documentTitleActualLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.documentTitleActualLabel.Name = "documentTitleActualLabel";
+            this.documentTitleActualLabel.Size = new System.Drawing.Size(103, 17);
+            this.documentTitleActualLabel.TabIndex = 29;
+            this.documentTitleActualLabel.Text = "Document Title";
+            // 
+            // DocumentTitleLabel
+            // 
+            this.DocumentTitleLabel.AutoSize = true;
+            this.DocumentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DocumentTitleLabel.Location = new System.Drawing.Point(235, 15);
+            this.DocumentTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.DocumentTitleLabel.Name = "DocumentTitleLabel";
+            this.DocumentTitleLabel.Size = new System.Drawing.Size(157, 25);
+            this.DocumentTitleLabel.TabIndex = 30;
+            this.DocumentTitleLabel.Text = "Document Title";
+            // 
+            // TextTitleLabel
+            // 
+            this.TextTitleLabel.AutoSize = true;
+            this.TextTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTitleLabel.Location = new System.Drawing.Point(29, 15);
+            this.TextTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TextTitleLabel.Name = "TextTitleLabel";
+            this.TextTitleLabel.Size = new System.Drawing.Size(55, 25);
+            this.TextTitleLabel.TabIndex = 31;
+            this.TextTitleLabel.Text = "Text";
+            // 
             // PreferencesDialog
             // 
             this.AcceptButton = this.preferencesOkButton;
@@ -362,5 +399,8 @@ namespace SingleDocumentInterface
         private System.Windows.Forms.FontDialog preferencesFontDialog;
         private System.Windows.Forms.ColorDialog preferencesBackColorDialog;
         private System.Windows.Forms.ColorDialog preferencesTextColorDialog;
+        private System.Windows.Forms.Label TextTitleLabel;
+        private System.Windows.Forms.Label DocumentTitleLabel;
+        private System.Windows.Forms.Label documentTitleActualLabel;
     }
 }
