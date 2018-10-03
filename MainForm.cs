@@ -291,12 +291,14 @@ namespace SingleDocumentInterface
             this.prefDialog = new PreferencesDialog();
 
             // Update the properties for the dialog before it's shown
-            this.prefDialog.BackColor = this.document.BackColor;
-            this.prefDialog.TextColor = this.document.TextColor;
-            this.prefDialog.Font = this.document.Font;
-            this.prefDialog.DocumentSize = this.document.DocumentSize;
-            this.prefDialog.DocumentLocation = this.document.DocumentLocation;
-            this.prefDialog.DocumentTitle = this.document.DocumentTitle;
+
+
+            this.prefDialog.BackColor =TextBox.BackColor;
+            this.prefDialog.TextColor = TextBox.ForeColor;
+            this.prefDialog.Font = TextBox.Font;
+            this.prefDialog.DocumentSize = Size;
+            this.prefDialog.DocumentLocation = Location;
+            this.prefDialog.DocumentTitle = Text;
 
             // Subscribe to the dialog's Apply event
             this.prefDialog.Apply += preferences_Apply;
