@@ -38,6 +38,9 @@ namespace SingleDocumentInterface
             this.preferencesDocumentLocationLabel = new System.Windows.Forms.Label();
             this.preferencesDocumentTitleLabel = new System.Windows.Forms.Label();
             this.preferencesPanel = new System.Windows.Forms.Panel();
+            this.TextTitleLabel = new System.Windows.Forms.Label();
+            this.DocumentTitleLabel = new System.Windows.Forms.Label();
+            this.documentTitleActualLabel = new System.Windows.Forms.Label();
             this.preferencesYLabel = new System.Windows.Forms.Label();
             this.preferencesXLabel = new System.Windows.Forms.Label();
             this.DocumentLocationYTextBox = new System.Windows.Forms.TextBox();
@@ -56,9 +59,6 @@ namespace SingleDocumentInterface
             this.preferencesFontDialog = new System.Windows.Forms.FontDialog();
             this.preferencesBackColorDialog = new System.Windows.Forms.ColorDialog();
             this.preferencesTextColorDialog = new System.Windows.Forms.ColorDialog();
-            this.documentTitleActualLabel = new System.Windows.Forms.Label();
-            this.DocumentTitleLabel = new System.Windows.Forms.Label();
-            this.TextTitleLabel = new System.Windows.Forms.Label();
             this.preferencesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -66,13 +66,13 @@ namespace SingleDocumentInterface
             // DocumentTitleTextBox
             // 
             this.hpHelp.SetHelpString(this.DocumentTitleTextBox, "Width of the child windows. Enter an integer [10 - 700]");
-            this.DocumentTitleTextBox.Location = new System.Drawing.Point(389, 53);
-            this.DocumentTitleTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DocumentTitleTextBox.Location = new System.Drawing.Point(292, 43);
             this.DocumentTitleTextBox.Name = "DocumentTitleTextBox";
             this.hpHelp.SetShowHelp(this.DocumentTitleTextBox, true);
-            this.DocumentTitleTextBox.Size = new System.Drawing.Size(132, 22);
+            this.DocumentTitleTextBox.Size = new System.Drawing.Size(100, 20);
             this.DocumentTitleTextBox.TabIndex = 12;
             this.ttToolTip.SetToolTip(this.DocumentTitleTextBox, "Width of the child windows. Enter an integer [10 - 700]");
+            this.DocumentTitleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DocumentTitleTextBox_Validating);
             // 
             // DocumentSizeHeightTextBox
             // 
@@ -80,43 +80,41 @@ namespace SingleDocumentInterface
             this.hpHelp.SetHelpString(this.DocumentSizeHeightTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
             this.preferencesErrorProvider.SetIconAlignment(this.DocumentSizeHeightTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-            this.DocumentSizeHeightTextBox.Location = new System.Drawing.Point(389, 117);
-            this.DocumentSizeHeightTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DocumentSizeHeightTextBox.Location = new System.Drawing.Point(292, 95);
             this.DocumentSizeHeightTextBox.Name = "DocumentSizeHeightTextBox";
             this.hpHelp.SetShowHelp(this.DocumentSizeHeightTextBox, true);
-            this.DocumentSizeHeightTextBox.Size = new System.Drawing.Size(132, 22);
+            this.DocumentSizeHeightTextBox.Size = new System.Drawing.Size(100, 20);
             this.DocumentSizeHeightTextBox.TabIndex = 14;
             this.ttToolTip.SetToolTip(this.DocumentSizeHeightTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
+            this.DocumentSizeHeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DocumentSizeHeightTextBox_Validating);
             // 
             // DocumentSizeWidthTextBox
             // 
             this.hpHelp.SetHelpString(this.DocumentSizeWidthTextBox, "Height of the child windows. Enter an integer [10 - 700]");
-            this.DocumentSizeWidthTextBox.Location = new System.Drawing.Point(389, 85);
-            this.DocumentSizeWidthTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DocumentSizeWidthTextBox.Location = new System.Drawing.Point(292, 69);
             this.DocumentSizeWidthTextBox.Name = "DocumentSizeWidthTextBox";
             this.hpHelp.SetShowHelp(this.DocumentSizeWidthTextBox, true);
-            this.DocumentSizeWidthTextBox.Size = new System.Drawing.Size(132, 22);
+            this.DocumentSizeWidthTextBox.Size = new System.Drawing.Size(100, 20);
             this.DocumentSizeWidthTextBox.TabIndex = 0;
             this.ttToolTip.SetToolTip(this.DocumentSizeWidthTextBox, "Height of the child windows. Enter an integer [10 - 700]");
+            this.DocumentSizeWidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DocumentSizeWidthTextBox_Validating);
             // 
             // preferencesDocumentLocationLabel
             // 
             this.preferencesDocumentLocationLabel.AutoSize = true;
-            this.preferencesDocumentLocationLabel.Location = new System.Drawing.Point(245, 150);
-            this.preferencesDocumentLocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesDocumentLocationLabel.Location = new System.Drawing.Point(184, 122);
             this.preferencesDocumentLocationLabel.Name = "preferencesDocumentLocationLabel";
-            this.preferencesDocumentLocationLabel.Size = new System.Drawing.Size(130, 17);
+            this.preferencesDocumentLocationLabel.Size = new System.Drawing.Size(100, 13);
             this.preferencesDocumentLocationLabel.TabIndex = 17;
             this.preferencesDocumentLocationLabel.Text = "Document Location";
             // 
             // preferencesDocumentTitleLabel
             // 
             this.preferencesDocumentTitleLabel.AutoSize = true;
-            this.preferencesDocumentTitleLabel.Location = new System.Drawing.Point(245, 88);
-            this.preferencesDocumentTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesDocumentTitleLabel.Location = new System.Drawing.Point(184, 72);
             this.preferencesDocumentTitleLabel.Name = "preferencesDocumentTitleLabel";
-            this.preferencesDocumentTitleLabel.Size = new System.Drawing.Size(103, 17);
+            this.preferencesDocumentTitleLabel.Size = new System.Drawing.Size(79, 13);
             this.preferencesDocumentTitleLabel.TabIndex = 16;
             this.preferencesDocumentTitleLabel.Text = "Document Size";
             // 
@@ -141,21 +139,48 @@ namespace SingleDocumentInterface
             this.preferencesPanel.Controls.Add(this.DocumentSizeHeightTextBox);
             this.preferencesPanel.Controls.Add(this.preferencesDocumentLocationLabel);
             this.preferencesPanel.Controls.Add(this.preferencesDocumentTitleLabel);
-            this.preferencesPanel.Location = new System.Drawing.Point(48, 54);
-            this.preferencesPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.preferencesPanel.MinimumSize = new System.Drawing.Size(570, 133);
+            this.preferencesPanel.Location = new System.Drawing.Point(36, 44);
+            this.preferencesPanel.MinimumSize = new System.Drawing.Size(428, 108);
             this.preferencesPanel.Name = "preferencesPanel";
-            this.preferencesPanel.Padding = new System.Windows.Forms.Padding(4);
-            this.preferencesPanel.Size = new System.Drawing.Size(603, 229);
+            this.preferencesPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.preferencesPanel.Size = new System.Drawing.Size(452, 186);
             this.preferencesPanel.TabIndex = 12;
+            // 
+            // TextTitleLabel
+            // 
+            this.TextTitleLabel.AutoSize = true;
+            this.TextTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTitleLabel.Location = new System.Drawing.Point(22, 12);
+            this.TextTitleLabel.Name = "TextTitleLabel";
+            this.TextTitleLabel.Size = new System.Drawing.Size(43, 20);
+            this.TextTitleLabel.TabIndex = 31;
+            this.TextTitleLabel.Text = "Text";
+            // 
+            // DocumentTitleLabel
+            // 
+            this.DocumentTitleLabel.AutoSize = true;
+            this.DocumentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DocumentTitleLabel.Location = new System.Drawing.Point(176, 12);
+            this.DocumentTitleLabel.Name = "DocumentTitleLabel";
+            this.DocumentTitleLabel.Size = new System.Drawing.Size(130, 20);
+            this.DocumentTitleLabel.TabIndex = 30;
+            this.DocumentTitleLabel.Text = "Document Title";
+            // 
+            // documentTitleActualLabel
+            // 
+            this.documentTitleActualLabel.AutoSize = true;
+            this.documentTitleActualLabel.Location = new System.Drawing.Point(184, 43);
+            this.documentTitleActualLabel.Name = "documentTitleActualLabel";
+            this.documentTitleActualLabel.Size = new System.Drawing.Size(79, 13);
+            this.documentTitleActualLabel.TabIndex = 29;
+            this.documentTitleActualLabel.Text = "Document Title";
             // 
             // preferencesYLabel
             // 
             this.preferencesYLabel.AutoSize = true;
-            this.preferencesYLabel.Location = new System.Drawing.Point(529, 180);
-            this.preferencesYLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesYLabel.Location = new System.Drawing.Point(397, 146);
             this.preferencesYLabel.Name = "preferencesYLabel";
-            this.preferencesYLabel.Size = new System.Drawing.Size(17, 17);
+            this.preferencesYLabel.Size = new System.Drawing.Size(14, 13);
             this.preferencesYLabel.TabIndex = 28;
             this.preferencesYLabel.Text = "Y";
             this.ttToolTip.SetToolTip(this.preferencesYLabel, "Width of the child windows. EntpreferencesBackColorTextBoxer an integer [10 - 700" +
@@ -164,10 +189,9 @@ namespace SingleDocumentInterface
             // preferencesXLabel
             // 
             this.preferencesXLabel.AutoSize = true;
-            this.preferencesXLabel.Location = new System.Drawing.Point(529, 149);
-            this.preferencesXLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesXLabel.Location = new System.Drawing.Point(397, 121);
             this.preferencesXLabel.Name = "preferencesXLabel";
-            this.preferencesXLabel.Size = new System.Drawing.Size(17, 17);
+            this.preferencesXLabel.Size = new System.Drawing.Size(14, 13);
             this.preferencesXLabel.TabIndex = 27;
             this.preferencesXLabel.Text = "X";
             this.ttToolTip.SetToolTip(this.preferencesXLabel, "Width of the child windows. EntpreferencesBackColorTextBoxer an integer [10 - 700" +
@@ -179,14 +203,14 @@ namespace SingleDocumentInterface
             this.hpHelp.SetHelpString(this.DocumentLocationYTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
             this.preferencesErrorProvider.SetIconAlignment(this.DocumentLocationYTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-            this.DocumentLocationYTextBox.Location = new System.Drawing.Point(389, 177);
-            this.DocumentLocationYTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DocumentLocationYTextBox.Location = new System.Drawing.Point(292, 144);
             this.DocumentLocationYTextBox.Name = "DocumentLocationYTextBox";
             this.hpHelp.SetShowHelp(this.DocumentLocationYTextBox, true);
-            this.DocumentLocationYTextBox.Size = new System.Drawing.Size(132, 22);
+            this.DocumentLocationYTextBox.Size = new System.Drawing.Size(100, 20);
             this.DocumentLocationYTextBox.TabIndex = 26;
             this.ttToolTip.SetToolTip(this.DocumentLocationYTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
+            this.DocumentLocationYTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DocumentLocationYTextBox_Validating);
             // 
             // DocumentLocationXTextBox
             // 
@@ -194,22 +218,21 @@ namespace SingleDocumentInterface
             this.hpHelp.SetHelpString(this.DocumentLocationXTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
             this.preferencesErrorProvider.SetIconAlignment(this.DocumentLocationXTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-            this.DocumentLocationXTextBox.Location = new System.Drawing.Point(389, 147);
-            this.DocumentLocationXTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DocumentLocationXTextBox.Location = new System.Drawing.Point(292, 119);
             this.DocumentLocationXTextBox.Name = "DocumentLocationXTextBox";
             this.hpHelp.SetShowHelp(this.DocumentLocationXTextBox, true);
-            this.DocumentLocationXTextBox.Size = new System.Drawing.Size(132, 22);
+            this.DocumentLocationXTextBox.Size = new System.Drawing.Size(100, 20);
             this.DocumentLocationXTextBox.TabIndex = 25;
             this.ttToolTip.SetToolTip(this.DocumentLocationXTextBox, "Ratio between the width and height of the child windows. Enter a float [0.1 - 100" +
         "]");
+            this.DocumentLocationXTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DocumentLocationXTextBox_Validating);
             // 
             // preferencesHeightLabel
             // 
             this.preferencesHeightLabel.AutoSize = true;
-            this.preferencesHeightLabel.Location = new System.Drawing.Point(529, 119);
-            this.preferencesHeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesHeightLabel.Location = new System.Drawing.Point(397, 97);
             this.preferencesHeightLabel.Name = "preferencesHeightLabel";
-            this.preferencesHeightLabel.Size = new System.Drawing.Size(49, 17);
+            this.preferencesHeightLabel.Size = new System.Drawing.Size(38, 13);
             this.preferencesHeightLabel.TabIndex = 24;
             this.preferencesHeightLabel.Text = "Height";
             this.ttToolTip.SetToolTip(this.preferencesHeightLabel, "Width of the child windows. EntpreferencesBackColorTextBoxer an integer [10 - 700" +
@@ -218,10 +241,9 @@ namespace SingleDocumentInterface
             // preferencesWidthLabel
             // 
             this.preferencesWidthLabel.AutoSize = true;
-            this.preferencesWidthLabel.Location = new System.Drawing.Point(529, 88);
-            this.preferencesWidthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.preferencesWidthLabel.Location = new System.Drawing.Point(397, 72);
             this.preferencesWidthLabel.Name = "preferencesWidthLabel";
-            this.preferencesWidthLabel.Size = new System.Drawing.Size(44, 17);
+            this.preferencesWidthLabel.Size = new System.Drawing.Size(35, 13);
             this.preferencesWidthLabel.TabIndex = 23;
             this.preferencesWidthLabel.Text = "Width";
             this.ttToolTip.SetToolTip(this.preferencesWidthLabel, "Width of the child windows. EntpreferencesBackColorTextBoxer an integer [10 - 700" +
@@ -229,9 +251,10 @@ namespace SingleDocumentInterface
             // 
             // TextFontButton
             // 
-            this.TextFontButton.Location = new System.Drawing.Point(34, 124);
+            this.TextFontButton.Location = new System.Drawing.Point(26, 101);
+            this.TextFontButton.Margin = new System.Windows.Forms.Padding(2);
             this.TextFontButton.Name = "TextFontButton";
-            this.TextFontButton.Size = new System.Drawing.Size(141, 34);
+            this.TextFontButton.Size = new System.Drawing.Size(106, 28);
             this.TextFontButton.TabIndex = 20;
             this.TextFontButton.Text = "Font";
             this.TextFontButton.UseVisualStyleBackColor = true;
@@ -239,9 +262,10 @@ namespace SingleDocumentInterface
             // 
             // TextColorButton
             // 
-            this.TextColorButton.Location = new System.Drawing.Point(34, 89);
+            this.TextColorButton.Location = new System.Drawing.Point(26, 72);
+            this.TextColorButton.Margin = new System.Windows.Forms.Padding(2);
             this.TextColorButton.Name = "TextColorButton";
-            this.TextColorButton.Size = new System.Drawing.Size(141, 34);
+            this.TextColorButton.Size = new System.Drawing.Size(106, 28);
             this.TextColorButton.TabIndex = 19;
             this.TextColorButton.Text = "Color";
             this.TextColorButton.UseVisualStyleBackColor = true;
@@ -249,9 +273,10 @@ namespace SingleDocumentInterface
             // 
             // BackColorButton
             // 
-            this.BackColorButton.Location = new System.Drawing.Point(34, 53);
+            this.BackColorButton.Location = new System.Drawing.Point(26, 43);
+            this.BackColorButton.Margin = new System.Windows.Forms.Padding(2);
             this.BackColorButton.Name = "BackColorButton";
-            this.BackColorButton.Size = new System.Drawing.Size(141, 34);
+            this.BackColorButton.Size = new System.Drawing.Size(106, 28);
             this.BackColorButton.TabIndex = 18;
             this.BackColorButton.Text = "Back Color";
             this.BackColorButton.UseVisualStyleBackColor = true;
@@ -262,11 +287,10 @@ namespace SingleDocumentInterface
             this.preferencesOkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.preferencesOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.hpHelp.SetHelpString(this.preferencesOkButton, "Save the current values");
-            this.preferencesOkButton.Location = new System.Drawing.Point(340, 329);
-            this.preferencesOkButton.Margin = new System.Windows.Forms.Padding(4);
+            this.preferencesOkButton.Location = new System.Drawing.Point(255, 267);
             this.preferencesOkButton.Name = "preferencesOkButton";
             this.hpHelp.SetShowHelp(this.preferencesOkButton, true);
-            this.preferencesOkButton.Size = new System.Drawing.Size(100, 28);
+            this.preferencesOkButton.Size = new System.Drawing.Size(75, 23);
             this.preferencesOkButton.TabIndex = 8;
             this.preferencesOkButton.Text = "Ok";
             this.preferencesOkButton.UseVisualStyleBackColor = true;
@@ -276,26 +300,25 @@ namespace SingleDocumentInterface
             // 
             this.preferencesApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.hpHelp.SetHelpString(this.preferencesApplyButton, "Apply the current values");
-            this.preferencesApplyButton.Location = new System.Drawing.Point(447, 329);
-            this.preferencesApplyButton.Margin = new System.Windows.Forms.Padding(4);
+            this.preferencesApplyButton.Location = new System.Drawing.Point(335, 267);
             this.preferencesApplyButton.Name = "preferencesApplyButton";
             this.hpHelp.SetShowHelp(this.preferencesApplyButton, true);
-            this.preferencesApplyButton.Size = new System.Drawing.Size(100, 28);
+            this.preferencesApplyButton.Size = new System.Drawing.Size(75, 23);
             this.preferencesApplyButton.TabIndex = 7;
             this.preferencesApplyButton.Text = "Apply";
             this.preferencesApplyButton.UseVisualStyleBackColor = true;
             this.preferencesApplyButton.Click += new System.EventHandler(this.preferencesApplyButton_Click);
+            this.preferencesApplyButton.Validating += new System.ComponentModel.CancelEventHandler(this.preferencesApplyButton_Validating);
             // 
             // preferencesCancelButton
             // 
             this.preferencesCancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.preferencesCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.hpHelp.SetHelpString(this.preferencesCancelButton, "Cancel edition of current values");
-            this.preferencesCancelButton.Location = new System.Drawing.Point(553, 329);
-            this.preferencesCancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.preferencesCancelButton.Location = new System.Drawing.Point(415, 267);
             this.preferencesCancelButton.Name = "preferencesCancelButton";
             this.hpHelp.SetShowHelp(this.preferencesCancelButton, true);
-            this.preferencesCancelButton.Size = new System.Drawing.Size(100, 28);
+            this.preferencesCancelButton.Size = new System.Drawing.Size(75, 23);
             this.preferencesCancelButton.TabIndex = 6;
             this.preferencesCancelButton.Text = "Cancel";
             this.preferencesCancelButton.UseVisualStyleBackColor = true;
@@ -309,55 +332,23 @@ namespace SingleDocumentInterface
             // 
             this.preferencesFontDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
-            // documentTitleActualLabel
-            // 
-            this.documentTitleActualLabel.AutoSize = true;
-            this.documentTitleActualLabel.Location = new System.Drawing.Point(245, 53);
-            this.documentTitleActualLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.documentTitleActualLabel.Name = "documentTitleActualLabel";
-            this.documentTitleActualLabel.Size = new System.Drawing.Size(103, 17);
-            this.documentTitleActualLabel.TabIndex = 29;
-            this.documentTitleActualLabel.Text = "Document Title";
-            // 
-            // DocumentTitleLabel
-            // 
-            this.DocumentTitleLabel.AutoSize = true;
-            this.DocumentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocumentTitleLabel.Location = new System.Drawing.Point(235, 15);
-            this.DocumentTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.DocumentTitleLabel.Name = "DocumentTitleLabel";
-            this.DocumentTitleLabel.Size = new System.Drawing.Size(157, 25);
-            this.DocumentTitleLabel.TabIndex = 30;
-            this.DocumentTitleLabel.Text = "Document Title";
-            // 
-            // TextTitleLabel
-            // 
-            this.TextTitleLabel.AutoSize = true;
-            this.TextTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTitleLabel.Location = new System.Drawing.Point(29, 15);
-            this.TextTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.TextTitleLabel.Name = "TextTitleLabel";
-            this.TextTitleLabel.Size = new System.Drawing.Size(55, 25);
-            this.TextTitleLabel.TabIndex = 31;
-            this.TextTitleLabel.Text = "Text";
-            // 
             // PreferencesDialog
             // 
             this.AcceptButton = this.preferencesOkButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.preferencesCancelButton;
-            this.ClientSize = new System.Drawing.Size(664, 370);
+            this.ClientSize = new System.Drawing.Size(500, 307);
             this.Controls.Add(this.preferencesCancelButton);
             this.Controls.Add(this.preferencesApplyButton);
             this.Controls.Add(this.preferencesPanel);
             this.Controls.Add(this.preferencesOkButton);
             this.HelpButton = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(682, 417);
+            this.MinimumSize = new System.Drawing.Size(516, 346);
             this.Name = "PreferencesDialog";
             this.Text = "Preferences Dialog";
             this.Load += new System.EventHandler(this.PreferencesDialog_Load);

@@ -75,16 +75,125 @@ namespace SingleDocumentInterface
             {
                 if (this.ValidateChildren())
                 {
-                    TextColor = TextColorButton.BackColor;
-                    BackColor = TextColorButton.BackColor;
-                    Font = TextFontButton.Font;
-                    DocumentTitle = DocumentTitleTextBox.Text;
-                    DocumentSize = new Size(int.Parse(DocumentSizeWidthTextBox.Text), 
-                                            int.Parse(DocumentSizeHeightTextBox.Text));
-                    DocumentLocation = new Point(int.Parse(DocumentLocationXTextBox.Text),
-                                                    int.Parse(DocumentLocationYTextBox.Text));
+                    Boolean applyChanges = true;
 
-                    Apply(this, EventArgs.Empty);
+                    TextColor = TextColorButton.BackColor;
+                    BackColor = BackColorButton.BackColor;
+
+                    if(TextColor.ToArgb() == BackColor.ToArgb())
+                    {
+                        preferencesErrorProvider.SetError(TextColorButton, "Both Colors can't be equal");
+                        preferencesErrorProvider.SetError(BackColorButton, "Both Colors can't be equal");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        preferencesErrorProvider.SetError(TextColorButton, "");
+                        preferencesErrorProvider.SetError(BackColorButton, "");
+
+                    }
+
+                    Font = TextFontButton.Font;
+                    String title = DocumentTitleTextBox.Text;
+                    if (title == null || title.Trim().CompareTo("") == 0 )
+                    {
+                        preferencesErrorProvider.SetError(DocumentTitleTextBox, "Please, enter a valid Title");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        preferencesErrorProvider.SetError(DocumentTitleTextBox, "");
+                    }
+
+                    String widthText = DocumentSizeWidthTextBox.Text;
+                    String heightText = DocumentSizeHeightTextBox.Text;
+                    int width = 0;
+                    int height = 0;
+
+                    if (widthText == null || widthText.Trim().CompareTo("") == 0 )
+                    {
+                        preferencesErrorProvider.SetError(DocumentSizeWidthTextBox, "Please, enter a valid width");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        width = int.Parse(widthText);
+                        if (width < 50)
+                        {
+                            applyChanges = false;
+
+                        }
+                        else
+                        {
+                            preferencesErrorProvider.SetError(DocumentSizeWidthTextBox, "");
+
+                        }
+                    }
+
+                    if (heightText == null || heightText.Trim().CompareTo("") == 0)
+                    {
+                        preferencesErrorProvider.SetError(DocumentSizeHeightTextBox, "Please, enter a valid height");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        height = int.Parse(heightText);
+                        if (height < 50)
+                            applyChanges = false;
+                        else
+                            preferencesErrorProvider.SetError(DocumentSizeHeightTextBox, "");
+
+                    }
+
+                    String xText = DocumentLocationXTextBox.Text;
+                    String yText = DocumentLocationYTextBox.Text;
+                    int x = 0;
+                    int y = 0;
+
+                    if (xText == null || xText.Trim().CompareTo("") == 0)
+                    {
+           
+                        preferencesErrorProvider.SetError(DocumentLocationXTextBox, "Please, enter a valid coordinate");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        x = int.Parse(xText);
+                        if (x < 0)
+                            applyChanges = false;
+                        else
+                            preferencesErrorProvider.SetError(DocumentLocationXTextBox, "");
+
+                    }
+
+
+                    if (yText == null || yText.Trim().CompareTo("") == 0)
+                    {
+
+                        preferencesErrorProvider.SetError(DocumentLocationYTextBox, "Please, enter a valid coordinate");
+                        applyChanges = false;
+                    }
+                    else
+                    {
+                        y = int.Parse(yText);
+                        if (y < 0)
+                            applyChanges = false;
+                        else
+                            preferencesErrorProvider.SetError(DocumentLocationYTextBox, "");
+
+                    }
+
+
+                    if (applyChanges)
+                    {
+                        DocumentTitle = DocumentTitleTextBox.Text;
+                        DocumentSize = new Size(width, height);
+                        DocumentLocation = new Point(x, y);
+                        Apply(this, EventArgs.Empty);
+
+                    }
+
+
                 }
             }
         }
@@ -181,6 +290,63 @@ namespace SingleDocumentInterface
                 this.TextColorButton.BackColor = color;
             }
 
+        }
+
+        private Boolean ValidatePreferences()
+        {
+            return false;
+        }
+
+        private void DocumentTitleTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if(DocumentTitleTextBox.Text == null || DocumentTitleTextBox.Text.Trim().CompareTo("") == 0)
+            {
+                preferencesErrorProvider.SetError(DocumentTitleTextBox, "Please, enter a valid Title");
+            }
+        }
+
+        private void preferencesApplyButton_Validating(object sender, CancelEventArgs e)
+        {
+            if (DocumentTitleTextBox.Text == null || DocumentTitleTextBox.Text.Trim().CompareTo("") == 0)
+            {
+                preferencesErrorProvider.SetError(DocumentTitleTextBox, "Please, enter a valid Title");
+            }
+        }
+
+        private void DocumentSizeWidthTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            String text = DocumentTitleTextBox.Text;
+            /*if (text == null || text.Trim().CompareTo("") == 0 || int.Parse(text) <= 0)
+            {
+                preferencesErrorProvider.SetError(DocumentSizeWidthTextBox, "Please, enter a valid width");
+            }*/
+        }
+
+        private void DocumentSizeHeightTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            String text = DocumentSizeHeightTextBox.Text;
+            /*if (text == null || text.Trim().CompareTo("") == 0 || int.Parse(text) <= 0)
+            {
+                preferencesErrorProvider.SetError(DocumentSizeHeightTextBox, "Please, enter a valid height");
+            }*/
+        }
+
+        private void DocumentLocationXTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            String text = DocumentLocationXTextBox.Text;
+            /*if (text == null || text.Trim().CompareTo("") == 0 || int.Parse(text) <= 0)
+            {
+                preferencesErrorProvider.SetError(DocumentLocationXTextBox, "Please, enter a valid location value");
+            }*/
+        }
+
+        private void DocumentLocationYTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            String text = DocumentLocationYTextBox.Text;
+           /* if (text == null || text.Trim().CompareTo("") == 0 || int.Parse(text) <= 0)
+            {
+                preferencesErrorProvider.SetError(DocumentLocationYTextBox, "Please, enter a valid location value");
+            }*/
         }
     }
 }
