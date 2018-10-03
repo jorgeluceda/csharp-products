@@ -25,6 +25,12 @@ namespace SingleDocumentInterface
         //already present in base form
         //Font Font { get; set; }
 
+        int ShapeHeight = 0;
+        int ShapeWidth = 0;
+        int ShapeRatio = 0;
+        String color = "";
+        String backgroundColor = "";
+
 
         public event EventHandler Apply;        // Event to fire when Apply is pressed
 
@@ -66,10 +72,12 @@ namespace SingleDocumentInterface
             {
                 if (this.ValidateChildren())
                 {
-                    //ShapeHeight = int.Parse(this.preferencesHeightTextBox.Text);
-                    //ShapeWidth = int.Parse(this.preferencesBackColor.Text);
-                    //ShapeRatio = float.Parse(this.preferencesRatioTextBox.Text);
-                    //SetPreferencesValues();
+                    color = this.preferencesBackColorTextBox.Text;
+                    backgroundColor = this.preferencesBackColorTextBox.Text;
+
+                    //not font & background color same allowed
+                    if(color.CompareTo(backgroundColor) != 0)
+                    
                     if (!this.Modal)
                     {
                         Apply(this, EventArgs.Empty);
@@ -132,6 +140,8 @@ namespace SingleDocumentInterface
         {
             validateNumberField(preferencesTextColorTextBox, e, 0.1, 100);
         }
+
+        private
 
     }
 }
