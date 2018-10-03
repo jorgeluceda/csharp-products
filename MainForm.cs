@@ -21,6 +21,7 @@ namespace SingleDocumentInterface
         protected Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
         private bool changedText = false;
         protected PreferencesDialog prefDialog = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace SingleDocumentInterface
             this.document = document;
             this.TextBox.Text = this.document.Text;
             this.Text = "Notepad--";
-            this.StatusLabel.Text = "New File";
+            this.StatusLabel.Text = "New file";
         }
 
         /**
@@ -72,7 +73,7 @@ namespace SingleDocumentInterface
                     // Set this instance of the application's document properties to the ones just retrieved from
                     // deserialization - needed for detecting if a file has been saved before in File->Save
                     this.document = document;
-                    this.StatusLabel.Text = "File opened: "+document.DocumentTitle;
+                    this.StatusLabel.Text = "Opening file";
                 }
             }
         }
@@ -106,8 +107,7 @@ namespace SingleDocumentInterface
                         formatter.Serialize(stream, document);
                         this.document = document;
                         changedText = false;
-                        this.StatusLabel.Text = "saved";
-
+                        this.StatusLabel.Text = "Saved";
                     }
 
                 }
@@ -170,6 +170,7 @@ namespace SingleDocumentInterface
         #endregion
 
         #region EditMainMenuItems
+
         /**
          * Click handler for the Edit -> Cut MainMenu item. Implements cutting text from the text editor into the
          * Clipboard.
@@ -181,11 +182,6 @@ namespace SingleDocumentInterface
             {
                 return;
             }
-
-
-            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-            this.TextBox.Text = "";                     // Empty the text in the text editor
-            this.StatusLabel.Text = "Cut";
 
             if(this.TextBox.SelectionLength > 0)
             {
@@ -202,6 +198,7 @@ namespace SingleDocumentInterface
                 this.TextBox.Text = "";                     // Empty the text in the text editor
             }
 
+            this.StatusLabel.Text = "Cut";
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -212,10 +209,6 @@ namespace SingleDocumentInterface
                 return;
             }
 
-
-            Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-            this.StatusLabel.Text = "Copied";
-
             if(this.TextBox.SelectionLength > 0)
             {
                 Clipboard.SetText(this.TextBox.SelectedText);
@@ -223,9 +216,10 @@ namespace SingleDocumentInterface
             else
             {
                 Clipboard.SetText(this.TextBox.Text);       // Set the clipboard text to the text editor's text
-
+                
             }
 
+            this.StatusLabel.Text = "Copied";
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,14 +230,12 @@ namespace SingleDocumentInterface
                 return;
             }
 
-
-            this.TextBox.Text = Clipboard.GetText();        // Set the text editor's text to the clipboard's text
-            this.StatusLabel.Text = "Pasted";
             int tempStart = this.TextBox.SelectionStart;
            
             this.TextBox.Text = this.TextBox.Text.Insert(this.TextBox.SelectionStart, Clipboard.GetText());
             this.TextBox.SelectionStart = tempStart;
             
+            this.StatusLabel.Text = "Pasted";
         }
 
         #endregion
@@ -281,7 +273,6 @@ namespace SingleDocumentInterface
          */
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            changedText = true;
             if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
             {
                 this.Text = "Notepad-- *";
@@ -290,6 +281,8 @@ namespace SingleDocumentInterface
             {
                 this.Text = this.document.DocumentTitle + "*";
             }
+
+            changedText = true;
         }
 
         #region Preferences Dialog items and events
@@ -327,16 +320,40 @@ namespace SingleDocumentInterface
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (changedText && !string.IsNullOrEmpty(this.TextBox.Text))
+            if(changedText && !string.IsNullOrEmpty(this.TextBox.Text))
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to exit the application without saving?",
                     "Closing Application", MessageBoxButtons.YesNo);
 
-                if (result == DialogResult.No)
+                if(result == DialogResult.No)
                 {
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();
+            dlg.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Show();
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            Form helpDialog = new HelpDialog();
+            helpDialog.Show();
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form helpDialog = new HelpDialog();
+            helpDialog.Show();
         }
     }
 }

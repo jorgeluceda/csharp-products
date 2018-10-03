@@ -17,7 +17,6 @@ namespace SingleDocumentInterface
         public HelpDialog()
         {
             InitializeComponent();
-            InitializeElements();
         }
 
         public void InitializeElements()
@@ -66,7 +65,6 @@ namespace SingleDocumentInterface
             helpItems.Add("About","Information about the application and developers");
 
             LoadHelpItems("all");
-
 
 
         }
@@ -204,5 +202,10 @@ namespace SingleDocumentInterface
 
         }
 
+        private void HelpDialog_Load(object sender, EventArgs e)
+        {
+            InitializeElements();
+
+        }
     }
 }
