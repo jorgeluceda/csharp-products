@@ -42,16 +42,11 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModelesslyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sub_helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TextBox = new System.Windows.Forms.TextBox();
             this.ContextMenuTextBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +69,6 @@
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.sub_helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.ContextMenuTextBox.SuspendLayout();
             this.ToolStrip.SuspendLayout();
@@ -190,72 +184,17 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fontToolStripMenuItem,
-            this.backgroundColorToolStripMenuItem,
-            this.textColorToolStripMenuItem,
-            this.documentSizeToolStripMenuItem,
-            this.documentLocationToolStripMenuItem,
-            this.documentTitleToolStripMenuItem,
             this.openModelesslyToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.preferencesToolStripMenuItem.Text = "Preferences";
-            // 
-            // fontToolStripMenuItem
-            // 
-            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.F)));
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.fontToolStripMenuItem.Text = "Font";
-            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
-            // 
-            // backgroundColorToolStripMenuItem
-            // 
-            this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.B)));
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.backgroundColorToolStripMenuItem.Text = "Background  Color";
-            // 
-            // textColorToolStripMenuItem
-            // 
-            this.textColorToolStripMenuItem.Name = "textColorToolStripMenuItem";
-            this.textColorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.C)));
-            this.textColorToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.textColorToolStripMenuItem.Text = "Text Color";
-            // 
-            // documentSizeToolStripMenuItem
-            // 
-            this.documentSizeToolStripMenuItem.Name = "documentSizeToolStripMenuItem";
-            this.documentSizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.S)));
-            this.documentSizeToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.documentSizeToolStripMenuItem.Text = "Document Size";
-            // 
-            // documentLocationToolStripMenuItem
-            // 
-            this.documentLocationToolStripMenuItem.Name = "documentLocationToolStripMenuItem";
-            this.documentLocationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.L)));
-            this.documentLocationToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.documentLocationToolStripMenuItem.Text = "Document Location";
-            // 
-            // documentTitleToolStripMenuItem
-            // 
-            this.documentTitleToolStripMenuItem.Name = "documentTitleToolStripMenuItem";
-            this.documentTitleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.T)));
-            this.documentTitleToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.documentTitleToolStripMenuItem.Text = "Document Title";
             // 
             // openModelesslyToolStripMenuItem
             // 
             this.openModelesslyToolStripMenuItem.Name = "openModelesslyToolStripMenuItem";
             this.openModelesslyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.M)));
-            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.openModelesslyToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.openModelesslyToolStripMenuItem.Text = "Open Modelessly";
             this.openModelesslyToolStripMenuItem.Click += new System.EventHandler(this.openModelesslyToolStripMenuItem_Click);
             // 
@@ -288,6 +227,16 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // sub_helpToolStripMenuItem
+            // 
+            this.sub_helpToolStripMenuItem.Name = "sub_helpToolStripMenuItem";
+            this.sub_helpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.H)));
+            this.sub_helpToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.sub_helpToolStripMenuItem.Text = "Help";
+            this.sub_helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // TextBox
             // 
@@ -490,16 +439,6 @@
             this.StatusLabel.Size = new System.Drawing.Size(39, 17);
             this.StatusLabel.Text = "Status";
             // 
-            // sub_helpToolStripMenuItem
-            // 
-            this.sub_helpToolStripMenuItem.Name = "sub_helpToolStripMenuItem";
-            this.sub_helpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.H)));
-            this.sub_helpToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.sub_helpToolStripMenuItem.Text = "Help";
-            this.sub_helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,12 +480,6 @@
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.TextBox TextBox;
-        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem documentSizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem documentLocationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem documentTitleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStrip ToolStrip;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
