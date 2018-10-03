@@ -291,12 +291,14 @@ namespace SingleDocumentInterface
             this.prefDialog = new PreferencesDialog();
 
             // Update the properties for the dialog before it's shown
-            this.prefDialog.BackColor = this.document.BackColor;
-            this.prefDialog.TextColor = this.document.TextColor;
-            this.prefDialog.Font = this.document.Font;
-            this.prefDialog.DocumentSize = this.document.DocumentSize;
-            this.prefDialog.DocumentLocation = this.document.DocumentLocation;
-            this.prefDialog.DocumentTitle = this.document.DocumentTitle;
+
+
+            this.prefDialog.BackColor =TextBox.BackColor;
+            this.prefDialog.TextColor = TextBox.ForeColor;
+            this.prefDialog.Font = TextBox.Font;
+            this.prefDialog.DocumentSize = Size;
+            this.prefDialog.DocumentLocation = Location;
+            this.prefDialog.DocumentTitle = Text;
 
             // Subscribe to the dialog's Apply event
             this.prefDialog.Apply += preferences_Apply;
@@ -309,12 +311,21 @@ namespace SingleDocumentInterface
         {
             PreferencesDialog preferencesDlg = sender as PreferencesDialog;
 
+            //save changes in document
             this.document.BackColor = this.prefDialog.BackColor;
             this.document.Font = this.prefDialog.Font;
             this.document.TextColor = this.prefDialog.TextColor;
             this.document.DocumentSize = this.prefDialog.DocumentSize;
             this.document.DocumentLocation = this.prefDialog.DocumentLocation;
             this.document.DocumentTitle = this.prefDialog.DocumentTitle;
+
+
+            //apply changes in document
+            this.Font = this.document.Font;
+            this.TextBox.BackColor = this.document.BackColor;
+            this.TextBox.ForeColor = this.document.TextColor;
+            this.Size = this.document.DocumentSize;
+            this.Location = this.document.DocumentLocation;
         }
         #endregion
 
