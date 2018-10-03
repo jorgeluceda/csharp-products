@@ -309,12 +309,21 @@ namespace SingleDocumentInterface
         {
             PreferencesDialog preferencesDlg = sender as PreferencesDialog;
 
+            //save changes in document
             this.document.BackColor = this.prefDialog.BackColor;
             this.document.Font = this.prefDialog.Font;
             this.document.TextColor = this.prefDialog.TextColor;
             this.document.DocumentSize = this.prefDialog.DocumentSize;
             this.document.DocumentLocation = this.prefDialog.DocumentLocation;
             this.document.DocumentTitle = this.prefDialog.DocumentTitle;
+
+
+            //apply changes in document
+            this.Font = this.document.Font;
+            this.TextBox.BackColor = this.document.BackColor;
+            this.TextBox.ForeColor = this.document.TextColor;
+            this.Size = this.document.DocumentSize;
+            this.Location = this.document.DocumentLocation;
         }
         #endregion
 
