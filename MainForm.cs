@@ -44,6 +44,9 @@ namespace SingleDocumentInterface
             this.TextBox.Text = this.document.Text;
             this.Text = "Notepad--";
             this.StatusLabel.Text = "New file";
+            this.TextBox.BackColor = this.document.BackColor;
+            this.TextBox.ForeColor = this.document.TextColor;
+            this.TextBox.Font = this.document.Font;
         }
 
         /**
@@ -67,13 +70,16 @@ namespace SingleDocumentInterface
                     document.FilePath = dlg.FileName;
 
                     this.TextBox.Text = document.Text;
+                    this.TextBox.BackColor = document.BackColor;
+                    this.TextBox.ForeColor = document.TextColor;
+                    this.TextBox.Font = document.Font;
                     this.Location = document.DocumentLocation;
                     this.Text = document.DocumentTitle;
 
                     // Set this instance of the application's document properties to the ones just retrieved from
                     // deserialization - needed for detecting if a file has been saved before in File->Save
                     this.document = document;
-                    this.StatusLabel.Text = "Opening file";
+                    this.StatusLabel.Text = "Opened file: " + this.document.DocumentTitle;
                 }
             }
         }
@@ -100,8 +106,12 @@ namespace SingleDocumentInterface
                         Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
 
                         document.Text = this.TextBox.Text;
+                        document.BackColor = this.TextBox.BackColor;
+                        document.TextColor = this.TextBox.ForeColor;
+                        document.Font = this.TextBox.Font;
                         document.DocumentLocation = this.Location;
                         document.DocumentTitle = Path.GetFileName(dlg.FileName);
+                        document.DocumentSize = this.Size;
                         document.FilePath = dlg.FileName;
 
                         formatter.Serialize(stream, document);
@@ -122,6 +132,10 @@ namespace SingleDocumentInterface
                     IFormatter formatter = new BinaryFormatter();
 
                     this.document.Text = this.TextBox.Text;
+                    this.document.BackColor = this.TextBox.BackColor;
+                    this.document.TextColor = this.TextBox.ForeColor;
+                    this.document.Font = this.TextBox.Font;
+                    this.document.DocumentSize = this.Size;
                     this.document.DocumentLocation = this.Location;
                     this.document.DocumentTitle = Path.GetFileName(document.FilePath);
 
@@ -129,6 +143,8 @@ namespace SingleDocumentInterface
                 }
                 changedText = false;
                 this.Text = this.document.DocumentTitle;
+
+                this.StatusLabel.Text = "Saved";
             }
 
         }
@@ -151,15 +167,20 @@ namespace SingleDocumentInterface
 
                     // Before serializing, set this app instance's document properties, then serialize
                     this.document.Text = this.TextBox.Text;
+                    this.document.BackColor = this.TextBox.BackColor;
+                    this.document.TextColor = this.TextBox.ForeColor;
+                    this.document.Font = this.TextBox.Font;
+                    this.document.DocumentSize = this.Size;
                     this.document.DocumentLocation = this.Location;
-                    this.document.DocumentTitle = Path.GetFileName(dlg.FileName);
-                    this.document.FilePath = dlg.FileName;
+                    this.document.DocumentTitle = Path.GetFileName(document.FilePath);
+
                     changedText = false;
                     formatter.Serialize(stream, this.document);
                 }
             }
 
             this.Text = this.document.DocumentTitle;
+            this.StatusLabel.Text = "Saved";
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -321,11 +342,12 @@ namespace SingleDocumentInterface
 
 
             //apply changes in document
-            this.Font = this.document.Font;
+            this.TextBox.Font = this.document.Font;
             this.TextBox.BackColor = this.document.BackColor;
             this.TextBox.ForeColor = this.document.TextColor;
             this.Size = this.document.DocumentSize;
             this.Location = this.document.DocumentLocation;
+            this.Text = this.document.DocumentTitle;
         }
         #endregion
 
