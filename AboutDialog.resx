@@ -118,12 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="assignmentDescription.Text" xml:space="preserve">
-    <value>For assignment 5, we'll be implementing a simple text 
-editor. The user can create a document that has its own
-Text, Font, Color, Backgorund Color for the text, Size 
-and Location for the application itself, and a title. All 
-of the standard Cut, Copy and Paste functions work as
-well.
+    <value>A Multi-SDI application that creates a simple paint program that can open multiple windows.
+The paint program will use paint tools to draw and exchange data with main form and shape dialog.
+Another class would be created to keep the list of shapes in a document.
 </value>
   </data>
 </root>
