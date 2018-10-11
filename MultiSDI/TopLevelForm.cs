@@ -13,6 +13,7 @@ namespace MultiSDI
 {
     public partial class TopLevelForm : Form
     {
+        #region Member Variables and Properties
         string fileName;   
         
         // Read Only FileName property
@@ -20,12 +21,19 @@ namespace MultiSDI
         {
             get { return this.fileName; }
         }
+        #endregion
 
+        #region Constructor
         public TopLevelForm()
         {
             InitializeComponent();
-        }
 
+            // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
+            MultiSDIApplication.Application.AddTopLevelForm(this);
+        }
+        #endregion
+
+        #region Helper Methods
         /**
          *  CreateTopLevelWindow implements creating a new form. This is the real 'constructor'. 
          *  First, we check if the fileName matches any of the Open Forms in the MultiSDIApplication. If it
@@ -82,7 +90,9 @@ namespace MultiSDI
                
             }
         }
+        #endregion
 
+        #region MainMenu Item Handlers
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShapeOptions dlg = new ShapeOptions();
@@ -109,5 +119,6 @@ namespace MultiSDI
         {
             CreateTopLevelWindow(null);
         }
+        #endregion
     }
 }
