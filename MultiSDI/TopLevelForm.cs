@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MultiSDI
 {
-    public partial class MainForm : Form
+    public partial class TopLevelForm : Form
     {
-        public MainForm()
+        public TopLevelForm()
         {
             InitializeComponent();
         }
