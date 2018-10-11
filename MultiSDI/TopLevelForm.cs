@@ -30,6 +30,10 @@ namespace MultiSDI
 
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDIApplication.Application.AddTopLevelForm(this);
+
+            // Add Window ToolStripMenuItem to the application context so this TopLevelForm shows up in the
+            // list of open top level forms
+            MultiSDIApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
         #endregion
 
