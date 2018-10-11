@@ -1,6 +1,6 @@
 ﻿namespace MultiSDI
 {
-    partial class MainForm
+    partial class TopLevelForm
     {
         /// <summary>
         /// Required designer variable.
