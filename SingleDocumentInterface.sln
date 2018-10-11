@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleDocumentInterface", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLibrary", "CoreLibrary\CoreLibrary.csproj", "{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDI", "..\MultiSDI\MultiSDI.csproj", "{374C2616-9389-410C-90DB-9EBC3C1358C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDI", "MultiSDI\MultiSDI.csproj", "{374C2616-9389-410C-90DB-9EBC3C1358C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
