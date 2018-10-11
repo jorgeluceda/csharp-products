@@ -66,9 +66,21 @@ namespace MultiSDI
          */
         void OpenFile(string fileName)
         {
+            this.fileName = fileName;
+
             // TODO: Implement populating the TopLevelForm with the shapes from the saved document. This part will differ
             // from the book, which reads text into the top level forms textbox. We, however, are not dealing with text, but
             //  with shapes
+
+            // If fileName is not empty
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                // Populate this Window with the shapes from the document tied to fileName
+            }
+            else
+            {
+               
+            }
         }
 
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,6 +100,14 @@ namespace MultiSDI
             {
                 CreateTopLevelWindow(dlg.FileName);
             }
+        }
+
+        /**
+         *  Click handler for File->New. Creates a new top level window, passing null as the fileName. 
+         */
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateTopLevelWindow(null);
         }
     }
 }
