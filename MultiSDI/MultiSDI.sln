@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDI", "MultiSDI\MultiSDI.csproj", "{661716E7-078F-48BB-9374-7E42CCF128D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{661716E7-078F-48BB-9374-7E42CCF128D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661716E7-078F-48BB-9374-7E42CCF128D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661716E7-078F-48BB-9374-7E42CCF128D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661716E7-078F-48BB-9374-7E42CCF128D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {466A733E-11CF-4ECF-9FBC-D7BBC818C715}
+	EndGlobalSection
+EndGlobal

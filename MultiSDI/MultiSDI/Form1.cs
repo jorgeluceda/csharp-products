@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CoreLibrary;
 
-namespace Application
+namespace MultiSDI
 {
-    public partial class OathDialog : BaseDialogForm
+    public partial class Form1 : Form
     {
-        public OathDialog()
+        public Form1()
         {
             InitializeComponent();
         }

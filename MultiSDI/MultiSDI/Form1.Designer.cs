@@ -1,6 +1,6 @@
-﻿namespace Application
+﻿namespace MultiSDI
 {
-    partial class OathDialog
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // OathDialog
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Application.Properties.Resources.grilled;
-            this.ClientSize = new System.Drawing.Size(615, 547);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "OathDialog";
-            this.ShowIcon = false;
-            this.Text = "OathDialog";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form1";
         }
 
         #endregion
     }
 }
+
