@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace MultiSDI
 {
-    public partial class ShapeOptions : Form
+    public partial class ShapeOptions : Form, IBindingSource
     {
         public ShapeOptions()
         {
             InitializeComponent();
+        }
+
+        public BindingSource DataBindingSource
+        {
+            get { return this.shapeBindingSource; }
+            set { this.shapeBindingSource = value; }
         }
 
         #region Colors
