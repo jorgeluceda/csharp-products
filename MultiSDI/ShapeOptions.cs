@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace MultiSDI
 {
-    public partial class ShapeOptions : Form, IBindingSource
+    public partial class ShapeOptions : Form/*, IBindingSource*/
     {
         public ShapeOptions()
         {
             InitializeComponent();
         }
 
-        public BindingSource DataBindingSource
-        {
-            get { return this.shapeBindingSource; }
-            set { this.shapeBindingSource = value; }
-        }
+        //public BindingSource DataBindingSource
+        //{
+        //    get { return this.shapeBindingSource; }
+        //    set { this.shapeBindingSource = value; }
+        //}
 
         #region Colors
         private void penColorButton_Click(object sender, EventArgs e)

@@ -105,8 +105,7 @@ namespace MultiSDI
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShapeOptions dlg = new ShapeOptions();
-            dlg.shapeBindingSource.DataSource = ;
-            
+            //dlg.shapeBindingSource.DataSource = doc.shapes;
             dlg.Show();
             
         }
