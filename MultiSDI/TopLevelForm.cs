@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using SingleDocumentInterface;
 
 namespace MultiSDI
 {
     public partial class TopLevelForm : Form
     {
         #region Member Variables and Properties
-        string fileName;   
+        string fileName;
+        Pen pen;
         
         // Read Only FileName property
         string FileName
@@ -31,9 +33,11 @@ namespace MultiSDI
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDIApplication.Application.AddTopLevelForm(this);
 
-            // Add Window ToolStripMenuItem to the application context so this TopLevelForm shows up in the
-            // list of open top level forms
-            MultiSDIApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
+            // Set the application's WindowMenu
+            MultiSDIApplication.Application.WindowMenu = this.windowToolStripMenuItem;
+
+            // Add the handler for the DropDownOpening event to the application's window menu
+            MultiSDIApplication.Application.WindowMenu.DropDownOpening += MultiSDIApplication.Application.windowMenu_DropDownOpening;
         }
         #endregion
 

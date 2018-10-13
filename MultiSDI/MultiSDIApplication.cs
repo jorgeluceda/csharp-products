@@ -9,10 +9,11 @@ using System.Windows.Forms;
 
 namespace MultiSDI
 {
-    class MultiSDIApplication : WindowsFormsApplicationBase
+    class MultiSDIApplication : WindowsFormsApplicationBase, windowInterface
     {
         #region Member Variables & Properties
         static MultiSDIApplication application;
+        ToolStripMenuItem windowMenu;
 
         /**
          *  Getter for the Application. Returns a single instance only. If one doesn't exist, it is created and returned.
@@ -26,6 +27,12 @@ namespace MultiSDI
                     application = new MultiSDIApplication();
                 return application;                                
             }
+        }
+
+        public ToolStripMenuItem WindowMenu
+        {
+            get { return this.windowMenu; }
+            set { this.windowMenu = value; }
         }
         #endregion
 
@@ -96,7 +103,7 @@ namespace MultiSDI
          */
         public void AddWindowMenu(ToolStripMenuItem windowMenu)
         {
-            windowMenu.DropDownOpening += windowMenu_DropDownOpening;
+            //windowMenu.DropDownOpening += windowMenu_DropDownOpening;
         }
         #endregion
 
@@ -135,7 +142,7 @@ namespace MultiSDI
          *  Clears the current window menu, then creates a new one, populating the menu with all of the 
          *  currently open TopLevelForms (OpenForms). Shows a check mark next to the current MainForm.
          */
-        void windowMenu_DropDownOpening(object sender, EventArgs e)
+        public void windowMenu_DropDownOpening(object sender, EventArgs e)
         {
             ToolStripMenuItem menu = sender as ToolStripMenuItem;
 
@@ -147,7 +154,7 @@ namespace MultiSDI
             menu.DropDown = new ToolStripDropDown();
 
             // Populate the menu with one item for each open top level form
-            foreach(Form form in this.OpenForms)
+            foreach (Form form in this.OpenForms)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Text = form.Text;
