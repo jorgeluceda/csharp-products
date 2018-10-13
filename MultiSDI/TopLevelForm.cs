@@ -17,6 +17,7 @@ namespace MultiSDI
         #region Member Variables and Properties
         string fileName;
         Pen pen;
+        Document doc = new Document();
         
         // Read Only FileName property
         string FileName
@@ -104,7 +105,10 @@ namespace MultiSDI
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShapeOptions dlg = new ShapeOptions();
+            dlg.shapeBindingSource.DataSource = ;
+            
             dlg.Show();
+            
         }
 
         /**
@@ -128,5 +132,10 @@ namespace MultiSDI
             CreateTopLevelWindow(null);
         }
         #endregion
+
+        private void TopLevelForm_Paint(object sender, PaintEventArgs e)
+        {
+            //doc.Draw(e.Graphics);
+        }
     }
 }

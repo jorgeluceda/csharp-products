@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using SingleDocumentInterface;
+using System.ComponentModel;
 
 namespace MultiSDI
 {
-    class Shape
+    [Serializable]
+    class Shape: INotifyPropertyChanged
     {
         public enum ShapeType
         {
@@ -30,15 +32,70 @@ namespace MultiSDI
             Hatched,
             LinearGradient
         }
-        public Point location { get; set; }
-        public Size size { get; set; }
-        public Color penColor { get; set; }
-        public Color brushColor { get; set; }
 
-        public ShapeType shapeType { get; set; }
+        private Point location;
+        private Size size;
+        private Color penColor;
+        private Color brushColor;
+        private ShapeType shapeType;
+        private PenType penType;
+        private BrushType brushType;
 
-        public PenType penType { get; set; }
-        public BrushType brushType { get; set; }
+        public Point Location {
+            get { return this.location; }
+            set {
+                OnChange("Location");
+                this.location = value;
+            }
+        }
+        public Size Size {
+            get { return this.size; }
+            set {
+                OnChange("Size");
+                this.size = value;
+            }
+        }
+        public Color PenColor {
+            get { return this.penColor; }
+            set {
+                OnChange("Pen Color");
+                this.penColor = value;
+            }
+        }
+        public Color BrushColor {
+            get { return this.brushColor; }
+            set {
+                OnChange("Brush Color");
+                this.brushColor = value;
+            }
+        }
+
+        public ShapeType ShapeTypeProp {
+            get { return this.shapeType; }
+            set {
+                OnChange("Shape Type");
+                this.shapeType = value;
+            }
+        }
+
+        public PenType PenTypeProp {
+            get { return this.penType; }
+            set {
+                OnChange("Pen Type");
+                this.penType = value;
+            }
+        }
+
+        public BrushType BrushTypeProp {
+            get { return this.brushType; }
+            set {
+                OnChange("Brush Type");
+                this.brushType = value;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Shape(ShapeType shapeType)
         {
    
@@ -61,6 +118,22 @@ namespace MultiSDI
                                             this.size.Height);
 
             }
+        }
+
+        /**
+         * 
+         */
+        private void OnChange(String propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public void Draw(Graphics graphics)
+        {
+
         }
     }
 }
