@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBindingObject.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="IBindingSource.cs" />
     <Compile Include="MultiSDIApplication.cs" />

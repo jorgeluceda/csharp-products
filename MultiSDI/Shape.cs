@@ -10,125 +10,135 @@ using System.ComponentModel;
 namespace MultiSDI
 {
     [Serializable]
-    class Shape: INotifyPropertyChanged
+    public class Shape: DataBindingObject
     {
-        public enum ShapeType
+        public enum ShapeTypeEnum
         {
             Ellipse,
             Rectangle,
             Custom
         }
 
-        public enum PenType
+        public enum PenTypeEnum
         {
             Solid,
             Dashed,
             Compound
         }
 
-        public enum BrushType
+        public enum BrushTypeEnum
         {
             Solid,
             Hatched,
             LinearGradient
         }
 
-        private Point location;
-        private Size size;
-        private Color penColor;
-        private Color brushColor;
-        private ShapeType shapeType;
-        private PenType penType;
-        private BrushType brushType;
+        #region Location
 
-        public Point Location {
-            get { return this.location; }
+        public Point Location
+        {
+            get { return new Point(this.LocationX, this.LocationY); }
+        }
+
+        private int locationX;
+        public int LocationX {
+            get { return locationX; }
             set {
-                OnChange("Location");
-                this.location = value;
+                OnChange("LocationX");
+                this.locationX = value;
             }
         }
+
+        private int locationY;
+        public int LocationY
+        {
+            get { return this.locationY; }
+            set
+            {
+                OnChange("LocationY");
+                this.locationY = value;
+            }
+        }
+
+        #endregion
+
+        #region Size
+
         public Size Size {
-            get { return this.size; }
-            set {
-                OnChange("Size");
-                this.size = value;
+            get { return new Size(this.sizeW, this.sizeH); }
+        }
+
+        private int sizeW;
+        public int SizeW
+        {
+            get { return sizeW; }
+            set
+            {
+                sizeW = value;
+                OnChange("SizeW");
             }
         }
+
+        private int sizeH;
+        public int SizeH
+        {
+            get { return sizeH; }
+            set
+            {
+                sizeH = value;
+                OnChange("SizeH");
+            }
+        }
+
+        #endregion
+
+        private Color penColor;
         public Color PenColor {
             get { return this.penColor; }
             set {
-                OnChange("Pen Color");
+                OnChange("PenColor");
                 this.penColor = value;
             }
         }
+
+        private Color brushColor;
         public Color BrushColor {
             get { return this.brushColor; }
             set {
-                OnChange("Brush Color");
                 this.brushColor = value;
+                OnChange("BrushColor");
             }
         }
 
-        public ShapeType ShapeTypeProp {
+        private ShapeTypeEnum shapeType;
+        public ShapeTypeEnum ShapeType {
             get { return this.shapeType; }
             set {
-                OnChange("Shape Type");
                 this.shapeType = value;
+                OnChange("ShapeType");
             }
         }
 
-        public PenType PenTypeProp {
+        private PenTypeEnum penType;
+        public PenTypeEnum PenType {
             get { return this.penType; }
             set {
-                OnChange("Pen Type");
                 this.penType = value;
+                OnChange("PenType");
             }
         }
 
-        public BrushType BrushTypeProp {
+        private BrushTypeEnum brushType;
+        public BrushTypeEnum BrushType {
             get { return this.brushType; }
             set {
-                OnChange("Brush Type");
                 this.brushType = value;
+                OnChange("BrushType");
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public Shape(ShapeType shapeType)
+        public Shape()
         {
-   
-            if (shapeType == ShapeType.Ellipse)
-            {
-                //create ellipse shape
-                Ellipse ellipse = new Ellipse(this.location, this.size.Width, 
-                                                this.size.Height);
-            
-
-            } else if(shapeType == ShapeType.Rectangle)
-            {
-                //create rectangle shape
-                Rectangular rect = new Rectangular(this.location, this.size.Width,
-                                                this.size.Height);
-            } else
-            {
-                //create custom shape
-                Custom cust = new Custom(this.location, this.size.Width,
-                                            this.size.Height);
-
-            }
-        }
-
-        /**
-         * 
-         */
-        private void OnChange(String propertyName)
-        {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
 
         public void Draw(Graphics graphics)

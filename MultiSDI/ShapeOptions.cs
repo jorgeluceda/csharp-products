@@ -12,16 +12,23 @@ namespace MultiSDI
 {
     public partial class ShapeOptions : Form/*, IBindingSource*/
     {
-        public ShapeOptions()
+        private Shape shapeData;
+
+        public ShapeOptions(Shape shape)
         {
             InitializeComponent();
+
+            this.shapeData = shape;
+            this.BindData();
         }
 
-        //public BindingSource DataBindingSource
-        //{
-        //    get { return this.shapeBindingSource; }
-        //    set { this.shapeBindingSource = value; }
-        //}
+        private void BindData()
+        {
+            this.shapeXTextBox.DataBindings.Add("Text", this.shapeData, "LocationX");
+            this.shapeYTextBox.DataBindings.Add("Text", this.shapeData, "LocationY");
+            this.shapeWidthTextBox.DataBindings.Add("Text", this.shapeData, "SizeW");
+            this.shapeHeightTextBox.DataBindings.Add("Text", this.shapeData, "SizeH");
+        }
 
         #region Colors
         private void penColorButton_Click(object sender, EventArgs e)
@@ -66,6 +73,36 @@ namespace MultiSDI
             }
         }
         #endregion
+
+        #region ComboBox
+
+        private void InitialComboboxBinding()
+        {
+            this.penTypeComboBox.SelectedIndex = (int)this.shapeData.PenType;
+            this.brushTypeComboBox.SelectedIndex = (int)this.shapeData.BrushType;
+            this.shapeTypeComboBox.SelectedIndex = (int)this.shapeData.ShapeType;
+
+            this.penTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "PenType");
+            this.brushTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "BrushType");
+            this.shapeTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "ShapeType");
+        }
+
+        private void penTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ((ComboBox)sender).DataBindings["SelectedItem"].WriteValue();
+        }
+
+        private void brushTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ((ComboBox)sender).DataBindings["SelectedItem"].WriteValue();
+        }
+
+        private void shapeTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ((ComboBox)sender).DataBindings["SelectedItem"].WriteValue();
+        }
+
+        #endregion 
 
         #region OK/Cancel
         private void okButton_Click(object sender, EventArgs e)
@@ -159,21 +196,21 @@ namespace MultiSDI
 
         private void ShapeOptions_Load(object sender, EventArgs e)
         {
-            List<Shape.PenType> penList = new List<Shape.PenType>();
-            List<Shape.BrushType> brushList = new List<Shape.BrushType>();
-            List<Shape.ShapeType> shapeList = new List<Shape.ShapeType>();
+            List<Shape.PenTypeEnum> penList = new List<Shape.PenTypeEnum>();
+            List<Shape.BrushTypeEnum> brushList = new List<Shape.BrushTypeEnum>();
+            List<Shape.ShapeTypeEnum> shapeList = new List<Shape.ShapeTypeEnum>();
 
-            foreach(Shape.PenType pentype in Enum.GetValues(typeof(Shape.PenType)))
+            foreach(Shape.PenTypeEnum pentype in Enum.GetValues(typeof(Shape.PenTypeEnum)))
             {
                 penList.Add(pentype);
             }
 
-            foreach(Shape.BrushType brushtype in Enum.GetValues(typeof(Shape.BrushType)))
+            foreach(Shape.BrushTypeEnum brushtype in Enum.GetValues(typeof(Shape.BrushTypeEnum)))
             {
                 brushList.Add(brushtype);
             }
 
-            foreach(Shape.ShapeType shapetype in Enum.GetValues(typeof(Shape.ShapeType)))
+            foreach(Shape.ShapeTypeEnum shapetype in Enum.GetValues(typeof(Shape.ShapeTypeEnum)))
             {
                 shapeList.Add(shapetype);
             }
@@ -181,6 +218,8 @@ namespace MultiSDI
             this.penTypeComboBox.DataSource = penList;
             this.brushTypeComboBox.DataSource = brushList;
             this.shapeTypeComboBox.DataSource = shapeList;
+
+            this.InitialComboboxBinding();
         }
     }
 }

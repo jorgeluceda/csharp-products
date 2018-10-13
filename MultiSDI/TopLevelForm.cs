@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SingleDocumentInterface;
+using static MultiSDI.Shape;
 
 namespace MultiSDI
 {
@@ -18,6 +19,7 @@ namespace MultiSDI
         string fileName;
         Pen pen;
         Document doc = new Document();
+        Shape currentShape;
         
         // Read Only FileName property
         string FileName
@@ -39,6 +41,9 @@ namespace MultiSDI
 
             // Add the handler for the DropDownOpening event to the application's window menu
             MultiSDIApplication.Application.WindowMenu.DropDownOpening += MultiSDIApplication.Application.windowMenu_DropDownOpening;
+
+            // Initialize the current shape
+            this.currentShape = new Shape();
         }
         #endregion
 
@@ -104,10 +109,7 @@ namespace MultiSDI
         #region MainMenu Item Handlers
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShapeOptions dlg = new ShapeOptions();
-            //dlg.shapeBindingSource.DataSource = doc.shapes;
-            dlg.Show();
-            
+            (new ShapeOptions(this.currentShape)).Show();
         }
 
         /**
