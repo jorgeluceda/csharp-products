@@ -38,6 +38,7 @@ namespace MultiSDI
             if(dlg.ShowDialog() == DialogResult.OK)
             {
                 Color penColor = dlg.Color;
+                this.shapeData.PenColor = penColor;
 
                 if(penColor.GetBrightness() < 0.5)
                 {
@@ -59,6 +60,7 @@ namespace MultiSDI
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 Color brushColor = dlg.Color;
+                this.shapeData.BrushColor = brushColor;
 
                 if (brushColor.GetBrightness() < 0.5)
                 {
