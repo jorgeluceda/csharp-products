@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Document.cs" />
     <Compile Include="MultiSDIApplication.cs" />
+    <Compile Include="Shape.cs" />
     <Compile Include="TopLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +91,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreLibrary\CoreLibrary.csproj">
+      <Project>{f4e15c18-5a39-49db-b07c-b08d22f31b6a}</Project>
+      <Name>CoreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SingleDocumentInterface.csproj">
+      <Project>{dd67ffb9-f538-44cb-bb2c-388753906828}</Project>
+      <Name>SingleDocumentInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
