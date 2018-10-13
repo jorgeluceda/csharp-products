@@ -207,7 +207,6 @@
             this.shapeTypeComboBox.Name = "shapeTypeComboBox";
             this.shapeTypeComboBox.Size = new System.Drawing.Size(194, 28);
             this.shapeTypeComboBox.TabIndex = 10;
-            this.shapeTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.shapeTypeComboBox_SelectedIndexChanged);
             // 
             // brushTypeComboBox
             // 
@@ -218,7 +217,6 @@
             this.brushTypeComboBox.Name = "brushTypeComboBox";
             this.brushTypeComboBox.Size = new System.Drawing.Size(194, 28);
             this.brushTypeComboBox.TabIndex = 9;
-            this.brushTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.brushTypeComboBox_SelectedIndexChanged);
             // 
             // penTypeComboBox
             // 
@@ -229,7 +227,6 @@
             this.penTypeComboBox.Name = "penTypeComboBox";
             this.penTypeComboBox.Size = new System.Drawing.Size(194, 28);
             this.penTypeComboBox.TabIndex = 8;
-            this.penTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.penTypeComboBox_SelectedIndexChanged);
             // 
             // cancelButton
             // 

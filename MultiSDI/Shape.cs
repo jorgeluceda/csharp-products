@@ -33,12 +33,6 @@ namespace MultiSDI
             LinearGradient
         }
 
-        private Color penColor;
-        private Color brushColor;
-        private ShapeTypeEnum shapeType;
-        private PenTypeEnum penType;
-        private BrushTypeEnum brushType;
-
         #region Location
 
         public Point Location
@@ -98,6 +92,7 @@ namespace MultiSDI
 
         #endregion
 
+        private Color penColor;
         public Color PenColor {
             get { return this.penColor; }
             set {
@@ -105,60 +100,45 @@ namespace MultiSDI
                 this.penColor = value;
             }
         }
+
+        private Color brushColor;
         public Color BrushColor {
             get { return this.brushColor; }
             set {
-                OnChange("BrushColor");
                 this.brushColor = value;
+                OnChange("BrushColor");
             }
         }
 
+        private ShapeTypeEnum shapeType;
         public ShapeTypeEnum ShapeType {
             get { return this.shapeType; }
             set {
-                OnChange("ShapeType");
                 this.shapeType = value;
+                OnChange("ShapeType");
             }
         }
 
+        private PenTypeEnum penType;
         public PenTypeEnum PenType {
             get { return this.penType; }
             set {
-                OnChange("PenType");
                 this.penType = value;
+                OnChange("PenType");
             }
         }
 
+        private BrushTypeEnum brushType;
         public BrushTypeEnum BrushType {
             get { return this.brushType; }
             set {
-                OnChange("BrushType");
                 this.brushType = value;
+                OnChange("BrushType");
             }
         }
 
-        public Shape(ShapeTypeEnum shapeType)
+        public Shape()
         {
-   
-            if (shapeType == ShapeTypeEnum.Ellipse)
-            {
-                //create ellipse shape
-                Ellipse ellipse = new Ellipse(this.Location, this.Size.Width, 
-                                                this.Size.Height);
-            
-
-            } else if(shapeType == ShapeTypeEnum.Rectangle)
-            {
-                //create rectangle shape
-                Rectangular rect = new Rectangular(this.Location, this.Size.Width,
-                                                this.Size.Height);
-            } else
-            {
-                //create custom shape
-                Custom cust = new Custom(this.Location, this.Size.Width,
-                                            this.Size.Height);
-
-            }
         }
 
         public void Draw(Graphics graphics)

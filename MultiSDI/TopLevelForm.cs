@@ -105,10 +105,10 @@ namespace MultiSDI
         #region MainMenu Item Handlers
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Shape shape = new Shape(ShapeTypeEnum.Ellipse);
+            Shape shape = new Shape();
             shape.PenType = PenTypeEnum.Dashed;
-            //shape.LocationX = 300;
-            //shape.LocationY = 400;
+            shape.LocationX = 300;
+            shape.LocationY = 400;
 
             ShapeOptions dlg = new ShapeOptions(shape);
             //dlg.shapeBindingSource.DataSource = doc.shapes;

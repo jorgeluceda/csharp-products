@@ -16,9 +16,9 @@ namespace MultiSDI
 
         public ShapeOptions(Shape shape)
         {
-            this.shapeData = shape;
-
             InitializeComponent();
+
+            this.shapeData = shape;
             this.BindData();
         }
 
@@ -28,9 +28,6 @@ namespace MultiSDI
             this.shapeYTextBox.DataBindings.Add("Text", this.shapeData, "LocationY");
             this.shapeWidthTextBox.DataBindings.Add("Text", this.shapeData, "SizeW");
             this.shapeHeightTextBox.DataBindings.Add("Text", this.shapeData, "SizeH");
-            this.penTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "PenType");
-            this.brushTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "BrushType");
-            this.shapeTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "ShapeType");
         }
 
         #region Colors
@@ -78,6 +75,17 @@ namespace MultiSDI
         #endregion
 
         #region ComboBox
+
+        private void InitialComboboxBinding()
+        {
+            this.penTypeComboBox.SelectedIndex = (int)this.shapeData.PenType;
+            this.brushTypeComboBox.SelectedIndex = (int)this.shapeData.BrushType;
+            this.shapeTypeComboBox.SelectedIndex = (int)this.shapeData.ShapeType;
+
+            this.penTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "PenType");
+            this.brushTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "BrushType");
+            this.shapeTypeComboBox.DataBindings.Add("SelectedItem", this.shapeData, "ShapeType");
+        }
 
         private void penTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -210,6 +218,8 @@ namespace MultiSDI
             this.penTypeComboBox.DataSource = penList;
             this.brushTypeComboBox.DataSource = brushList;
             this.shapeTypeComboBox.DataSource = shapeList;
+
+            this.InitialComboboxBinding();
         }
     }
 }
