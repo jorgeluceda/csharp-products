@@ -148,6 +148,33 @@ namespace MultiSDI
                 this.shapeOptionsErrorProvider.SetError(this.shapeHeightTextBox, "Please enter a height");
             }
         }
+
         #endregion
+
+        private void ShapeOptions_Load(object sender, EventArgs e)
+        {
+            List<Shape.PenType> penList = new List<Shape.PenType>();
+            List<Shape.BrushType> brushList = new List<Shape.BrushType>();
+            List<Shape.ShapeType> shapeList = new List<Shape.ShapeType>();
+
+            foreach(Shape.PenType pentype in Enum.GetValues(typeof(Shape.PenType)))
+            {
+                penList.Add(pentype);
+            }
+
+            foreach(Shape.BrushType brushtype in Enum.GetValues(typeof(Shape.BrushType)))
+            {
+                brushList.Add(brushtype);
+            }
+
+            foreach(Shape.ShapeType shapetype in Enum.GetValues(typeof(Shape.ShapeType)))
+            {
+                shapeList.Add(shapetype);
+            }
+
+            this.penTypeComboBox.DataSource = penList;
+            this.brushTypeComboBox.DataSource = brushList;
+            this.shapeTypeComboBox.DataSource = shapeList;
+        }
     }
 }

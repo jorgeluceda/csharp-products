@@ -100,7 +100,7 @@
             this.optionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.optionsGroupBox.Name = "optionsGroupBox";
-            this.optionsGroupBox.Size = new System.Drawing.Size(452, 444);
+            this.optionsGroupBox.Size = new System.Drawing.Size(461, 462);
             this.optionsGroupBox.TabIndex = 3;
             this.optionsGroupBox.TabStop = false;
             // 
@@ -194,10 +194,6 @@
             // 
             this.shapeTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.shapeTypeComboBox.FormattingEnabled = true;
-            this.shapeTypeComboBox.Items.AddRange(new object[] {
-            "Ellipse",
-            "Rectangle",
-            "Custom"});
             this.shapeTypeComboBox.Location = new System.Drawing.Point(170, 306);
             this.shapeTypeComboBox.Name = "shapeTypeComboBox";
             this.shapeTypeComboBox.Size = new System.Drawing.Size(173, 24);
@@ -207,10 +203,6 @@
             // 
             this.brushTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.brushTypeComboBox.FormattingEnabled = true;
-            this.brushTypeComboBox.Items.AddRange(new object[] {
-            "Solid",
-            "Linear Gradient",
-            "Hatched"});
             this.brushTypeComboBox.Location = new System.Drawing.Point(170, 245);
             this.brushTypeComboBox.Name = "brushTypeComboBox";
             this.brushTypeComboBox.Size = new System.Drawing.Size(173, 24);
@@ -220,10 +212,6 @@
             // 
             this.penTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.penTypeComboBox.FormattingEnabled = true;
-            this.penTypeComboBox.Items.AddRange(new object[] {
-            "Solid",
-            "Dashed",
-            "Compound"});
             this.penTypeComboBox.Location = new System.Drawing.Point(170, 189);
             this.penTypeComboBox.Name = "penTypeComboBox";
             this.penTypeComboBox.Size = new System.Drawing.Size(173, 24);
@@ -288,7 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(452, 444);
+            this.ClientSize = new System.Drawing.Size(461, 462);
             this.Controls.Add(this.optionsGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -296,6 +284,7 @@
             this.Name = "ShapeOptions";
             this.ShowIcon = false;
             this.Text = "Shape Options";
+            this.Load += new System.EventHandler(this.ShapeOptions_Load);
             this.optionsGroupBox.ResumeLayout(false);
             this.optionsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shapeOptionsErrorProvider)).EndInit();
