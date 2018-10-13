@@ -16,5 +16,15 @@ namespace CoreLibrary
         {
             InitializeComponent();
         }
+
+        virtual public void smiOath_Click(object sender, EventArgs e)
+        {
+            throw new NotSupportedException("The Oath menu item is not implemented");
+        }
+
+        private void smiAbout_Click(object sender, EventArgs e)
+        {
+            throw new NotSupportedException("The About menu item is not implemented");
+        }
     }
 }
