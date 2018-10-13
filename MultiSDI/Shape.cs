@@ -38,7 +38,7 @@ namespace MultiSDI
         public ShapeType shapeType { get; set; }
 
         public PenType penType { get; set; }
-        public BrushType brushType { get; set }
+        public BrushType brushType { get; set; }
         public Shape(ShapeType shapeType)
         {
    
