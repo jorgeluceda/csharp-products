@@ -11,11 +11,11 @@ using SingleDocumentInterface;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using CoreLibrary;
 
 namespace SingleDocumentInterface
 {
-    public partial class MainForm : System.Windows.Forms.Form
+    public partial class MainForm : BaseMainForm
     {
         // The Document itself
         protected Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();

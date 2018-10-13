@@ -47,6 +47,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseMainForm.Designer.cs">
+      <DependentUpon>BaseMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="courseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +106,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseMainForm.resx">
+      <DependentUpon>BaseMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="courseControl.resx">
       <DependentUpon>courseControl.cs</DependentUpon>
