@@ -19,7 +19,7 @@ namespace SingleDocumentInterface
             GraphicsPath path = new GraphicsPath();
             path.AddEllipse(point.X, point.Y, width, (int)(perm * width));
 
-            Rectangle rect = new Rectangle(point.X, point.Y, width, (int)(perm * width);
+            Rectangle rect = new Rectangle(point.X, point.Y, width, (int)(perm * width));
             path.AddRectangle(rect);
        
             this.Region = new Region(path);
