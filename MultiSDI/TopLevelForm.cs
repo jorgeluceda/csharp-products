@@ -138,5 +138,17 @@ namespace MultiSDI
         {
             //doc.Draw(e.Graphics);
         }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();
+            dlg.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Show();
+        }
     }
 }
