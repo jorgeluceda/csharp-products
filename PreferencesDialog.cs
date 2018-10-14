@@ -46,18 +46,9 @@ namespace SingleDocumentInterface
             {
                 this.BackColorButton.ForeColor = Color.White;
             }
-           
-            //set button colors and font on load
             this.TextColorButton.BackColor = TextColor;
             this.BackColorButton.BackColor = BackColor;
             this.TextFontButton.Font = Font;
-
-            //set textbox text on load
-            this.DocumentSizeWidthTextBox.Text = DocumentSize.Width.ToString();
-            this.DocumentSizeHeightTextBox.Text = DocumentSize.Height.ToString();
-            this.DocumentLocationXTextBox.Text = DocumentLocation.X.ToString();
-            this.DocumentLocationYTextBox.Text = DocumentLocation.Y.ToString();
-            this.DocumentTitleTextBox.Text = DocumentTitle;
            
         }
         /**

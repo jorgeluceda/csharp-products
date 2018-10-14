@@ -44,9 +44,6 @@ namespace SingleDocumentInterface
             this.TextBox.Text = this.document.Text;
             this.Text = "Notepad--";
             this.StatusLabel.Text = "New file";
-            this.TextBox.BackColor = this.document.BackColor;
-            this.TextBox.ForeColor = this.document.TextColor;
-            this.TextBox.Font = this.document.Font;
         }
 
         /**
@@ -70,16 +67,13 @@ namespace SingleDocumentInterface
                     document.FilePath = dlg.FileName;
 
                     this.TextBox.Text = document.Text;
-                    this.TextBox.BackColor = document.BackColor;
-                    this.TextBox.ForeColor = document.TextColor;
-                    this.TextBox.Font = document.Font;
                     this.Location = document.DocumentLocation;
                     this.Text = document.DocumentTitle;
 
                     // Set this instance of the application's document properties to the ones just retrieved from
                     // deserialization - needed for detecting if a file has been saved before in File->Save
                     this.document = document;
-                    this.StatusLabel.Text = "Opened file: " + this.document.DocumentTitle;
+                    this.StatusLabel.Text = "Opening file";
                 }
             }
         }
@@ -106,12 +100,8 @@ namespace SingleDocumentInterface
                         Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
 
                         document.Text = this.TextBox.Text;
-                        document.BackColor = this.TextBox.BackColor;
-                        document.TextColor = this.TextBox.ForeColor;
-                        document.Font = this.TextBox.Font;
                         document.DocumentLocation = this.Location;
                         document.DocumentTitle = Path.GetFileName(dlg.FileName);
-                        document.DocumentSize = this.Size;
                         document.FilePath = dlg.FileName;
 
                         formatter.Serialize(stream, document);
@@ -132,10 +122,6 @@ namespace SingleDocumentInterface
                     IFormatter formatter = new BinaryFormatter();
 
                     this.document.Text = this.TextBox.Text;
-                    this.document.BackColor = this.TextBox.BackColor;
-                    this.document.TextColor = this.TextBox.ForeColor;
-                    this.document.Font = this.TextBox.Font;
-                    this.document.DocumentSize = this.Size;
                     this.document.DocumentLocation = this.Location;
                     this.document.DocumentTitle = Path.GetFileName(document.FilePath);
 
@@ -143,8 +129,6 @@ namespace SingleDocumentInterface
                 }
                 changedText = false;
                 this.Text = this.document.DocumentTitle;
-
-                this.StatusLabel.Text = "Saved";
             }
 
         }
@@ -167,20 +151,15 @@ namespace SingleDocumentInterface
 
                     // Before serializing, set this app instance's document properties, then serialize
                     this.document.Text = this.TextBox.Text;
-                    this.document.BackColor = this.TextBox.BackColor;
-                    this.document.TextColor = this.TextBox.ForeColor;
-                    this.document.Font = this.TextBox.Font;
-                    this.document.DocumentSize = this.Size;
                     this.document.DocumentLocation = this.Location;
-                    this.document.DocumentTitle = Path.GetFileName(document.FilePath);
-
+                    this.document.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    this.document.FilePath = dlg.FileName;
                     changedText = false;
                     formatter.Serialize(stream, this.document);
                 }
             }
 
             this.Text = this.document.DocumentTitle;
-            this.StatusLabel.Text = "Saved";
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -312,14 +291,12 @@ namespace SingleDocumentInterface
             this.prefDialog = new PreferencesDialog();
 
             // Update the properties for the dialog before it's shown
-
-
-            this.prefDialog.BackColor =TextBox.BackColor;
-            this.prefDialog.TextColor = TextBox.ForeColor;
-            this.prefDialog.Font = TextBox.Font;
-            this.prefDialog.DocumentSize = Size;
-            this.prefDialog.DocumentLocation = Location;
-            this.prefDialog.DocumentTitle = Text;
+            this.prefDialog.BackColor = this.document.BackColor;
+            this.prefDialog.TextColor = this.document.TextColor;
+            this.prefDialog.Font = this.document.Font;
+            this.prefDialog.DocumentSize = this.document.DocumentSize;
+            this.prefDialog.DocumentLocation = this.document.DocumentLocation;
+            this.prefDialog.DocumentTitle = this.document.DocumentTitle;
 
             // Subscribe to the dialog's Apply event
             this.prefDialog.Apply += preferences_Apply;
@@ -332,22 +309,12 @@ namespace SingleDocumentInterface
         {
             PreferencesDialog preferencesDlg = sender as PreferencesDialog;
 
-            //save changes in document
             this.document.BackColor = this.prefDialog.BackColor;
             this.document.Font = this.prefDialog.Font;
             this.document.TextColor = this.prefDialog.TextColor;
             this.document.DocumentSize = this.prefDialog.DocumentSize;
             this.document.DocumentLocation = this.prefDialog.DocumentLocation;
             this.document.DocumentTitle = this.prefDialog.DocumentTitle;
-
-
-            //apply changes in document
-            this.TextBox.Font = this.document.Font;
-            this.TextBox.BackColor = this.document.BackColor;
-            this.TextBox.ForeColor = this.document.TextColor;
-            this.Size = this.document.DocumentSize;
-            this.Location = this.document.DocumentLocation;
-            this.Text = this.document.DocumentTitle;
         }
         #endregion
 

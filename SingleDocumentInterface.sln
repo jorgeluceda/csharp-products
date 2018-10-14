@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleDocumentInterface", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLibrary", "CoreLibrary\CoreLibrary.csproj", "{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDI", "MultiSDI\MultiSDI.csproj", "{92E7D2C3-1D2A-492F-8C44-D4DED542C441}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92E7D2C3-1D2A-492F-8C44-D4DED542C441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92E7D2C3-1D2A-492F-8C44-D4DED542C441}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92E7D2C3-1D2A-492F-8C44-D4DED542C441}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92E7D2C3-1D2A-492F-8C44-D4DED542C441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
