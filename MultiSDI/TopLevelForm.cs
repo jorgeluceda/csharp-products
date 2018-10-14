@@ -119,7 +119,8 @@ namespace MultiSDI
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            if(dlg.ShowDialog() == DialogResult.OK)
+            dlg.Filter = "Our files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
                 CreateTopLevelWindow(dlg.FileName);
             }
@@ -137,6 +138,30 @@ namespace MultiSDI
         private void TopLevelForm_Paint(object sender, PaintEventArgs e)
         {
             //doc.Draw(e.Graphics);
+        }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OathDialog dlg = new OathDialog();  
+            
+            dlg.Owner = this;
+            dlg.Show();
+            dlg.SendToBack();
+            this.BringToFront();
+
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog dlg = new AboutDialog();
+            dlg.Owner = this;
+            dlg.Show();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
