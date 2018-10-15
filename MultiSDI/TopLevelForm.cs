@@ -19,8 +19,8 @@ namespace MultiSDI
         string fileName;
         Pen pen;
         Document doc = new Document();
-        Shape currentShape;
-        
+        OptionsForm optionsForm = new OptionsForm();
+
         // Read Only FileName property
         string FileName
         {
@@ -41,9 +41,6 @@ namespace MultiSDI
 
             // Add the handler for the DropDownOpening event to the application's window menu
             MultiSDIApplication.Application.WindowMenu.DropDownOpening += MultiSDIApplication.Application.windowMenu_DropDownOpening;
-
-            // Initialize the current shape
-            this.currentShape = new Shape();
         }
         #endregion
 
@@ -109,7 +106,26 @@ namespace MultiSDI
         #region MainMenu Item Handlers
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new ShapeOptions(this.currentShape)).Show();
+            // TODO get actual shape that is going to be edited. EX:
+            //
+            // Shape shape  = this.SelectedForm.GetShape();
+            // this.optionsForm.DataBindingSource.DataSource = shape;
+
+            this.optionsForm.ShowDialog();
+
+            ///////// TESTING ///////////
+            /*var dg = new OptionsForm();
+            var result = dg.ShowDialog();
+
+            var shape = new Shape();
+            shape.LocationX = 300;
+            shape.PenType = PenTypeEnum.Dashed;
+            var bs = new BindingSource();
+
+            var dg = new OptionsForm();
+            dg.DataBindingSource.DataSource = shape;
+            var result = dg.ShowDialog();
+            result.Equals("AAAA");*/
         }
 
         /**
