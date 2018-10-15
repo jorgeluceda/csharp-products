@@ -36,7 +36,6 @@
             System.Windows.Forms.Label brushTypeLabel;
             System.Windows.Forms.Label penTypeLabel;
             System.Windows.Forms.Label shapeTypeLabel;
-            this.bsShape = new System.Windows.Forms.BindingSource(this.components);
             this.locationXTextBox = new System.Windows.Forms.TextBox();
             this.locationYTextBox = new System.Windows.Forms.TextBox();
             this.sizeHTextBox = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.btnPenColor = new System.Windows.Forms.Button();
             this.btnBrushColor = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.bsShape = new System.Windows.Forms.BindingSource(this.components);
             locationXLabel = new System.Windows.Forms.Label();
             locationYLabel = new System.Windows.Forms.Label();
             sizeHLabel = new System.Windows.Forms.Label();
@@ -57,10 +57,6 @@
             shapeTypeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsShape)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bsShape
-            // 
-            this.bsShape.DataSource = typeof(MultiSDI.Shape);
             // 
             // locationXLabel
             // 
@@ -213,6 +209,11 @@
             this.btnOk.TabIndex = 16;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // bsShape
+            // 
+            this.bsShape.DataSource = typeof(MultiSDI.Shape);
             // 
             // OptionsForm
             // 
@@ -238,6 +239,7 @@
             this.Controls.Add(this.locationXTextBox);
             this.Name = "OptionsForm";
             this.Text = "OptionsForm";
+            this.Load += new System.EventHandler(this.OptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsShape)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
