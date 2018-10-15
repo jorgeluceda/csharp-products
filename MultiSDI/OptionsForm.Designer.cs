@@ -44,6 +44,10 @@
             this.brushTypeComboBox = new System.Windows.Forms.ComboBox();
             this.penTypeComboBox = new System.Windows.Forms.ComboBox();
             this.shapeTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             locationXLabel = new System.Windows.Forms.Label();
             locationYLabel = new System.Windows.Forms.Label();
             sizeHLabel = new System.Windows.Forms.Label();
@@ -180,11 +184,42 @@
             this.shapeTypeComboBox.Size = new System.Drawing.Size(364, 28);
             this.shapeTypeComboBox.TabIndex = 13;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(221, 43);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Pen Color";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(234, 196);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(237, 43);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Brush Color";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(326, 272);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(145, 40);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "OK";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 615);
+            this.ClientSize = new System.Drawing.Size(481, 324);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(shapeTypeLabel);
             this.Controls.Add(this.shapeTypeComboBox);
             this.Controls.Add(penTypeLabel);
@@ -217,5 +252,9 @@
         private System.Windows.Forms.ComboBox brushTypeComboBox;
         private System.Windows.Forms.ComboBox penTypeComboBox;
         private System.Windows.Forms.ComboBox shapeTypeComboBox;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
