@@ -142,12 +142,13 @@ namespace MultiSDI
 
         private void oathToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OathDialog dlg = new OathDialog();  
-            
+            OathDialog dlg = new OathDialog();
+
             dlg.Owner = this;
+            dlg.StartPosition = FormStartPosition.Manual;
+            dlg.SetDesktopLocation((this.DesktopLocation.X - dlg.Width), this.DesktopLocation.Y);
             dlg.Show();
-            dlg.SendToBack();
-            this.BringToFront();
+
 
 
         }
@@ -156,6 +157,8 @@ namespace MultiSDI
         {
             AboutDialog dlg = new AboutDialog();
             dlg.Owner = this;
+            dlg.StartPosition = FormStartPosition.Manual;
+            dlg.SetDesktopLocation((this.DesktopLocation.X + this.Width), this.DesktopLocation.Y);
             dlg.Show();
         }
 
