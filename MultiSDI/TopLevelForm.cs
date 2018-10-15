@@ -143,6 +143,13 @@ namespace MultiSDI
         private void oathToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OathDialog dlg = new OathDialog();
+            foreach (Form fm in Application.OpenForms)
+            {
+                if (fm.Name == "OathDialog")
+                {
+                    return;
+                }
+            }
 
             dlg.Owner = this;
             dlg.StartPosition = FormStartPosition.Manual;
@@ -155,7 +162,17 @@ namespace MultiSDI
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             AboutDialog dlg = new AboutDialog();
+
+            foreach (Form fm in Application.OpenForms)
+            {
+                if (fm.Name == "AboutDialog")
+                {
+                    return;
+                }
+            }
+
             dlg.Owner = this;
             dlg.StartPosition = FormStartPosition.Manual;
             dlg.SetDesktopLocation((this.DesktopLocation.X + this.Width), this.DesktopLocation.Y);
