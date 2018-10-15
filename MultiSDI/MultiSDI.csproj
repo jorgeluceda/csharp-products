@@ -51,6 +51,12 @@
     <Compile Include="Document.cs" />
     <Compile Include="IBindingSource.cs" />
     <Compile Include="MultiSDIApplication.cs" />
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shape.cs" />
     <Compile Include="TopLevelForm.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,9 @@
       <DependentUpon>ShapeOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="windowInterface.cs" />
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TopLevelForm.resx">
       <DependentUpon>TopLevelForm.cs</DependentUpon>
     </EmbeddedResource>
