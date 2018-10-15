@@ -44,7 +44,7 @@
             this.brushTypeComboBox = new System.Windows.Forms.ComboBox();
             this.penTypeComboBox = new System.Windows.Forms.ComboBox();
             this.shapeTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.btnPenColor = new System.Windows.Forms.Button();
             this.btnBrushColor = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -192,6 +192,7 @@
             this.btnPenColor.TabIndex = 14;
             this.btnPenColor.Text = "Pen Color";
             this.btnPenColor.UseVisualStyleBackColor = true;
+            this.btnPenColor.Click += new System.EventHandler(this.btnPenColor_Click);
             // 
             // btnBrushColor
             // 
@@ -201,6 +202,7 @@
             this.btnBrushColor.TabIndex = 15;
             this.btnBrushColor.Text = "Brush Color";
             this.btnBrushColor.UseVisualStyleBackColor = true;
+            this.btnBrushColor.Click += new System.EventHandler(this.btnBrushColor_Click);
             // 
             // btnOk
             // 
@@ -252,7 +254,7 @@
         private System.Windows.Forms.ComboBox brushTypeComboBox;
         private System.Windows.Forms.ComboBox penTypeComboBox;
         private System.Windows.Forms.ComboBox shapeTypeComboBox;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button btnPenColor;
         private System.Windows.Forms.Button btnBrushColor;
         private System.Windows.Forms.Button btnOk;
