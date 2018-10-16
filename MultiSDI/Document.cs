@@ -8,9 +8,11 @@ using System.Drawing;
 
 namespace MultiSDI
 {
+    [Serializable]
     /* This Class will store our shapes */
     class Document
     {
+
         public List<Shape> shapes = new List<Shape>();
 
         public void Draw(Graphics graphics)

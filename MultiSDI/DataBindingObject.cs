@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MultiSDI
 {
+    [Serializable]
     public class DataBindingObject: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
