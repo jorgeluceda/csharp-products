@@ -120,7 +120,7 @@ namespace MultiSDI
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Our files (*.txt)|*.txt|All files (*.*)|*.*";
+            dlg.Filter = "Our files (*.drw)|*.drw|All files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 CreateTopLevelWindow(dlg.FileName);
