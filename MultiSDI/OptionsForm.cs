@@ -66,6 +66,7 @@ namespace MultiSDI
             this.brushTypeComboBox.DataSource = brushList;
             this.shapeTypeComboBox.DataSource = shapeList;
 
+            
             this.penTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).PenType;
             this.brushTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).BrushType;
             this.shapeTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).ShapeType;

@@ -137,8 +137,14 @@ namespace MultiSDI
             }
         }
 
+        //default shape constructor, sets default enum values for our types
         public Shape()
         {
+        
+            ShapeType = ShapeTypeEnum.Ellipse;
+            BrushType = BrushTypeEnum.Solid;
+            PenType = PenTypeEnum.Solid;
+            
         }
 
         public void Draw(Graphics graphics)

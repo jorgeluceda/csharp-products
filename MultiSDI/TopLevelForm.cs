@@ -111,21 +111,21 @@ namespace MultiSDI
             // Shape shape  = this.SelectedForm.GetShape();
             // this.optionsForm.DataBindingSource.DataSource = shape;
 
-            this.optionsForm.ShowDialog();
+            //this.optionsForm.ShowDialog();
 
             ///////// TESTING ///////////
-            /*var dg = new OptionsForm();
-            var result = dg.ShowDialog();
 
+            /* Take a look at code below to understand the data binding */
             var shape = new Shape();
             shape.LocationX = 300;
             shape.PenType = PenTypeEnum.Dashed;
             var bs = new BindingSource();
 
-            var dg = new OptionsForm();
-            dg.DataBindingSource.DataSource = shape;
-            var result = dg.ShowDialog();
-            result.Equals("AAAA");*/
+            //var dg = new OptionsForm();
+            this.optionsForm.DataBindingSource.DataSource = shape;
+            //dg.DataBindingSource.DataSource = shape;
+            var result = this.optionsForm.ShowDialog();
+            result.Equals("AAAA");
         }
 
         /**
