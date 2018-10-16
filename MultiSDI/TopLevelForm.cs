@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using SingleDocumentInterface;
 using static MultiSDI.Shape;
-
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace MultiSDI
 {
     public partial class TopLevelForm : Form
@@ -135,7 +136,7 @@ namespace MultiSDI
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Our files (*.txt)|*.txt|All files (*.*)|*.*";
+            dlg.Filter = "Our files (*.drw)|*.drw|All files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 CreateTopLevelWindow(dlg.FileName);
@@ -197,7 +198,84 @@ namespace MultiSDI
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // If the document is new, i.e. has never been saved before
+            if (string.IsNullOrEmpty(this.doc.DocumentTitle) || string.IsNullOrWhiteSpace(this.doc.DocumentTitle))
+            {
+                using (SaveFileDialog dlg = new SaveFileDialog())
+                {
+                    dlg.DefaultExt = ".drw";
+                    dlg.Filter = "Drawing files (*.drw)|*.drw";
+                    if (dlg.ShowDialog() != DialogResult.OK) return;
 
+                    using (Stream stream =
+                        new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+
+                        Document doc = new Document();
+
+                        /******
+                        //doc.Graph = this.Graph;
+
+                        //doc.DocumentTitle = Path.GetFileName(dlg.FileName);
+                        //doc.FilePath = dlg.FileName;
+                        ******/
+
+                        formatter.Serialize(stream, doc);
+                        this.doc = doc;
+                    }
+
+                }
+
+                //this.Text = this.doc.DocumentTitle;
+            }
+            // If the document not new, and has been saved before
+            else
+            {
+                using (Stream stream = new FileStream(this.doc.FilePath, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+
+                    /******
+                    //doc.Graph = this.Graph;
+
+                    //doc.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    //doc.FilePath = dlg.FileName;
+                    ******/
+
+                        formatter.Serialize(stream, doc);
+                }
+
+                //this.Text = this.doc.DocumentTitle;
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog dlg = new SaveFileDialog())
+            {
+                dlg.DefaultExt = ".drw";
+                dlg.Filter = "Drawing files (*.drw)|*.drw";
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+
+                using (Stream stream =
+                    new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+
+                    /******
+                    // Before serializing, set this app instance's document properties, then serialize
+                    //doc.Graph = this.Graph;
+
+                    //doc.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    //doc.FilePath = dlg.FileName;
+                    ******/
+
+                    formatter.Serialize(stream, this.doc);
+                }
+            }
+
+            //this.Text = this.doc.DocumentTitle;
         }
     }
 }
