@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using SingleDocumentInterface;
 using static MultiSDI.Shape;
-
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace MultiSDI
 {
     public partial class TopLevelForm : Form
