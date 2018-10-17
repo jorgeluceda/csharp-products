@@ -13,6 +13,8 @@ using static MultiSDI.Shape;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
+using System.Drawing.Drawing2D;
+
 namespace MultiSDI
 {
     public partial class TopLevelForm : BaseMainForm
@@ -278,17 +280,7 @@ namespace MultiSDI
             {
                 if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    SetBrushColor(MainColorDialog.Color);
-                    //Changing label backcolor
-                    if (this.MainColorDialog.Color.GetBrightness() < 0.5)
-                    {
-                        this.penColorLabel.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        this.penColorLabel.ForeColor = Color.Black;
-                    }
-                    this.penColorLabel.BackColor = MainColorDialog.Color;
+                    SetPenColor(MainColorDialog.Color);
                 }
             }
             if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
@@ -296,16 +288,6 @@ namespace MultiSDI
                 if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     SetBrushColor(MainColorDialog.Color);
-                    //Changing label backcolor
-                    if (this.MainColorDialog.Color.GetBrightness() < 0.5)
-                    {
-                        this.brushColorLabel.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        this.brushColorLabel.ForeColor = Color.Black;
-                    }
-                    this.brushColorLabel.BackColor = MainColorDialog.Color;
                 }
             }
             //Pen Types
@@ -356,33 +338,7 @@ namespace MultiSDI
             {
                 SetShape(2);
             }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("curve"))
-            {
-                SetShape(3);
-            }
-            if (((ToolStripMenuItem)sender).Name.Contains("ellipse"))
-            {
-                SetShape(4);
-                this.shapeTypeLabel.Text = "Ellipse";
-            }
-            if (((ToolStripMenuItem)sender).Name.Contains("lines"))
-            {
-                SetShape(5);
-            }
-            if (((ToolStripMenuItem)sender).Name.Contains("pie"))
-            {
-                SetShape(6);
-            }
-            if (((ToolStripMenuItem)sender).Name.Contains("polygon"))
-            {
-                SetShape(6);
-            }
-            if (((ToolStripMenuItem)sender).Name.Contains("rectangle"))
-            {
-                SetShape(7);
-                this.shapeTypeLabel.Text = "Rectangle";
-            }
+            
             //if not color setting
             ResetSubmenus((ToolStripMenuItem)sender);
             //SubmenuAction(sender);
@@ -545,34 +501,73 @@ namespace MultiSDI
             if (!loadFlag)
             {
                 dc = e.Graphics;
-                //float x =
-                if (((Shape)(optionsForm.DataBindingSource.Current)).ShapeType == ShapeTypeEnum.Ellipse)
+
+                int width = Math.Abs((int)(xEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationX));
+                int height = Math.Abs((int)(yEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationY));
+
+                Shape temp = new Shape();
+                temp.ShapeType = ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType;
+                temp.PenColor = ((Shape)(optionsForm.DataBindingSource.Current)).PenColor;
+                temp.BrushColor = ((Shape)(optionsForm.DataBindingSource.Current)).BrushColor;
+                temp.SizeW = width;
+                temp.SizeH = height;
+                temp.LocationX = ((Shape)(optionsForm.DataBindingSource.Current)).LocationX;
+                temp.LocationY = ((Shape)(optionsForm.DataBindingSource.Current)).LocationY;
+                temp.PenType = ((Shape)(optionsForm.DataBindingSource.Current)).PenType;
+                temp.BrushType = ((Shape)(optionsForm.DataBindingSource.Current)).BrushType;
+
+                //var state = dc.Save();
+
+                doc.shapes.Add(temp);
+
+                foreach (Shape sh in doc.shapes)
                 {
-                    //ellipse
-                    Rectangle rect = new Rectangle();
-                    rect.Location = new Point(((Shape)(optionsForm.DataBindingSource.Current)).LocationX, ((Shape)(optionsForm.DataBindingSource.Current)).LocationY);
-                    rect.Width = Math.Abs((int)(xEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationX));
-                    rect.Height = Math.Abs((int)(yEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationY));
-                    dc.DrawRectangle(new Pen(Color.Red, 10), rect);
+
+                    if (sh.ShapeType == ShapeTypeEnum.Ellipse)
+                    {
+                        //ellipse
+                        Rectangle rect = new Rectangle();
+                        rect.Location = new Point(sh.LocationX, sh.LocationY);
+                        rect.Width = sh.SizeW;
+                        rect.Height = sh.SizeH;
+                        dc.DrawEllipse(new Pen(sh.PenColor, 10), rect);
+                    }
+                    if (sh.ShapeType == ShapeTypeEnum.Rectangle)
+                    {
+                        //rectangle
+                        Rectangle rect = new Rectangle();
+                        rect.Location = new Point(sh.LocationX, sh.LocationY);
+                        rect.Width = sh.SizeW;
+                        rect.Height = sh.SizeH;
+                        dc.DrawRectangle(new Pen(sh.PenColor, 10), rect);
+                    }
+                    if (sh.ShapeType == ShapeTypeEnum.Custom)
+                    {
+                        //custom
+                        GraphicsPath myPath = new GraphicsPath();
+
+                        // First set of figures.
+                        myPath.StartFigure();
+                        myPath.AddArc(10, 10, 50, 50, 0, 270);
+                        myPath.AddLine(new Point(50, 0), new Point(100, 50));
+                        myPath.AddArc(50, 100, 75, 75, 0, 270);
+                        myPath.CloseFigure();
+                        myPath.StartFigure();
+                        myPath.AddArc(100, 10, 50, 50, 0, 270);
+
+                        // Draw the path to the screen.
+                        e.Graphics.DrawPath(new Pen(Color.Black), myPath);
+
+
+
+                    }
+
                 }
-                if (((Shape)(optionsForm.DataBindingSource.Current)).ShapeType == ShapeTypeEnum.Rectangle)
-                {
-                    //rectangle
-                    Rectangle rect = new Rectangle();
-                    rect.Location = new Point(((Shape)(optionsForm.DataBindingSource.Current)).LocationX, ((Shape)(optionsForm.DataBindingSource.Current)).LocationY);
-                    rect.Width = Math.Abs((int)(xEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationX));
-                    rect.Height = Math.Abs((int)(yEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationY));
-                    dc.DrawRectangle(new Pen(Color.Red, 10), rect);
-                }
-                if (((Shape)(optionsForm.DataBindingSource.Current)).ShapeType == ShapeTypeEnum.Custom)
-                {
-                    //custom
-                    Rectangle rect = new Rectangle();
-                    rect.Location = new Point(((Shape)(optionsForm.DataBindingSource.Current)).LocationX, ((Shape)(optionsForm.DataBindingSource.Current)).LocationY);
-                    rect.Width = Math.Abs((int)(xEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationX));
-                    rect.Height = Math.Abs((int)(yEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationY));
-                    dc.DrawRectangle(new Pen(Color.Red, 10), rect);
-                }
+
+                //dc.Restore(state);
+
+                
+
                 //dc.CreateGra
 
                 /*
@@ -590,7 +585,7 @@ namespace MultiSDI
         {
             Xthis += 100;
             Ythis += 100;
-            this.mainPictureBox.Invalidate();
+           // this.mainPictureBox.Invalidate();
         }
         private Object SelectShape(int index)
         {
