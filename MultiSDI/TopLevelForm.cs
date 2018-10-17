@@ -12,15 +12,19 @@ using SingleDocumentInterface;
 using static MultiSDI.Shape;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using CoreLibrary;
 namespace MultiSDI
 {
-    public partial class TopLevelForm : Form
+    public partial class TopLevelForm : BaseMainForm
     {
+
         #region Member Variables and Properties
         string fileName;
         Pen pen;
         Document doc = new Document();
         OptionsForm optionsForm = new OptionsForm();
+        List<ToolStripDropDownItem> menuOwners = new List<ToolStripDropDownItem>();
+
 
         // Read Only FileName property
         string FileName
@@ -33,6 +37,8 @@ namespace MultiSDI
         public TopLevelForm()
         {
             InitializeComponent();
+            InitializeDS();
+
 
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDIApplication.Application.AddTopLevelForm(this);
@@ -42,6 +48,8 @@ namespace MultiSDI
 
             // Add the handler for the DropDownOpening event to the application's window menu
             MultiSDIApplication.Application.WindowMenu.DropDownOpening += MultiSDIApplication.Application.windowMenu_DropDownOpening;
+            InitializeSubmenuEvents();
+
         }
         #endregion
 
@@ -117,14 +125,14 @@ namespace MultiSDI
             ///////// TESTING ///////////
 
             /* Take a look at code below to understand the data binding */
-            var shape = new Shape();
+            /*var shape = new Shape();
             shape.LocationX = 300;
             shape.PenType = PenTypeEnum.Dashed;
             var bs = new BindingSource();
 
             //var dg = new OptionsForm();
             this.optionsForm.DataBindingSource.DataSource = shape;
-            //dg.DataBindingSource.DataSource = shape;
+            //dg.DataBindingSource.DataSource = shape;*/
             var result = this.optionsForm.ShowDialog();
             result.Equals("AAAA");
         }
@@ -277,5 +285,206 @@ namespace MultiSDI
 
             //this.Text = this.doc.DocumentTitle;
         }
+
+        private void TopLevelForm_Load(object sender, EventArgs e)
+        {
+            ToolStripManager.Merge(BaseMenu, MainMenu);
+
+        }
+
+        private void InitializeSubmenuEvents()
+        {
+
+
+            menuOwners.Add(shapeToolStripMenuItem);
+            menuOwners.Add(penToolStripMenuItem);
+            menuOwners.Add(brushToolStripMenuItem);
+            menuOwners.Add(ShapeToolStripDropDownButton);
+            menuOwners.Add(BrushToolStripDropDownButton);
+            menuOwners.Add(PenToolStripDropDownButton);
+            menuOwners.Add(ColorToolStripDropDownButton);
+            menuOwners.Add(colorToolStripMenuItem);
+
+
+
+
+            foreach (ToolStripDropDownItem val in menuOwners)
+            {
+                foreach (ToolStripMenuItem sub in val.DropDownItems)
+                {
+                    sub.Click += ClickSubmenu;
+                }
+            }
+
+        }
+
+        private void ClickSubmenu(object sender, EventArgs e)
+        {
+            
+
+            if (((ToolStripMenuItem)sender).Name.Contains("penColor"))
+            {
+                
+                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
+                {
+                    SetBrushColor(MainColorDialog.Color);
+                }
+
+                return;
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
+            {
+                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
+                {
+                    SetBrushColor(MainColorDialog.Color);
+                }
+
+                return;
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
+            {
+                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
+                {
+                    SetBrushColor(MainColorDialog.Color);
+                }
+
+                return;
+            }
+
+
+            //if not color setting
+            ResetSubmenus((ToolStripMenuItem)sender);
+            //SubmenuAction(sender);
+        }
+
+      
+
+        private void ResetSubmenus(ToolStripMenuItem menuItem)
+        {
+            foreach (ToolStripMenuItem val in menuItem.Owner.Items)
+            {
+                val.Checked = false;
+            }
+            menuItem.Checked = true;
+
+        }
+
+        private void SyncSubmenus()
+        {
+            //to be implemented
+        }
+
+        private void SubmenuAction(object sender)
+        {
+            int index = 0;
+            foreach (ToolStripDropDownItem val in menuOwners)
+            {
+                for(int i = 0;  i< val.DropDownItems.Count; i++)
+                {
+                    if (val.DropDownItems[i].Equals(sender))
+                    {
+
+                        index = i;
+                        return;
+                    }
+                }
+            }
+
+            switch (index)
+            {
+                case 0:
+
+                    /*
+                    ((Shape)(optionsForm.DataBindingSource.Current)).PenColor = Color.Red;
+                    ((Shape)(optionsForm.DataBindingSource.Current)).BrushColor = Color.Black;
+                    ((Shape)(optionsForm.DataBindingSource.Current)).PenType = PenTypeEnum.Solid;
+                    ((Shape)(optionsForm.DataBindingSource.Current)).BrushType = BrushTypeEnum.Hatched;
+                    ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType = ShapeTypeEnum.Custom;
+                    */
+                    break;
+
+                default:
+
+                    break;
+            }
+
+        }
+
+        private void SetPenColor(Color color)
+        {
+            ((Shape)(optionsForm.DataBindingSource.Current)).PenColor = color;
+
+        }
+
+        private void SetBrushColor(Color color)
+        {
+            ((Shape)(optionsForm.DataBindingSource.Current)).BrushColor = color;
+
+        }
+
+        private void SetPen(int index)
+        {
+            
+            switch (index)
+            {
+                case 0: 
+                    ((Shape)(optionsForm.DataBindingSource.Current)).PenType = Shape.PenTypeEnum.Solid;
+                    break;
+                case 1:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).PenType = Shape.PenTypeEnum.Dashed;
+                    break;
+                case 2:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).PenType = Shape.PenTypeEnum.Compound;
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
+
+        private void SetBrush(int index)
+        {
+
+            switch (index)
+            {
+                case 0:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).BrushType = Shape.BrushTypeEnum.Solid;
+                    break;
+                case 1:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).BrushType = Shape.BrushTypeEnum.Hatched;
+                    break;
+                case 2:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).BrushType = Shape.BrushTypeEnum.LinearGradient;
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void InitializeDS()
+        {
+
+            /* Take a look at code below to understand the data binding */
+            var shape = new Shape();
+            shape.LocationX = 300;
+            shape.LocationY = 300;
+            shape.PenColor = Color.Black;
+            shape.PenType = PenTypeEnum.Dashed;
+            shape.BrushColor = Color.Black;
+            shape.BrushType = BrushTypeEnum.Solid;
+            //var bs = new BindingSource();
+
+            //var dg = new OptionsForm();
+            this.optionsForm.DataBindingSource.DataSource = shape;
+            //dg.DataBindingSource.DataSource = shape;
+            //var result = this.optionsForm.ShowDialog();
+            //result.Equals("AAAA");
+
+        }
     }
+
 }
