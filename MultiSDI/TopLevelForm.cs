@@ -328,7 +328,17 @@ namespace MultiSDI
                 if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     SetBrushColor(MainColorDialog.Color);
+                    //Changing label backcolor
+                    if (this.MainColorDialog.Color.GetBrightness() < 0.5)
+                    {
+                        this.penColorLabel.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        this.penColorLabel.ForeColor = Color.Black;
+                    }
 
+                    this.penColorLabel.BackColor = MainColorDialog.Color;
                 }
 
             }
@@ -338,50 +348,63 @@ namespace MultiSDI
                 if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     SetBrushColor(MainColorDialog.Color);
+                    //Changing label backcolor
+                    if (this.MainColorDialog.Color.GetBrightness() < 0.5)
+                    {
+                        this.brushColorLabel.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        this.brushColorLabel.ForeColor = Color.Black;
+                    }
+
+                    this.brushColorLabel.BackColor = MainColorDialog.Color;
 
                 }
 
             }
 
+            //Pen Types
             if (((ToolStripMenuItem)sender).Name.Contains("solidTool"))
             {
                     SetPen(0);
-
+                this.penTypeLabel.Text = "Solid Pen";
             }
 
             if (((ToolStripMenuItem)sender).Name.Contains("customDashed"))
             {
                 
                     SetPen(1);
-
+                this.penTypeLabel.Text = "Custom Dash Pen";
             }
 
             if (((ToolStripMenuItem)sender).Name.Contains("compoundTool"))
             {
 
                 SetPen(2);
-
+                this.penTypeLabel.Text = "Compound Pen";
             }
 
+            //Brush Types
             if (((ToolStripMenuItem)sender).Name.Contains("solidBrushTool"))
             {
 
                 SetBrush(0);
-
+                this.brushTypeLabel.Text = "Solid Brush";
             }
 
             if (((ToolStripMenuItem)sender).Name.Contains("hatchTool"))
             {
 
                 SetBrush(1);
-
+                this.brushTypeLabel.Text = "Hatch Brush";
             }
 
-            if (((ToolStripMenuItem)sender).Name.Contains("linerGradientTool"))
+            if (((ToolStripMenuItem)sender).Name.Contains("linearGradientTool"))
             {
 
                 SetBrush(2);
-
+                this.brushTypeLabel.Text = "Linear Gradient Brush";
             }
 
 
@@ -418,7 +441,7 @@ namespace MultiSDI
             {
 
                 SetShape(4);
-
+                this.shapeTypeLabel.Text = "Ellipse";
             }
 
             if (((ToolStripMenuItem)sender).Name.Contains("lines"))
@@ -446,7 +469,7 @@ namespace MultiSDI
             {
 
                 SetShape(7);
-
+                this.shapeTypeLabel.Text = "Rectangle";
             }
 
             //if not color setting
