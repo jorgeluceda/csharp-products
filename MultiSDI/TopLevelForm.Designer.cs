@@ -239,7 +239,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TopLevelForm_Paint);
             this.Controls.SetChildIndex(this.MainMenu, 0);
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).EndInit();
-            this.Controls.SetChildIndex(this.statusStrip1, 0);
+            //this.Controls.SetChildIndex(this.statusStrip1, 0);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

@@ -20,9 +20,12 @@ namespace MultiSDI
 
         #region Member Variables and Properties
         string fileName;
-        Pen pen;
+        //Pen pen;
         int Xthis = 100;
         int Ythis = 100;
+        float xEndPoint = 0;
+        float yEndPoint = 0;
+        Boolean loadFlag = true;
         Document doc = new Document();
         OptionsForm optionsForm = new OptionsForm();
         Graphics dc = null;
@@ -668,12 +671,17 @@ namespace MultiSDI
 
         private void mainPictureBox_MouseUp(object sender, MouseEventArgs e)
         {
+            xEndPoint = e.X;
+            yEndPoint = e.Y;
 
+            mainPictureBox.Invalidate();
         }
 
         private void mainPictureBox_Paint(object sender, PaintEventArgs e)
         {
             dc = e.Graphics;
+
+            //float x = 
             
             //dc.CreateGra
             Rectangle rect = new Rectangle();
