@@ -43,6 +43,8 @@ namespace MultiSDI
 
         private void OptionsForm_Load(object sender, EventArgs e)
         {
+            Shape shape = (Shape)this.bsShape.Current;
+
             List<Shape.PenTypeEnum> penList = new List<Shape.PenTypeEnum>();
             List<Shape.BrushTypeEnum> brushList = new List<Shape.BrushTypeEnum>();
             List<Shape.ShapeTypeEnum> shapeList = new List<Shape.ShapeTypeEnum>();
@@ -66,7 +68,6 @@ namespace MultiSDI
             this.brushTypeComboBox.DataSource = brushList;
             this.shapeTypeComboBox.DataSource = shapeList;
 
-            
             this.penTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).PenType;
             this.brushTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).BrushType;
             this.shapeTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).ShapeType;
@@ -76,100 +77,6 @@ namespace MultiSDI
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        //For closing the form
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void locationXTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.locationXTextBox.Text) || !string.IsNullOrEmpty(this.locationXTextBox.Text))
-            {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.locationXTextBox.Text, out temp))
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, "Please enter a whole number");
-                }
-                else //When Correct
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, null);
-                }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, "Please enter an X coordinate");
-            }
-        }
-
-        private void locationYTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.locationYTextBox.Text) || !string.IsNullOrEmpty(this.locationYTextBox.Text))
-            {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.locationYTextBox.Text, out temp))
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, "Please enter a whole number");
-                }
-                else //When Correct
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, null);
-                }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, "Please enter a Y coordinate");
-            }
-        }
-
-        private void sizeHTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.sizeHTextBox.Text) || !string.IsNullOrEmpty(this.sizeHTextBox.Text))
-            {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.sizeHTextBox.Text, out temp))
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, "Please enter a whole number");
-                }
-                else //When Correct
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, null);
-                }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, "Please enter a height");
-            }
-        }
-
-        private void sizeWTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.sizeWTextBox.Text) || !string.IsNullOrEmpty(this.sizeWTextBox.Text))
-            {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.sizeWTextBox.Text, out temp))
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, "Please enter a whole number");
-                }
-                else //When Correct
-                {
-                    this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, null);
-                }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, "Please enter a width");
-            }
         }
     }
 }

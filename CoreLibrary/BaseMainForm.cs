@@ -15,6 +15,7 @@ namespace CoreLibrary
         public BaseMainForm()
         {
             InitializeComponent();
+            //InitializeSubmenuEvents();
         }
 
         virtual public void smiOath_Click(object sender, EventArgs e)
@@ -26,5 +27,56 @@ namespace CoreLibrary
         {
             throw new NotSupportedException("The About menu item is not implemented");
         }
+
+        /*
+        private void InitializeSubmenuEvents()
+        {
+
+            List<ToolStripDropDownItem> menuOwners = new List<ToolStripDropDownItem>();
+
+            menuOwners.Add(shapeToolStripMenuItem);
+            menuOwners.Add(penToolStripMenuItem);
+            menuOwners.Add(brushToolStripMenuItem);
+
+            menuOwners.Add(ShapeToolStripDropDownButton);
+            menuOwners.Add(BrushToolStripDropDownButton);
+            menuOwners.Add(PenToolStripDropDownButton);
+
+
+
+            foreach (ToolStripDropDownItem val in menuOwners)
+            {
+                foreach (ToolStripMenuItem sub in val.DropDownItems)
+                {
+                    sub.Click += ClickSubmenu;
+                }
+            }
+
+        }
+
+        private void ClickSubmenu(object sender, EventArgs e)
+        {
+            ResetSubmenus((ToolStripMenuItem)sender);
+        }
+
+        private void ResetSubmenus(ToolStripMenuItem menuItem)
+        {
+            foreach (ToolStripMenuItem val in menuItem.Owner.Items)
+            {
+                val.Checked = false;
+            }
+            menuItem.Checked = true;
+
+        }
+
+        private void SyncSubmenus()
+        {
+
+        }
+
+    */
+
+
     }
+
 }
