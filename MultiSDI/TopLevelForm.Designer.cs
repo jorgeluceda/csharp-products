@@ -217,7 +217,7 @@
             this.mainPictureBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPictureBox.Location = new System.Drawing.Point(0, 75);
-            this.mainPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.mainPictureBox.Name = "mainPictureBox";
             this.mainPictureBox.Size = new System.Drawing.Size(476, 224);
             this.mainPictureBox.TabIndex = 6;

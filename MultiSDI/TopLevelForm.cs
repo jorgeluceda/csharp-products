@@ -326,15 +326,15 @@ namespace MultiSDI
 
             //SHAPES
 
-            if (((ToolStripMenuItem)sender).Name.Contains("ellipse"))
+            if (((ToolStripMenuItem)sender).Name.Contains("ellipseTool"))
             {
                 SetShape(0);
             }
-            if (((ToolStripMenuItem)sender).Name.Contains("rectangle"))
+            if (((ToolStripMenuItem)sender).Name.Contains("rectangleTool"))
             {
                 SetShape(1);
             }
-            if (((ToolStripMenuItem)sender).Name.Contains("custom"))
+            if (((ToolStripMenuItem)sender).Name.Contains("customTool"))
             {
                 SetShape(2);
             }
@@ -454,11 +454,12 @@ namespace MultiSDI
             shape.SizeW = 100;
             shape.SizeH = 100;
             shape.PenColor = Color.Black;
-            shape.PenType = PenTypeEnum.Dashed;
+            shape.PenType = PenTypeEnum.Solid;
             shape.BrushColor = Color.Black;
             shape.BrushType = BrushTypeEnum.Solid;
+            shape.ShapeType = ShapeTypeEnum.Ellipse;
             //var bs = new BindingSource();
-            doc.addShape(shape);
+            //doc.addShape(shape);
             //var dg = new OptionsForm();
             this.optionsForm.DataBindingSource.DataSource = shape;
             //dg.DataBindingSource.DataSource = shape;
@@ -504,6 +505,7 @@ namespace MultiSDI
 
                 int width = Math.Abs((int)(xEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationX));
                 int height = Math.Abs((int)(yEndPoint - ((Shape)(optionsForm.DataBindingSource.Current)).LocationY));
+                int penWidth = 10;
 
                 Shape temp = new Shape();
                 temp.ShapeType = ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType;
@@ -522,6 +524,22 @@ namespace MultiSDI
 
                 foreach (Shape sh in doc.shapes)
                 {
+                    Pen pen = new Pen(sh.PenColor, penWidth);
+
+                    if(sh.PenType == PenTypeEnum.Dashed)
+                    {
+                        float[] dashValues = { 4, 2 };
+                        pen.DashPattern = dashValues;
+                    }
+
+                    if (sh.PenType == PenTypeEnum.Compound)
+                    {
+                        float[] dashValues = { 4, 2 , 5, 7 , 15 };
+                        pen.DashPattern = dashValues;
+                    }
+
+
+
 
                     if (sh.ShapeType == ShapeTypeEnum.Ellipse)
                     {
@@ -530,7 +548,7 @@ namespace MultiSDI
                         rect.Location = new Point(sh.LocationX, sh.LocationY);
                         rect.Width = sh.SizeW;
                         rect.Height = sh.SizeH;
-                        dc.DrawEllipse(new Pen(sh.PenColor, 10), rect);
+                        dc.DrawEllipse(pen, rect);
                     }
                     if (sh.ShapeType == ShapeTypeEnum.Rectangle)
                     {
@@ -539,7 +557,7 @@ namespace MultiSDI
                         rect.Location = new Point(sh.LocationX, sh.LocationY);
                         rect.Width = sh.SizeW;
                         rect.Height = sh.SizeH;
-                        dc.DrawRectangle(new Pen(sh.PenColor, 10), rect);
+                        dc.DrawRectangle(pen, rect);
                     }
                     if (sh.ShapeType == ShapeTypeEnum.Custom)
                     {
@@ -556,7 +574,7 @@ namespace MultiSDI
                         myPath.AddArc(100, 10, 50, 50, 0, 270);
 
                         // Draw the path to the screen.
-                        e.Graphics.DrawPath(new Pen(Color.Black), myPath);
+                        e.Graphics.DrawPath(pen, myPath);
 
 
 
