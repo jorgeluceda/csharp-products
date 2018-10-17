@@ -386,66 +386,25 @@ namespace MultiSDI
 
 
             //SHAPES
-            if (((ToolStripMenuItem)sender).Name.Contains("arc"))
+          
+            if (((ToolStripMenuItem)sender).Name.Contains("ellipse"))
             {
 
                 SetShape(0);
 
             }
 
-            if (((ToolStripMenuItem)sender).Name.Contains("bezier"))
+            if (((ToolStripMenuItem)sender).Name.Contains("rectangle"))
             {
 
                 SetShape(1);
 
             }
 
-            if (((ToolStripMenuItem)sender).Name.Contains("closed"))
+            if (((ToolStripMenuItem)sender).Name.Contains("custom"))
             {
 
                 SetShape(2);
-
-            }
-
-             if (((ToolStripMenuItem)sender).Name.Contains("curve"))
-            {
-
-                SetShape(3);
-
-            }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("ellipse"))
-            {
-
-                SetShape(4);
-
-            }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("lines"))
-            {
-
-                SetShape(5);
-
-            }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("pie"))
-            {
-
-                SetShape(6);
-
-            }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("polygon"))
-            {
-
-                SetShape(6);
-
-            }
-
-            if (((ToolStripMenuItem)sender).Name.Contains("rectangle"))
-            {
-
-                SetShape(7);
 
             }
 
@@ -563,6 +522,22 @@ namespace MultiSDI
         private void SetShape(int index)
         {
 
+            switch (index)
+            {
+                case 0:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType = Shape.ShapeTypeEnum.Ellipse;
+                    break;
+                case 1:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType = Shape.ShapeTypeEnum.Rectangle;
+                    break;
+                case 2:
+                    ((Shape)(optionsForm.DataBindingSource.Current)).ShapeType = Shape.ShapeTypeEnum.Custom;
+                    break;
+                default:
+                    break;
+
+            }
+
         }
 
         private void InitializeDS()
@@ -577,6 +552,8 @@ namespace MultiSDI
             shape.BrushColor = Color.Black;
             shape.BrushType = BrushTypeEnum.Solid;
             //var bs = new BindingSource();
+
+            doc.addShape(shape);
 
             //var dg = new OptionsForm();
             this.optionsForm.DataBindingSource.DataSource = shape;

@@ -33,15 +33,9 @@
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ShapeToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
-            this.archToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bezierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.closedCurveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.curveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ellipseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.linesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pieToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pollygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rectangleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PenToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.solidToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.customDashedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,14 +52,7 @@
             this.smiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.BaseMenu = new System.Windows.Forms.MenuStrip();
             this.shapeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bezierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closedCurveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.curveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.linesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +65,7 @@
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brushColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip.SuspendLayout();
             this.BaseMenu.SuspendLayout();
             this.SuspendLayout();
@@ -114,44 +102,14 @@
             // 
             this.ShapeToolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ShapeToolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archToolStripMenuItem,
-            this.bezierToolStripMenuItem1,
-            this.closedCurveToolStripMenuItem1,
-            this.curveToolStripMenuItem1,
             this.ellipseToolStripMenuItem1,
-            this.linesToolStripMenuItem1,
-            this.pieToolStripMenuItem1,
-            this.pollygonToolStripMenuItem,
-            this.rectangleToolStripMenuItem1});
+            this.rectangleToolStripMenuItem1,
+            this.customToolStripMenuItem});
             this.ShapeToolStripDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("ShapeToolStripDropDownButton.Image")));
             this.ShapeToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ShapeToolStripDropDownButton.Name = "ShapeToolStripDropDownButton";
             this.ShapeToolStripDropDownButton.Size = new System.Drawing.Size(33, 24);
             this.ShapeToolStripDropDownButton.Text = "toolStripDropDownButton1";
-            // 
-            // archToolStripMenuItem
-            // 
-            this.archToolStripMenuItem.Name = "archToolStripMenuItem";
-            this.archToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.archToolStripMenuItem.Text = "Arch";
-            // 
-            // bezierToolStripMenuItem1
-            // 
-            this.bezierToolStripMenuItem1.Name = "bezierToolStripMenuItem1";
-            this.bezierToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.bezierToolStripMenuItem1.Text = "Bezier";
-            // 
-            // closedCurveToolStripMenuItem1
-            // 
-            this.closedCurveToolStripMenuItem1.Name = "closedCurveToolStripMenuItem1";
-            this.closedCurveToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.closedCurveToolStripMenuItem1.Text = "Closed Curve";
-            // 
-            // curveToolStripMenuItem1
-            // 
-            this.curveToolStripMenuItem1.Name = "curveToolStripMenuItem1";
-            this.curveToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.curveToolStripMenuItem1.Text = "Curve";
             // 
             // ellipseToolStripMenuItem1
             // 
@@ -159,29 +117,17 @@
             this.ellipseToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.ellipseToolStripMenuItem1.Text = "Ellipse";
             // 
-            // linesToolStripMenuItem1
-            // 
-            this.linesToolStripMenuItem1.Name = "linesToolStripMenuItem1";
-            this.linesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.linesToolStripMenuItem1.Text = "Lines";
-            // 
-            // pieToolStripMenuItem1
-            // 
-            this.pieToolStripMenuItem1.Name = "pieToolStripMenuItem1";
-            this.pieToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.pieToolStripMenuItem1.Text = "Pie";
-            // 
-            // pollygonToolStripMenuItem
-            // 
-            this.pollygonToolStripMenuItem.Name = "pollygonToolStripMenuItem";
-            this.pollygonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pollygonToolStripMenuItem.Text = "Pollygon";
-            // 
             // rectangleToolStripMenuItem1
             // 
             this.rectangleToolStripMenuItem1.Name = "rectangleToolStripMenuItem1";
             this.rectangleToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.rectangleToolStripMenuItem1.Text = "Rectangle";
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customToolStripMenuItem.Text = "Custom";
             // 
             // PenToolStripDropDownButton
             // 
@@ -230,19 +176,19 @@
             // solidBrushToolStripMenuItem3
             // 
             this.solidBrushToolStripMenuItem3.Name = "solidBrushToolStripMenuItem3";
-            this.solidBrushToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.solidBrushToolStripMenuItem3.Size = new System.Drawing.Size(148, 22);
             this.solidBrushToolStripMenuItem3.Text = "Solid";
             // 
             // hatchToolStripMenuItem1
             // 
             this.hatchToolStripMenuItem1.Name = "hatchToolStripMenuItem1";
-            this.hatchToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.hatchToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.hatchToolStripMenuItem1.Text = "Hatch";
             // 
             // linerGradientToolStripMenuItem
             // 
             this.linerGradientToolStripMenuItem.Name = "linerGradientToolStripMenuItem";
-            this.linerGradientToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.linerGradientToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.linerGradientToolStripMenuItem.Text = "Liner Gradient";
             // 
             // ColorToolStripDropDownButton
@@ -312,42 +258,12 @@
             // shapeToolStripMenuItem
             // 
             this.shapeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arcToolStripMenuItem,
-            this.bezierToolStripMenuItem,
-            this.closedCurveToolStripMenuItem,
-            this.curveToolStripMenuItem,
             this.ellipseToolStripMenuItem,
-            this.linesToolStripMenuItem,
-            this.pieToolStripMenuItem,
-            this.polygonToolStripMenuItem,
-            this.rectangleToolStripMenuItem});
+            this.rectangleToolStripMenuItem,
+            this.customToolStripMenuItem1});
             this.shapeToolStripMenuItem.Name = "shapeToolStripMenuItem";
             this.shapeToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.shapeToolStripMenuItem.Text = "Shape";
-            // 
-            // arcToolStripMenuItem
-            // 
-            this.arcToolStripMenuItem.Name = "arcToolStripMenuItem";
-            this.arcToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.arcToolStripMenuItem.Text = "Arc";
-            // 
-            // bezierToolStripMenuItem
-            // 
-            this.bezierToolStripMenuItem.Name = "bezierToolStripMenuItem";
-            this.bezierToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bezierToolStripMenuItem.Text = "Bezier";
-            // 
-            // closedCurveToolStripMenuItem
-            // 
-            this.closedCurveToolStripMenuItem.Name = "closedCurveToolStripMenuItem";
-            this.closedCurveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.closedCurveToolStripMenuItem.Text = "Closed Curve";
-            // 
-            // curveToolStripMenuItem
-            // 
-            this.curveToolStripMenuItem.Name = "curveToolStripMenuItem";
-            this.curveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.curveToolStripMenuItem.Text = "Curve";
             // 
             // ellipseToolStripMenuItem
             // 
@@ -355,29 +271,11 @@
             this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             // 
-            // linesToolStripMenuItem
-            // 
-            this.linesToolStripMenuItem.Name = "linesToolStripMenuItem";
-            this.linesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.linesToolStripMenuItem.Text = "Lines";
-            // 
-            // pieToolStripMenuItem
-            // 
-            this.pieToolStripMenuItem.Name = "pieToolStripMenuItem";
-            this.pieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pieToolStripMenuItem.Text = "Pie";
-            // 
-            // polygonToolStripMenuItem
-            // 
-            this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.polygonToolStripMenuItem.Text = "Polygon";
-            // 
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
             this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rectangleToolStripMenuItem.Text = "rectangle";
+            this.rectangleToolStripMenuItem.Text = "Rectangle";
             // 
             // penToolStripMenuItem
             // 
@@ -456,6 +354,12 @@
             this.brushColorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.brushColorToolStripMenuItem.Text = "Brush Color";
             // 
+            // customToolStripMenuItem1
+            // 
+            this.customToolStripMenuItem1.Name = "customToolStripMenuItem1";
+            this.customToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.customToolStripMenuItem1.Text = "Custom";
+            // 
             // BaseMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,14 +385,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem smiOath;
         private System.Windows.Forms.ToolStripMenuItem smiAbout;
-        private System.Windows.Forms.ToolStripMenuItem arcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bezierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closedCurveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem curveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem linesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem polygonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem solidToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customDashedToolStripMenuItem;
@@ -498,14 +395,7 @@
         private System.Windows.Forms.ToolStripMenuItem linearGradientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem penColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem brushColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem archToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bezierToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem closedCurveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem curveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem linesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pieToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pollygonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem solidToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem customDashedToolStripMenuItem1;
@@ -526,5 +416,7 @@
         public System.Windows.Forms.ToolStripDropDownButton PenToolStripDropDownButton;
         public System.Windows.Forms.ToolStripDropDownButton BrushToolStripDropDownButton;
         public System.Windows.Forms.ToolStripDropDownButton ColorToolStripDropDownButton;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem1;
     }
 }
