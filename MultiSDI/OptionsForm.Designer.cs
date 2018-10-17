@@ -47,7 +47,9 @@
             this.btnPenColor = new System.Windows.Forms.Button();
             this.btnBrushColor = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.shapeOptionsErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.bsShape = new System.Windows.Forms.BindingSource(this.components);
+            this.cancelButton = new System.Windows.Forms.Button();
             locationXLabel = new System.Windows.Forms.Label();
             locationYLabel = new System.Windows.Forms.Label();
             sizeHLabel = new System.Windows.Forms.Label();
@@ -55,136 +57,149 @@
             brushTypeLabel = new System.Windows.Forms.Label();
             penTypeLabel = new System.Windows.Forms.Label();
             shapeTypeLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.shapeOptionsErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsShape)).BeginInit();
             this.SuspendLayout();
             // 
             // locationXLabel
             // 
             locationXLabel.AutoSize = true;
-            locationXLabel.Location = new System.Drawing.Point(12, 9);
+            locationXLabel.Location = new System.Drawing.Point(11, 7);
             locationXLabel.Name = "locationXLabel";
-            locationXLabel.Size = new System.Drawing.Size(89, 20);
+            locationXLabel.Size = new System.Drawing.Size(79, 17);
             locationXLabel.TabIndex = 0;
             locationXLabel.Text = "Location X:";
-            // 
-            // locationXTextBox
-            // 
-            this.locationXTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "LocationX", true));
-            this.locationXTextBox.Location = new System.Drawing.Point(107, 6);
-            this.locationXTextBox.Name = "locationXTextBox";
-            this.locationXTextBox.Size = new System.Drawing.Size(121, 26);
-            this.locationXTextBox.TabIndex = 1;
             // 
             // locationYLabel
             // 
             locationYLabel.AutoSize = true;
-            locationYLabel.Location = new System.Drawing.Point(255, 9);
+            locationYLabel.Location = new System.Drawing.Point(227, 7);
             locationYLabel.Name = "locationYLabel";
-            locationYLabel.Size = new System.Drawing.Size(89, 20);
+            locationYLabel.Size = new System.Drawing.Size(79, 17);
             locationYLabel.TabIndex = 2;
             locationYLabel.Text = "Location Y:";
-            // 
-            // locationYTextBox
-            // 
-            this.locationYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "LocationY", true));
-            this.locationYTextBox.Location = new System.Drawing.Point(350, 6);
-            this.locationYTextBox.Name = "locationYTextBox";
-            this.locationYTextBox.Size = new System.Drawing.Size(121, 26);
-            this.locationYTextBox.TabIndex = 3;
             // 
             // sizeHLabel
             // 
             sizeHLabel.AutoSize = true;
-            sizeHLabel.Location = new System.Drawing.Point(41, 48);
+            sizeHLabel.Location = new System.Drawing.Point(36, 38);
             sizeHLabel.Name = "sizeHLabel";
-            sizeHLabel.Size = new System.Drawing.Size(60, 20);
+            sizeHLabel.Size = new System.Drawing.Size(53, 17);
             sizeHLabel.TabIndex = 4;
             sizeHLabel.Text = "Size H:";
-            // 
-            // sizeHTextBox
-            // 
-            this.sizeHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "SizeH", true));
-            this.sizeHTextBox.Location = new System.Drawing.Point(107, 45);
-            this.sizeHTextBox.Name = "sizeHTextBox";
-            this.sizeHTextBox.Size = new System.Drawing.Size(121, 26);
-            this.sizeHTextBox.TabIndex = 5;
             // 
             // sizeWLabel
             // 
             sizeWLabel.AutoSize = true;
-            sizeWLabel.Location = new System.Drawing.Point(281, 48);
+            sizeWLabel.Location = new System.Drawing.Point(250, 38);
             sizeWLabel.Name = "sizeWLabel";
-            sizeWLabel.Size = new System.Drawing.Size(63, 20);
+            sizeWLabel.Size = new System.Drawing.Size(56, 17);
             sizeWLabel.TabIndex = 6;
             sizeWLabel.Text = "Size W:";
-            // 
-            // sizeWTextBox
-            // 
-            this.sizeWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "SizeW", true));
-            this.sizeWTextBox.Location = new System.Drawing.Point(350, 45);
-            this.sizeWTextBox.Name = "sizeWTextBox";
-            this.sizeWTextBox.Size = new System.Drawing.Size(121, 26);
-            this.sizeWTextBox.TabIndex = 7;
             // 
             // brushTypeLabel
             // 
             brushTypeLabel.AutoSize = true;
-            brushTypeLabel.Location = new System.Drawing.Point(8, 91);
+            brushTypeLabel.Location = new System.Drawing.Point(7, 73);
             brushTypeLabel.Name = "brushTypeLabel";
-            brushTypeLabel.Size = new System.Drawing.Size(93, 20);
+            brushTypeLabel.Size = new System.Drawing.Size(85, 17);
             brushTypeLabel.TabIndex = 8;
             brushTypeLabel.Text = "Brush Type:";
+            // 
+            // penTypeLabel
+            // 
+            penTypeLabel.AutoSize = true;
+            penTypeLabel.Location = new System.Drawing.Point(236, 73);
+            penTypeLabel.Name = "penTypeLabel";
+            penTypeLabel.Size = new System.Drawing.Size(73, 17);
+            penTypeLabel.TabIndex = 10;
+            penTypeLabel.Text = "Pen Type:";
+            // 
+            // shapeTypeLabel
+            // 
+            shapeTypeLabel.AutoSize = true;
+            shapeTypeLabel.Location = new System.Drawing.Point(3, 113);
+            shapeTypeLabel.Name = "shapeTypeLabel";
+            shapeTypeLabel.Size = new System.Drawing.Size(89, 17);
+            shapeTypeLabel.TabIndex = 12;
+            shapeTypeLabel.Text = "Shape Type:";
+            // 
+            // locationXTextBox
+            // 
+            this.locationXTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "LocationX", true));
+            this.locationXTextBox.Location = new System.Drawing.Point(95, 5);
+            this.locationXTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.locationXTextBox.Name = "locationXTextBox";
+            this.locationXTextBox.Size = new System.Drawing.Size(108, 22);
+            this.locationXTextBox.TabIndex = 1;
+            this.locationXTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.locationXTextBox_Validating);
+            // 
+            // locationYTextBox
+            // 
+            this.locationYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "LocationY", true));
+            this.locationYTextBox.Location = new System.Drawing.Point(311, 5);
+            this.locationYTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.locationYTextBox.Name = "locationYTextBox";
+            this.locationYTextBox.Size = new System.Drawing.Size(108, 22);
+            this.locationYTextBox.TabIndex = 3;
+            this.locationYTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.locationYTextBox_Validating);
+            // 
+            // sizeHTextBox
+            // 
+            this.sizeHTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "SizeH", true));
+            this.sizeHTextBox.Location = new System.Drawing.Point(95, 36);
+            this.sizeHTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sizeHTextBox.Name = "sizeHTextBox";
+            this.sizeHTextBox.Size = new System.Drawing.Size(108, 22);
+            this.sizeHTextBox.TabIndex = 5;
+            this.sizeHTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.sizeHTextBox_Validating);
+            // 
+            // sizeWTextBox
+            // 
+            this.sizeWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "SizeW", true));
+            this.sizeWTextBox.Location = new System.Drawing.Point(311, 36);
+            this.sizeWTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sizeWTextBox.Name = "sizeWTextBox";
+            this.sizeWTextBox.Size = new System.Drawing.Size(108, 22);
+            this.sizeWTextBox.TabIndex = 7;
+            this.sizeWTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.sizeWTextBox_Validating);
             // 
             // brushTypeComboBox
             // 
             this.brushTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "BrushType", true));
             this.brushTypeComboBox.FormattingEnabled = true;
-            this.brushTypeComboBox.Location = new System.Drawing.Point(107, 88);
+            this.brushTypeComboBox.Location = new System.Drawing.Point(95, 70);
+            this.brushTypeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.brushTypeComboBox.Name = "brushTypeComboBox";
-            this.brushTypeComboBox.Size = new System.Drawing.Size(121, 28);
+            this.brushTypeComboBox.Size = new System.Drawing.Size(108, 24);
             this.brushTypeComboBox.TabIndex = 9;
-            // 
-            // penTypeLabel
-            // 
-            penTypeLabel.AutoSize = true;
-            penTypeLabel.Location = new System.Drawing.Point(265, 91);
-            penTypeLabel.Name = "penTypeLabel";
-            penTypeLabel.Size = new System.Drawing.Size(79, 20);
-            penTypeLabel.TabIndex = 10;
-            penTypeLabel.Text = "Pen Type:";
             // 
             // penTypeComboBox
             // 
             this.penTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "PenType", true));
             this.penTypeComboBox.FormattingEnabled = true;
-            this.penTypeComboBox.Location = new System.Drawing.Point(350, 88);
+            this.penTypeComboBox.Location = new System.Drawing.Point(311, 70);
+            this.penTypeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.penTypeComboBox.Name = "penTypeComboBox";
-            this.penTypeComboBox.Size = new System.Drawing.Size(121, 28);
+            this.penTypeComboBox.Size = new System.Drawing.Size(108, 24);
             this.penTypeComboBox.TabIndex = 11;
-            // 
-            // shapeTypeLabel
-            // 
-            shapeTypeLabel.AutoSize = true;
-            shapeTypeLabel.Location = new System.Drawing.Point(3, 141);
-            shapeTypeLabel.Name = "shapeTypeLabel";
-            shapeTypeLabel.Size = new System.Drawing.Size(98, 20);
-            shapeTypeLabel.TabIndex = 12;
-            shapeTypeLabel.Text = "Shape Type:";
             // 
             // shapeTypeComboBox
             // 
             this.shapeTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsShape, "ShapeType", true));
             this.shapeTypeComboBox.FormattingEnabled = true;
-            this.shapeTypeComboBox.Location = new System.Drawing.Point(107, 138);
+            this.shapeTypeComboBox.Location = new System.Drawing.Point(95, 110);
+            this.shapeTypeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.shapeTypeComboBox.Name = "shapeTypeComboBox";
-            this.shapeTypeComboBox.Size = new System.Drawing.Size(364, 28);
+            this.shapeTypeComboBox.Size = new System.Drawing.Size(324, 24);
             this.shapeTypeComboBox.TabIndex = 13;
             // 
             // btnPenColor
             // 
-            this.btnPenColor.Location = new System.Drawing.Point(7, 196);
+            this.btnPenColor.Location = new System.Drawing.Point(6, 157);
+            this.btnPenColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPenColor.Name = "btnPenColor";
-            this.btnPenColor.Size = new System.Drawing.Size(221, 43);
+            this.btnPenColor.Size = new System.Drawing.Size(196, 34);
             this.btnPenColor.TabIndex = 14;
             this.btnPenColor.Text = "Pen Color";
             this.btnPenColor.UseVisualStyleBackColor = true;
@@ -192,9 +207,10 @@
             // 
             // btnBrushColor
             // 
-            this.btnBrushColor.Location = new System.Drawing.Point(234, 196);
+            this.btnBrushColor.Location = new System.Drawing.Point(208, 157);
+            this.btnBrushColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBrushColor.Name = "btnBrushColor";
-            this.btnBrushColor.Size = new System.Drawing.Size(237, 43);
+            this.btnBrushColor.Size = new System.Drawing.Size(211, 34);
             this.btnBrushColor.TabIndex = 15;
             this.btnBrushColor.Text = "Brush Color";
             this.btnBrushColor.UseVisualStyleBackColor = true;
@@ -203,23 +219,39 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(326, 272);
+            this.btnOk.Location = new System.Drawing.Point(290, 218);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(145, 40);
+            this.btnOk.Size = new System.Drawing.Size(129, 32);
             this.btnOk.TabIndex = 16;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // shapeOptionsErrorProvider
+            // 
+            this.shapeOptionsErrorProvider.ContainerControl = this;
+            // 
             // bsShape
             // 
             this.bsShape.DataSource = typeof(MultiSDI.Shape);
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(153, 218);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(116, 31);
+            this.cancelButton.TabIndex = 17;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // OptionsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 324);
+            this.ClientSize = new System.Drawing.Size(428, 259);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnBrushColor);
             this.Controls.Add(this.btnPenColor);
@@ -237,9 +269,11 @@
             this.Controls.Add(this.locationYTextBox);
             this.Controls.Add(locationXLabel);
             this.Controls.Add(this.locationXTextBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OptionsForm";
             this.Text = "OptionsForm";
             this.Load += new System.EventHandler(this.OptionsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.shapeOptionsErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsShape)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -260,5 +294,7 @@
         private System.Windows.Forms.Button btnPenColor;
         private System.Windows.Forms.Button btnBrushColor;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.ErrorProvider shapeOptionsErrorProvider;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
