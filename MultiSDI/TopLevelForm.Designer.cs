@@ -49,8 +49,10 @@
             this.penTypeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.shapeTypeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.brushTypeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainPictureBox = new System.Windows.Forms.PictureBox();
             this.MainMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -209,11 +211,23 @@
             this.brushTypeLabel.Size = new System.Drawing.Size(80, 20);
             this.brushTypeLabel.Text = "Brush Type";
             // 
+            // mainPictureBox
+            // 
+            this.mainPictureBox.Location = new System.Drawing.Point(0, 86);
+            this.mainPictureBox.Name = "mainPictureBox";
+            this.mainPictureBox.Size = new System.Drawing.Size(635, 281);
+            this.mainPictureBox.TabIndex = 6;
+            this.mainPictureBox.TabStop = false;
+            this.mainPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPictureBox_Paint);
+            this.mainPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPictureBox_MouseDown);
+            this.mainPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPictureBox_MouseUp);
+            // 
             // TopLevelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 395);
+            this.Controls.Add(this.mainPictureBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
@@ -224,10 +238,12 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TopLevelForm_Paint);
             this.Controls.SetChildIndex(this.MainMenu, 0);
             this.Controls.SetChildIndex(this.statusStrip1, 0);
+            this.Controls.SetChildIndex(this.mainPictureBox, 0);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +272,7 @@
         private System.Windows.Forms.ToolStripStatusLabel penTypeLabel;
         private System.Windows.Forms.ToolStripStatusLabel shapeTypeLabel;
         private System.Windows.Forms.ToolStripStatusLabel brushTypeLabel;
+        private System.Windows.Forms.PictureBox mainPictureBox;
     }
 }
 
