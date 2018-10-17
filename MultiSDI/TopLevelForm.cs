@@ -324,35 +324,130 @@ namespace MultiSDI
 
             if (((ToolStripMenuItem)sender).Name.Contains("penColor"))
             {
+
+                if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    SetBrushColor(MainColorDialog.Color);
+
+                }
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
+            {
+                if (MainColorDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    SetBrushColor(MainColorDialog.Color);
+
+                }
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("solidTool"))
+            {
+                    SetPen(0);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("customDashed"))
+            {
                 
-                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
-                {
-                    SetBrushColor(MainColorDialog.Color);
-                }
+                    SetPen(1);
 
-                return;
             }
 
-            if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
+            if (((ToolStripMenuItem)sender).Name.Contains("compoundTool"))
             {
-                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
-                {
-                    SetBrushColor(MainColorDialog.Color);
-                }
 
-                return;
+                SetPen(2);
+
             }
 
-            if (((ToolStripMenuItem)sender).Name.Contains("brushColor"))
+            if (((ToolStripMenuItem)sender).Name.Contains("solidBrushTool"))
             {
-                if (MainColorDialog.ShowDialog(optionsForm) == DialogResult.OK)
-                {
-                    SetBrushColor(MainColorDialog.Color);
-                }
 
-                return;
+                SetBrush(0);
+
             }
 
+            if (((ToolStripMenuItem)sender).Name.Contains("hatchTool"))
+            {
+
+                SetBrush(1);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("linerGradientTool"))
+            {
+
+                SetBrush(2);
+
+            }
+
+
+            //SHAPES
+            if (((ToolStripMenuItem)sender).Name.Contains("arc"))
+            {
+
+                SetShape(0);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("bezier"))
+            {
+
+                SetShape(1);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("closed"))
+            {
+
+                SetShape(2);
+
+            }
+
+             if (((ToolStripMenuItem)sender).Name.Contains("curve"))
+            {
+
+                SetShape(3);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("ellipse"))
+            {
+
+                SetShape(4);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("lines"))
+            {
+
+                SetShape(5);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("pie"))
+            {
+
+                SetShape(6);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("polygon"))
+            {
+
+                SetShape(6);
+
+            }
+
+            if (((ToolStripMenuItem)sender).Name.Contains("rectangle"))
+            {
+
+                SetShape(7);
+
+            }
 
             //if not color setting
             ResetSubmenus((ToolStripMenuItem)sender);
@@ -463,6 +558,11 @@ namespace MultiSDI
                     break;
 
             }
+        }
+
+        private void SetShape(int index)
+        {
+
         }
 
         private void InitializeDS()
