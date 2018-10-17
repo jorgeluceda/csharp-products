@@ -21,8 +21,11 @@ namespace MultiSDI
         #region Member Variables and Properties
         string fileName;
         Pen pen;
+        int Xthis = 100;
+        int Ythis = 100;
         Document doc = new Document();
         OptionsForm optionsForm = new OptionsForm();
+        Graphics dc = null;
         List<ToolStripDropDownItem> menuOwners = new List<ToolStripDropDownItem>();
 
 
@@ -37,6 +40,7 @@ namespace MultiSDI
         public TopLevelForm()
         {
             InitializeComponent();
+
             InitializeDS();
 
 
@@ -82,6 +86,7 @@ namespace MultiSDI
             TopLevelForm form = new TopLevelForm();
             form.OpenFile(fileName);
             form.Show();
+
 
             // Bring form to top
             form.Activate();
@@ -289,6 +294,9 @@ namespace MultiSDI
         private void TopLevelForm_Load(object sender, EventArgs e)
         {
             ToolStripManager.Merge(BaseMenu, MainMenu);
+            
+
+
 
         }
 
@@ -547,6 +555,8 @@ namespace MultiSDI
             var shape = new Shape();
             shape.LocationX = 300;
             shape.LocationY = 300;
+            shape.SizeW = 100;
+            shape.SizeH = 100;
             shape.PenColor = Color.Black;
             shape.PenType = PenTypeEnum.Dashed;
             shape.BrushColor = Color.Black;
@@ -560,6 +570,72 @@ namespace MultiSDI
             //dg.DataBindingSource.DataSource = shape;
             //var result = this.optionsForm.ShowDialog();
             //result.Equals("AAAA");
+
+        }
+
+
+        /*
+        private void TopLevelForm_DoubleClick(object sender, EventArgs e)
+        {
+
+            //testing event
+            //doc.Draw(e.Graphics);
+            //this.Invalidate();
+            mainPictureBox.Invalidate();
+        }
+
+
+
+        /*
+        /*
+        private void PaintMeth(object sender, PaintEventArgs e)
+        {
+            Rectangle rect = new Rectangle();
+            rect.Width = 100;
+            rect.Height = 100;
+            e.Graphics.DrawRectangle(new Pen(Color.Red, 10),rect );
+        }
+        */
+
+        private void mainPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((Shape)(optionsForm.DataBindingSource.Current)).LocationX = e.X;
+        }
+
+        private void mainPictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void mainPictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            dc = e.Graphics;
+            
+            //dc.CreateGra
+            Rectangle rect = new Rectangle();
+            rect.Width = Xthis;
+            rect.Height = Ythis;
+            dc.DrawRectangle(new Pen(Color.Red, 10), rect);
+
+            Rectangle rect2 = new Rectangle();
+            rect2.Width = Xthis + 200;
+            rect2.Height = Ythis + 200;
+
+            //mainPictureBox.Invalidate();
+            //rect2.Location = new Point(300, 300);
+            dc.DrawRectangle(new Pen(Color.Blue, 10), rect2);
+
+            //doc.Draw(e.Graphics);
+
+
+        }
+
+        private void mainPictureBox_DoubleClick(object sender, EventArgs e)
+        {
+            Xthis += 100;
+            Ythis += 100;
+
+            this.mainPictureBox.Invalidate();
 
         }
     }
