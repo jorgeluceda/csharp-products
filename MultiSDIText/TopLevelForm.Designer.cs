@@ -1,6 +1,6 @@
-﻿namespace CoreLibrary
+﻿namespace MultiSDIText
 {
-    partial class BaseMainForm
+    partial class TopLevelForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // BaseMainForm
+            // TopLevelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 334);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "BaseMainForm";
-            this.Text = "BaseMainForm";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "TopLevelForm";
+            this.Text = "Typography++";
             this.ResumeLayout(false);
 
         }
@@ -45,3 +44,4 @@
         #endregion
     }
 }
+
