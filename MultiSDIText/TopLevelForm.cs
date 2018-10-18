@@ -36,11 +36,8 @@ namespace MultiSDIText
 
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDITextApplication.Application.AddTopLevelForm(this);
-            // Set the application's WindowMenu
-            //MultiSDIApplication.Application.WindowMenu = this.windowToolStripMenuItem;
-            // Add the handler for the DropDownOpening event to the application's window menu
-            //MultiSDIApplication.Application.WindowMenu.DropDownOpening += MultiSDIApplication.Application.windowMenu_DropDownOpening;
-            //InitializeSubmenuEvents();
+
+            MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
         #endregion
         #region Helper Methods
@@ -103,6 +100,76 @@ namespace MultiSDIText
             //todo: handle menu merging
             //ToolStripManager.Merge(BaseMenu, MainMenu);
 
+        }
+
+        
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the document is new, i.e. has never been saved before
+            //if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
+            //{
+            //    using (SaveFileDialog dlg = new SaveFileDialog())
+            //    {
+            //        if (dlg.ShowDialog() != DialogResult.OK) return;
+
+            //        using (Stream stream =
+            //            new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+            //        {
+            //            IFormatter formatter = new BinaryFormatter();
+
+            //            Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
+
+            //            document.Text = this.TextBox.Text;
+            //            document.BackColor = this.TextBox.BackColor;
+            //            document.TextColor = this.TextBox.ForeColor;
+            //            document.Font = this.TextBox.Font;
+            //            document.DocumentLocation = this.Location;
+            //            document.DocumentTitle = Path.GetFileName(dlg.FileName);
+            //            document.DocumentSize = this.Size;
+            //            document.FilePath = dlg.FileName;
+
+            //            formatter.Serialize(stream, document);
+            //            this.document = document;
+            //            changedText = false;
+            //            this.StatusLabel.Text = "Saved";
+            //        }
+
+            //    }
+
+            //    this.Text = this.document.DocumentTitle;
+            //}
+            //// If the document not new, and has been saved before
+            //else
+            //{
+            //    using (Stream stream = new FileStream(this.document.FilePath, FileMode.Create, FileAccess.Write))
+            //    {
+            //        IFormatter formatter = new BinaryFormatter();
+
+            //        this.document.Text = this.TextBox.Text;
+            //        this.document.BackColor = this.TextBox.BackColor;
+            //        this.document.TextColor = this.TextBox.ForeColor;
+            //        this.document.Font = this.TextBox.Font;
+            //        this.document.DocumentSize = this.Size;
+            //        this.document.DocumentLocation = this.Location;
+            //        this.document.DocumentTitle = Path.GetFileName(document.FilePath);
+
+            //        formatter.Serialize(stream, document);
+            //    }
+            //    changedText = false;
+            //    this.Text = this.document.DocumentTitle;
+
+            //    this.StatusLabel.Text = "Saved";
+            //}
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

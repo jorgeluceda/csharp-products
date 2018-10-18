@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MultiSDITextApplication.cs" />
+    <Compile Include="SearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchDialog.Designer.cs">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="TopLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="SearchDialog.resx">
+      <DependentUpon>SearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TopLevelForm.resx">
       <DependentUpon>TopLevelForm.cs</DependentUpon>
     </EmbeddedResource>
