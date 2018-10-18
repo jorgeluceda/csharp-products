@@ -216,9 +216,9 @@ namespace MultiSDI
                 {
                     IFormatter formatter = new BinaryFormatter();
                     /******
-                    //doc.Graph = this.Graph;
-                    //doc.DocumentTitle = Path.GetFileName(dlg.FileName);
-                    //doc.FilePath = dlg.FileName;
+                    doc.Graph = this.Graph;
+                    doc.DocumentTitle = Path.GetFileName(dlg.FileName);
+                    doc.FilePath = dlg.FileName;
                     ******/
                     formatter.Serialize(stream, doc);
                 }

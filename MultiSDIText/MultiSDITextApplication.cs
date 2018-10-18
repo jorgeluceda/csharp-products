@@ -98,7 +98,7 @@ namespace MultiSDIText
          */
         public void AddWindowMenu(ToolStripMenuItem windowMenu)
         {
-            //windowMenu.DropDownOpening += windowMenu_DropDownOpening;
+            windowMenu.DropDownOpening += windowMenu_DropDownOpening;
         }
         #endregion
 
