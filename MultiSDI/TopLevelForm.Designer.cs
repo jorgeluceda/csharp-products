@@ -135,7 +135,7 @@
             this.shapeOptionsToolStripMenuItem.Name = "shapeOptionsToolStripMenuItem";
             this.shapeOptionsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.shapeOptionsToolStripMenuItem.Text = "Shape Options";
-            this.shapeOptionsToolStripMenuItem.Click += new System.EventHandler(this.shapeOptionsToolStripMenuItem_Click);
+            //this.shapeOptionsToolStripMenuItem.Click += new System.EventHandler(this.shapeOptionsToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
