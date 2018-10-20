@@ -11,6 +11,31 @@ namespace TextMDI.Storage
     [Serializable]
     public class Text: BindableObject, ISerializable
     {
+        #region Constructor
+
+        /// <summary>
+        /// Simple constructor that initilaizes all properties
+        /// </summary>
+        public Text()
+        {
+            this.content = "";
+
+            this.zOrder = 0;
+
+            this.colorArgb = 0;
+
+            this.backgroundColorArgb = 0;
+
+            this.locationX = 0;
+            this.locationY = 0;
+
+            this.fontFamily = "Arial";
+            this.fontSize = 12.0f;
+            this.fontStyle = "R";
+        }
+        
+        #endregion
+
         #region Content
 
         /// <summary>
@@ -139,19 +164,19 @@ namespace TextMDI.Storage
         /// Internal property for holding the font family,
         /// so serializarion is easier to implement
         /// </summary>
-        private string fontFamily = "Arial";
+        private string fontFamily;
 
         /// <summary>
         /// Internal property for holding the font family,
         /// so serializarion is easier to implement
         /// </summary>
-        private float fontSize = 12.0f;
+        private float fontSize;
 
         /// <summary>
         /// Internal property for holding the font family,
         /// so serializarion is easier to implement
         /// </summary>
-        private string fontStyle = "R";
+        private string fontStyle;
 
         /// <summary>
         /// The font of the text
