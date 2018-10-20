@@ -259,6 +259,11 @@ namespace TextMDI.Storage
 
         #region ISerializable
 
+        /// <summary>
+        /// Desirializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
         protected Text(SerializationInfo info, StreamingContext context)
         {
             this.content = info.GetString("content");
@@ -287,7 +292,7 @@ namespace TextMDI.Storage
         }
 
         /// <summary>
-        /// Added custom serialization to the object
+        /// Serializes the object
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
