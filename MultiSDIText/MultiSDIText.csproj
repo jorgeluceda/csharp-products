@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D0D141E1-C8AC-43A5-AA86-79373F859349}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TextMDI</RootNamespace>
-    <AssemblyName>TextMDI</AssemblyName>
+    <RootNamespace>MultiSDIText</RootNamespace>
+    <AssemblyName>MultiSDIText</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -94,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
