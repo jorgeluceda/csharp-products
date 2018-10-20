@@ -292,28 +292,21 @@ namespace TextMDI.Storage
         protected Text(SerializationInfo info, StreamingContext context)
         {
             this.content = info.GetString("content");
-            this.PropertyChange("Content");
 
             this.zOrder = info.GetInt32("zOrder");
-            this.PropertyChange("ZOrder");
 
             this.colorArgb = info.GetInt32("colorArgb");
-            this.PropertyChange("Color");
 
             this.backgroundColorArgb = info.GetInt32("backgroundColorArgb");
-            this.PropertyChange("BackgroundColor");
 
             this.locationX = info.GetInt32("locationX");
             this.locationY = info.GetInt32("locationY");
-            this.PropertyChange("Location");
 
             this.fontFamily = info.GetString("fontFamily");
             this.fontSize = (float)info.GetDouble("fontSize");
             this.fontStyle = info.GetString("fontStyle");
-            this.PropertyChange("Font");
 
             this.rotation = info.GetInt32("rotation");
-            this.PropertyChange("Rotation");
         }
 
         /// <summary>
