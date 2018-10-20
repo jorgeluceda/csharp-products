@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TextMDI.Storage
 {
-    class Text: BindableObject
+    [Serializable]
+    public class Text: BindableObject, ISerializable
     {
         #region Content
 
@@ -238,12 +240,12 @@ namespace TextMDI.Storage
         /// Internal property for holding the content value, so
         /// serialization is easier to implement
         /// </summary>
-        private string rotation;
+        private int rotation;
 
         /// <summary>
         /// The rotation of the text on the document
         /// </summary>
-        public string Rotation
+        public int Rotation
         {
             get { return this.rotation; }
             set
@@ -251,6 +253,62 @@ namespace TextMDI.Storage
                 this.rotation = value;
                 this.PropertyChange("Rotation");
             }
+        }
+
+        #endregion
+
+        #region ISerializable
+
+        protected Text(SerializationInfo info, StreamingContext context)
+        {
+            this.content = info.GetString("content");
+            this.PropertyChange("Content");
+
+            this.zOrder = info.GetInt32("zOrder");
+            this.PropertyChange("ZOrder");
+
+            this.colorArgb = info.GetInt32("colorArgb");
+            this.PropertyChange("Color");
+
+            this.backgroundColorArgb = info.GetInt32("backgroundColorArgb");
+            this.PropertyChange("BackgroundColor");
+
+            this.locationX = info.GetInt32("locationX");
+            this.locationY = info.GetInt32("locationY");
+            this.PropertyChange("Location");
+
+            this.fontFamily = info.GetString("fontFamily");
+            this.fontSize = (float)info.GetDouble("fontSize");
+            this.fontStyle = info.GetString("fontStyle");
+            this.PropertyChange("Font");
+
+            this.rotation = info.GetInt32("rotation");
+            this.PropertyChange("Rotation");
+        }
+
+        /// <summary>
+        /// Added custom serialization to the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("content", this.content);
+
+            info.AddValue("zOrder", this.zOrder);
+
+            info.AddValue("colorArgb", this.colorArgb);
+
+            info.AddValue("backgroundColorArgb", this.backgroundColorArgb);
+
+            info.AddValue("locationX", this.locationX);
+            info.AddValue("locationY", this.locationY);
+
+            info.AddValue("fontFamily", this.fontFamily);
+            info.AddValue("fontSize", this.fontSize);
+            info.AddValue("fontStyle", this.fontStyle);
+
+            info.AddValue("rotation", this.rotation);
         }
 
         #endregion
