@@ -40,7 +40,10 @@
             this.oathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainMenu.SuspendLayout();
+            this.mainStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -121,34 +124,53 @@
             // oathToolStripMenuItem
             // 
             this.oathToolStripMenuItem.Name = "oathToolStripMenuItem";
-            this.oathToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oathToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.oathToolStripMenuItem.Text = "Oath";
             this.oathToolStripMenuItem.Click += new System.EventHandler(this.oathToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // mainStatusStrip
+            // 
+            this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusToolStripStatusLabel});
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 344);
+            this.mainStatusStrip.Name = "mainStatusStrip";
+            this.mainStatusStrip.Size = new System.Drawing.Size(600, 22);
+            this.mainStatusStrip.TabIndex = 6;
+            this.mainStatusStrip.Text = "statusStrip1";
+            // 
+            // statusToolStripStatusLabel
+            // 
+            this.statusToolStripStatusLabel.Name = "statusToolStripStatusLabel";
+            this.statusToolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.statusToolStripStatusLabel.Text = "Status";
             // 
             // TopLevelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.mainStatusStrip);
             this.Controls.Add(this.MainMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TopLevelForm";
             this.Text = "Typography++";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
+            this.mainStatusStrip.ResumeLayout(false);
+            this.mainStatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +190,8 @@
         private System.Windows.Forms.ToolStripMenuItem oathToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip mainStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel statusToolStripStatusLabel;
     }
 }
 
