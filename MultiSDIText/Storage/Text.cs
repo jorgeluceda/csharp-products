@@ -7,23 +7,51 @@ using System.Threading.Tasks;
 
 namespace TextMDI.Storage
 {
-    class Text
+    class Text: BindableObject
     {
-        #region Content 
+        #region Content
+
+        /// <summary>
+        /// Internal property for holding the content value, so
+        /// serialization is easier to implement
+        /// </summary>
+        private string content;
 
         /// <summary>
         /// The actual constent of the Text class
         /// </summary>
-        public string Content { get; set; }
+        public string Content
+        {
+            get { return this.content; }
+            set
+            {
+                this.content = value;
+                this.PropertyChange("Content");
+            }
+        }
 
         #endregion
 
         #region ZOrder
 
         /// <summary>
+        /// Internal property for holding the content value, so
+        /// serialization is easier to implement
+        /// </summary>
+        private int zOrder;
+
+        /// <summary>
         /// The z-order of the text
         /// </summary>
-        public int ZOrder { get; set; }
+        public int ZOrder
+        {
+            get { return this.zOrder; }
+            set
+            {
+                this.zOrder = value;
+                this.PropertyChange("ZOrder");
+            }
+        }
 
         #endregion
 
@@ -41,7 +69,11 @@ namespace TextMDI.Storage
         public Color Color
         {
             get { return Color.FromArgb(this.colorArgb); }
-            set { this.colorArgb = value.ToArgb(); }
+            set
+            {
+                this.colorArgb = value.ToArgb();
+                this.PropertyChange("Color");
+            }
         }
 
         #endregion
@@ -60,7 +92,11 @@ namespace TextMDI.Storage
         public Color BackgroundColor
         {
             get { return Color.FromArgb(this.backgroundColorArgb); }
-            set { this.backgroundColorArgb = value.ToArgb(); }
+            set
+            {
+                this.backgroundColorArgb = value.ToArgb();
+                this.PropertyChange("BackgroundColor");
+            }
         }
 
         #endregion
@@ -89,6 +125,7 @@ namespace TextMDI.Storage
             {
                 this.locationX = value.X;
                 this.locationY = value.Y;
+                this.PropertyChange("Location");
             }
         }
 
@@ -128,6 +165,7 @@ namespace TextMDI.Storage
                 this.fontFamily = value.FontFamily.Name;
                 this.fontSize = value.Size;
                 this.fontStyle = this.SerializeFontStyle(value);
+                this.PropertyChange("Font");
             }
         }
 
@@ -195,11 +233,25 @@ namespace TextMDI.Storage
         #endregion
 
         #region Rotation
+        
+        /// <summary>
+        /// Internal property for holding the content value, so
+        /// serialization is easier to implement
+        /// </summary>
+        private string rotation;
 
         /// <summary>
         /// The rotation of the text on the document
         /// </summary>
-        public int Rotation { get; set; }
+        public string Rotation
+        {
+            get { return this.rotation; }
+            set
+            {
+                this.rotation = value;
+                this.PropertyChange("Rotation");
+            }
+        }
 
         #endregion
     }
