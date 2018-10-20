@@ -7,10 +7,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextMDI.Storage
+namespace MultiSDIText.Storage
 {
     [Serializable]
-    public class Text: Component, ISerializable, IComponent, INotifyPropertyChanged
+    public class Text : Component, ISerializable, IComponent, INotifyPropertyChanged
     {
         #region Constructor
 
@@ -261,7 +261,7 @@ namespace TextMDI.Storage
         #endregion
 
         #region Rotation
-        
+
         /// <summary>
         /// Internal property for holding the content value, so
         /// serialization is easier to implement

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextMDI.Storage
+namespace MultiSDIText.Storage
 {
     public class Document
     {
