@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace TextMDI.Storage
 {
     [Serializable]
-    public class Text: BindableObject, ISerializable
+    public class Text: Component, ISerializable, IComponent, INotifyPropertyChanged
     {
         #region Constructor
 
@@ -332,6 +333,17 @@ namespace TextMDI.Storage
             info.AddValue("fontStyle", this.fontStyle);
 
             info.AddValue("rotation", this.rotation);
+        }
+
+        #endregion
+
+        #region DataBinding
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void PropertyChange(String propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
