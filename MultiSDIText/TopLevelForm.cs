@@ -14,7 +14,7 @@ using CoreLibrary;
 
 namespace MultiSDIText
 {
-    public partial class TopLevelForm : BaseMainForm
+    public partial class TopLevelForm : Form
     {
         #region Member Variables and Properties
         string fileName;
