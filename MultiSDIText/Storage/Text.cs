@@ -317,5 +317,11 @@ namespace TextMDI.Storage
         }
 
         #endregion
+
+        #region Functionality
+
+        // Region where all the text actions are going to be performed
+
+        #endregion
     }
 }
