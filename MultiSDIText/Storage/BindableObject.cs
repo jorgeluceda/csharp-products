@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TextMDI.Storage
 {
-    class BindableObject : INotifyPropertyChanged
+    public class BindableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
