@@ -34,7 +34,7 @@ namespace MultiSDIText.Storage
             this.fontSize = 12.0f;
             this.fontStyle = "R";
         }
-
+        
         #endregion
 
         #region Content
