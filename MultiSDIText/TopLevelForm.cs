@@ -171,5 +171,10 @@ namespace MultiSDIText
         {
             
         }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog.SHow();
+        }
     }
 }
