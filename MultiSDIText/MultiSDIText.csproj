@@ -66,6 +66,10 @@
     <Compile Include="SearchDialog.Designer.cs">
       <DependentUpon>SearchDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Storage\Document.cs" />
+    <Compile Include="Storage\Text.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TopLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
