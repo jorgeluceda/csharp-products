@@ -171,5 +171,17 @@ namespace MultiSDIText
         {
             
         }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Oath oath = new Oath();
+            oath.Show();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpDialog help = new HelpDialog();
+            help.Show();
+        }
     }
 }
