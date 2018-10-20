@@ -11,7 +11,7 @@ namespace TextMDI.Storage
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnChange(String propertyName)
+        protected void PropertyChange(String propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
