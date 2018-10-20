@@ -108,25 +108,7 @@ namespace MultiSDI
         }
         #endregion
         #region MainMenu Item Handlers
-        private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO get actual shape that is going to be edited. EX:
-            //
-            // Shape shape  = this.SelectedForm.GetShape();
-            // this.optionsForm.DataBindingSource.DataSource = shape;
-            //this.optionsForm.ShowDialog();
-            ///////// TESTING ///////////
-            /* Take a look at code below to understand the data binding */
-            /*var shape = new Shape();
-            shape.LocationX = 300;
-            shape.PenType = PenTypeEnum.Dashed;
-            var bs = new BindingSource();
-            //var dg = new OptionsForm();
-            this.optionsForm.DataBindingSource.DataSource = shape;
-            //dg.DataBindingSource.DataSource = shape;*/
-            var result = this.optionsForm.ShowDialog();
-            result.Equals("AAAA");
-        }
+       
         /**
          * Click handler for File->Open. Opens a file using an OpenFileDialog, passing the fileName to 
          * CreateTopLevelWindow.
@@ -249,12 +231,12 @@ namespace MultiSDI
         }
         private void TopLevelForm_Load(object sender, EventArgs e)
         {
-            ToolStripManager.Merge(BaseMenu, MainMenu);
+            //ToolStripManager.Merge(BaseMenu, MainMenu);
 
         }
         private void InitializeSubmenuEvents()
         {
-
+            /*
             menuOwners.Add(shapeToolStripMenuItem);
             menuOwners.Add(penToolStripMenuItem);
             menuOwners.Add(brushToolStripMenuItem);
@@ -263,7 +245,7 @@ namespace MultiSDI
             menuOwners.Add(PenToolStripDropDownButton);
             menuOwners.Add(ColorToolStripDropDownButton);
             menuOwners.Add(colorToolStripMenuItem);
-
+            */
 
             foreach (ToolStripDropDownItem val in menuOwners)
             {
