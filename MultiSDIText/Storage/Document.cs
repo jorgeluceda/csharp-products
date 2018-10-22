@@ -15,10 +15,18 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// Simple constructor that initilaizes all properties
         /// </summary>
-        public Document()
+        public Document(List<Text> list)
         {
-            this.Content = new List<Text>();
+            this.Content = list;
         }
+
+        /// <summary>
+        /// Simple constructor that initilaizes all properties
+        /// </summary>
+        public Document() : this(new List<Text>())
+        {
+            
+        }    
 
         #endregion
 
