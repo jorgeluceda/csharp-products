@@ -357,6 +357,10 @@ namespace MultiSDIText.Storage
 
         #region Functionality
 
+        /// <summary>
+        /// Draw the string property
+        /// </summary>
+        /// <param name="g">The graphics used to draw</param>
         public void Draw(Graphics g)
         {
             throw new NotImplementedException();
