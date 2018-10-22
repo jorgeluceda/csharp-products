@@ -19,6 +19,8 @@ namespace MultiSDIText
             InitializeComponent();
         }
 
+        List<FileInfo> searchResults;
+
         #region SearchUserState
         class SearchUserState
         {
@@ -36,10 +38,28 @@ namespace MultiSDIText
         #endregion
 
         #region Searching File System
+        private int getTotalDirectories()
+        {
+            int total = 0;
+
+            foreach(String drive in Directory.GetLogicalDrives())
+            {
+                total++;
+
+                foreach(DirectoryInfo child in getDirectories(drive))
+                {
+                    total++;
+                }
+            }
+
+            return total;
+        }
+    
         private void Search(String extension)
         {
             // Report initial progress
-            
+            this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(searchResults, getTotalDirectories(), 0));
+
             foreach (String drive in Directory.GetLogicalDrives())
             {
                 Debug.WriteLine(drive);
@@ -149,7 +169,29 @@ namespace MultiSDIText
 
         private void SearchBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            SearchUserState progress = (SearchUserState)e.UserState;
+            ShowProgress(progress.results, progress.totalFiles, progress.filesSoFar);
+        }
 
+        private void ShowProgress(List<FileInfo> results, int totalFiles, int filesSoFar)
+        {
+            // Make sure we're on the UI thread
+            Debug.Assert(this.InvokeRequired == false);     
+            if (this.InvokeRequired == true) throw new Exception("Invalid Operation: You're on the worker thread!");
+
+            // Display progress in UI
+            foreach(FileInfo file in results)
+            {
+                this.Results.Items.Add(file.FullName);
+            }
+            this.ProgressBar.Maximum = totalFiles;
+            this.ProgressBar.Value = filesSoFar;
+
+            if(filesSoFar == totalFiles)
+            {
+                // Reset progress UI
+                this.ProgressBar.Visible = false;
+            }
         }
     }
 }
