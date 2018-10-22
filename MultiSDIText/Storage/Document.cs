@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,17 @@ namespace MultiSDIText.Storage
 
         #region Functionality
 
-        // Region where all the documents actions are going to be performed
+        /// <summary>
+        /// Draw the content of the document
+        /// </summary>
+        /// <param name="g">Graphics used to draw</param>
+        public void Draw(Graphics g)
+        {
+            foreach(Text t in this.Content)
+            {
+                t.Draw(g);
+            }
+        }
 
         #endregion
     }
