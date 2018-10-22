@@ -357,7 +357,10 @@ namespace MultiSDIText.Storage
 
         #region Functionality
 
-        // Region where all the text actions are going to be performed
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }
