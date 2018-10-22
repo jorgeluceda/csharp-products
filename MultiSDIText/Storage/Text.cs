@@ -366,6 +366,17 @@ namespace MultiSDIText.Storage
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Determines if a given point is within the text's rectangle
+        /// boundaries
+        /// </summary>
+        /// <param name="p">The ponint to be found</param>
+        /// <returns>Whether or not the point is within the text boundaries</returns>
+        public bool PointWithinBoundaries(Point p)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }
