@@ -17,7 +17,7 @@ namespace MultiSDIText.Storage
         /// </summary>
         public Document(List<Text> list)
         {
-            this.Content = list;
+            this.content = list;
         }
 
         /// <summary>
@@ -26,16 +26,21 @@ namespace MultiSDIText.Storage
         public Document() : this(new List<Text>())
         {
             
-        }    
+        }
 
         #endregion
 
         #region Content
 
         /// <summary>
-        /// Holds a list of all the text objects
+        /// The content of the document. A list of texts sorted by z-order
         /// </summary>
-        private List<Text> Content { get; set; }
+        private List<Text> content;
+
+        public void Add(Text text)
+        {
+            this.content.Add(text);
+        }
 
         #endregion
 
@@ -47,7 +52,7 @@ namespace MultiSDIText.Storage
         /// <param name="g">Graphics used to draw</param>
         public void Draw(Graphics g)
         {
-            foreach(Text t in this.Content)
+            foreach(Text t in this.content)
             {
                 t.Draw(g);
             }
