@@ -95,6 +95,23 @@ namespace MultiSDIText.Storage
             }
         }
 
+        /// <summary>
+        /// Finds if a point belongs to any of the texts
+        /// in the document
+        /// </summary>
+        /// <param name="p">The point to be found</param>
+        /// <returns>The text that was hit by the point or null</returns>
+        public Text Find(Point p)
+        {
+            foreach (Text t in this.content)
+            {
+                if (t.PointWithinBoundaries(p))
+                    return t;
+            }
+
+            return null;
+        }
+
         #endregion
     }
 }
