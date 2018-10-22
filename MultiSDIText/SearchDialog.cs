@@ -19,24 +19,39 @@ namespace MultiSDIText
             InitializeComponent();
         }
 
-        /**
-         *  Searches your entire machine, making a tree starting at the drives and moving down to the end nodes.
-         *  
-         */
-        private void Search()
+        #region SearchUserState
+        class SearchUserState
         {
+            public readonly List<FileInfo> results;
+            public readonly int totalFiles;
+            public readonly int filesSoFar;
+
+            public SearchUserState(List<FileInfo> results, int totalFiles, int filesSoFar)
+            {
+                this.results = results;
+                this.totalFiles = totalFiles;
+                this.filesSoFar = filesSoFar;
+            }
+        }
+        #endregion
+
+        #region Searching File System
+        private void Search(String extension)
+        {
+            // Report initial progress
+            
             foreach (String drive in Directory.GetLogicalDrives())
             {
                 Debug.WriteLine(drive);
                 foreach (DirectoryInfo child in getDirectories(drive))
                 {
                     Debug.WriteLine(child.FullName);
-                    FindFiles(child);
+                    FindFiles(child, extension);
                 }
             }
         }
 
-        private void FindFiles(DirectoryInfo dir)
+        private void FindFiles(DirectoryInfo dir, String extension)
         {
             try
             {
@@ -46,16 +61,21 @@ namespace MultiSDIText
                     foreach (DirectoryInfo child in children)
                     {
                         Debug.WriteLine(child.FullName);
-                        FindFiles(child);
+                        FindFiles(child, extension);
                     }
                 }
                 else
                 {
-                    FileInfo[] Files = dir.GetFiles("*.txt");
+                    FileInfo[] Files = dir.GetFiles(extension);
+                    
                     if (Files.Length > 0)
                     {
-                        //Found some text files.
-                        //Do something
+                        //Found some files with the given extension
+                        foreach(FileInfo item in Files)
+                        {
+                            // Add each file name to a list
+                            
+                        }
                     }
                 }
             }
@@ -101,6 +121,35 @@ namespace MultiSDIText
         {
             DirectoryInfo dir = new DirectoryInfo(strDrive);
             return getDirectories(dir);
+        }
+        #endregion
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            // Start a worker thread, passing the selected extension from the Combo Box
+            this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.SelectedValue);
+        }
+
+        private void startButton_Validating(object sender, CancelEventArgs e)
+        {
+            if(!(this.extensionComboBox.SelectedIndex > -1))
+            {
+                this.SearchErrorProvider.SetError(this.startButton, 
+                    "Please select an extension to search for from the dropdown list below");
+
+                e.Cancel = true;
+            }
+        }
+
+        private void SearchBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // DONT MANIPULATE ANYTHING WITH THE UI HERE!!!!!!!!!!!!!!!!!
+            Search((String)e.Argument);
+        }
+
+        private void SearchBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
         }
     }
 }
