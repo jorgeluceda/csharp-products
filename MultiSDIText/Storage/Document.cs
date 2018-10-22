@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MultiSDIText.Storage
 {
-    public class Document
+    [Serializable]
+    public class Document: ISerializable
     {
         #region Constructor
 
@@ -77,6 +79,30 @@ namespace MultiSDIText.Storage
             {
                 return y.ZOrder.CompareTo(x.ZOrder);
             });
+        }
+
+        #endregion
+
+        #region ISerializable
+
+        /// <summary>
+        /// Desirializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected Document(SerializationInfo info, StreamingContext context)
+        {
+            this.content = (List<Text>) info.GetValue("content", typeof(List<Text>));
+        }
+
+        /// <summary>
+        /// Serializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("content", this.content, typeof(List<Text>));
         }
 
         #endregion
