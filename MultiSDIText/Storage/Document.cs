@@ -16,7 +16,7 @@ namespace MultiSDIText.Storage
         /// </summary>
         public Document()
         {
-            this.Content = new Container();
+            this.Content = new List<Text>();
         }
 
         #endregion
@@ -26,7 +26,7 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// Holds a list of all the text objects
         /// </summary>
-        private Container Content { get; set; }
+        private List<Text> Content { get; set; }
 
         #endregion
 

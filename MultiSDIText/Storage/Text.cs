@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MultiSDIText.Storage
 {
     [Serializable]
-    public class Text : Component, ISerializable, IComponent, INotifyPropertyChanged
+    public class Text : ISerializable, INotifyPropertyChanged
     {
         #region Constructor
 
