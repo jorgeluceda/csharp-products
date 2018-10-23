@@ -7,10 +7,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextMDI.Storage
+namespace MultiSDIText.Storage
 {
     [Serializable]
-    public class Text: Component, ISerializable, IComponent, INotifyPropertyChanged
+    public class Text : ISerializable, INotifyPropertyChanged
     {
         #region Constructor
 
@@ -261,7 +261,7 @@ namespace TextMDI.Storage
         #endregion
 
         #region Rotation
-        
+
         /// <summary>
         /// Internal property for holding the content value, so
         /// serialization is easier to implement
@@ -357,7 +357,25 @@ namespace TextMDI.Storage
 
         #region Functionality
 
-        // Region where all the text actions are going to be performed
+        /// <summary>
+        /// Draw the string property
+        /// </summary>
+        /// <param name="g">The graphics used to draw</param>
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Determines if a given point is within the text's rectangle
+        /// boundaries
+        /// </summary>
+        /// <param name="p">The ponint to be found</param>
+        /// <returns>Whether or not the point is within the text boundaries</returns>
+        public bool PointWithinBoundaries(Point p)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

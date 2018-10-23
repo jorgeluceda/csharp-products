@@ -169,7 +169,8 @@ namespace MultiSDIText
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            SearchDialog dlg = new SearchDialog();
+            dlg.Show();
         }
     }
 }
