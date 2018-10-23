@@ -146,10 +146,10 @@ namespace MultiSDIText.Storage
         public Text[] Split(String s)
         {
             Text[] texts = new Text[s.Length];
-            String[] charaters = new string[] { s };
+            char[] charaters = s.ToCharArray();
             for (int i = 0; i < s.Length; i++)
             {
-                texts[i].Content = charaters[i];
+                texts[i].Content = charaters[i].ToString();
             }
             return texts;
         }
