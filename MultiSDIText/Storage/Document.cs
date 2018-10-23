@@ -138,6 +138,22 @@ namespace MultiSDIText.Storage
             return null;
         }
 
+        /// <summary>
+        /// Gets a string and returns an array of Text object representing each letter.
+        /// </summary>
+        /// <param name="p">The string to split into letters</param>
+        /// <returns>An array of letters as Text object</returns>
+        public Text[] Split(String s)
+        {
+            Text[] texts = new Text[s.Length];
+            char[] charaters = s.ToCharArray();
+            for (int i = 0; i < s.Length; i++)
+            {
+                texts[i].Content = charaters[i].ToString();
+            }
+            return texts;
+        }
+
         #endregion
     }
 }
