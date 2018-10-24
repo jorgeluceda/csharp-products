@@ -40,7 +40,6 @@
             this.SearchErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.SearchStatusStrip = new System.Windows.Forms.StatusStrip();
             this.StatusStripIndicator = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchErrorProvider)).BeginInit();
             this.SearchStatusStrip.SuspendLayout();
@@ -103,9 +102,9 @@
             this.extensionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.extensionComboBox.FormattingEnabled = true;
             this.extensionComboBox.Items.AddRange(new object[] {
-            ".txt",
-            ".html",
-            ".htm"});
+            "*.txt",
+            "*.html",
+            "*.htm"});
             this.extensionComboBox.Location = new System.Drawing.Point(460, 268);
             this.extensionComboBox.Name = "extensionComboBox";
             this.extensionComboBox.Size = new System.Drawing.Size(121, 24);
@@ -125,6 +124,7 @@
             this.SearchBackgroundWorker.WorkerReportsProgress = true;
             this.SearchBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchBackgroundWorker_DoWork);
             this.SearchBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.SearchBackgroundWorker_ProgressChanged);
+            this.SearchBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SearchBackgroundWorker_RunWorkerCompleted);
             // 
             // SearchErrorProvider
             // 
@@ -134,8 +134,7 @@
             // 
             this.SearchStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.SearchStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusStripIndicator,
-            this.ProgressBar});
+            this.StatusStripIndicator});
             this.SearchStatusStrip.Location = new System.Drawing.Point(0, 480);
             this.SearchStatusStrip.Name = "SearchStatusStrip";
             this.SearchStatusStrip.Size = new System.Drawing.Size(654, 25);
@@ -147,12 +146,6 @@
             this.StatusStripIndicator.Name = "StatusStripIndicator";
             this.StatusStripIndicator.Size = new System.Drawing.Size(50, 20);
             this.StatusStripIndicator.Text = "Ready";
-            // 
-            // ProgressBar
-            // 
-            this.ProgressBar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(100, 19);
             // 
             // SearchDialog
             // 
@@ -189,6 +182,5 @@
         private System.Windows.Forms.ErrorProvider SearchErrorProvider;
         private System.Windows.Forms.StatusStrip SearchStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel StatusStripIndicator;
-        private System.Windows.Forms.ToolStripProgressBar ProgressBar;
     }
 }

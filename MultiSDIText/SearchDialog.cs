@@ -19,46 +19,29 @@ namespace MultiSDIText
             InitializeComponent();
         }
 
-        List<FileInfo> searchResults;
-
-        #region SearchUserState
+        #region UserState
         class SearchUserState
         {
-            public readonly List<FileInfo> results;
-            public readonly int totalFiles;
-            public readonly int filesSoFar;
+            public FileInfo[] results;
 
-            public SearchUserState(List<FileInfo> results, int totalFiles, int filesSoFar)
+            public SearchUserState(FileInfo[] results)
             {
                 this.results = results;
-                this.totalFiles = totalFiles;
-                this.filesSoFar = filesSoFar;
             }
         }
         #endregion
 
         #region Searching File System
-        private int getTotalDirectories()
-        {
-            int total = 0;
-
-            foreach(String drive in Directory.GetLogicalDrives())
-            {
-                total++;
-
-                foreach(DirectoryInfo child in getDirectories(drive))
-                {
-                    total++;
-                }
-            }
-
-            return total;
-        }
     
         private void Search(String extension)
         {
+            // Initial results is empty list
+            FileInfo[] searchResults = new FileInfo[] { };
+
             // Report initial progress
-            this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(searchResults, getTotalDirectories(), 0));
+            this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(searchResults));
+
+            Debug.WriteLine(extension);
 
             foreach (String drive in Directory.GetLogicalDrives())
             {
@@ -72,7 +55,7 @@ namespace MultiSDIText
         }
 
         private void FindFiles(DirectoryInfo dir, String extension)
-        {
+        { 
             try
             {
                 DirectoryInfo[] children = getDirectories(dir);
@@ -81,7 +64,9 @@ namespace MultiSDIText
                     foreach (DirectoryInfo child in children)
                     {
                         Debug.WriteLine(child.FullName);
+                        Debug.WriteLine(extension);
                         FindFiles(child, extension);
+                        
                     }
                 }
                 else
@@ -91,11 +76,7 @@ namespace MultiSDIText
                     if (Files.Length > 0)
                     {
                         //Found some files with the given extension
-                        foreach(FileInfo item in Files)
-                        {
-                            // Add each file name to a list
-                            
-                        }
+                        this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(Files));
                     }
                 }
             }
@@ -144,12 +125,18 @@ namespace MultiSDIText
         }
         #endregion
 
+        #region Search Buttons
         private void startButton_Click(object sender, EventArgs e)
         {
-            // Start a worker thread, passing the selected extension from the Combo Box
-            this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.SelectedValue);
-        }
+            // Update the UI
+            this.StatusStripIndicator.Text = "Searching for files with the given extension...";
 
+            // Start a worker thread, passing the selected extension from the Combo Box
+            this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.GetItemText(this.extensionComboBox.SelectedItem));
+        }
+        #endregion
+
+        #region Validation
         private void startButton_Validating(object sender, CancelEventArgs e)
         {
             if(!(this.extensionComboBox.SelectedIndex > -1))
@@ -160,7 +147,9 @@ namespace MultiSDIText
                 e.Cancel = true;
             }
         }
+        #endregion
 
+        #region BackgroundWorker Event Handlers
         private void SearchBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             // DONT MANIPULATE ANYTHING WITH THE UI HERE!!!!!!!!!!!!!!!!!
@@ -170,10 +159,10 @@ namespace MultiSDIText
         private void SearchBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             SearchUserState progress = (SearchUserState)e.UserState;
-            ShowProgress(progress.results, progress.totalFiles, progress.filesSoFar);
+            ShowProgress(progress.results);
         }
 
-        private void ShowProgress(List<FileInfo> results, int totalFiles, int filesSoFar)
+        private void ShowProgress(FileInfo[] results)
         {
             // Make sure we're on the UI thread
             Debug.Assert(this.InvokeRequired == false);     
@@ -184,14 +173,12 @@ namespace MultiSDIText
             {
                 this.Results.Items.Add(file.FullName);
             }
-            this.ProgressBar.Maximum = totalFiles;
-            this.ProgressBar.Value = filesSoFar;
-
-            if(filesSoFar == totalFiles)
-            {
-                // Reset progress UI
-                this.ProgressBar.Visible = false;
-            }
         }
+
+        private void SearchBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.StatusStripIndicator.Text = "Ready";
+        }
+        #endregion
     }
 }
