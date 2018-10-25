@@ -139,10 +139,10 @@ namespace MultiSDIText.Storage
         }
 
         /// <summary>
-        /// Gets a string and returns an array of Text object representing each letter.
+        /// Gets a string and returns an array of Text object representing each word.
         /// </summary>
-        /// <param name="p">The string to split into letters</param>
-        /// <returns>An array of letters as Text object</returns>
+        /// <param name="p">The string to split into words</param>
+        /// <returns>An array of words as Text object</returns>
         public Text[] Split(String s)
         {
             String[] words = s.Split(' ');
