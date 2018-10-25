@@ -128,11 +128,37 @@ namespace MultiSDIText
         #region Search Buttons
         private void startButton_Click(object sender, EventArgs e)
         {
-            // Update the UI
-            this.StatusStripIndicator.Text = "Searching for files with the given extension...";
+            // Tell user we're searching
+            this.StatusStripIndicator.Text = "Searching for files with the given extension...";     
+            
+            // Hide/Show buttons appropriately
+            this.stopButton.Visible = true;     
+            this.pauseButton.Visible = true;
+            this.startButton.Visible = false;
 
             // Start a worker thread, passing the selected extension from the Combo Box
             this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.GetItemText(this.extensionComboBox.SelectedItem));
+        }
+
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            if (this.pauseButton.Text == "Pause")
+            {
+                this.pauseButton.Text = "Continue";
+
+                // PUT LOGIC TO PAUSE SEARCH HERE
+            }
+            else if (this.pauseButton.Text == "Continue")
+            {
+                this.pauseButton.Text = "Pause";
+
+                // PUT LOGIC TO CONTINUE SEARCH HERE
+            }
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
@@ -177,8 +203,17 @@ namespace MultiSDIText
 
         private void SearchBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.StatusStripIndicator.Text = "Ready";
+            this.StatusStripIndicator.Text = "Ready";   // Reset Status Strip
+
+            MessageBox.Show("Files Found: " + this.Results.Items.Count);    // Display a MessageBox showing how many files were found upon completion
         }
+
+
         #endregion
+
+        private void SearchDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

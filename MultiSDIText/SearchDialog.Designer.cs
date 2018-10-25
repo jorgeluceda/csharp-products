@@ -74,6 +74,8 @@
             this.stopButton.TabIndex = 2;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Visible = false;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // pauseButton
             // 
@@ -84,6 +86,8 @@
             this.pauseButton.TabIndex = 3;
             this.pauseButton.Text = "Pause";
             this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Visible = false;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
             // groupBox1
             // 
@@ -160,6 +164,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SearchDialog";
             this.Text = "SearchDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchDialog_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SearchErrorProvider)).EndInit();
             this.SearchStatusStrip.ResumeLayout(false);

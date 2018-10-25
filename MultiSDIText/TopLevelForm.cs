@@ -19,6 +19,8 @@ namespace MultiSDIText
         #region Member Variables and Properties
         string fileName;
 
+        bool searchOpen = false;
+
         //Document doc = new Document();
         //OptionsForm optionsForm = new OptionsForm();
 
