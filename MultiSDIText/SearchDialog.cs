@@ -31,13 +31,17 @@ namespace MultiSDIText
         class SearchUserState
         {
             public FileInfo[] results;
+            public String extension;
 
-            public SearchUserState(FileInfo[] results)
+            public SearchUserState(FileInfo[] results, String extension)
             {
                 this.results = results;
+                this.extension = extension;
             }
         }
         #endregion
+
+        SearchUserState state;
 
         #region Searching File System
     
@@ -50,9 +54,9 @@ namespace MultiSDIText
             FileInfo[] searchResults = new FileInfo[] { };
 
             // Report initial progress
-            this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(searchResults));
+            this.SearchBackgroundWorker.ReportProgress(0, state = new SearchUserState(searchResults, extension));
 
-            Debug.WriteLine(extension);
+            Debug.WriteLine(state.extension);
 
             foreach (String drive in Directory.GetLogicalDrives())
             {
@@ -66,7 +70,7 @@ namespace MultiSDIText
                     if (this.SearchBackgroundWorker.CancellationPending) return;
 
                     Debug.WriteLine(child.FullName);
-                    FindFiles(child, extension);
+                    FindFiles(child, state.extension);
                 }
             }
         }
@@ -92,7 +96,6 @@ namespace MultiSDIText
                         Debug.WriteLine(child.FullName);
                         Debug.WriteLine(extension);
                         FindFiles(child, extension);
-                        
                     }
                 }
                 else
@@ -101,11 +104,12 @@ namespace MultiSDIText
                     if (this.SearchBackgroundWorker.CancellationPending) return;
 
                     FileInfo[] Files = dir.GetFiles(extension);
-                    
+
                     if (Files.Length > 0)
                     {
                         //Found some files with the given extension
-                        this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(Files));
+                        this.SearchBackgroundWorker.ReportProgress(0, state = new SearchUserState(Files, state.extension));
+                        Debug.WriteLine(state.extension);
 
                         // Check for cancellation
                         if (this.SearchBackgroundWorker.CancellationPending) return;
@@ -235,6 +239,7 @@ namespace MultiSDIText
         {
             SearchUserState progress = (SearchUserState)e.UserState;
             ShowProgress(progress.results);
+            progress.extension = (String)this.extensionComboBox.GetItemText(this.extensionComboBox.SelectedItem);
         }
 
         private void ShowProgress(FileInfo[] results)
