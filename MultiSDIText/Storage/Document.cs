@@ -145,11 +145,11 @@ namespace MultiSDIText.Storage
         /// <returns>An array of letters as Text object</returns>
         public Text[] Split(String s)
         {
-            Text[] texts = new Text[s.Length];
-            char[] charaters = s.ToCharArray();
-            for (int i = 0; i < s.Length; i++)
+            String[] words = s.Split(' ');
+            Text[] texts = new Text[words.Length];
+            for (int i = 0; i < words.Length; i++)
             {
-                texts[i].Content = charaters[i].ToString();
+                texts[i].Content = words[i].ToString();
             }
             return texts;
         }
