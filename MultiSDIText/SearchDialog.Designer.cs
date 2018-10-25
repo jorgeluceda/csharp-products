@@ -126,6 +126,7 @@
             // SearchBackgroundWorker
             // 
             this.SearchBackgroundWorker.WorkerReportsProgress = true;
+            this.SearchBackgroundWorker.WorkerSupportsCancellation = true;
             this.SearchBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchBackgroundWorker_DoWork);
             this.SearchBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.SearchBackgroundWorker_ProgressChanged);
             this.SearchBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SearchBackgroundWorker_RunWorkerCompleted);

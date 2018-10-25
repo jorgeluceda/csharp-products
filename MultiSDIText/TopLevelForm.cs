@@ -19,8 +19,13 @@ namespace MultiSDIText
         #region Member Variables and Properties
         string fileName;
 
-        bool searchOpen = false;
-        SearchDialog dlg;
+        private SearchDialog dlg;
+
+        public SearchDialog SearchDlg
+        {
+            get { return this.dlg; }
+            set { this.dlg = value; }
+        }
 
         //Document doc = new Document();
         //OptionsForm optionsForm = new OptionsForm();
@@ -175,6 +180,7 @@ namespace MultiSDIText
             if(dlg == null)
             {
                 dlg = new SearchDialog();
+                dlg.MainForm = this;
                 dlg.Show();
             }
             else
