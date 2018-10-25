@@ -20,6 +20,7 @@ namespace MultiSDIText
         string fileName;
 
         bool searchOpen = false;
+        SearchDialog dlg;
 
         //Document doc = new Document();
         //OptionsForm optionsForm = new OptionsForm();
@@ -171,8 +172,15 @@ namespace MultiSDIText
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchDialog dlg = new SearchDialog();
-            dlg.Show();
+            if(dlg == null)
+            {
+                dlg = new SearchDialog();
+                dlg.Show();
+            }
+            else
+            {
+                dlg.BringToFront();
+            }
         }
     }
 }
