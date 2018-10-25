@@ -14,6 +14,14 @@ namespace MultiSDIText
 {
     public partial class SearchDialog : Form
     {
+        private TopLevelForm form;
+
+        public TopLevelForm MainForm
+        {
+            get { return this.form; }
+            set { this.form = value; }
+        }
+
         public SearchDialog()
         {
             InitializeComponent();
@@ -35,6 +43,9 @@ namespace MultiSDIText
     
         private void Search(String extension)
         {
+            // Check for cancellation
+            if (this.SearchBackgroundWorker.CancellationPending) return;
+
             // Initial results is empty list
             FileInfo[] searchResults = new FileInfo[] { };
 
@@ -45,9 +56,15 @@ namespace MultiSDIText
 
             foreach (String drive in Directory.GetLogicalDrives())
             {
+                // Check for cancellation
+                if (this.SearchBackgroundWorker.CancellationPending) return;
+
                 Debug.WriteLine(drive);
                 foreach (DirectoryInfo child in getDirectories(drive))
                 {
+                    // Check for cancellation
+                    if (this.SearchBackgroundWorker.CancellationPending) return;
+
                     Debug.WriteLine(child.FullName);
                     FindFiles(child, extension);
                 }
@@ -55,14 +72,23 @@ namespace MultiSDIText
         }
 
         private void FindFiles(DirectoryInfo dir, String extension)
-        { 
+        {
+            // Check for cancellation
+            if (this.SearchBackgroundWorker.CancellationPending) return;
+
             try
             {
+                // Check for cancellation
+                if (this.SearchBackgroundWorker.CancellationPending) return;
+
                 DirectoryInfo[] children = getDirectories(dir);
                 if (children.Length > 0)
                 {
                     foreach (DirectoryInfo child in children)
                     {
+                        // Check for cancellation
+                        if (this.SearchBackgroundWorker.CancellationPending) return;
+
                         Debug.WriteLine(child.FullName);
                         Debug.WriteLine(extension);
                         FindFiles(child, extension);
@@ -71,12 +97,18 @@ namespace MultiSDIText
                 }
                 else
                 {
+                    // Check for cancellation
+                    if (this.SearchBackgroundWorker.CancellationPending) return;
+
                     FileInfo[] Files = dir.GetFiles(extension);
                     
                     if (Files.Length > 0)
                     {
                         //Found some files with the given extension
                         this.SearchBackgroundWorker.ReportProgress(0, new SearchUserState(Files));
+
+                        // Check for cancellation
+                        if (this.SearchBackgroundWorker.CancellationPending) return;
                     }
                 }
             }
@@ -128,6 +160,11 @@ namespace MultiSDIText
         #region Search Buttons
         private void startButton_Click(object sender, EventArgs e)
         {
+            if (this.SearchBackgroundWorker.CancellationPending)
+            {
+                return;
+            }
+
             // Tell user we're searching
             this.StatusStripIndicator.Text = "Searching for files with the given extension...";     
             
@@ -158,7 +195,14 @@ namespace MultiSDIText
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-
+            if (this.SearchBackgroundWorker.IsBusy)
+            {
+                this.SearchBackgroundWorker.CancelAsync();
+                this.pauseButton.Visible = false;
+                this.stopButton.Visible = false;
+                this.startButton.Visible = true;
+                return;
+            }
         }
         #endregion
 
@@ -180,6 +224,11 @@ namespace MultiSDIText
         {
             // DONT MANIPULATE ANYTHING WITH THE UI HERE!!!!!!!!!!!!!!!!!
             Search((String)e.Argument);
+
+            if (this.SearchBackgroundWorker.CancellationPending)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void SearchBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -205,15 +254,31 @@ namespace MultiSDIText
         {
             this.StatusStripIndicator.Text = "Ready";   // Reset Status Strip
 
+            if(e.Error != null)
+            {
+                this.Results.Text = e.Error.Message;
+                return;
+            }
+
+            if (e.Cancelled)
+            {
+                MessageBox.Show("The search has successfully cancelled.");
+                return;
+            }
+
             MessageBox.Show("Files Found: " + this.Results.Items.Count);    // Display a MessageBox showing how many files were found upon completion
         }
-
-
         #endregion
 
+        #region Search Dialog Event Handlers
         private void SearchDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            if (this.SearchBackgroundWorker.IsBusy)
+            {
+                this.SearchBackgroundWorker.CancelAsync();
+                this.MainForm.SearchDlg = null;
+            }
         }
+        #endregion
     }
 }
