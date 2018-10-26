@@ -14,8 +14,16 @@ namespace MultiSDIText
         [STAThread]
         static void Main(String[] args)
         {
-            Application.EnableVisualStyles();
-            MultiSDITextApplication.Application.Run(args);
+            String words = "Hello World";
+            Storage.Document doc = new Storage.Document();
+            Storage.Text[] tex = new Storage.Text[words.Length];
+            //Application.EnableVisualStyles();
+            //MultiSDITextApplication.Application.Run(args);
+            tex = doc.Split(words);
+            Debug.WriteLine(tex);
+            Debug.WriteLine(tex[0]);
+            Debug.WriteLine(tex[0].Content);
+            Debug.WriteLine(tex[1].Content);
         }
     }
 }

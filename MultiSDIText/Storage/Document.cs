@@ -149,7 +149,8 @@ namespace MultiSDIText.Storage
             Text[] texts = new Text[words.Length];
             for (int i = 0; i < words.Length; i++)
             {
-                texts[i].Content = words[i].ToString();
+                texts[i] = new Text();
+                texts[i].Content = words[i];
             }
             return texts;
         }
