@@ -20,7 +20,7 @@ namespace MultiSDIText
         string fileName;
 
         //Document doc = new Document();
-        //OptionsForm optionsForm = new OptionsForm();
+        OptionsForm optionsForm = new OptionsForm();
 
 
         // Read Only FileName property
@@ -97,6 +97,14 @@ namespace MultiSDIText
 
         private void TopLevelForm_Load(object sender, EventArgs e)
         {
+            var text = new Storage.Text();
+
+            text.BackgroundColor = Color.MediumBlue;
+            text.Color = Color.Magenta;
+
+            
+
+            this.optionsForm.DataBindingSource.DataSource = text;
             //todo: handle menu merging
             //ToolStripManager.Merge(BaseMenu, MainMenu);
 
@@ -171,6 +179,15 @@ namespace MultiSDIText
         {
             SearchDialog dlg = new SearchDialog();
             dlg.Show();
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.optionsForm = new OptionsForm();
+
+            this.optionsForm.Show();
+
+
         }
     }
 }
