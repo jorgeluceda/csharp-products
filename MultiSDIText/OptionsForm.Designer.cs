@@ -34,13 +34,11 @@ namespace MultiSDIText
             System.Windows.Forms.Label zOrderLabel;
             System.Windows.Forms.Label rotationLabel;
             System.Windows.Forms.Label contentLabel;
-            System.Windows.Forms.Label xLabel;
-            System.Windows.Forms.Label yLabel;
+            System.Windows.Forms.Label locationLabel;
             this.zOrderTextBox = new System.Windows.Forms.TextBox();
             this.rotationTextBox = new System.Windows.Forms.TextBox();
             this.contentTextBox = new System.Windows.Forms.TextBox();
-            this.xTextBox = new System.Windows.Forms.TextBox();
-            this.yTextBox = new System.Windows.Forms.TextBox();
+            this.locationTextBox = new System.Windows.Forms.TextBox();
             this.colorButton = new System.Windows.Forms.Button();
             this.backgroundColorButton = new System.Windows.Forms.Button();
             this.textColorDialog = new System.Windows.Forms.ColorDialog();
@@ -49,12 +47,12 @@ namespace MultiSDIText
             this.textFontDialog = new System.Windows.Forms.FontDialog();
             this.preferencesPanel = new System.Windows.Forms.Panel();
             this.okButton = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.bsText = new System.Windows.Forms.BindingSource(this.components);
             zOrderLabel = new System.Windows.Forms.Label();
             rotationLabel = new System.Windows.Forms.Label();
             contentLabel = new System.Windows.Forms.Label();
-            xLabel = new System.Windows.Forms.Label();
-            yLabel = new System.Windows.Forms.Label();
+            locationLabel = new System.Windows.Forms.Label();
             this.preferencesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsText)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +60,7 @@ namespace MultiSDIText
             // zOrderLabel
             // 
             zOrderLabel.AutoSize = true;
-            zOrderLabel.Location = new System.Drawing.Point(23, 90);
+            zOrderLabel.Location = new System.Drawing.Point(109, 119);
             zOrderLabel.Name = "zOrderLabel";
             zOrderLabel.Size = new System.Drawing.Size(85, 25);
             zOrderLabel.TabIndex = 0;
@@ -71,7 +69,7 @@ namespace MultiSDIText
             // rotationLabel
             // 
             rotationLabel.AutoSize = true;
-            rotationLabel.Location = new System.Drawing.Point(10, 136);
+            rotationLabel.Location = new System.Drawing.Point(582, 119);
             rotationLabel.Name = "rotationLabel";
             rotationLabel.Size = new System.Drawing.Size(98, 25);
             rotationLabel.TabIndex = 2;
@@ -80,78 +78,56 @@ namespace MultiSDIText
             // contentLabel
             // 
             contentLabel.AutoSize = true;
-            contentLabel.Location = new System.Drawing.Point(15, 43);
+            contentLabel.Location = new System.Drawing.Point(101, 43);
             contentLabel.Name = "contentLabel";
             contentLabel.Size = new System.Drawing.Size(93, 25);
             contentLabel.TabIndex = 4;
             contentLabel.Text = "Content:";
             // 
-            // xLabel
+            // locationLabel
             // 
-            xLabel.AutoSize = true;
-            xLabel.Location = new System.Drawing.Point(618, 62);
-            xLabel.Name = "xLabel";
-            xLabel.Size = new System.Drawing.Size(120, 25);
-            xLabel.TabIndex = 6;
-            xLabel.Text = "Location X:";
-            xLabel.Click += new System.EventHandler(this.xLabel_Click);
-            // 
-            // yLabel
-            // 
-            yLabel.AutoSize = true;
-            yLabel.Location = new System.Drawing.Point(617, 106);
-            yLabel.Name = "yLabel";
-            yLabel.Size = new System.Drawing.Size(121, 25);
-            yLabel.TabIndex = 8;
-            yLabel.Text = "Location Y:";
-            yLabel.Click += new System.EventHandler(this.yLabel_Click);
+            locationLabel.AutoSize = true;
+            locationLabel.Location = new System.Drawing.Point(333, 119);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new System.Drawing.Size(100, 25);
+            locationLabel.TabIndex = 6;
+            locationLabel.Text = "Location:";
             // 
             // zOrderTextBox
             // 
             this.zOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "ZOrder", true));
-            this.zOrderTextBox.Location = new System.Drawing.Point(114, 87);
+            this.zOrderTextBox.Location = new System.Drawing.Point(200, 116);
             this.zOrderTextBox.Name = "zOrderTextBox";
-            this.zOrderTextBox.Size = new System.Drawing.Size(100, 31);
+            this.zOrderTextBox.Size = new System.Drawing.Size(103, 31);
             this.zOrderTextBox.TabIndex = 1;
-            this.zOrderTextBox.TextChanged += new System.EventHandler(this.zOrderTextBox_TextChanged);
             // 
             // rotationTextBox
             // 
             this.rotationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "Rotation", true));
-            this.rotationTextBox.Location = new System.Drawing.Point(114, 133);
+            this.rotationTextBox.Location = new System.Drawing.Point(686, 116);
             this.rotationTextBox.Name = "rotationTextBox";
-            this.rotationTextBox.Size = new System.Drawing.Size(100, 31);
+            this.rotationTextBox.Size = new System.Drawing.Size(84, 31);
             this.rotationTextBox.TabIndex = 3;
             // 
             // contentTextBox
             // 
             this.contentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "Content", true));
-            this.contentTextBox.Location = new System.Drawing.Point(114, 40);
+            this.contentTextBox.Location = new System.Drawing.Point(200, 40);
             this.contentTextBox.Name = "contentTextBox";
-            this.contentTextBox.Size = new System.Drawing.Size(100, 31);
+            this.contentTextBox.Size = new System.Drawing.Size(570, 31);
             this.contentTextBox.TabIndex = 5;
             // 
-            // xTextBox
+            // locationTextBox
             // 
-            this.xTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "Location.X", true));
-            this.xTextBox.Location = new System.Drawing.Point(738, 59);
-            this.xTextBox.Name = "xTextBox";
-            this.xTextBox.Size = new System.Drawing.Size(100, 31);
-            this.xTextBox.TabIndex = 7;
-            this.xTextBox.TextChanged += new System.EventHandler(this.xTextBox_TextChanged);
-            // 
-            // yTextBox
-            // 
-            this.yTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "Location.Y", true));
-            this.yTextBox.Location = new System.Drawing.Point(738, 103);
-            this.yTextBox.Name = "yTextBox";
-            this.yTextBox.Size = new System.Drawing.Size(100, 31);
-            this.yTextBox.TabIndex = 9;
-            this.yTextBox.TextChanged += new System.EventHandler(this.yTextBox_TextChanged);
+            this.locationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsText, "Location", true));
+            this.locationTextBox.Location = new System.Drawing.Point(439, 116);
+            this.locationTextBox.Name = "locationTextBox";
+            this.locationTextBox.Size = new System.Drawing.Size(123, 31);
+            this.locationTextBox.TabIndex = 7;
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(227, 106);
+            this.colorButton.Location = new System.Drawing.Point(587, 205);
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(189, 68);
             this.colorButton.TabIndex = 10;
@@ -161,7 +137,7 @@ namespace MultiSDIText
             // 
             // backgroundColorButton
             // 
-            this.backgroundColorButton.Location = new System.Drawing.Point(422, 106);
+            this.backgroundColorButton.Location = new System.Drawing.Point(106, 205);
             this.backgroundColorButton.Name = "backgroundColorButton";
             this.backgroundColorButton.Size = new System.Drawing.Size(189, 68);
             this.backgroundColorButton.TabIndex = 11;
@@ -171,9 +147,9 @@ namespace MultiSDIText
             // 
             // fontButton
             // 
-            this.fontButton.Location = new System.Drawing.Point(322, 32);
+            this.fontButton.Location = new System.Drawing.Point(327, 205);
             this.fontButton.Name = "fontButton";
-            this.fontButton.Size = new System.Drawing.Size(191, 68);
+            this.fontButton.Size = new System.Drawing.Size(235, 68);
             this.fontButton.TabIndex = 12;
             this.fontButton.Text = "Font";
             this.fontButton.UseVisualStyleBackColor = true;
@@ -185,29 +161,27 @@ namespace MultiSDIText
             this.preferencesPanel.BackColor = System.Drawing.Color.LightSkyBlue;
             this.preferencesPanel.Controls.Add(this.colorButton);
             this.preferencesPanel.Controls.Add(contentLabel);
-            this.preferencesPanel.Controls.Add(yLabel);
+            this.preferencesPanel.Controls.Add(this.fontButton);
             this.preferencesPanel.Controls.Add(this.contentTextBox);
             this.preferencesPanel.Controls.Add(rotationLabel);
-            this.preferencesPanel.Controls.Add(this.yTextBox);
             this.preferencesPanel.Controls.Add(this.rotationTextBox);
-            this.preferencesPanel.Controls.Add(this.fontButton);
             this.preferencesPanel.Controls.Add(zOrderLabel);
-            this.preferencesPanel.Controls.Add(xLabel);
+            this.preferencesPanel.Controls.Add(locationLabel);
             this.preferencesPanel.Controls.Add(this.zOrderTextBox);
             this.preferencesPanel.Controls.Add(this.backgroundColorButton);
-            this.preferencesPanel.Controls.Add(this.xTextBox);
-            this.preferencesPanel.Location = new System.Drawing.Point(33, 106);
+            this.preferencesPanel.Controls.Add(this.locationTextBox);
+            this.preferencesPanel.Location = new System.Drawing.Point(33, 89);
             this.preferencesPanel.Margin = new System.Windows.Forms.Padding(6);
             this.preferencesPanel.MinimumSize = new System.Drawing.Size(856, 208);
             this.preferencesPanel.Name = "preferencesPanel";
             this.preferencesPanel.Padding = new System.Windows.Forms.Padding(6);
-            this.preferencesPanel.Size = new System.Drawing.Size(856, 208);
+            this.preferencesPanel.Size = new System.Drawing.Size(856, 321);
             this.preferencesPanel.TabIndex = 13;
             // 
             // okButton
             // 
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.okButton.Location = new System.Drawing.Point(739, 345);
+            this.okButton.Location = new System.Drawing.Point(739, 436);
             this.okButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(150, 47);
@@ -224,24 +198,18 @@ namespace MultiSDIText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 426);
+            this.ClientSize = new System.Drawing.Size(937, 531);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.preferencesPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(963, 497);
             this.Name = "OptionsForm";
             this.Text = "OptionsForm";
-            this.Load += new System.EventHandler(this.OptionsForm_Load);
             this.preferencesPanel.ResumeLayout(false);
             this.preferencesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsText)).EndInit();
             this.ResumeLayout(false);
 
-        }
-
-        private void backgroundColorButton_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -251,8 +219,7 @@ namespace MultiSDIText
         private System.Windows.Forms.TextBox zOrderTextBox;
         private System.Windows.Forms.TextBox rotationTextBox;
         private System.Windows.Forms.TextBox contentTextBox;
-        private System.Windows.Forms.TextBox xTextBox;
-        private System.Windows.Forms.TextBox yTextBox;
+        private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.Button backgroundColorButton;
         private System.Windows.Forms.ColorDialog textColorDialog;
@@ -261,5 +228,6 @@ namespace MultiSDIText
         private System.Windows.Forms.FontDialog textFontDialog;
         private System.Windows.Forms.Panel preferencesPanel;
         private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

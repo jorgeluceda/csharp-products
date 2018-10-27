@@ -23,147 +23,25 @@ namespace MultiSDIText
         {
             InitializeComponent();
         }
-
-
-        /*
-        private void btnPenColor_Click(object sender, EventArgs e)
-        {
-            if(this.colorDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Text text = (MultiSDIText.Storage.Text')this.bsText.Current;
-                shape.PenColor = this.colorDialog.Color;
-
-                //Changing button backcolor and font based on color selected
-                if (this.colorDialog.Color.GetBrightness() < 0.5)
-                {
-                    this.btnPenColor.ForeColor = Color.White;
-                }
-                else
-                {
-                    this.btnPenColor.ForeColor = Color.Black;
-                }
-
-                this.btnPenColor.BackColor = this.colorDialog.Color;
-            }
-        }
-        */
-
-
-        /*
-        private void btnBrushColor_Click(object sender, EventArgs e)
-        {
-            if (this.colorDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Shape shape = (Shape)this.bsShape.Current;
-                shape.BrushColor = this.colorDialog.Color;
-
-                //Changing button backcolor and font based on color selected
-                if (this.colorDialog.Color.GetBrightness() < 0.5)
-                {
-                    this.btnBrushColor.ForeColor = Color.White;
-                }
-                else
-                {
-                    this.btnBrushColor.ForeColor = Color.Black;
-                }
-
-                this.btnBrushColor.BackColor = this.colorDialog.Color;
-            }
-        }
-
-        */
-        private void OptionsForm_Load(object sender, EventArgs e)
-        {
-            /*
-            Shape shape = (Shape)this.bsShape.Current;
-
-            List<Shape.PenTypeEnum> penList = new List<Shape.PenTypeEnum>();
-            List<Shape.BrushTypeEnum> brushList = new List<Shape.BrushTypeEnum>();
-            List<Shape.ShapeTypeEnum> shapeList = new List<Shape.ShapeTypeEnum>();
-
-            foreach (Shape.PenTypeEnum pentype in Enum.GetValues(typeof(Shape.PenTypeEnum)))
-            {
-                penList.Add(pentype);
-            }
-
-            foreach (Shape.BrushTypeEnum brushtype in Enum.GetValues(typeof(Shape.BrushTypeEnum)))
-            {
-                brushList.Add(brushtype);
-            }
-
-            foreach (Shape.ShapeTypeEnum shapetype in Enum.GetValues(typeof(Shape.ShapeTypeEnum)))
-            {
-                shapeList.Add(shapetype);
-            }
-
-            */
-            /*
-            this.penTypeComboBox.DataSource = penList;
-            this.brushTypeComboBox.DataSource = brushList;
-            this.shapeTypeComboBox.DataSource = shapeList;
-
-            this.penTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).PenType;
-            this.brushTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).BrushType;
-            this.shapeTypeComboBox.SelectedIndex = (int)((Shape)this.DataBindingSource.Current).ShapeType;
-            */
-        }
-
+        
+        
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void xTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void yLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void yTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void xLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void colorButton_Click(object sender, EventArgs e)
         {
-
-            Text text = (MultiSDIText.Storage.Text)this.bsText.Current;
-            this.colorDialog = new ColorDialog();
-            //Show the dialog
-            //Show the dialog
-            DialogResult result = this.colorDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (this.textColorDialog.ShowDialog(this) == DialogResult.OK)
             {
-                //Get color
-                Color color = this.colorDialog.Color;
-                //set Color properties
-                this.colorButton.BackColor = color;
-                text.Color = color;
-            }
-
-            /*
-            this.colorDialog = new ColorDialog();
-            DialogResult result = this.colorDialog.ShowDialog();
-
-            
-            if (this.colorDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                Text text = (MultiSDIText.Storage.Text)this.bsText.Current;
-                text.Color = this.colorDialog.Color;
+                Text text = (Storage.Text)this.bsText.Current;
+                text.Color = this.textColorDialog.Color;
 
                 //Changing button backcolor and font based on color selected
-                if (this.colorDialog.Color.GetBrightness() < 0.5)
+                if (this.textColorDialog.Color.GetBrightness() < 0.5)
                 {
                     this.colorButton.ForeColor = Color.White;
                 }
@@ -171,11 +49,9 @@ namespace MultiSDIText
                 {
                     this.colorButton.ForeColor = Color.Black;
                 }
-                
 
-                this.colorButton.BackColor = this.colorDialog.Color;
-                
-            }*/
+                this.colorButton.BackColor = this.textColorDialog.Color;
+            }
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -184,109 +60,50 @@ namespace MultiSDIText
             this.Close();
         }
 
-        private void zOrderTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //check zordee valid
-        }
 
         private void fontButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        /*
-        private void locationXTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.locationXTextBox.Text) || !string.IsNullOrEmpty(this.locationXTextBox.Text))
+            if (this.textFontDialog.ShowDialog(this) == DialogResult.OK)
             {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.locationXTextBox.Text, out temp))
+                Text text = (Storage.Text)this.bsText.Current;
+                text.Font = this.textFontDialog.Font;
+
+                //Changing button backcolor and font based on color selected
+                if (this.textColorDialog.Color.GetBrightness() < 0.5)
                 {
-                    this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, "Please enter a whole number");
+                    this.colorButton.ForeColor = Color.White;
                 }
-                else //When Correct
+                else
                 {
-                    this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, null);
+                    this.colorButton.ForeColor = Color.Black;
                 }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.locationXTextBox, "Please enter an X coordinate");
+
+                this.colorButton.BackColor = this.textColorDialog.Color;
+                this.fontButton.Font = text.Font;
             }
         }
-        */
-        /*
-        private void locationYTextBox_Validating(object sender, CancelEventArgs e)
+
+        private void backgroundColorButton_Click(object sender, EventArgs e)
         {
-            // Check if anything was entered
-            if (!string.IsNullOrWhiteSpace(this.locationYTextBox.Text) || !string.IsNullOrEmpty(this.locationYTextBox.Text))
+            
+            if (this.backgroundColorButtonDialog.ShowDialog(this) == DialogResult.OK)
             {
-                // Check if an integer was entered
-                int temp;
-                if (!int.TryParse(this.locationYTextBox.Text, out temp))
+                Text text = (Storage.Text)this.bsText.Current;
+                text.BackgroundColor = this.backgroundColorButtonDialog.Color;
+
+                //Changing button backcolor and font based on color selected
+                if (this.backgroundColorButtonDialog.Color.GetBrightness() < 0.5)
                 {
-                    this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, "Please enter a whole number");
+                    this.backgroundColorButton.ForeColor = Color.White;
                 }
-                else //When Correct
+                else
                 {
-                    this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, null);
+                    this.backgroundColorButton.ForeColor = Color.Black;
                 }
-            }
-            else
-            {
-                this.shapeOptionsErrorProvider.SetError(this.locationYTextBox, "Please enter a Y coordinate");
-            }
-        }
-        */
 
-        /*
-
-    private void sizeHTextBox_Validating(object sender, CancelEventArgs e)
-    {
-        // Check if anything was entered
-        if (!string.IsNullOrWhiteSpace(this.sizeHTextBox.Text) || !string.IsNullOrEmpty(this.sizeHTextBox.Text))
-        {
-            // Check if an integer was entered
-            int temp;
-            if (!int.TryParse(this.sizeHTextBox.Text, out temp))
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, "Please enter a whole number");
-            }
-            else //When Correct
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, null);
+                this.backgroundColorButton.BackColor = this.backgroundColorButtonDialog.Color;
             }
         }
-        else
-        {
-            this.shapeOptionsErrorProvider.SetError(this.sizeHTextBox, "Please enter a height");
-        }
-    }
-
-    private void sizeWTextBox_Validating(object sender, CancelEventArgs e)
-    {
-        // Check if anything was entered
-        if (!string.IsNullOrWhiteSpace(this.sizeWTextBox.Text) || !string.IsNullOrEmpty(this.sizeWTextBox.Text))
-        {
-            // Check if an integer was entered
-            int temp;
-            if (!int.TryParse(this.sizeWTextBox.Text, out temp))
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, "Please enter a whole number");
-            }
-            else //When Correct
-            {
-                this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, null);
-            }
-        }
-        else
-        {
-            this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, "Please enter a width");
-        }
-    }
-    */
     }
 }
 

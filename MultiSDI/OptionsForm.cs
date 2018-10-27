@@ -190,5 +190,10 @@ namespace MultiSDI
                 this.shapeOptionsErrorProvider.SetError(this.sizeWTextBox, "Please enter a width");
             }
         }
+
+        private void locationXTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

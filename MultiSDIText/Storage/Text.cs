@@ -34,7 +34,7 @@ namespace MultiSDIText.Storage
             this.fontSize = 12.0f;
             this.fontStyle = "R";
         }
-        
+
         #endregion
 
         #region Content
@@ -132,17 +132,18 @@ namespace MultiSDIText.Storage
         #region Location
 
         /// <summary>
-        /// Internal property for holding the location X
-        /// of the text
+        /// Internal location X property
         /// </summary>
-        private int locationX;
+        public int locationX;
 
         /// <summary>
-        /// Internal property for holding the location Y
-        /// of the text
+        /// Internal location Y property
         /// </summary>
-        private int locationY;
+        public int locationY;
 
+
+
+        
         /// <summary>
         /// The location of the text in the document
         /// </summary>
@@ -151,11 +152,15 @@ namespace MultiSDIText.Storage
             get { return new Point(this.locationX, this.locationY); }
             set
             {
-                this.locationX = value.X;
-                this.locationY = value.Y;
-                this.PropertyChange("Location");
+                    this.locationX = value.X;
+
+                    this.locationY = value.Y;
+
+                    this.PropertyChange("Location");
             }
         }
+        
+
 
         #endregion
 
