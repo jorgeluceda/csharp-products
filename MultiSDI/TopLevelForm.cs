@@ -605,5 +605,10 @@ namespace MultiSDI
             }
             return new Shape();
         }
+
+        private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,9 @@ namespace MultiSDIText
         }
 
         //Document doc = new Document();
-        //OptionsForm optionsForm = new OptionsForm();
+        OptionsForm optionsForm = new OptionsForm();
+
+        Storage.Document doc = new Storage.Document();
 
 
         // Read Only FileName property
@@ -42,9 +44,14 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
+
+            //initializing a current shape
+            InitializeDS();
+
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDITextApplication.Application.AddTopLevelForm(this);
 
+            //Set the applications windowmenu
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
         #endregion
@@ -103,14 +110,32 @@ namespace MultiSDIText
         }
         #endregion
 
-        private void TopLevelForm_Load(object sender, EventArgs e)
-        {
-            //todo: handle menu merging
-            //ToolStripManager.Merge(BaseMenu, MainMenu);
 
+        private void InitializeDS()
+        {
+            /* Take a look at code below to understand the data binding */
+            var text = new Storage.Text();
+            text.locationX = 100;
+            text.locationY = 200;
+            text.Font = new Font("Arial", 24, FontStyle.Bold);
+            text.Rotation = 0;
+            text.BackgroundColor = Color.White;
+            text.Content = "beta text";
+            text.ZOrder = 1;
+
+            //var bs = new BindingSource();
+            doc.Add(text);
+            //doc.addShape(shape);
+            //var dg = new OptionsForm();
+           
+            optionsForm.DataBindingSource.DataSource = text;
+
+            //dg.DataBindingSource.DataSource = shape;
+            //var result = this.optionsForm.ShowDialog();
+            //result.Equals("AAAA");
         }
 
-        
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // If the document is new, i.e. has never been saved before
@@ -187,6 +212,14 @@ namespace MultiSDIText
             {
                 dlg.BringToFront();
             }
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            this.optionsForm.ShowDialog();
+
+
         }
     }
 }
