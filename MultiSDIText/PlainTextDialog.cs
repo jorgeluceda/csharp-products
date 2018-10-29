@@ -47,5 +47,19 @@ namespace MultiSDIText
             List<Text> list = TurnIntoTextObjects(this.PlainTextTextBox.Text);
             Document doc = new Document(list);
         }
+
+        private void PlainTextDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!String.IsNullOrEmpty(this.PlainTextTextBox.Text) || !String.IsNullOrWhiteSpace(this.PlainTextTextBox.Text))
+            {
+                DialogResult result = MessageBox.Show("There's some text in the window, are you sure you'd" +
+                    "like to close?", "Text Present", MessageBoxButtons.YesNo);
+                
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }
