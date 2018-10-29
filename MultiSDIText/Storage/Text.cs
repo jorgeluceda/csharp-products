@@ -368,7 +368,9 @@ namespace MultiSDIText.Storage
         /// <param name="g">The graphics used to draw</param>
         public void Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            // Draw a string on the PictureBox.
+            g.DrawString(this.content,
+                this.Font, System.Drawing.Brushes.Blue, this.Location);
         }
 
         /// <summary>

@@ -36,6 +36,7 @@ namespace MultiSDIText
             System.Windows.Forms.Label contentLabel;
             System.Windows.Forms.Label locationLabel;
             this.zOrderTextBox = new System.Windows.Forms.TextBox();
+            this.bsText = new System.Windows.Forms.BindingSource(this.components);
             this.rotationTextBox = new System.Windows.Forms.TextBox();
             this.contentTextBox = new System.Windows.Forms.TextBox();
             this.locationTextBox = new System.Windows.Forms.TextBox();
@@ -48,13 +49,29 @@ namespace MultiSDIText
             this.preferencesPanel = new System.Windows.Forms.Panel();
             this.okButton = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.bsText = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDocument = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBoxDisplayMember = new System.Windows.Forms.GroupBox();
+            this.radioButtonLocation = new System.Windows.Forms.RadioButton();
+            this.radioButtonName = new System.Windows.Forms.RadioButton();
+            this.radioButtonDefault = new System.Windows.Forms.RadioButton();
+            this.listBoxDoc = new System.Windows.Forms.ListBox();
+            this.labelPosition = new System.Windows.Forms.Label();
+            this.labelOf = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
+            this.buttonLast = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrev = new System.Windows.Forms.Button();
+            this.buttonFirst = new System.Windows.Forms.Button();
             zOrderLabel = new System.Windows.Forms.Label();
             rotationLabel = new System.Windows.Forms.Label();
             contentLabel = new System.Windows.Forms.Label();
             locationLabel = new System.Windows.Forms.Label();
-            this.preferencesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsText)).BeginInit();
+            this.preferencesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.groupBoxDisplayMember.SuspendLayout();
             this.SuspendLayout();
             // 
             // zOrderLabel
@@ -100,6 +117,10 @@ namespace MultiSDIText
             this.zOrderTextBox.Name = "zOrderTextBox";
             this.zOrderTextBox.Size = new System.Drawing.Size(103, 31);
             this.zOrderTextBox.TabIndex = 1;
+            // 
+            // bsText
+            // 
+            this.bsText.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // rotationTextBox
             // 
@@ -170,7 +191,7 @@ namespace MultiSDIText
             this.preferencesPanel.Controls.Add(this.zOrderTextBox);
             this.preferencesPanel.Controls.Add(this.backgroundColorButton);
             this.preferencesPanel.Controls.Add(this.locationTextBox);
-            this.preferencesPanel.Location = new System.Drawing.Point(33, 89);
+            this.preferencesPanel.Location = new System.Drawing.Point(445, 161);
             this.preferencesPanel.Margin = new System.Windows.Forms.Padding(6);
             this.preferencesPanel.MinimumSize = new System.Drawing.Size(856, 208);
             this.preferencesPanel.Name = "preferencesPanel";
@@ -181,7 +202,7 @@ namespace MultiSDIText
             // okButton
             // 
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.okButton.Location = new System.Drawing.Point(739, 436);
+            this.okButton.Location = new System.Drawing.Point(1151, 508);
             this.okButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(150, 47);
@@ -190,32 +211,180 @@ namespace MultiSDIText
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // bsText
+            // bsDocument
             // 
-            this.bsText.DataSource = typeof(MultiSDIText.Storage.Text);
+            this.bsDocument.DataSource = typeof(MultiSDIText.Storage.Document);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(MultiSDIText.Storage.Document);
+            // 
+            // groupBoxDisplayMember
+            // 
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonLocation);
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonName);
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonDefault);
+            this.groupBoxDisplayMember.Location = new System.Drawing.Point(553, 585);
+            this.groupBoxDisplayMember.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBoxDisplayMember.Name = "groupBoxDisplayMember";
+            this.groupBoxDisplayMember.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBoxDisplayMember.Size = new System.Drawing.Size(222, 271);
+            this.groupBoxDisplayMember.TabIndex = 46;
+            this.groupBoxDisplayMember.TabStop = false;
+            this.groupBoxDisplayMember.Text = "Display Member";
+            // 
+            // radioButtonLocation
+            // 
+            this.radioButtonLocation.AutoSize = true;
+            this.radioButtonLocation.Location = new System.Drawing.Point(12, 119);
+            this.radioButtonLocation.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonLocation.Name = "radioButtonLocation";
+            this.radioButtonLocation.Size = new System.Drawing.Size(125, 29);
+            this.radioButtonLocation.TabIndex = 2;
+            this.radioButtonLocation.TabStop = true;
+            this.radioButtonLocation.Text = "Location";
+            this.radioButtonLocation.UseVisualStyleBackColor = false;
+            // 
+            // radioButtonName
+            // 
+            this.radioButtonName.AutoSize = true;
+            this.radioButtonName.Location = new System.Drawing.Point(12, 75);
+            this.radioButtonName.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonName.Name = "radioButtonName";
+            this.radioButtonName.Size = new System.Drawing.Size(99, 29);
+            this.radioButtonName.TabIndex = 1;
+            this.radioButtonName.TabStop = true;
+            this.radioButtonName.Text = "Name";
+            this.radioButtonName.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDefault
+            // 
+            this.radioButtonDefault.AutoSize = true;
+            this.radioButtonDefault.Location = new System.Drawing.Point(12, 31);
+            this.radioButtonDefault.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonDefault.Name = "radioButtonDefault";
+            this.radioButtonDefault.Size = new System.Drawing.Size(111, 29);
+            this.radioButtonDefault.TabIndex = 0;
+            this.radioButtonDefault.TabStop = true;
+            this.radioButtonDefault.Text = "Default";
+            this.radioButtonDefault.UseVisualStyleBackColor = true;
+            // 
+            // listBoxDoc
+            // 
+            this.listBoxDoc.FormattingEnabled = true;
+            this.listBoxDoc.ItemHeight = 25;
+            this.listBoxDoc.Location = new System.Drawing.Point(79, 579);
+            this.listBoxDoc.Margin = new System.Windows.Forms.Padding(6);
+            this.listBoxDoc.Name = "listBoxDoc";
+            this.listBoxDoc.Size = new System.Drawing.Size(458, 179);
+            this.listBoxDoc.TabIndex = 45;
+            // 
+            // labelPosition
+            // 
+            this.labelPosition.AutoSize = true;
+            this.labelPosition.Location = new System.Drawing.Point(253, 521);
+            this.labelPosition.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPosition.Name = "labelPosition";
+            this.labelPosition.Size = new System.Drawing.Size(47, 25);
+            this.labelPosition.TabIndex = 44;
+            this.labelPosition.Text = "pos";
+            // 
+            // labelOf
+            // 
+            this.labelOf.AutoSize = true;
+            this.labelOf.Location = new System.Drawing.Point(301, 521);
+            this.labelOf.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelOf.Name = "labelOf";
+            this.labelOf.Size = new System.Drawing.Size(30, 25);
+            this.labelOf.TabIndex = 43;
+            this.labelOf.Text = "of";
+            // 
+            // labelCount
+            // 
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(335, 521);
+            this.labelCount.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(41, 25);
+            this.labelCount.TabIndex = 42;
+            this.labelCount.Text = "cnt";
+            // 
+            // buttonLast
+            // 
+            this.buttonLast.Location = new System.Drawing.Point(481, 512);
+            this.buttonLast.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonLast.Name = "buttonLast";
+            this.buttonLast.Size = new System.Drawing.Size(60, 44);
+            this.buttonLast.TabIndex = 41;
+            this.buttonLast.Text = ">|";
+            this.buttonLast.UseVisualStyleBackColor = true;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(391, 512);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(64, 44);
+            this.buttonNext.TabIndex = 40;
+            this.buttonNext.Text = ">";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            // 
+            // buttonPrev
+            // 
+            this.buttonPrev.Location = new System.Drawing.Point(179, 512);
+            this.buttonPrev.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonPrev.Name = "buttonPrev";
+            this.buttonPrev.Size = new System.Drawing.Size(62, 44);
+            this.buttonPrev.TabIndex = 39;
+            this.buttonPrev.Text = "<";
+            this.buttonPrev.UseVisualStyleBackColor = true;
+            // 
+            // buttonFirst
+            // 
+            this.buttonFirst.AutoSize = true;
+            this.buttonFirst.Location = new System.Drawing.Point(79, 512);
+            this.buttonFirst.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonFirst.Name = "buttonFirst";
+            this.buttonFirst.Size = new System.Drawing.Size(66, 44);
+            this.buttonFirst.TabIndex = 38;
+            this.buttonFirst.Text = "|<";
+            this.buttonFirst.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 531);
+            this.ClientSize = new System.Drawing.Size(1760, 847);
+            this.Controls.Add(this.groupBoxDisplayMember);
+            this.Controls.Add(this.listBoxDoc);
+            this.Controls.Add(this.labelPosition);
+            this.Controls.Add(this.labelOf);
+            this.Controls.Add(this.labelCount);
+            this.Controls.Add(this.buttonLast);
+            this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.buttonPrev);
+            this.Controls.Add(this.buttonFirst);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.preferencesPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(963, 497);
             this.Name = "OptionsForm";
             this.Text = "OptionsForm";
+            ((System.ComponentModel.ISupportInitialize)(this.bsText)).EndInit();
             this.preferencesPanel.ResumeLayout(false);
             this.preferencesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.groupBoxDisplayMember.ResumeLayout(false);
+            this.groupBoxDisplayMember.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         public System.Windows.Forms.BindingSource bsText;
         public System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.ErrorProvider shapeOptionsErrorProvider;
         private System.Windows.Forms.TextBox zOrderTextBox;
         private System.Windows.Forms.TextBox rotationTextBox;
         private System.Windows.Forms.TextBox contentTextBox;
@@ -229,5 +398,19 @@ namespace MultiSDIText
         private System.Windows.Forms.Panel preferencesPanel;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        public System.Windows.Forms.BindingSource bsDocument;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.GroupBox groupBoxDisplayMember;
+        private System.Windows.Forms.RadioButton radioButtonLocation;
+        private System.Windows.Forms.RadioButton radioButtonName;
+        private System.Windows.Forms.RadioButton radioButtonDefault;
+        private System.Windows.Forms.ListBox listBoxDoc;
+        private System.Windows.Forms.Label labelPosition;
+        private System.Windows.Forms.Label labelOf;
+        private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.Button buttonLast;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button buttonPrev;
+        private System.Windows.Forms.Button buttonFirst;
     }
 }

@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
+using MultiSDIText.Storage;
 
 namespace MultiSDIText
 {
@@ -27,10 +28,14 @@ namespace MultiSDIText
             set { this.dlg = value; }
         }
 
-        //Document doc = new Document();
-        OptionsForm optionsForm = new OptionsForm();
-
+        //represents our document (a list of text objects and their functionality)
         Storage.Document doc = new Storage.Document();
+
+        //represents our current text to be added to the document
+        //Storage.Text curText = new Storage.Text();
+        int Zorder = 0;
+        //OptionsForm optionsForm = new OptionsForm();
+        TextOptions optionsForm = new TextOptions();
 
 
         // Read Only FileName property
@@ -44,9 +49,9 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
-
             //initializing a current shape
             InitializeDS();
+              
 
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDITextApplication.Application.AddTopLevelForm(this);
@@ -55,7 +60,40 @@ namespace MultiSDIText
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
         #endregion
+
         #region Helper Methods
+
+        private void docPictureBox_Paint(object sender, PaintEventArgs e)
+        {
+
+            // Create a local version of the graphics object for the PictureBox.
+            Graphics docGraphics = e.Graphics;
+
+
+            this.doc.Draw(docGraphics);
+        }
+        private void docPictureBox_Click(object sender, EventArgs e)
+        {
+            
+            Storage.Text curText = new Storage.Text();
+
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+
+            curText.ZOrder = Zorder;
+            Zorder += 1;
+            curText.Content = "hello";
+
+            curText.Location = coordinates;
+            curText.Font = new Font("Times New Roman", 12.0f);
+
+
+            this.doc.Add(curText);
+            this.docPictureBox.Invalidate();
+
+        }
+
+
         /**
          *  CreateTopLevelWindow implements creating a new form. This is the real 'constructor'. 
          *  First, we check if the fileName matches any of the Open Forms in the MultiSDIApplication. If it
@@ -79,6 +117,7 @@ namespace MultiSDIText
                     }
                 }
             }
+
             // Otherwise, create a new one with the given fileName
             TopLevelForm form = new TopLevelForm();
             form.OpenFile(fileName);
@@ -113,23 +152,11 @@ namespace MultiSDIText
 
         private void InitializeDS()
         {
-            /* Take a look at code below to understand the data binding */
-            var text = new Storage.Text();
-            text.locationX = 100;
-            text.locationY = 200;
-            text.Font = new Font("Arial", 24, FontStyle.Bold);
-            text.Rotation = 0;
-            text.BackgroundColor = Color.White;
-            text.Content = "beta text";
-            text.ZOrder = 1;
 
-            //var bs = new BindingSource();
-            doc.Add(text);
-            //doc.addShape(shape);
-            //var dg = new OptionsForm();
-           
-            optionsForm.DataBindingSource.DataSource = text;
-
+            
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            //optionsForm.DataBindingSource.DataSource = text;
+            docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
             //dg.DataBindingSource.DataSource = shape;
             //var result = this.optionsForm.ShowDialog();
             //result.Equals("AAAA");
@@ -216,10 +243,12 @@ namespace MultiSDIText
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+             
             this.optionsForm.ShowDialog();
 
 
         }
+
+
     }
 }

@@ -468,17 +468,6 @@ namespace MultiSDI
             e.Graphics.DrawRectangle(new Pen(Color.Red, 10),rect );
         }
         */
-        private void mainPictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            ((Shape)(optionsForm.DataBindingSource.Current)).LocationX = e.X;
-            ((Shape)(optionsForm.DataBindingSource.Current)).LocationY = e.Y;
-        }
-        private void mainPictureBox_MouseUp(object sender, MouseEventArgs e)
-        {
-            xEndPoint = e.X;
-            yEndPoint = e.Y;
-            mainPictureBox.Invalidate();
-        }
         private void mainPictureBox_Paint(object sender, PaintEventArgs e)
         {
             if (!loadFlag)
@@ -609,6 +598,13 @@ namespace MultiSDI
         private void shapeOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mainPictureBox_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+            MessageBox.Show("Coordinates are: " + coordinates);
         }
     }
 }
