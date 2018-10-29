@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using MultiSDIText.Storage;
 
 namespace MultiSDIText
 {
@@ -196,11 +197,13 @@ namespace MultiSDIText
             if (pause)
             {
                 pauseButton.Text = "Continue";
+                this.StatusStripIndicator.Text = "Paused";
                 pauseEvent.Reset();
             }
             else
             {
                 pauseButton.Text = "Pause";
+                this.StatusStripIndicator.Text = "Searching for files with the given extension...";
                 pauseEvent.Set();
             }
         }
@@ -213,6 +216,7 @@ namespace MultiSDIText
                 this.pauseButton.Visible = false;
                 this.stopButton.Visible = false;
                 this.startButton.Visible = true;
+                this.StatusStripIndicator.Text = "Ready";
                 return;
             }
         }
@@ -298,5 +302,29 @@ namespace MultiSDIText
             }
         }
         #endregion
+
+        private void Results_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(Results.SelectedIndex != -1)
+            {
+                Rectangle rect = Results.GetItemRectangle(Results.SelectedIndex);
+                if (rect.Contains(e.Location))
+                {
+                    OpenFileDialog dlg = new OpenFileDialog();
+                    dlg.FileName = (String)Results.SelectedItem;
+                    DialogResult result = dlg.ShowDialog();
+                    if(result == DialogResult.OK)
+                    {
+                        string file = dlg.FileName;
+                        Console.WriteLine(file);
+
+                        // TODO: (first remove the Console.WriteLine above, it was for testing only)
+                        // 1. Deserialize the file into a document
+                        // 2. Pass document to MainForm
+                        // 3. Draw all the stuff in the document onto Main Form
+                    }
+                }
+            }
+        }
     }
 }

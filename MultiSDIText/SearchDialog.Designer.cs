@@ -48,11 +48,13 @@
             // Results
             // 
             this.Results.FormattingEnabled = true;
+            this.Results.HorizontalScrollbar = true;
             this.Results.ItemHeight = 16;
             this.Results.Location = new System.Drawing.Point(33, 28);
             this.Results.Name = "Results";
-            this.Results.Size = new System.Drawing.Size(1072, 388);
+            this.Results.Size = new System.Drawing.Size(444, 388);
             this.Results.TabIndex = 0;
+            this.Results.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Results_MouseDoubleClick);
             // 
             // startButton
             // 
@@ -94,7 +96,7 @@
             this.groupBox1.Controls.Add(this.pauseButton);
             this.groupBox1.Controls.Add(this.startButton);
             this.groupBox1.Controls.Add(this.stopButton);
-            this.groupBox1.Location = new System.Drawing.Point(1114, 28);
+            this.groupBox1.Location = new System.Drawing.Point(507, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(150, 174);
             this.groupBox1.TabIndex = 4;
@@ -109,7 +111,7 @@
             "*.txt",
             "*.html",
             "*.htm"});
-            this.extensionComboBox.Location = new System.Drawing.Point(1114, 268);
+            this.extensionComboBox.Location = new System.Drawing.Point(507, 268);
             this.extensionComboBox.Name = "extensionComboBox";
             this.extensionComboBox.Size = new System.Drawing.Size(121, 24);
             this.extensionComboBox.TabIndex = 5;
@@ -117,7 +119,7 @@
             // extensionsLabel
             // 
             this.extensionsLabel.AutoSize = true;
-            this.extensionsLabel.Location = new System.Drawing.Point(1111, 235);
+            this.extensionsLabel.Location = new System.Drawing.Point(504, 235);
             this.extensionsLabel.Name = "extensionsLabel";
             this.extensionsLabel.Size = new System.Drawing.Size(99, 17);
             this.extensionsLabel.TabIndex = 6;
@@ -142,7 +144,7 @@
             this.StatusStripIndicator});
             this.SearchStatusStrip.Location = new System.Drawing.Point(0, 480);
             this.SearchStatusStrip.Name = "SearchStatusStrip";
-            this.SearchStatusStrip.Size = new System.Drawing.Size(1276, 25);
+            this.SearchStatusStrip.Size = new System.Drawing.Size(697, 25);
             this.SearchStatusStrip.TabIndex = 7;
             this.SearchStatusStrip.Text = "statusStrip1";
             // 
@@ -157,13 +159,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1276, 505);
+            this.ClientSize = new System.Drawing.Size(697, 505);
             this.Controls.Add(this.SearchStatusStrip);
             this.Controls.Add(this.extensionsLabel);
             this.Controls.Add(this.extensionComboBox);
             this.Controls.Add(this.Results);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SearchDialog";
+            this.ShowIcon = false;
             this.Text = "SearchDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchDialog_FormClosing);
             this.groupBox1.ResumeLayout(false);

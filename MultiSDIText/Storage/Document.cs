@@ -143,14 +143,15 @@ namespace MultiSDIText.Storage
         /// </summary>
         /// <param name="p">The string to split into words</param>
         /// <returns>An array of words as Text object</returns>
-        public Text[] Split(String s)
+        public List<Text> TurnIntoTextObjects(String s)
         {
             String[] words = s.Split(' ');
-            Text[] texts = new Text[words.Length];
+            List<Text> texts = new List<Text>();
             for (int i = 0; i < words.Length; i++)
             {
-                texts[i] = new Text();
-                texts[i].Content = words[i];
+                Text text = new Text();
+                text.Content = words[i];
+                texts.Add(text);
             }
             return texts;
         }
