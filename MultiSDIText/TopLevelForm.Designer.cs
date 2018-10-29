@@ -39,7 +39,9 @@
             this.textPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.MainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -54,7 +56,7 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(8, 4, 0, 4);
-            this.MainMenu.Size = new System.Drawing.Size(1200, 46);
+            this.MainMenu.Size = new System.Drawing.Size(1200, 44);
             this.MainMenu.TabIndex = 5;
             this.MainMenu.Text = "MainMenu";
             // 
@@ -66,7 +68,7 @@
             this.saveAsToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -98,7 +100,7 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(98, 38);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(98, 36);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
@@ -107,7 +109,7 @@
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textPreferencesToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
             this.windowToolStripMenuItem.Text = "Window";
             // 
             // textPreferencesToolStripMenuItem
@@ -119,27 +121,38 @@
             // mainHelpToolStripMenuItem
             // 
             this.mainHelpToolStripMenuItem.Name = "mainHelpToolStripMenuItem";
-            this.mainHelpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
+            this.mainHelpToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
             this.mainHelpToolStripMenuItem.Text = "Help";
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(151, 38);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(151, 36);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            // 
+            // docPictureBox
+            // 
+            this.docPictureBox.Location = new System.Drawing.Point(0, 47);
+            this.docPictureBox.Name = "docPictureBox";
+            this.docPictureBox.Size = new System.Drawing.Size(1200, 660);
+            this.docPictureBox.TabIndex = 6;
+            this.docPictureBox.TabStop = false;
+            this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
             // 
             // TopLevelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 704);
+            this.Controls.Add(this.docPictureBox);
             this.Controls.Add(this.MainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TopLevelForm";
             this.Text = "Typography++";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +171,7 @@
         private System.Windows.Forms.ToolStripMenuItem mainHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textPreferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.PictureBox docPictureBox;
     }
 }
 

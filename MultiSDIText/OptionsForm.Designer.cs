@@ -385,7 +385,6 @@ namespace MultiSDIText
         #endregion
         public System.Windows.Forms.BindingSource bsText;
         public System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.ErrorProvider shapeOptionsErrorProvider;
         private System.Windows.Forms.TextBox zOrderTextBox;
         private System.Windows.Forms.TextBox rotationTextBox;
         private System.Windows.Forms.TextBox contentTextBox;

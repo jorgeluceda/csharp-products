@@ -67,7 +67,7 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(8, 4, 0, 4);
-            this.MainMenu.Size = new System.Drawing.Size(952, 46);
+            this.MainMenu.Size = new System.Drawing.Size(952, 44);
             this.MainMenu.TabIndex = 0;
             // 
             // fileToolStripMenuItem
@@ -79,7 +79,7 @@
             this.saveAsToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -119,7 +119,7 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 36);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // preferencesToolStripMenuItem
@@ -127,20 +127,20 @@
             this.preferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.shapeOptionsToolStripMenuItem});
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(151, 38);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(151, 36);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // shapeOptionsToolStripMenuItem
             // 
             this.shapeOptionsToolStripMenuItem.Name = "shapeOptionsToolStripMenuItem";
-            this.shapeOptionsToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.shapeOptionsToolStripMenuItem.Size = new System.Drawing.Size(271, 38);
             this.shapeOptionsToolStripMenuItem.Text = "Shape Options";
             this.shapeOptionsToolStripMenuItem.Click += new System.EventHandler(this.shapeOptionsToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
             this.windowToolStripMenuItem.Text = "Window";
             // 
             // helpToolStripMenuItem
@@ -149,7 +149,7 @@
             this.oathToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 38);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // oathToolStripMenuItem
@@ -216,15 +216,14 @@
             // 
             this.mainPictureBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.mainPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPictureBox.Location = new System.Drawing.Point(0, 46);
-            this.mainPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainPictureBox.Location = new System.Drawing.Point(0, 44);
+            this.mainPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.mainPictureBox.Name = "mainPictureBox";
-            this.mainPictureBox.Size = new System.Drawing.Size(952, 534);
+            this.mainPictureBox.Size = new System.Drawing.Size(952, 536);
             this.mainPictureBox.TabIndex = 6;
             this.mainPictureBox.TabStop = false;
+            this.mainPictureBox.Click += new System.EventHandler(this.mainPictureBox_Click);
             this.mainPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPictureBox_Paint);
-            this.mainPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPictureBox_MouseDown);
-            this.mainPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPictureBox_MouseUp);
             // 
             // TopLevelForm
             // 

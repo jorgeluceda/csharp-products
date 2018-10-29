@@ -13,22 +13,27 @@ namespace MultiSDIText
     public partial class TextOptions : Form, IBindingSource 
     {
         /* Supposed to use the document inside toplevelform */
-        //List<Text> textDoc = new List<Text>();
+        List<Text> textDoc = new List<Text>();
+        
 
         public BindingSource DataBindingSource
         {
             get { return this.bsDocument; }
             set { this.bsDocument = value; }
         }
+        /*
         BindingManagerBase BindingManager
         {
-            get { return this.BindingContext[this.bsDocument]; }
+        
+            get {
+                return this.BindingContext[this.bsDocument];
+            }
         }
+        */
 
         public TextOptions()
         {
             InitializeComponent();
-
 
             radioButtonDefault.Checked = true;
             this.listBoxDoc.DisplayMember = "Content";
@@ -38,8 +43,8 @@ namespace MultiSDIText
 
         void RefreshItems()
         {
-            int count = this.BindingManager.Count;
-            int pos = this.BindingManager.Position + 1;
+            int count = this.DataBindingSource.Count;
+            int pos = this.DataBindingSource.Position + 1;
 
             this.labelCount.Text = count.ToString();
             this.labelPosition.Text = pos.ToString();
@@ -52,25 +57,25 @@ namespace MultiSDIText
 
         private void buttonFirst_Click(object sender, EventArgs e)
         {
-            this.BindingManager.Position = 0;
+            this.DataBindingSource.Position = 0;
             RefreshItems();
         }
 
         private void buttonPrev_Click(object sender, EventArgs e)
         {
-            --this.BindingManager.Position;
+            --this.DataBindingSource.Position;
             RefreshItems();
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            ++this.BindingManager.Position;
+            ++this.DataBindingSource.Position;
             RefreshItems();
         }
 
         private void buttonLast_Click(object sender, EventArgs e)
         {
-            this.BindingManager.Position = this.BindingManager.Count - 1;
+            this.DataBindingSource.Position = this.DataBindingSource.Count - 1;
             RefreshItems();
         }
 
