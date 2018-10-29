@@ -255,6 +255,10 @@ namespace MultiSDIText
 
         }
 
-
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlainTextDialog dlg = new PlainTextDialog();
+            dlg.ShowDialog();
+        }
     }
 }

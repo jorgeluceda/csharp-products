@@ -76,6 +76,7 @@
             this.Controls.Add(this.PlainTextTextBox);
             this.Name = "PlainTextDialog";
             this.Text = "PlainTextDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlainTextDialog_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
