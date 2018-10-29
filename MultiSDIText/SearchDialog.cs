@@ -264,6 +264,7 @@ namespace MultiSDIText
                 this.Results.Text = e.Error.Message;
                 return;
             }
+            
 
             if (e.Cancelled)
             {
