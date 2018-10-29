@@ -19,9 +19,28 @@ namespace MultiSDIText
             set { this.bsText = value; }
         }
 
+
+        public BindingSource DocumentBindingSource
+        {
+            
+            get { return this.bsDocument; }
+            set { this.bsDocument = value; }
+     
+        }
+        
+
         public OptionsForm()
         {
             InitializeComponent();
+
+            /*
+
+            List<Storage.Text> docContents = (List<Storage.Text>)this.bsDocument.Current;
+            foreach (Text text in docContents) {
+                
+                domainUpDown1.Items.Add(text.ToString());
+            }*/
+            
         }
         
         
@@ -103,6 +122,11 @@ namespace MultiSDIText
 
                 this.backgroundColorButton.BackColor = this.backgroundColorButtonDialog.Color;
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
+using MultiSDIText.Storage;
 
 namespace MultiSDIText
 {
@@ -28,10 +29,9 @@ namespace MultiSDIText
         }
 
         //Document doc = new Document();
-        OptionsForm optionsForm = new OptionsForm();
-
         Storage.Document doc = new Storage.Document();
-
+        //OptionsForm optionsForm = new OptionsForm();
+        TextOptions optionsForm = new TextOptions();
 
         // Read Only FileName property
         string FileName
@@ -79,6 +79,7 @@ namespace MultiSDIText
                     }
                 }
             }
+
             // Otherwise, create a new one with the given fileName
             TopLevelForm form = new TopLevelForm();
             form.OpenFile(fileName);
@@ -114,21 +115,31 @@ namespace MultiSDIText
         private void InitializeDS()
         {
             /* Take a look at code below to understand the data binding */
-            var text = new Storage.Text();
-            text.locationX = 100;
-            text.locationY = 200;
-            text.Font = new Font("Arial", 24, FontStyle.Bold);
-            text.Rotation = 0;
-            text.BackgroundColor = Color.White;
-            text.Content = "beta text";
-            text.ZOrder = 1;
+            Text text = new Text();
+            text.Content = "Hello";
+            text.Location = new Point(100, 200);
+            //doc.Add(new RaceCarDriverNotify("M Schumacher", 500));
+            //doc.Add(new RaceCarDriverNotify("A Senna", 1000));
+            //doc.Add(new RaceCarDriverNotify("A Prost", 400));
+
+            Text text2 = new Text();
+            text2.Content = "Hello2";
+            text2.Location = new Point(100, 200);
+            doc.Add(text);
+            doc.Add(text2);
+
 
             //var bs = new BindingSource();
-            doc.Add(text);
+
+            //add the same text twice FOR TESTING
             //doc.addShape(shape);
             //var dg = new OptionsForm();
-           
-            optionsForm.DataBindingSource.DataSource = text;
+
+ 
+            text.ZOrder = 2;
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            //optionsForm.DataBindingSource.DataSource = text;
 
             //dg.DataBindingSource.DataSource = shape;
             //var result = this.optionsForm.ShowDialog();
@@ -216,7 +227,7 @@ namespace MultiSDIText
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+             
             this.optionsForm.ShowDialog();
 
 

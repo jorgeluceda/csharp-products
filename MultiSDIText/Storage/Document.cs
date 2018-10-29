@@ -37,7 +37,7 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// The content of the document. A list of texts sorted by z-order
         /// </summary>
-        private List<Text> content;
+        public List<Text> content;
 
         /// <summary>
         /// Helper method to add a text to the content, in a sorted manner

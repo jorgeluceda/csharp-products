@@ -53,6 +53,12 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="TextOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextOptions.designer.cs">
+      <DependentUpon>TextOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBindingObject.cs" />
     <Compile Include="IBindingSource.cs" />
     <Compile Include="OathDialog.cs">
@@ -87,6 +93,9 @@
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TextOptions.resx">
+      <DependentUpon>TextOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OathDialog.resx">
       <DependentUpon>OathDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +118,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\MultiSDIText.Storage.Document.datasource" />
     <None Include="Properties\DataSources\MultiSDIText.Storage.Text.datasource">
       <SubType>Designer</SubType>
     </None>
