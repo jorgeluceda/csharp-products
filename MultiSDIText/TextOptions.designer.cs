@@ -39,6 +39,7 @@ namespace MultiSDIText
             this.labelLocation = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.textBoxLocation = new System.Windows.Forms.TextBox();
+            this.bsDocument = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxContent = new System.Windows.Forms.TextBox();
             this.listBoxDoc = new System.Windows.Forms.ListBox();
             this.groupBoxDisplayMember = new System.Windows.Forms.GroupBox();
@@ -49,9 +50,12 @@ namespace MultiSDIText
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.bsDocument = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBoxDisplayMember.SuspendLayout();
+            this.locationLabel = new System.Windows.Forms.Label();
+            this.textColorButton = new System.Windows.Forms.Button();
+            this.backgroundColorButton = new System.Windows.Forms.Button();
+            this.textFontButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
+            this.groupBoxDisplayMember.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelPosition
@@ -151,20 +155,20 @@ namespace MultiSDIText
             // 
             // textBoxLocation
             // 
-            this.textBoxLocation.DataBindings.Add("Text", this.bsDocument, "Location");
+            this.textBoxLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Location", true));
             this.textBoxLocation.Location = new System.Drawing.Point(162, 346);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(196, 31);
+            this.textBoxLocation.Size = new System.Drawing.Size(354, 31);
             this.textBoxLocation.TabIndex = 33;
             // 
             // textBoxContent
             // 
-            this.textBoxContent.DataBindings.Add("Text", this.bsDocument, "Content");
+            this.textBoxContent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Content", true));
             this.textBoxContent.Location = new System.Drawing.Point(162, 299);
             this.textBoxContent.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxContent.Name = "textBoxContent";
-            this.textBoxContent.Size = new System.Drawing.Size(196, 31);
+            this.textBoxContent.Size = new System.Drawing.Size(354, 31);
             this.textBoxContent.TabIndex = 32;
             // 
             // listBoxDoc
@@ -233,7 +237,7 @@ namespace MultiSDIText
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(319, 500);
+            this.button1.Location = new System.Drawing.Point(218, 492);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(64, 44);
@@ -243,7 +247,7 @@ namespace MultiSDIText
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 500);
+            this.button2.Location = new System.Drawing.Point(144, 492);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(62, 44);
@@ -254,7 +258,7 @@ namespace MultiSDIText
             // button3
             // 
             this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(167, 500);
+            this.button3.Location = new System.Drawing.Point(66, 492);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(66, 44);
@@ -264,7 +268,7 @@ namespace MultiSDIText
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(395, 500);
+            this.button4.Location = new System.Drawing.Point(294, 492);
             this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 44);
@@ -272,19 +276,54 @@ namespace MultiSDIText
             this.button4.Text = ">|";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // locationLabel
+            // 
+            this.locationLabel.AutoSize = true;
+            this.locationLabel.Location = new System.Drawing.Point(167, 446);
+            this.locationLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.locationLabel.Name = "locationLabel";
+            this.locationLabel.Size = new System.Drawing.Size(86, 25);
+            this.locationLabel.TabIndex = 42;
+            this.locationLabel.Text = "Z-Order";
+            // 
+            // textColorButton
+            // 
+            this.textColorButton.Location = new System.Drawing.Point(405, 423);
+            this.textColorButton.Name = "textColorButton";
+            this.textColorButton.Size = new System.Drawing.Size(155, 71);
+            this.textColorButton.TabIndex = 43;
+            this.textColorButton.Text = "Text Color";
+            this.textColorButton.UseVisualStyleBackColor = true;
+            this.textColorButton.Click += new System.EventHandler(this.textColorButton_Click);
+            // 
+            // backgroundColorButton
+            // 
+            this.backgroundColorButton.Location = new System.Drawing.Point(599, 423);
+            this.backgroundColorButton.Name = "backgroundColorButton";
+            this.backgroundColorButton.Size = new System.Drawing.Size(155, 71);
+            this.backgroundColorButton.TabIndex = 44;
+            this.backgroundColorButton.Text = "Background Color";
+            this.backgroundColorButton.UseVisualStyleBackColor = true;
+            // 
+            // textFontButton
+            // 
+            this.textFontButton.Location = new System.Drawing.Point(506, 516);
+            this.textFontButton.Name = "textFontButton";
+            this.textFontButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textFontButton.Size = new System.Drawing.Size(155, 71);
+            this.textFontButton.TabIndex = 45;
+            this.textFontButton.Text = "Text Font";
+            this.textFontButton.UseVisualStyleBackColor = true;
+            // 
             // TextOptions
             // 
-
-            /*
-            foreach (Storage.Text s in listBoxDoc.Items)
-            {
-                //do stuff with (s);
-                this.textDoc.Add(s);
-            }
-            */
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 626);
+            this.ClientSize = new System.Drawing.Size(847, 626);
+            this.Controls.Add(this.textFontButton);
+            this.Controls.Add(this.backgroundColorButton);
+            this.Controls.Add(this.textColorButton);
+            this.Controls.Add(this.locationLabel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -305,9 +344,9 @@ namespace MultiSDIText
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "TextOptions";
             this.Text = "Text Options";
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
             this.groupBoxDisplayMember.ResumeLayout(false);
             this.groupBoxDisplayMember.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,6 +375,10 @@ namespace MultiSDIText
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.BindingSource bsDocument;
+        private System.Windows.Forms.Label locationLabel;
+        private System.Windows.Forms.Button textColorButton;
+        private System.Windows.Forms.Button backgroundColorButton;
+        private System.Windows.Forms.Button textFontButton;
         //private System.Collections.Generic.List<Storage.Text> textDoc = new System.Collections.Generic.List<Storage.Text>();
 
 

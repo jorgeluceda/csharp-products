@@ -17,7 +17,7 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// Simple constructor that initilaizes all properties
         /// </summary>
-        public Document(List<Text> list)
+        public Document(BindingList<Text> list)
         {
             this.content = list;
         }
@@ -25,7 +25,7 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// Simple constructor that initilaizes all properties
         /// </summary>
-        public Document() : this(new List<Text>())
+        public Document() : this(new BindingList<Text>())
         {
             
         }
@@ -37,7 +37,7 @@ namespace MultiSDIText.Storage
         /// <summary>
         /// The content of the document. A list of texts sorted by z-order
         /// </summary>
-        public List<Text> content;
+        public BindingList<Text> content;
 
         /// <summary>
         /// Helper method to add a text to the content, in a sorted manner
@@ -75,10 +75,8 @@ namespace MultiSDIText.Storage
         /// </summary>
         private void SortContentByZOrder()
         {
-            this.content.Sort(delegate (Text x, Text y)
-            {
-                return y.ZOrder.CompareTo(x.ZOrder);
-            });
+            content.OrderBy(x => x.ZOrder);
+            content.Reverse();
         }
 
         #endregion
@@ -92,7 +90,7 @@ namespace MultiSDIText.Storage
         /// <param name="context"></param>
         protected Document(SerializationInfo info, StreamingContext context)
         {
-            this.content = (List<Text>) info.GetValue("content", typeof(List<Text>));
+            this.content = (BindingList<Text>) info.GetValue("content", typeof(BindingList<Text>));
         }
 
         /// <summary>

@@ -12,9 +12,6 @@ namespace MultiSDIText
 {
     public partial class TextOptions : Form, IBindingSource 
     {
-        /* Supposed to use the document inside toplevelform */
-        List<Text> textDoc = new List<Text>();
-        
 
         public BindingSource DataBindingSource
         {
@@ -35,13 +32,14 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
-            radioButtonDefault.Checked = true;
+            
+            radioButtonDefault.Checked = false;
             this.listBoxDoc.DisplayMember = "Content";
 
             RefreshItems();
         }
 
-        void RefreshItems()
+        public void RefreshItems()
         {
             int count = this.DataBindingSource.Count;
             int pos = this.DataBindingSource.Position + 1;
@@ -81,7 +79,7 @@ namespace MultiSDIText
 
         private void radioButtonDefault_CheckedChanged(object sender, EventArgs e)
         {
-            listBoxDoc.DisplayMember = "";
+            listBoxDoc.DisplayMember = "Content";
         }
 
         private void radioButtonName_CheckedChanged(object sender, EventArgs e)
@@ -92,6 +90,30 @@ namespace MultiSDIText
         private void radioButtonZOrder_CheckedChanged(object sender, EventArgs e)
         {
             listBoxDoc.DisplayMember = "Location";
+        }
+
+        private void textColorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Color penColor = dlg.Color;
+
+                //edit current text color here;
+                //this.shapeData.PenColor = penColor;
+
+                if (penColor.GetBrightness() < 0.5)
+                {
+                    this.textColorButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    this.textColorButton.ForeColor = Color.Black;
+                }
+
+                this.textColorButton.BackColor = penColor;
+            }
         }
     }
 }
