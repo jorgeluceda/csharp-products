@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 
 namespace MultiSDIText
 {
     public partial class SearchDialog : Form
     {
         private TopLevelForm form;
+        bool pause = false;
+        bool closingSearch = false;
+        ManualResetEvent pauseEvent = new ManualResetEvent(true); 
 
         public TopLevelForm MainForm
         {
@@ -109,6 +113,7 @@ namespace MultiSDIText
                     {
                         //Found some files with the given extension
                         this.SearchBackgroundWorker.ReportProgress(0, state = new SearchUserState(Files, state.extension));
+                        pauseEvent.WaitOne();
                         Debug.WriteLine(state.extension);
 
                         // Check for cancellation
@@ -164,36 +169,39 @@ namespace MultiSDIText
         #region Search Buttons
         private void startButton_Click(object sender, EventArgs e)
         {
-            if (this.SearchBackgroundWorker.CancellationPending)
+            if (this.ValidateChildren())
             {
-                return;
+                if (this.SearchBackgroundWorker.CancellationPending)
+                {
+                    return;
+                }
+
+                // Tell user we're searching
+                this.StatusStripIndicator.Text = "Searching for files with the given extension...";
+
+                // Hide/Show buttons appropriately
+                this.stopButton.Visible = true;
+                this.pauseButton.Visible = true;
+                this.startButton.Visible = false;
+
+                // Start a worker thread, passing the selected extension from the Combo Box
+                this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.GetItemText(this.extensionComboBox.SelectedItem));
             }
-
-            // Tell user we're searching
-            this.StatusStripIndicator.Text = "Searching for files with the given extension...";     
-            
-            // Hide/Show buttons appropriately
-            this.stopButton.Visible = true;     
-            this.pauseButton.Visible = true;
-            this.startButton.Visible = false;
-
-            // Start a worker thread, passing the selected extension from the Combo Box
-            this.SearchBackgroundWorker.RunWorkerAsync((String)this.extensionComboBox.GetItemText(this.extensionComboBox.SelectedItem));
         }
 
         private void pauseButton_Click(object sender, EventArgs e)
         {
-            if (this.pauseButton.Text == "Pause")
-            {
-                this.pauseButton.Text = "Continue";
+            pause = !pause;
 
-                // PUT LOGIC TO PAUSE SEARCH HERE
+            if (pause)
+            {
+                pauseButton.Text = "Continue";
+                pauseEvent.Reset();
             }
-            else if (this.pauseButton.Text == "Continue")
+            else
             {
-                this.pauseButton.Text = "Pause";
-
-                // PUT LOGIC TO CONTINUE SEARCH HERE
+                pauseButton.Text = "Pause";
+                pauseEvent.Set();
             }
         }
 
@@ -264,11 +272,12 @@ namespace MultiSDIText
                 this.Results.Text = e.Error.Message;
                 return;
             }
-            
 
-            if (e.Cancelled)
+            if (closingSearch || e.Cancelled)
             {
-                MessageBox.Show("The search has successfully cancelled.");
+                MessageBox.Show("Closing after the thread was cancelled.");
+                this.Close();
+                closingSearch = false;
                 return;
             }
 
@@ -281,8 +290,11 @@ namespace MultiSDIText
         {
             if (this.SearchBackgroundWorker.IsBusy)
             {
+                pauseEvent.Set();       // Unpause if paused
                 this.SearchBackgroundWorker.CancelAsync();
                 this.MainForm.SearchDlg = null;
+                closingSearch = true;
+                e.Cancel = true;
             }
         }
         #endregion
