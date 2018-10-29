@@ -21,7 +21,7 @@ namespace MultiSDIText
             get { return this.bsDocument; }
             set { this.bsDocument = value; }
         }
-        /*
+        
         BindingManagerBase BindingManager
         {
         
@@ -29,7 +29,7 @@ namespace MultiSDIText
                 return this.BindingContext[this.bsDocument];
             }
         }
-        */
+        
 
         public TextOptions()
         {
