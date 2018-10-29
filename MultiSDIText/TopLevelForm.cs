@@ -89,6 +89,10 @@ namespace MultiSDIText
 
 
             this.doc.Add(curText);
+
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.RefreshItems();
             this.docPictureBox.Invalidate();
 
         }
@@ -152,14 +156,28 @@ namespace MultiSDIText
 
         private void InitializeDS()
         {
-
+            /* Take a look at code below to understand the data binding */
             
+
+            /*
+            Text text = new Text();
+            text.Content = "Hello";
+            text.Location = new Point(100, 200);
+            text.BackgroundColor = Color.White;
+            
+            Text text2 = new Text();
+            text2.Content = "Hello2";
+            text2.Location = new Point(100, 200);
+            doc.Add(text);
+            doc.Add(text2);
+            
+            */
+
             optionsForm.DataBindingSource.DataSource = doc.content;
-            //optionsForm.DataBindingSource.DataSource = text;
+
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
-            //dg.DataBindingSource.DataSource = shape;
-            //var result = this.optionsForm.ShowDialog();
-            //result.Equals("AAAA");
+            
+
         }
 
 
