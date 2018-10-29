@@ -31,6 +31,12 @@ namespace MultiSDIText
         //represents our document (a list of text objects and their functionality)
         Storage.Document doc = new Storage.Document();
 
+        public Document Document
+        {
+            get { return this.doc; }
+            set { this.doc = value; }
+        }
+
         //represents our current text to be added to the document
         //Storage.Text curText = new Storage.Text();
         int Zorder = 0;

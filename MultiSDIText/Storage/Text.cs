@@ -46,7 +46,7 @@ namespace MultiSDIText.Storage
         private string content;
 
         /// <summary>
-        /// The actual constent of the Text class
+        /// The actual content of the Text class
         /// </summary>
         public string Content
         {

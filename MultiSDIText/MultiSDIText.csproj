@@ -53,6 +53,12 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlainTextDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlainTextDialog.Designer.cs">
+      <DependentUpon>PlainTextDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlainTextDialog.resx">
+      <DependentUpon>PlainTextDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextOptions.resx">
       <DependentUpon>TextOptions.cs</DependentUpon>
