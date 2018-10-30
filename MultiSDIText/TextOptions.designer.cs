@@ -69,10 +69,12 @@ namespace MultiSDIText
             // 
             this.labelPosition.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelPosition.AutoSize = true;
+            this.labelPosition.BackColor = System.Drawing.Color.Transparent;
+            this.labelPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPosition.Location = new System.Drawing.Point(232, 42);
             this.labelPosition.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelPosition.Name = "labelPosition";
-            this.labelPosition.Size = new System.Drawing.Size(47, 25);
+            this.labelPosition.Size = new System.Drawing.Size(50, 25);
             this.labelPosition.TabIndex = 31;
             this.labelPosition.Text = "pos";
             // 
@@ -80,10 +82,12 @@ namespace MultiSDIText
             // 
             this.labelOf.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOf.AutoSize = true;
+            this.labelOf.BackColor = System.Drawing.Color.Transparent;
+            this.labelOf.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOf.Location = new System.Drawing.Point(280, 42);
             this.labelOf.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelOf.Name = "labelOf";
-            this.labelOf.Size = new System.Drawing.Size(30, 25);
+            this.labelOf.Size = new System.Drawing.Size(32, 25);
             this.labelOf.TabIndex = 30;
             this.labelOf.Text = "of";
             // 
@@ -91,60 +95,70 @@ namespace MultiSDIText
             // 
             this.labelCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCount.AutoSize = true;
+            this.labelCount.BackColor = System.Drawing.Color.Transparent;
+            this.labelCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCount.Location = new System.Drawing.Point(314, 42);
             this.labelCount.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(41, 25);
+            this.labelCount.Size = new System.Drawing.Size(44, 25);
             this.labelCount.TabIndex = 29;
             this.labelCount.Text = "cnt";
             // 
             // buttonLast
             // 
             this.buttonLast.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLast.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonLast.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonLast.Location = new System.Drawing.Point(460, 33);
             this.buttonLast.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(60, 44);
             this.buttonLast.TabIndex = 28;
             this.buttonLast.Text = ">|";
-            this.buttonLast.UseVisualStyleBackColor = true;
+            this.buttonLast.UseVisualStyleBackColor = false;
             this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
             // 
             // buttonNext
             // 
             this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonNext.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonNext.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonNext.Location = new System.Drawing.Point(370, 33);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(6);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(64, 44);
             this.buttonNext.TabIndex = 27;
             this.buttonNext.Text = ">";
-            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.UseVisualStyleBackColor = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonPrev
             // 
             this.buttonPrev.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonPrev.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonPrev.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonPrev.Location = new System.Drawing.Point(158, 33);
             this.buttonPrev.Margin = new System.Windows.Forms.Padding(6);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(62, 44);
             this.buttonPrev.TabIndex = 26;
             this.buttonPrev.Text = "<";
-            this.buttonPrev.UseVisualStyleBackColor = true;
+            this.buttonPrev.UseVisualStyleBackColor = false;
             this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // buttonFirst
             // 
             this.buttonFirst.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonFirst.AutoSize = true;
+            this.buttonFirst.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonFirst.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonFirst.Location = new System.Drawing.Point(58, 33);
             this.buttonFirst.Margin = new System.Windows.Forms.Padding(6);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(66, 44);
             this.buttonFirst.TabIndex = 25;
             this.buttonFirst.Text = "|<";
-            this.buttonFirst.UseVisualStyleBackColor = true;
+            this.buttonFirst.UseVisualStyleBackColor = false;
             this.buttonFirst.Click += new System.EventHandler(this.buttonFirst_Click);
             // 
             // labelLocation
@@ -212,6 +226,7 @@ namespace MultiSDIText
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonZOrder);
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonLocation);
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonName);
+            this.groupBoxDisplayMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxDisplayMember.Location = new System.Drawing.Point(563, 106);
             this.groupBoxDisplayMember.Margin = new System.Windows.Forms.Padding(6);
             this.groupBoxDisplayMember.Name = "groupBoxDisplayMember";
@@ -303,30 +318,33 @@ namespace MultiSDIText
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.Color.PaleTurquoise;
             this.button3.Location = new System.Drawing.Point(86, 464);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(168, 44);
             this.button3.TabIndex = 40;
             this.button3.Text = "Send to Back";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.BackColor = System.Drawing.Color.PaleTurquoise;
             this.button4.Location = new System.Drawing.Point(266, 464);
             this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(168, 44);
             this.button4.TabIndex = 41;
             this.button4.Text = "Send to Front";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // locationLabel
             // 
             this.locationLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.locationLabel.AutoSize = true;
-            this.locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationLabel.BackColor = System.Drawing.Color.Transparent;
+            this.locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationLabel.Location = new System.Drawing.Point(156, 414);
             this.locationLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.locationLabel.Name = "locationLabel";
@@ -374,25 +392,29 @@ namespace MultiSDIText
             // OkOptionsButton
             // 
             this.OkOptionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OkOptionsButton.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.OkOptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OkOptionsButton.Location = new System.Drawing.Point(567, 494);
             this.OkOptionsButton.Name = "OkOptionsButton";
             this.OkOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.OkOptionsButton.Size = new System.Drawing.Size(145, 53);
             this.OkOptionsButton.TabIndex = 46;
             this.OkOptionsButton.Text = "Apply";
-            this.OkOptionsButton.UseVisualStyleBackColor = true;
+            this.OkOptionsButton.UseVisualStyleBackColor = false;
             this.OkOptionsButton.Click += new System.EventHandler(this.OkOptionsButton_Click);
             // 
             // cancelOptionsButton
             // 
             this.cancelOptionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelOptionsButton.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.cancelOptionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelOptionsButton.Location = new System.Drawing.Point(723, 494);
             this.cancelOptionsButton.Name = "cancelOptionsButton";
             this.cancelOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cancelOptionsButton.Size = new System.Drawing.Size(145, 53);
             this.cancelOptionsButton.TabIndex = 47;
             this.cancelOptionsButton.Text = "Cancel";
-            this.cancelOptionsButton.UseVisualStyleBackColor = true;
+            this.cancelOptionsButton.UseVisualStyleBackColor = false;
             // 
             // ZOrderTextBox
             // 
@@ -412,6 +434,7 @@ namespace MultiSDIText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(909, 570);
             this.Controls.Add(this.ZOrderTextBox);
