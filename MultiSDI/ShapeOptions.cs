@@ -22,6 +22,7 @@ namespace MultiSDI
             this.BindData();
         }
 
+
         private void BindData()
         {
             this.shapeXTextBox.DataBindings.Add("Text", this.shapeData, "LocationX");
@@ -29,7 +30,7 @@ namespace MultiSDI
             this.shapeWidthTextBox.DataBindings.Add("Text", this.shapeData, "SizeW");
             this.shapeHeightTextBox.DataBindings.Add("Text", this.shapeData, "SizeH");
         }
-
+        
         #region Colors
         private void penColorButton_Click(object sender, EventArgs e)
         {

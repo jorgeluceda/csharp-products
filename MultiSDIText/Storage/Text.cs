@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MultiSDIText.Storage
 {
     [Serializable]
-    public class Text : Component, ISerializable, IComponent, INotifyPropertyChanged
+    public class Text : ISerializable, INotifyPropertyChanged
     {
         #region Constructor
 
@@ -19,6 +19,7 @@ namespace MultiSDIText.Storage
         /// </summary>
         public Text()
         {
+
             this.content = "";
 
             this.zOrder = 0;
@@ -34,7 +35,7 @@ namespace MultiSDIText.Storage
             this.fontSize = 12.0f;
             this.fontStyle = "R";
         }
-        
+
         #endregion
 
         #region Content
@@ -46,7 +47,7 @@ namespace MultiSDIText.Storage
         private string content;
 
         /// <summary>
-        /// The actual constent of the Text class
+        /// The actual content of the Text class
         /// </summary>
         public string Content
         {
@@ -89,7 +90,7 @@ namespace MultiSDIText.Storage
         /// Internal property for holding the color value, so
         /// serialization is easier to implement
         /// </summary>
-        private int colorArgb;
+        private int colorArgb = 000;
 
         /// <summary>
         /// The color of the text
@@ -132,17 +133,18 @@ namespace MultiSDIText.Storage
         #region Location
 
         /// <summary>
-        /// Internal property for holding the location X
-        /// of the text
+        /// Internal location X property
         /// </summary>
-        private int locationX;
+        public int locationX;
 
         /// <summary>
-        /// Internal property for holding the location Y
-        /// of the text
+        /// Internal location Y property
         /// </summary>
-        private int locationY;
+        public int locationY;
 
+
+
+        
         /// <summary>
         /// The location of the text in the document
         /// </summary>
@@ -151,11 +153,15 @@ namespace MultiSDIText.Storage
             get { return new Point(this.locationX, this.locationY); }
             set
             {
-                this.locationX = value.X;
-                this.locationY = value.Y;
-                this.PropertyChange("Location");
+                    this.locationX = value.X;
+
+                    this.locationY = value.Y;
+
+                    this.PropertyChange("Location");
             }
         }
+        
+
 
         #endregion
 
@@ -356,8 +362,45 @@ namespace MultiSDIText.Storage
         #endregion
 
         #region Functionality
+        SizeF stringSize;
+        /// <summary>
+        /// Draw the string property
+        /// </summary>
+        /// <param name="g">The graphics used to draw</param>
+        public void Draw(Graphics g)
+        {
+            // Draw a string on the PictureBox.
 
-        // Region where all the text actions are going to be performed
+            SizeF stringSize = g.MeasureString(this.content, this.Font);
+            SolidBrush rectBrush = new SolidBrush(this.BackgroundColor);
+            SolidBrush textBrush = new SolidBrush(this.Color);
+
+            g.FillRectangle(rectBrush, new RectangleF(this.Location, stringSize));
+
+            g.DrawString(this.content, this.Font, textBrush, this.Location);
+            this.stringSize = stringSize;
+
+        }
+
+
+        /// <summary>
+        /// Determines if a given point is within the text's rectangle
+        /// boundaries
+        /// </summary>
+        /// <param name="p">The ponint to be found</param>
+        /// <returns>Whether or not the point is within the text boundaries</returns>
+        public bool PointWithinBoundaries(Point p)
+        {
+            //SizeF stringSize = g.MeasureString(this.content, this.Font);
+
+            if ((locationX <= p.X && (p.X <= locationX + stringSize.Width))&& (locationY <= p.Y && (p.Y <= locationY + stringSize.Height)))
+            {
+                return true;
+            }
+            else
+                return false;
+
+        }
 
         #endregion
     }

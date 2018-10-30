@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
+using MultiSDIText.Storage;
 
 namespace MultiSDIText
 {
@@ -19,8 +20,35 @@ namespace MultiSDIText
         #region Member Variables and Properties
         string fileName;
 
-        //Document doc = new Document();
+        private SearchDialog dlg;
+        Point downPoint = Point.Empty;
+
+
+        public SearchDialog SearchDlg
+        {
+            get { return this.dlg; }
+            set { this.dlg = value; }
+        }
+
+        //represents our document (a list of text objects and their functionality)
+        Storage.Document doc = new Storage.Document();
+
+        Storage.Text curText = new Storage.Text();
+
+        /*
+         * Ommit for data binding - don't want to directly modify
+         * 
+        public Document Document
+        {
+            get { return this.doc; }
+            set { this.doc = value; }
+        } */
+
+        //represents our current text to be added to the document
+        //Storage.Text curText = new Storage.Text();
+        int Zorder = 0;
         //OptionsForm optionsForm = new OptionsForm();
+        TextOptions optionsForm = new TextOptions();
 
 
         // Read Only FileName property
@@ -34,13 +62,74 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
+            //initializing a current shape
+            InitializeDS();
+              
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDITextApplication.Application.AddTopLevelForm(this);
 
+            //Set the applications windowmenu
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
         #endregion
+
         #region Helper Methods
+
+        private void docPictureBox_Paint(object sender, PaintEventArgs e)
+        {
+
+            // Create a local version of the graphics object for the PictureBox.
+            Graphics docGraphics = e.Graphics;
+
+
+            this.doc.Draw(docGraphics);
+        }
+        private void docPictureBox_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+            
+            if (doc.Find(coordinates) != null)  //check to see if click is inside a text object
+            {
+                if (me.Button.ToString() == "Right") //checks to see if a right click
+                {
+                    this.optionsForm.ShowDialog();  //opens options if right click on a text object
+
+
+                    if (this.optionsForm.closeAccept == true)
+                    {
+                        this.docPictureBox.Invalidate();
+                    }
+
+                    return;
+                }
+                this.curText = doc.Find(coordinates);//change current text to the found object
+                return;
+            }
+            Storage.Text curText = new Storage.Text();
+
+
+            curText.ZOrder = Zorder;
+            Zorder += 1;
+            curText.Content = "text";
+            curText.Color = Color.Blue;
+            curText.BackgroundColor = Color.Transparent;
+
+            curText.Location = coordinates;
+            curText.Font = new Font("Times New Roman", 12.0f);
+
+
+            this.doc.Add(curText);
+
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.RefreshItems();
+            this.docPictureBox.Invalidate();
+            this.curText = curText;                     //change the current text to the new object
+
+        }
+
+
         /**
          *  CreateTopLevelWindow implements creating a new form. This is the real 'constructor'. 
          *  First, we check if the fileName matches any of the Open Forms in the MultiSDIApplication. If it
@@ -64,6 +153,7 @@ namespace MultiSDIText
                     }
                 }
             }
+
             // Otherwise, create a new one with the given fileName
             TopLevelForm form = new TopLevelForm();
             form.OpenFile(fileName);
@@ -95,14 +185,36 @@ namespace MultiSDIText
         }
         #endregion
 
-        private void TopLevelForm_Load(object sender, EventArgs e)
+
+        private void InitializeDS()
         {
-            //todo: handle menu merging
-            //ToolStripManager.Merge(BaseMenu, MainMenu);
+            /* Take a look at code below to understand the data binding */
+            
+
+            /*
+            Text text = new Text();
+            text.Content = "Hello";
+            text.Location = new Point(100, 200);
+            text.BackgroundColor = Color.White;
+            
+            Text text2 = new Text();
+            text2.Content = "Hello2";
+            text2.Location = new Point(100, 200);
+            doc.Add(text);
+            doc.Add(text2);
+            
+            */
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            
+            //.DataBindingSource.DataSource = doc.content;
+
+            docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
+            
 
         }
 
-        
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // If the document is new, i.e. has never been saved before
@@ -169,6 +281,117 @@ namespace MultiSDIText
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(dlg == null)
+            {
+                dlg = new SearchDialog();
+                dlg.MainForm = this;
+                dlg.Show();
+            }
+            else
+            {
+                dlg.BringToFront();
+            }
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            this.optionsForm.listBoxDoc.DisplayMember = "Content";
+            this.optionsForm.ShowDialog();
+            
+
+            if(this.optionsForm.closeAccept == true)
+            {
+                this.docPictureBox.Invalidate();
+            }
+
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlainTextDialog dlg = new PlainTextDialog();
+            Storage.Text addedText = new Storage.Text();
+
+            addedText.Content = "";
+
+            addedText.ZOrder = Zorder;
+            Zorder += 1;
+            addedText.Color = Color.Blue;
+            addedText.BackgroundColor = Color.Transparent;
+
+            addedText.Location = new Point(100, 150);
+            addedText.Font = new Font("Times New Roman", 12.0f);
+
+
+            dlg.DataBindingSource.DataSource = addedText;
+
+            dlg.ShowDialog();
+
+            
+
+            if(dlg.closeAccept == true)
+      
+            {
+                doc.Add(addedText);
+                this.docPictureBox.Invalidate();
+
+            }
+        }
+
+        private void TopLevelForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            // left arrow = 37
+            // up arrow = 38
+            // right arrow= 39
+            // down arrow = 40
+            switch ((int)e.KeyCode)
+            {
+                case 37:
+                    //move current text object to left
+                    curText.locationX -=1;
+                    //this.doc.Add(curText);
+
+                    //optionsForm.DataBindingSource.DataSource = doc.content;
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
+                    break;
+                case 38:
+                    curText.locationY -= 1;
+                    //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
+                    ;
+                    break;
+                case 39:
+                    //move current text object to right
+                    curText.locationX += 1;
+                    //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
+
+                    break;
+                case 40:
+                    //move current text object downs
+                    curText.locationY += 1;
+                    //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void docPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+
+
+            if (e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
+            downPoint = new Point(e.X, e.Y);
+            this.curText = doc.Find(e.Location);
+
             
         }
 
@@ -182,6 +405,27 @@ namespace MultiSDIText
         {
             HelpDialog help = new HelpDialog();
             help.Show();
+        }
+        
+        private void docPictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+
+
+                if (downPoint == Point.Empty) return;       // Check for empty downPoint (anomaly case)
+
+                Point location = new Point(e.X, e.Y);
+                if(curText != null) {
+                    this.curText.Location = location;           // change text location to mouse location
+                    this.optionsForm.RefreshItems();            // refresh items
+                    this.docPictureBox.Invalidate();
+                }
+
+        }
+
+        private void docPictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;  // If the event is not a left mouse click event, exit
+            downPoint = Point.Empty;                    // Reset the downPoint back to empty 
         }
     }
 }

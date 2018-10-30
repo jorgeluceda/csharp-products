@@ -59,6 +59,20 @@
     <Compile Include="HelpDialog.Designer.cs">
       <DependentUpon>HelpDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlainTextDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlainTextDialog.Designer.cs">
+      <DependentUpon>PlainTextDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextOptions.designer.cs">
+      <DependentUpon>TextOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBindingObject.cs" />
+    <Compile Include="IBindingSource.cs" />
     <Compile Include="OathDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +80,12 @@
       <DependentUpon>OathDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="MultiSDITextApplication.cs" />
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,9 +93,7 @@
       <DependentUpon>SearchDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage\Document.cs" />
-    <Compile Include="Storage\Text.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Storage\Text.cs" />
     <Compile Include="TopLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +107,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpDialog.resx">
       <DependentUpon>HelpDialog.cs</DependentUpon>
+    <EmbeddedResource Include="PlainTextDialog.resx">
+      <DependentUpon>PlainTextDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextOptions.resx">
+      <DependentUpon>TextOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OathDialog.resx">
       <DependentUpon>OathDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchDialog.resx">
       <DependentUpon>SearchDialog.cs</DependentUpon>
@@ -109,6 +135,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\MultiSDIText.Storage.Document.datasource" />
+    <None Include="Properties\DataSources\MultiSDIText.Storage.Text.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
