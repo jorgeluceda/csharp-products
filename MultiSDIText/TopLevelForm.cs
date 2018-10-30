@@ -92,7 +92,9 @@ namespace MultiSDIText
 
             curText.ZOrder = Zorder;
             Zorder += 1;
-            curText.Content = "hello";
+            curText.Content = "text";
+            curText.Color = Color.Blue;
+            curText.BackgroundColor = Color.Transparent;
 
             curText.Location = coordinates;
             curText.Font = new Font("Times New Roman", 12.0f);
@@ -275,7 +277,12 @@ namespace MultiSDIText
         {
              
             this.optionsForm.ShowDialog();
-            this.docPictureBox.Invalidate();
+
+
+            if(this.optionsForm.closeAccept == true)
+            {
+                this.docPictureBox.Invalidate();
+            }
 
         }
 

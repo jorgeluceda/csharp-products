@@ -54,6 +54,8 @@ namespace MultiSDIText
             this.textColorButton = new System.Windows.Forms.Button();
             this.backgroundColorButton = new System.Windows.Forms.Button();
             this.textFontButton = new System.Windows.Forms.Button();
+            this.OkOptionsButton = new System.Windows.Forms.Button();
+            this.cancelOptionsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
             this.groupBoxDisplayMember.SuspendLayout();
             this.SuspendLayout();
@@ -146,7 +148,7 @@ namespace MultiSDIText
             // labelContent
             // 
             this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(63, 302);
+            this.labelContent.Location = new System.Drawing.Point(61, 302);
             this.labelContent.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(87, 25);
@@ -288,6 +290,7 @@ namespace MultiSDIText
             // 
             // textColorButton
             // 
+            this.textColorButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", this.bsDocument, "Color", true));
             this.textColorButton.Location = new System.Drawing.Point(405, 423);
             this.textColorButton.Name = "textColorButton";
             this.textColorButton.Size = new System.Drawing.Size(155, 71);
@@ -298,15 +301,18 @@ namespace MultiSDIText
             // 
             // backgroundColorButton
             // 
+            this.backgroundColorButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", this.bsDocument, "BackgroundColor", true));
             this.backgroundColorButton.Location = new System.Drawing.Point(599, 423);
             this.backgroundColorButton.Name = "backgroundColorButton";
             this.backgroundColorButton.Size = new System.Drawing.Size(155, 71);
             this.backgroundColorButton.TabIndex = 44;
             this.backgroundColorButton.Text = "Background Color";
             this.backgroundColorButton.UseVisualStyleBackColor = true;
+            this.backgroundColorButton.Click += new System.EventHandler(this.backgroundColorButton_Click);
             // 
             // textFontButton
             // 
+            this.textFontButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", this.bsDocument, "Font", true));
             this.textFontButton.Location = new System.Drawing.Point(506, 516);
             this.textFontButton.Name = "textFontButton";
             this.textFontButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -314,12 +320,36 @@ namespace MultiSDIText
             this.textFontButton.TabIndex = 45;
             this.textFontButton.Text = "Text Font";
             this.textFontButton.UseVisualStyleBackColor = true;
+            this.textFontButton.Click += new System.EventHandler(this.textFontButton_Click);
+            // 
+            // OkOptionsButton
+            // 
+            this.OkOptionsButton.Location = new System.Drawing.Point(460, 641);
+            this.OkOptionsButton.Name = "OkOptionsButton";
+            this.OkOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.OkOptionsButton.Size = new System.Drawing.Size(155, 71);
+            this.OkOptionsButton.TabIndex = 46;
+            this.OkOptionsButton.Text = "Apply";
+            this.OkOptionsButton.UseVisualStyleBackColor = true;
+            this.OkOptionsButton.Click += new System.EventHandler(this.OkOptionsButton_Click);
+            // 
+            // cancelOptionsButton
+            // 
+            this.cancelOptionsButton.Location = new System.Drawing.Point(661, 641);
+            this.cancelOptionsButton.Name = "cancelOptionsButton";
+            this.cancelOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cancelOptionsButton.Size = new System.Drawing.Size(155, 71);
+            this.cancelOptionsButton.TabIndex = 47;
+            this.cancelOptionsButton.Text = "Cancel";
+            this.cancelOptionsButton.UseVisualStyleBackColor = true;
             // 
             // TextOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 626);
+            this.ClientSize = new System.Drawing.Size(847, 747);
+            this.Controls.Add(this.cancelOptionsButton);
+            this.Controls.Add(this.OkOptionsButton);
             this.Controls.Add(this.textFontButton);
             this.Controls.Add(this.backgroundColorButton);
             this.Controls.Add(this.textColorButton);
@@ -379,6 +409,8 @@ namespace MultiSDIText
         private System.Windows.Forms.Button textColorButton;
         private System.Windows.Forms.Button backgroundColorButton;
         private System.Windows.Forms.Button textFontButton;
+        private System.Windows.Forms.Button OkOptionsButton;
+        private System.Windows.Forms.Button cancelOptionsButton;
         //private System.Collections.Generic.List<Storage.Text> textDoc = new System.Collections.Generic.List<Storage.Text>();
 
 

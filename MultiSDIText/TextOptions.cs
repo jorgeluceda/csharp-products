@@ -12,6 +12,7 @@ namespace MultiSDIText
 {
     public partial class TextOptions : Form, IBindingSource 
     {
+        public bool closeAccept = false;
 
         public BindingSource DataBindingSource
         {
@@ -98,12 +99,13 @@ namespace MultiSDIText
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                Color penColor = dlg.Color;
+                Color textColor = dlg.Color;
 
                 //edit current text color here;
                 //this.shapeData.PenColor = penColor;
 
-                if (penColor.GetBrightness() < 0.5)
+                /*
+                if (textColor.GetBrightness() < 0.5)
                 {
                     this.textColorButton.ForeColor = Color.White;
                 }
@@ -111,9 +113,59 @@ namespace MultiSDIText
                 {
                     this.textColorButton.ForeColor = Color.Black;
                 }
+                */
 
-                this.textColorButton.BackColor = penColor;
+                this.textColorButton.ForeColor = textColor;
             }
+        }
+
+        private void backgroundColorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Color backColor = dlg.Color;
+
+                //edit current text color here;
+                //this.shapeData.PenColor = penColor;
+
+                if (backColor.GetBrightness() < 0.5)
+                {
+                    this.backgroundColorButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    this.backgroundColorButton.ForeColor = Color.Black;
+                }
+
+                this.backgroundColorButton.BackColor = backColor;
+            }
+
+        }
+
+        private void textFontButton_Click(object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Font font = dlg.Font;
+                
+                this.textFontButton.Font = font;
+            }
+        }
+
+        private void OkOptionsButton_Click(object sender, EventArgs e)
+        {
+            closeAccept = true;
+            this.Close();
+        }
+
+        private void CancelOptionsButton_Click(object sender, EventArgs e)
+        {
+            closeAccept = false;
+            this.Close();
         }
     }
 }
