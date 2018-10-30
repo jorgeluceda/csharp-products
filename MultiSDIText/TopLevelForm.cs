@@ -103,7 +103,13 @@ namespace MultiSDIText
 
                     return;
                 }
-                this.curText = doc.Find(coordinates);//change current text to the found object
+                if (me.Button.ToString() == "Left") //checks to see if a right click
+                {
+                    backToolStripStatusLabel.BackColor = this.curText.BackgroundColor;
+                    colorToolStripStatusLabel.BackColor = this.curText.Color;
+                    fontToolStripStatusLabel.Text = "Font: " + this.curText.Font.Name;
+                }
+                    this.curText = doc.Find(coordinates);//change current text to the found object
                 return;
             }
 
