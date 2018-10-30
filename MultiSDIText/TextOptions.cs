@@ -34,8 +34,9 @@ namespace MultiSDIText
             InitializeComponent();
 
             
-            radioButtonDefault.Checked = false;
+            radioButtonName.Checked = true;
             this.listBoxDoc.DisplayMember = "Content";
+
 
             RefreshItems();
         }
@@ -88,10 +89,31 @@ namespace MultiSDIText
             listBoxDoc.DisplayMember = "Content";
         }
 
-        private void radioButtonZOrder_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonLocation_CheckedChanged(object sender, EventArgs e)
         {
             listBoxDoc.DisplayMember = "Location";
         }
+
+        private void radioButtonZOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            listBoxDoc.DisplayMember = "ZOrder";
+        }
+
+        private void radioButtonTextFont_CheckedChanged(object sender, EventArgs e)
+        {
+            listBoxDoc.DisplayMember = "Font";
+        }
+
+        private void radioButtonTextColor_CheckedChanged(object sender, EventArgs e)
+        {
+            listBoxDoc.DisplayMember = "Color";
+        }
+
+        private void radioButtonBackgroundColor_CheckedChanged(object sender, EventArgs e)
+        {
+            listBoxDoc.DisplayMember = "BackgroundColor";
+        }
+
 
         private void textColorButton_Click(object sender, EventArgs e)
         {

@@ -1,3 +1,5 @@
+using System;
+
 namespace MultiSDIText
 {
     partial class TextOptions
@@ -43,11 +45,12 @@ namespace MultiSDIText
             this.textBoxContent = new System.Windows.Forms.TextBox();
             this.listBoxDoc = new System.Windows.Forms.ListBox();
             this.groupBoxDisplayMember = new System.Windows.Forms.GroupBox();
+            this.radioButtonBackgroundColor = new System.Windows.Forms.RadioButton();
+            this.radioButtonTextColor = new System.Windows.Forms.RadioButton();
+            this.radioButtonTextFont = new System.Windows.Forms.RadioButton();
+            this.radioButtonZOrder = new System.Windows.Forms.RadioButton();
             this.radioButtonLocation = new System.Windows.Forms.RadioButton();
             this.radioButtonName = new System.Windows.Forms.RadioButton();
-            this.radioButtonDefault = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.locationLabel = new System.Windows.Forms.Label();
@@ -56,6 +59,7 @@ namespace MultiSDIText
             this.textFontButton = new System.Windows.Forms.Button();
             this.OkOptionsButton = new System.Windows.Forms.Button();
             this.cancelOptionsButton = new System.Windows.Forms.Button();
+            this.ZOrderTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
             this.groupBoxDisplayMember.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +165,7 @@ namespace MultiSDIText
             this.textBoxLocation.Location = new System.Drawing.Point(162, 346);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxLocation.Name = "textBoxLocation";
-            this.textBoxLocation.Size = new System.Drawing.Size(354, 31);
+            this.textBoxLocation.Size = new System.Drawing.Size(272, 31);
             this.textBoxLocation.TabIndex = 33;
             // 
             // textBoxContent
@@ -170,7 +174,7 @@ namespace MultiSDIText
             this.textBoxContent.Location = new System.Drawing.Point(162, 299);
             this.textBoxContent.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxContent.Name = "textBoxContent";
-            this.textBoxContent.Size = new System.Drawing.Size(354, 31);
+            this.textBoxContent.Size = new System.Drawing.Size(272, 31);
             this.textBoxContent.TabIndex = 32;
             // 
             // listBoxDoc
@@ -186,22 +190,77 @@ namespace MultiSDIText
             // 
             // groupBoxDisplayMember
             // 
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonBackgroundColor);
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonTextColor);
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonTextFont);
+            this.groupBoxDisplayMember.Controls.Add(this.radioButtonZOrder);
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonLocation);
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonName);
-            this.groupBoxDisplayMember.Controls.Add(this.radioButtonDefault);
-            this.groupBoxDisplayMember.Location = new System.Drawing.Point(532, 106);
+            this.groupBoxDisplayMember.Location = new System.Drawing.Point(563, 106);
             this.groupBoxDisplayMember.Margin = new System.Windows.Forms.Padding(6);
             this.groupBoxDisplayMember.Name = "groupBoxDisplayMember";
             this.groupBoxDisplayMember.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBoxDisplayMember.Size = new System.Drawing.Size(222, 271);
+            this.groupBoxDisplayMember.Size = new System.Drawing.Size(331, 173);
             this.groupBoxDisplayMember.TabIndex = 37;
             this.groupBoxDisplayMember.TabStop = false;
             this.groupBoxDisplayMember.Text = "Display Member";
             // 
+            // radioButtonBackgroundColor
+            // 
+            this.radioButtonBackgroundColor.AutoSize = true;
+            this.radioButtonBackgroundColor.Location = new System.Drawing.Point(164, 116);
+            this.radioButtonBackgroundColor.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonBackgroundColor.Name = "radioButtonBackgroundColor";
+            this.radioButtonBackgroundColor.Size = new System.Drawing.Size(148, 29);
+            this.radioButtonBackgroundColor.TabIndex = 6;
+            this.radioButtonBackgroundColor.TabStop = true;
+            this.radioButtonBackgroundColor.Text = "Back Color";
+            this.radioButtonBackgroundColor.UseVisualStyleBackColor = false;
+            this.radioButtonBackgroundColor.CheckedChanged += new System.EventHandler(this.radioButtonBackgroundColor_CheckedChanged);
+            // 
+            // radioButtonTextColor
+            // 
+            this.radioButtonTextColor.AutoSize = true;
+            this.radioButtonTextColor.Location = new System.Drawing.Point(12, 116);
+            this.radioButtonTextColor.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonTextColor.Name = "radioButtonTextColor";
+            this.radioButtonTextColor.Size = new System.Drawing.Size(142, 29);
+            this.radioButtonTextColor.TabIndex = 5;
+            this.radioButtonTextColor.TabStop = true;
+            this.radioButtonTextColor.Text = "Text Color";
+            this.radioButtonTextColor.UseVisualStyleBackColor = false;
+            this.radioButtonTextColor.CheckedChanged += new System.EventHandler(this.radioButtonTextColor_CheckedChanged);
+            // 
+            // radioButtonTextFont
+            // 
+            this.radioButtonTextFont.AutoSize = true;
+            this.radioButtonTextFont.Location = new System.Drawing.Point(164, 75);
+            this.radioButtonTextFont.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonTextFont.Name = "radioButtonTextFont";
+            this.radioButtonTextFont.Size = new System.Drawing.Size(134, 29);
+            this.radioButtonTextFont.TabIndex = 4;
+            this.radioButtonTextFont.TabStop = true;
+            this.radioButtonTextFont.Text = "Text Font";
+            this.radioButtonTextFont.UseVisualStyleBackColor = false;
+            this.radioButtonTextFont.CheckedChanged += new System.EventHandler(this.radioButtonTextFont_CheckedChanged);
+            // 
+            // radioButtonZOrder
+            // 
+            this.radioButtonZOrder.AutoSize = true;
+            this.radioButtonZOrder.Location = new System.Drawing.Point(164, 31);
+            this.radioButtonZOrder.Margin = new System.Windows.Forms.Padding(6);
+            this.radioButtonZOrder.Name = "radioButtonZOrder";
+            this.radioButtonZOrder.Size = new System.Drawing.Size(110, 29);
+            this.radioButtonZOrder.TabIndex = 3;
+            this.radioButtonZOrder.TabStop = true;
+            this.radioButtonZOrder.Text = "ZOrder";
+            this.radioButtonZOrder.UseVisualStyleBackColor = false;
+            this.radioButtonZOrder.CheckedChanged += new System.EventHandler(this.radioButtonZOrder_CheckedChanged);
+            // 
             // radioButtonLocation
             // 
             this.radioButtonLocation.AutoSize = true;
-            this.radioButtonLocation.Location = new System.Drawing.Point(12, 119);
+            this.radioButtonLocation.Location = new System.Drawing.Point(12, 75);
             this.radioButtonLocation.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonLocation.Name = "radioButtonLocation";
             this.radioButtonLocation.Size = new System.Drawing.Size(125, 29);
@@ -209,89 +268,57 @@ namespace MultiSDIText
             this.radioButtonLocation.TabStop = true;
             this.radioButtonLocation.Text = "Location";
             this.radioButtonLocation.UseVisualStyleBackColor = false;
-            this.radioButtonLocation.CheckedChanged += new System.EventHandler(this.radioButtonZOrder_CheckedChanged);
+            this.radioButtonLocation.CheckedChanged += new System.EventHandler(this.radioButtonLocation_CheckedChanged);
             // 
             // radioButtonName
             // 
             this.radioButtonName.AutoSize = true;
-            this.radioButtonName.Location = new System.Drawing.Point(12, 75);
+            this.radioButtonName.Location = new System.Drawing.Point(11, 31);
             this.radioButtonName.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonName.Name = "radioButtonName";
-            this.radioButtonName.Size = new System.Drawing.Size(99, 29);
+            this.radioButtonName.Size = new System.Drawing.Size(118, 29);
             this.radioButtonName.TabIndex = 1;
             this.radioButtonName.TabStop = true;
-            this.radioButtonName.Text = "Name";
+            this.radioButtonName.Text = "Content";
             this.radioButtonName.UseVisualStyleBackColor = true;
             this.radioButtonName.CheckedChanged += new System.EventHandler(this.radioButtonName_CheckedChanged);
-            // 
-            // radioButtonDefault
-            // 
-            this.radioButtonDefault.AutoSize = true;
-            this.radioButtonDefault.Location = new System.Drawing.Point(12, 31);
-            this.radioButtonDefault.Margin = new System.Windows.Forms.Padding(6);
-            this.radioButtonDefault.Name = "radioButtonDefault";
-            this.radioButtonDefault.Size = new System.Drawing.Size(111, 29);
-            this.radioButtonDefault.TabIndex = 0;
-            this.radioButtonDefault.TabStop = true;
-            this.radioButtonDefault.Text = "Default";
-            this.radioButtonDefault.UseVisualStyleBackColor = true;
-            this.radioButtonDefault.CheckedChanged += new System.EventHandler(this.radioButtonDefault_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(218, 492);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 44);
-            this.button1.TabIndex = 38;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(144, 492);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 44);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(66, 492);
+            this.button3.Location = new System.Drawing.Point(86, 464);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 44);
+            this.button3.Size = new System.Drawing.Size(168, 44);
             this.button3.TabIndex = 40;
-            this.button3.Text = "|<";
+            this.button3.Text = "Send to Back";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(294, 492);
+            this.button4.Location = new System.Drawing.Point(266, 464);
             this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 44);
+            this.button4.Size = new System.Drawing.Size(168, 44);
             this.button4.TabIndex = 41;
-            this.button4.Text = ">|";
+            this.button4.Text = "Send to Front";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // locationLabel
             // 
             this.locationLabel.AutoSize = true;
-            this.locationLabel.Location = new System.Drawing.Point(167, 446);
+            this.locationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationLabel.Location = new System.Drawing.Point(156, 414);
             this.locationLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.locationLabel.Name = "locationLabel";
-            this.locationLabel.Size = new System.Drawing.Size(86, 25);
+            this.locationLabel.Size = new System.Drawing.Size(125, 33);
             this.locationLabel.TabIndex = 42;
             this.locationLabel.Text = "Z-Order";
             // 
             // textColorButton
             // 
             this.textColorButton.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", this.bsDocument, "Color", true));
-            this.textColorButton.Location = new System.Drawing.Point(405, 423);
+            this.textColorButton.Location = new System.Drawing.Point(557, 376);
             this.textColorButton.Name = "textColorButton";
             this.textColorButton.Size = new System.Drawing.Size(155, 71);
             this.textColorButton.TabIndex = 43;
@@ -302,7 +329,7 @@ namespace MultiSDIText
             // backgroundColorButton
             // 
             this.backgroundColorButton.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", this.bsDocument, "BackgroundColor", true));
-            this.backgroundColorButton.Location = new System.Drawing.Point(599, 423);
+            this.backgroundColorButton.Location = new System.Drawing.Point(713, 376);
             this.backgroundColorButton.Name = "backgroundColorButton";
             this.backgroundColorButton.Size = new System.Drawing.Size(155, 71);
             this.backgroundColorButton.TabIndex = 44;
@@ -313,10 +340,10 @@ namespace MultiSDIText
             // textFontButton
             // 
             this.textFontButton.DataBindings.Add(new System.Windows.Forms.Binding("Font", this.bsDocument, "Font", true));
-            this.textFontButton.Location = new System.Drawing.Point(506, 516);
+            this.textFontButton.Location = new System.Drawing.Point(612, 299);
             this.textFontButton.Name = "textFontButton";
             this.textFontButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textFontButton.Size = new System.Drawing.Size(155, 71);
+            this.textFontButton.Size = new System.Drawing.Size(203, 76);
             this.textFontButton.TabIndex = 45;
             this.textFontButton.Text = "Text Font";
             this.textFontButton.UseVisualStyleBackColor = true;
@@ -324,10 +351,10 @@ namespace MultiSDIText
             // 
             // OkOptionsButton
             // 
-            this.OkOptionsButton.Location = new System.Drawing.Point(460, 641);
+            this.OkOptionsButton.Location = new System.Drawing.Point(567, 494);
             this.OkOptionsButton.Name = "OkOptionsButton";
             this.OkOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.OkOptionsButton.Size = new System.Drawing.Size(155, 71);
+            this.OkOptionsButton.Size = new System.Drawing.Size(145, 53);
             this.OkOptionsButton.TabIndex = 46;
             this.OkOptionsButton.Text = "Apply";
             this.OkOptionsButton.UseVisualStyleBackColor = true;
@@ -335,19 +362,33 @@ namespace MultiSDIText
             // 
             // cancelOptionsButton
             // 
-            this.cancelOptionsButton.Location = new System.Drawing.Point(661, 641);
+            this.cancelOptionsButton.Location = new System.Drawing.Point(723, 494);
             this.cancelOptionsButton.Name = "cancelOptionsButton";
             this.cancelOptionsButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cancelOptionsButton.Size = new System.Drawing.Size(155, 71);
+            this.cancelOptionsButton.Size = new System.Drawing.Size(145, 53);
             this.cancelOptionsButton.TabIndex = 47;
             this.cancelOptionsButton.Text = "Cancel";
             this.cancelOptionsButton.UseVisualStyleBackColor = true;
+            // 
+            // ZOrderTextBox
+            // 
+            this.ZOrderTextBox.BackColor = System.Drawing.Color.Gold;
+            this.ZOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "ZOrder", true));
+            this.ZOrderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZOrderTextBox.Location = new System.Drawing.Point(293, 414);
+            this.ZOrderTextBox.Margin = new System.Windows.Forms.Padding(6);
+            this.ZOrderTextBox.Name = "ZOrderTextBox";
+            this.ZOrderTextBox.ReadOnly = true;
+            this.ZOrderTextBox.Size = new System.Drawing.Size(67, 31);
+            this.ZOrderTextBox.TabIndex = 48;
+            this.ZOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 747);
+            this.ClientSize = new System.Drawing.Size(909, 570);
+            this.Controls.Add(this.ZOrderTextBox);
             this.Controls.Add(this.cancelOptionsButton);
             this.Controls.Add(this.OkOptionsButton);
             this.Controls.Add(this.textFontButton);
@@ -356,8 +397,6 @@ namespace MultiSDIText
             this.Controls.Add(this.locationLabel);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxDisplayMember);
             this.Controls.Add(this.listBoxDoc);
             this.Controls.Add(this.labelLocation);
@@ -382,6 +421,8 @@ namespace MultiSDIText
 
         }
 
+
+
         #endregion
 
         private System.Windows.Forms.Label labelPosition;
@@ -395,13 +436,10 @@ namespace MultiSDIText
         private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.TextBox textBoxLocation;
         private System.Windows.Forms.TextBox textBoxContent;
-        private System.Windows.Forms.ListBox listBoxDoc;
+        public System.Windows.Forms.ListBox listBoxDoc;
         private System.Windows.Forms.GroupBox groupBoxDisplayMember;
         private System.Windows.Forms.RadioButton radioButtonLocation;
         private System.Windows.Forms.RadioButton radioButtonName;
-        private System.Windows.Forms.RadioButton radioButtonDefault;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.BindingSource bsDocument;
@@ -411,6 +449,11 @@ namespace MultiSDIText
         private System.Windows.Forms.Button textFontButton;
         private System.Windows.Forms.Button OkOptionsButton;
         private System.Windows.Forms.Button cancelOptionsButton;
+        private System.Windows.Forms.TextBox ZOrderTextBox;
+        private System.Windows.Forms.RadioButton radioButtonZOrder;
+        private System.Windows.Forms.RadioButton radioButtonBackgroundColor;
+        private System.Windows.Forms.RadioButton radioButtonTextColor;
+        private System.Windows.Forms.RadioButton radioButtonTextFont;
         //private System.Collections.Generic.List<Storage.Text> textDoc = new System.Collections.Generic.List<Storage.Text>();
 
 

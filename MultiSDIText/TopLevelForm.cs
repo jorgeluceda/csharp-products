@@ -275,9 +275,10 @@ namespace MultiSDIText
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             
-            this.optionsForm.ShowDialog();
 
+            this.optionsForm.listBoxDoc.DisplayMember = "Content";
+            this.optionsForm.ShowDialog();
+            
 
             if(this.optionsForm.closeAccept == true)
             {
@@ -304,9 +305,9 @@ namespace MultiSDIText
       
             {
                 doc.Add(curText);
+                this.docPictureBox.Invalidate();
 
             }
-            this.docPictureBox.Invalidate();
         }
     }
 }
