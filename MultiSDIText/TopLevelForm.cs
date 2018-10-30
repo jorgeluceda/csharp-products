@@ -344,15 +344,18 @@ namespace MultiSDIText
             {
                 case 37:
                     //move current text object to left
-                    curText.locationX -= 4;
+                    curText.locationX -= 1;
                     //this.doc.Add(curText);
+                    statusToolStripStatusLabel.Text = "Moving Left: " + curText.locationX;
 
                     //optionsForm.DataBindingSource.DataSource = doc.content;
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
                     break;
                 case 38:
-                    curText.locationY -= 4;
+                    curText.locationY -= 1;
+                    statusToolStripStatusLabel.Text = "Moving Up: " + curText.locationY;
+
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
@@ -360,7 +363,9 @@ namespace MultiSDIText
                     break;
                 case 39:
                     //move current text object to right
-                    curText.locationX += 4;
+                    curText.locationX += 1;
+                    statusToolStripStatusLabel.Text = "Moving Right: " + curText.locationX;
+
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
@@ -368,7 +373,9 @@ namespace MultiSDIText
                     break;
                 case 40:
                     //move current text object downs
-                    curText.locationY += 4;
+                    curText.locationY += 1;
+                    statusToolStripStatusLabel.Text = "Moving Down: " + curText.locationY;
+
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
@@ -399,8 +406,10 @@ namespace MultiSDIText
             if (e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
             downPoint = new Point(e.X, e.Y);
             this.curText = doc.Find(e.Location);
+            statusToolStripStatusLabel.Text = "Text Selected";
 
-            
+
+
         }
 
         private void oathToolStripMenuItem_Click(object sender, EventArgs e)
