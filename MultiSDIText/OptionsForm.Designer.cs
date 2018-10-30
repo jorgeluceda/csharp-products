@@ -404,7 +404,7 @@ namespace MultiSDIText
         private System.Windows.Forms.RadioButton radioButtonLocation;
         private System.Windows.Forms.RadioButton radioButtonName;
         private System.Windows.Forms.RadioButton radioButtonDefault;
-        private System.Windows.Forms.ListBox listBoxDoc;
+        public System.Windows.Forms.ListBox listBoxDoc;
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.Label labelOf;
         private System.Windows.Forms.Label labelCount;
