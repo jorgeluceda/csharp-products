@@ -402,9 +402,12 @@ namespace MultiSDIText
                 if (downPoint == Point.Empty) return;       // Check for empty downPoint (anomaly case)
 
                 Point location = new Point(e.X, e.Y);
-                this.curText.Location = location;           // change text location to mouse location
-                this.optionsForm.RefreshItems();            // refresh items
-                this.docPictureBox.Invalidate();
+                if(curText != null) {
+                    this.curText.Location = location;           // change text location to mouse location
+                    this.optionsForm.RefreshItems();            // refresh items
+                    this.docPictureBox.Invalidate();
+                }
+
         }
 
         private void docPictureBox_MouseUp(object sender, MouseEventArgs e)
