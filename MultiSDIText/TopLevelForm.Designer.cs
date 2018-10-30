@@ -45,9 +45,10 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.fontToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.colorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.docPictureBox = new System.Windows.Forms.PictureBox();
+            this.backToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -179,7 +180,8 @@
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusToolStripStatusLabel,
             this.fontToolStripStatusLabel,
-            this.colorToolStripStatusLabel});
+            this.colorToolStripStatusLabel,
+            this.backToolStripStatusLabel});
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 302);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -193,19 +195,6 @@
             this.statusToolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.statusToolStripStatusLabel.Text = "Status";
             // 
-            // docPictureBox
-            // 
-            this.docPictureBox.Location = new System.Drawing.Point(0, 26);
-            this.docPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.docPictureBox.Name = "docPictureBox";
-            this.docPictureBox.Size = new System.Drawing.Size(541, 305);
-            this.docPictureBox.TabIndex = 6;
-            this.docPictureBox.TabStop = false;
-            this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
-            this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
-            this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
-            this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
-            // 
             // fontToolStripStatusLabel
             // 
             this.fontToolStripStatusLabel.Name = "fontToolStripStatusLabel";
@@ -217,6 +206,25 @@
             this.colorToolStripStatusLabel.Name = "colorToolStripStatusLabel";
             this.colorToolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.colorToolStripStatusLabel.Text = "Color:";
+            // 
+            // docPictureBox
+            // 
+            this.docPictureBox.Location = new System.Drawing.Point(0, 26);
+            this.docPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.docPictureBox.Name = "docPictureBox";
+            this.docPictureBox.Size = new System.Drawing.Size(541, 305);
+            this.docPictureBox.TabIndex = 6;
+            this.docPictureBox.TabStop = false;
+            this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
+            this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
+            this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
+            this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
+            // 
+            // backToolStripStatusLabel
+            // 
+            this.backToolStripStatusLabel.Name = "backToolStripStatusLabel";
+            this.backToolStripStatusLabel.Size = new System.Drawing.Size(64, 17);
+            this.backToolStripStatusLabel.Text = "BackColor:";
             // 
             // TopLevelForm
             // 
@@ -263,6 +271,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel fontToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel colorToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel backToolStripStatusLabel;
     }
 }
 
