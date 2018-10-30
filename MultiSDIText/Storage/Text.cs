@@ -89,7 +89,7 @@ namespace MultiSDIText.Storage
         /// Internal property for holding the color value, so
         /// serialization is easier to implement
         /// </summary>
-        private int colorArgb;
+        private int colorArgb = 000;
 
         /// <summary>
         /// The color of the text
@@ -369,8 +369,16 @@ namespace MultiSDIText.Storage
         public void Draw(Graphics g)
         {
             // Draw a string on the PictureBox.
-            g.DrawString(this.content,
-                this.Font, System.Drawing.Brushes.Blue, this.Location);
+
+            SizeF stringSize = g.MeasureString(this.content, this.Font);
+            SolidBrush rectBrush = new SolidBrush(this.BackgroundColor);
+            SolidBrush textBrush = new SolidBrush(this.Color);
+
+            g.FillRectangle(rectBrush, new RectangleF(this.Location, stringSize));
+
+            g.DrawString(this.content, this.Font, textBrush, this.Location);
+
+
         }
 
         /// <summary>
