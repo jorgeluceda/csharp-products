@@ -80,12 +80,6 @@
       <DependentUpon>OathDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="MultiSDITextApplication.cs" />
-    <Compile Include="OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptionsForm.Designer.cs">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="SearchDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,9 +110,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OathDialog.resx">
       <DependentUpon>OathDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OptionsForm.resx">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchDialog.resx">
       <DependentUpon>SearchDialog.cs</DependentUpon>
