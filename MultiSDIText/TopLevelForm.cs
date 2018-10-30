@@ -84,11 +84,17 @@ namespace MultiSDIText
         }
         private void docPictureBox_Click(object sender, EventArgs e)
         {
-            
-            Storage.Text curText = new Storage.Text();
-
             MouseEventArgs me = (MouseEventArgs)e;
             Point coordinates = me.Location;
+
+            if (doc.Find(coordinates) != null)
+            {
+                Console.WriteLine("yes");
+                this.curText = doc.Find(coordinates);
+                return;
+            }
+            Storage.Text curText = new Storage.Text();
+
 
             curText.ZOrder = Zorder;
             Zorder += 1;
@@ -350,8 +356,6 @@ namespace MultiSDIText
 
         private void TopLevelForm_KeyDown(object sender, KeyEventArgs e)
         {
-            Point coordinates = curText.Location;
-            coordinates.X += 1;
 
             // left arrow = 37
             // up arrow = 38
@@ -362,7 +366,7 @@ namespace MultiSDIText
                 case 37:
                     Console.WriteLine("left");
                     //move current text object to left
-                    curText.Location = coordinates;
+                    curText.locationX -=1;
                     //this.doc.Add(curText);
 
                     //optionsForm.DataBindingSource.DataSource = doc.content;
@@ -371,17 +375,28 @@ namespace MultiSDIText
                     break;
                 case 38:
                     Console.WriteLine("up");
+                    curText.locationY -= 1;
                     //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
                     ;
                     break;
                 case 39:
                     Console.WriteLine("right");
                     //move current text object to right
+                    curText.locationX += 1;
+                    //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
 
                     break;
                 case 40:
                     Console.WriteLine("down");
                     //move current text object downs
+                    curText.locationY += 1;
+                    //move current text object up
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
 
                     break;
                 default:
