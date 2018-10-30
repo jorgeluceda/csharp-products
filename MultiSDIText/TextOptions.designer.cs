@@ -186,6 +186,7 @@ namespace MultiSDIText
             // textBoxLocation
             // 
             this.textBoxLocation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxLocation.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBoxLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Location", true));
             this.textBoxLocation.Location = new System.Drawing.Point(162, 346);
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(6);
@@ -196,6 +197,7 @@ namespace MultiSDIText
             // textBoxContent
             // 
             this.textBoxContent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxContent.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBoxContent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Content", true));
             this.textBoxContent.Location = new System.Drawing.Point(162, 299);
             this.textBoxContent.Margin = new System.Windows.Forms.Padding(6);
