@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MultiSDIText;
@@ -14,14 +15,9 @@ namespace MultiSDIText
 {
     public partial class PlainTextDialog : Form
     {
-        BindingList<Storage.Text> bindingData = new BindingList<Storage.Text>();
+        public Document plainTextDoc = new Document();
         public bool closeAccept = false;
 
-        public BindingSource DataBindingSource
-        {
-            get { return this.bsDocument; }
-            set { this.bsDocument = value; }
-        }
 
         public PlainTextDialog()
         {
@@ -35,12 +31,18 @@ namespace MultiSDIText
         /// <returns>An array of words as Text object</returns>
         public BindingList<Text> TurnIntoTextObjects(String s)
         {
-            String[] words = s.Split(' ');
+            String[] words = Regex.Split(s, "\\s+");
             BindingList<Text> texts = new BindingList<Text>();
+
+            int locationx = 50;
+            int locationy = 50;
             for (int i = 0; i < words.Length; i++)
             {
                 Text text = new Text();
                 text.Content = words[i];
+                text.Location = new Point(locationx, locationy);
+                locationx += 30;
+                locationy += 30;
                 texts.Add(text);
             }
             return texts;
@@ -54,6 +56,8 @@ namespace MultiSDIText
 
         private void AddTextButton_Click(object sender, EventArgs e)
         {
+            plainTextDoc.content = TurnIntoTextObjects(PlainTextTextBox.Text);
+
             closeAccept = true;
             this.Close();
         }

@@ -165,6 +165,7 @@ namespace MultiSDIText
             // 
             this.labelLocation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLocation.AutoSize = true;
+            this.labelLocation.BackColor = System.Drawing.Color.Transparent;
             this.labelLocation.Location = new System.Drawing.Point(56, 349);
             this.labelLocation.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelLocation.Name = "labelLocation";
@@ -176,6 +177,7 @@ namespace MultiSDIText
             // 
             this.labelContent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelContent.AutoSize = true;
+            this.labelContent.BackColor = System.Drawing.Color.Transparent;
             this.labelContent.Location = new System.Drawing.Point(61, 302);
             this.labelContent.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelContent.Name = "labelContent";
@@ -338,7 +340,7 @@ namespace MultiSDIText
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(168, 44);
             this.button4.TabIndex = 41;
-            this.button4.Text = "Send to Front";
+            this.button4.Text = "Bring to Front";
             this.button4.UseVisualStyleBackColor = false;
             // 
             // locationLabel
