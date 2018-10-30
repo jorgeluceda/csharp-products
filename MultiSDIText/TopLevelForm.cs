@@ -316,5 +316,11 @@ namespace MultiSDIText
             oath.ShowDialog();
 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aboutDialog about = new aboutDialog();
+            about.ShowDialog();
+        }
     }
 }
