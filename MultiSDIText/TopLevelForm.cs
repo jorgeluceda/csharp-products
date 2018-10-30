@@ -89,7 +89,18 @@ namespace MultiSDIText
 
             if (doc.Find(coordinates) != null)
             {
-                Console.WriteLine("yes");
+                if (me.Button.ToString() == "Right")
+                {
+                    this.optionsForm.ShowDialog();
+
+
+                    if (this.optionsForm.closeAccept == true)
+                    {
+                        this.docPictureBox.Invalidate();
+                    }
+
+                    return;
+                }
                 this.curText = doc.Find(coordinates);
                 return;
             }
