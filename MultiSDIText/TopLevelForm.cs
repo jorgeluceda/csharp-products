@@ -310,21 +310,29 @@ namespace MultiSDIText
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PlainTextDialog dlg = new PlainTextDialog();
+            Storage.Text addedText = new Storage.Text();
 
-            dlg.DataBindingSource.DataSource = curText;
+            addedText.Content = "";
+
+            addedText.ZOrder = Zorder;
+            Zorder += 1;
+            addedText.Color = Color.Blue;
+            addedText.BackgroundColor = Color.Transparent;
+
+            addedText.Location = new Point(100, 150);
+            addedText.Font = new Font("Times New Roman", 12.0f);
+
+
+            dlg.DataBindingSource.DataSource = addedText;
+
             dlg.ShowDialog();
 
             
-            curText.Location = new Point(50, 50);
-            curText.Font = new Font("Times New Roman", 12.0f);
-            curText.ZOrder = Zorder;
-            
-            Zorder += 1;
 
             if(dlg.closeAccept == true)
       
             {
-                doc.Add(curText);
+                doc.Add(addedText);
                 this.docPictureBox.Invalidate();
 
             }
