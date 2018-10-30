@@ -143,7 +143,7 @@
             // 
             // docPictureBox
             // 
-            this.docPictureBox.Location = new System.Drawing.Point(0, 119);
+            this.docPictureBox.Location = new System.Drawing.Point(0, 61);
             this.docPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.docPictureBox.Name = "docPictureBox";
             this.docPictureBox.Size = new System.Drawing.Size(1443, 728);
@@ -151,6 +151,9 @@
             this.docPictureBox.TabStop = false;
             this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
             this.docPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.docPictureBox_DragDrop);
+            this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
+            this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
+            this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
             // 
             // TopLevelForm
             // 

@@ -21,6 +21,8 @@ namespace MultiSDIText
         string fileName;
 
         private SearchDialog dlg;
+        Point downPoint = Point.Empty;
+
 
         public SearchDialog SearchDlg
         {
@@ -86,7 +88,7 @@ namespace MultiSDIText
         {
             MouseEventArgs me = (MouseEventArgs)e;
             Point coordinates = me.Location;
-
+            
             if (doc.Find(coordinates) != null)
             {
                 if (me.Button.ToString() == "Right")
@@ -413,6 +415,38 @@ namespace MultiSDIText
                 default:
                     break;
             }
+        }
+
+        private void docPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            //if (doc.Find(e.Location) != null)
+            //{
+                if (e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
+                downPoint = new Point(e.X, e.Y);
+            this.curText = doc.Find(e.Location);
+            //}          // Store the X, Y coordinates of the event
+            //else
+              //  return;
+            
+        }
+
+        private void docPictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+
+
+                if (downPoint == Point.Empty) return;       // Check for empty downPoint (anomaly case)
+
+                Point location = new Point(e.X, e.Y);
+                this.curText.Location = location;           // change text location to mouse location
+                this.optionsForm.RefreshItems();            // refresh items
+                this.docPictureBox.Invalidate();
+        }
+
+        private void docPictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;  // If the event is not a left mouse click event, exit
+            downPoint = Point.Empty;                    // Reset the downPoint back to empty 
         }
     }
 }
