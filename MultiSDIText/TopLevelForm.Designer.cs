@@ -37,19 +37,19 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.fontToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.colorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.backToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -130,6 +130,20 @@
             this.textPreferencesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.textPreferencesToolStripMenuItem.Text = "Text Preferences";
             // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(80, 19);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
+            this.addToolStripMenuItem.Text = "Add Text";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
             // mainHelpToolStripMenuItem
             // 
             this.mainHelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -161,29 +175,15 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // preferencesToolStripMenuItem
-            // 
-            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(80, 19);
-            this.preferencesToolStripMenuItem.Text = "Preferences";
-            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
-            this.addToolStripMenuItem.Text = "Add Text";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
-            // 
             // mainStatusStrip
             // 
             this.mainStatusStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusToolStripStatusLabel,
             this.fontToolStripStatusLabel,
             this.colorToolStripStatusLabel,
             this.backToolStripStatusLabel,
-            this.capsToolStripStatusLabel});
+            this.capsToolStripStatusLabel,
+            this.statusToolStripStatusLabel});
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 302);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -203,19 +203,6 @@
             this.fontToolStripStatusLabel.Size = new System.Drawing.Size(37, 17);
             this.fontToolStripStatusLabel.Text = "Font: ";
             // 
-            // docPictureBox
-            // 
-            this.docPictureBox.Location = new System.Drawing.Point(0, 26);
-            this.docPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.docPictureBox.Name = "docPictureBox";
-            this.docPictureBox.Size = new System.Drawing.Size(541, 305);
-            this.docPictureBox.TabIndex = 6;
-            this.docPictureBox.TabStop = false;
-            this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
-            this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
-            this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
-            this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
-            // 
             // colorToolStripStatusLabel
             // 
             this.colorToolStripStatusLabel.Name = "colorToolStripStatusLabel";
@@ -233,6 +220,19 @@
             this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
             this.capsToolStripStatusLabel.Size = new System.Drawing.Size(85, 17);
             this.capsToolStripStatusLabel.Text = "CapsLock: OFF";
+            // 
+            // docPictureBox
+            // 
+            this.docPictureBox.Location = new System.Drawing.Point(0, 26);
+            this.docPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.docPictureBox.Name = "docPictureBox";
+            this.docPictureBox.Size = new System.Drawing.Size(541, 305);
+            this.docPictureBox.TabIndex = 6;
+            this.docPictureBox.TabStop = false;
+            this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
+            this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
+            this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
+            this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
             // 
             // TopLevelForm
             // 
