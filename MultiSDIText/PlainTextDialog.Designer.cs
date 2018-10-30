@@ -29,12 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.AddTextButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.PlainTextTextBox = new System.Windows.Forms.TextBox();
-            this.bsDocument = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
             this.SuspendLayout();
             // 
             // AddTextButton
@@ -63,7 +60,6 @@
             // 
             // PlainTextTextBox
             // 
-            this.PlainTextTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Content", true));
             this.PlainTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -73,10 +69,6 @@
             this.PlainTextTextBox.Name = "PlainTextTextBox";
             this.PlainTextTextBox.Size = new System.Drawing.Size(974, 446);
             this.PlainTextTextBox.TabIndex = 2;
-            // 
-            // bsDocument
-            // 
-            this.bsDocument.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // PlainTextDialog
             // 
@@ -90,7 +82,6 @@
             this.Name = "PlainTextDialog";
             this.Text = "PlainTextDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlainTextDialog_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,6 +92,5 @@
         private System.Windows.Forms.Button AddTextButton;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox PlainTextTextBox;
-        private System.Windows.Forms.BindingSource bsDocument;
     }
 }
