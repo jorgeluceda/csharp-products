@@ -404,7 +404,7 @@ namespace MultiSDIText
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HelpDialog help = new HelpDialog();
-            help.Show();
+            help.ShowDialog();
         }
         
         private void docPictureBox_MouseMove(object sender, MouseEventArgs e)
