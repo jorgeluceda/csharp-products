@@ -393,9 +393,8 @@ namespace MultiSDIText.Storage
         {
             //SizeF stringSize = g.MeasureString(this.content, this.Font);
 
-            if (locationX <= p.X && (p.X <= locationX + stringSize.Width))
+            if ((locationX <= p.X && (p.X <= locationX + stringSize.Width))&& (locationY <= p.Y && (p.Y <= locationY + stringSize.Height)))
             {
-                Console.WriteLine(p);
                 return true;
             }
             else
