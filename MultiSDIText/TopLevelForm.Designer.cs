@@ -223,10 +223,11 @@
             // 
             // docPictureBox
             // 
+            this.docPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docPictureBox.Location = new System.Drawing.Point(0, 32);
             this.docPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.docPictureBox.Name = "docPictureBox";
-            this.docPictureBox.Size = new System.Drawing.Size(721, 375);
+            this.docPictureBox.Size = new System.Drawing.Size(637, 367);
             this.docPictureBox.TabIndex = 6;
             this.docPictureBox.TabStop = false;
             this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);

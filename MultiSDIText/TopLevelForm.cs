@@ -109,7 +109,7 @@ namespace MultiSDIText
                     colorToolStripStatusLabel.BackColor = this.curText.Color;
                     fontToolStripStatusLabel.Text = "Font: " + this.curText.Font.Name;
                 }
-                    this.curText = doc.Find(coordinates);//change current text to the found object
+                this.curText = doc.Find(coordinates);//change current text to the found object
                 return;
             }
 
