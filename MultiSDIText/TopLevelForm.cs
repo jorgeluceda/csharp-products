@@ -397,7 +397,7 @@ namespace MultiSDIText
 
         private void oathToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Oath oath = new Oath();
+            oathDialog oath = new oathDialog();
             oath.Show();
         }
 
@@ -426,6 +426,12 @@ namespace MultiSDIText
         {
             if (e.Button != MouseButtons.Left) return;  // If the event is not a left mouse click event, exit
             downPoint = Point.Empty;                    // Reset the downPoint back to empty 
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aboutDialog dlg = new aboutDialog();
+            dlg.Show();
         }
     }
 }
