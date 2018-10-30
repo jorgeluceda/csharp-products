@@ -19,6 +19,7 @@ namespace MultiSDIText.Storage
         /// </summary>
         public Text()
         {
+
             this.content = "";
 
             this.zOrder = 0;
@@ -361,7 +362,7 @@ namespace MultiSDIText.Storage
         #endregion
 
         #region Functionality
-
+        SizeF stringSize;
         /// <summary>
         /// Draw the string property
         /// </summary>
@@ -377,9 +378,10 @@ namespace MultiSDIText.Storage
             g.FillRectangle(rectBrush, new RectangleF(this.Location, stringSize));
 
             g.DrawString(this.content, this.Font, textBrush, this.Location);
-
+            this.stringSize = stringSize;
 
         }
+
 
         /// <summary>
         /// Determines if a given point is within the text's rectangle
@@ -389,7 +391,15 @@ namespace MultiSDIText.Storage
         /// <returns>Whether or not the point is within the text boundaries</returns>
         public bool PointWithinBoundaries(Point p)
         {
-            throw new NotImplementedException();
+            //SizeF stringSize = g.MeasureString(this.content, this.Font);
+
+            if ((locationX <= p.X && (p.X <= locationX + stringSize.Width))&& (locationY <= p.Y && (p.Y <= locationY + stringSize.Height)))
+            {
+                return true;
+            }
+            else
+                return false;
+
         }
 
         #endregion
