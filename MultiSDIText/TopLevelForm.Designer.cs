@@ -149,7 +149,6 @@
             this.docPictureBox.TabIndex = 6;
             this.docPictureBox.TabStop = false;
             this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
-            this.docPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.docPictureBox_DragDrop);
             this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
             this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
             this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
