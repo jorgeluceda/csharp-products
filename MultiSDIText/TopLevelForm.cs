@@ -309,5 +309,12 @@ namespace MultiSDIText
 
             }
         }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            oathDialog oath = new oathDialog();
+            oath.ShowDialog();
+
+        }
     }
 }
