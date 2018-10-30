@@ -322,10 +322,5 @@ namespace MultiSDIText
             aboutDialog about = new aboutDialog();
             about.ShowDialog();
         }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
