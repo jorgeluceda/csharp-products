@@ -89,11 +89,11 @@ namespace MultiSDIText
             MouseEventArgs me = (MouseEventArgs)e;
             Point coordinates = me.Location;
             
-            if (doc.Find(coordinates) != null)
+            if (doc.Find(coordinates) != null)  //check to see if click is inside a text object
             {
-                if (me.Button.ToString() == "Right")
+                if (me.Button.ToString() == "Right") //checks to see if a right click
                 {
-                    this.optionsForm.ShowDialog();
+                    this.optionsForm.ShowDialog();  //opens options if right click on a text object
 
 
                     if (this.optionsForm.closeAccept == true)
@@ -103,7 +103,7 @@ namespace MultiSDIText
 
                     return;
                 }
-                this.curText = doc.Find(coordinates);
+                this.curText = doc.Find(coordinates);//change current text to the found object
                 return;
             }
             Storage.Text curText = new Storage.Text();
@@ -125,7 +125,7 @@ namespace MultiSDIText
             optionsForm.DataBindingSource.DataSource = doc.content;
             this.optionsForm.RefreshItems();
             this.docPictureBox.Invalidate();
-            this.curText = curText;
+            this.curText = curText;                     //change the current text to the new object
 
         }
 
@@ -330,43 +330,6 @@ namespace MultiSDIText
             }
         }
 
-        private void MainMenu_KeyDown(object sender, KeyEventArgs e)
-        {
-            // left arrow = 37
-            // up arrow = 38
-            // right arrow= 39
-            // down arrow = 40
-            switch ((int)e.KeyCode)
-            {
-                case 37:
-                    Console.WriteLine("left");
-                    //move current text object to left
-                    break;
-                case 38:
-                    Console.WriteLine("up");
-                    //move current text object up
-
-                    break;
-                case 39:
-                    Console.WriteLine("right");
-                    //move current text object to right
-
-                    break;
-                case 40:
-                    Console.WriteLine("down");
-                    //move current text object downs
-
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void docPictureBox_DragDrop(object sender, DragEventArgs e)
-        {
-            Console.WriteLine("drag");
-        }
-
         private void TopLevelForm_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -377,7 +340,6 @@ namespace MultiSDIText
             switch ((int)e.KeyCode)
             {
                 case 37:
-                    Console.WriteLine("left");
                     //move current text object to left
                     curText.locationX -=1;
                     //this.doc.Add(curText);
@@ -387,7 +349,6 @@ namespace MultiSDIText
                     this.docPictureBox.Invalidate();
                     break;
                 case 38:
-                    Console.WriteLine("up");
                     curText.locationY -= 1;
                     //move current text object up
                     this.optionsForm.RefreshItems();
@@ -395,7 +356,6 @@ namespace MultiSDIText
                     ;
                     break;
                 case 39:
-                    Console.WriteLine("right");
                     //move current text object to right
                     curText.locationX += 1;
                     //move current text object up
@@ -404,7 +364,6 @@ namespace MultiSDIText
 
                     break;
                 case 40:
-                    Console.WriteLine("down");
                     //move current text object downs
                     curText.locationY += 1;
                     //move current text object up
@@ -420,14 +379,11 @@ namespace MultiSDIText
         private void docPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
 
-            //if (doc.Find(e.Location) != null)
-            //{
-                if (e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
-                downPoint = new Point(e.X, e.Y);
+
+            if (e.Button != MouseButtons.Left) return;   // If the event is not a left mouse click event, exit
+            downPoint = new Point(e.X, e.Y);
             this.curText = doc.Find(e.Location);
-            //}          // Store the X, Y coordinates of the event
-            //else
-              //  return;
+
             
         }
 

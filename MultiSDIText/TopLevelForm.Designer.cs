@@ -61,7 +61,6 @@
             this.MainMenu.Size = new System.Drawing.Size(1443, 57);
             this.MainMenu.TabIndex = 5;
             this.MainMenu.Text = "MainMenu";
-            this.MainMenu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainMenu_KeyDown);
             // 
             // fileToolStripMenuItem
             // 
