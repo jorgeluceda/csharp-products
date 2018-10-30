@@ -107,6 +107,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpDialog.resx">
       <DependentUpon>HelpDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlainTextDialog.resx">
       <DependentUpon>PlainTextDialog.cs</DependentUpon>
     </EmbeddedResource>
