@@ -31,11 +31,16 @@ namespace MultiSDIText
         //represents our document (a list of text objects and their functionality)
         Storage.Document doc = new Storage.Document();
 
+        Storage.Text curText = new Storage.Text();
+
+        /*
+         * Ommit for data binding - don't want to directly modify
+         * 
         public Document Document
         {
             get { return this.doc; }
             set { this.doc = value; }
-        }
+        } */
 
         //represents our current text to be added to the document
         //Storage.Text curText = new Storage.Text();
@@ -58,7 +63,6 @@ namespace MultiSDIText
             //initializing a current shape
             InitializeDS();
               
-
             // When an instance of TopLevelForm is created, add it to the MultiSDIApplication context
             MultiSDITextApplication.Application.AddTopLevelForm(this);
 
@@ -180,6 +184,8 @@ namespace MultiSDIText
             */
 
             optionsForm.DataBindingSource.DataSource = doc.content;
+            
+            //.DataBindingSource.DataSource = doc.content;
 
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
             
@@ -269,14 +275,31 @@ namespace MultiSDIText
         {
              
             this.optionsForm.ShowDialog();
-
+            this.docPictureBox.Invalidate();
 
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PlainTextDialog dlg = new PlainTextDialog();
+
+            dlg.DataBindingSource.DataSource = curText;
             dlg.ShowDialog();
+
+            
+            curText.Location = new Point(50, 50);
+            curText.Font = new Font("Times New Roman", 12.0f);
+            curText.ZOrder = Zorder;
+            
+            Zorder += 1;
+
+            if(dlg.closeAccept == true)
+      
+            {
+                doc.Add(curText);
+
+            }
+            this.docPictureBox.Invalidate();
         }
     }
 }
