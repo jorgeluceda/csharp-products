@@ -211,7 +211,8 @@ namespace MultiSDIText
             //.DataBindingSource.DataSource = doc.content;
 
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
-            
+
+            fontToolStripStatusLabel.Text =  "Times New Roman";
 
         }
 
@@ -303,7 +304,11 @@ namespace MultiSDIText
 
             if(this.optionsForm.closeAccept == true)
             {
+                backToolStripStatusLabel.BackColor = this.curText.BackgroundColor;
+                colorToolStripStatusLabel.BackColor = this.curText.Color;
+                fontToolStripStatusLabel.Text = "Font: " + this.curText.Font.Name;
                 this.docPictureBox.Invalidate();
+            
             }
 
         }
