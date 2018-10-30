@@ -33,7 +33,8 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
-            
+
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             radioButtonName.Checked = true;
             this.listBoxDoc.DisplayMember = "Content";
 
