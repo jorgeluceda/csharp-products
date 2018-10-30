@@ -79,5 +79,20 @@ namespace MultiSDIText
             }
 
         }
+
+        private void cutToolStripButton_Click(object sender, EventArgs e)
+        {
+            PlainTextTextBox.Cut();
+        }
+
+        private void copyToolStripButton_Click(object sender, EventArgs e)
+        {
+            PlainTextTextBox.Copy();
+        }
+
+        private void pasteToolStripButton_Click(object sender, EventArgs e)
+        {
+            PlainTextTextBox.Paste();
+        }
     }
 }
