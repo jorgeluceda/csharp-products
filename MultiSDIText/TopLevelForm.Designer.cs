@@ -62,9 +62,9 @@
             this.fileToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.windowToolStripMenuItem,
-            this.mainHelpToolStripMenuItem,
             this.preferencesToolStripMenuItem,
-            this.addToolStripMenuItem});
+            this.addToolStripMenuItem,
+            this.mainHelpToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(4, 3, 0, 3);
@@ -231,8 +231,8 @@
             // capsToolStripStatusLabel
             // 
             this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
-            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(64, 17);
-            this.capsToolStripStatusLabel.Text = "CapsLock: ";
+            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(85, 17);
+            this.capsToolStripStatusLabel.Text = "CapsLock: OFF";
             // 
             // TopLevelForm
             // 

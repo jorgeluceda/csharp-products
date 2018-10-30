@@ -376,6 +376,19 @@ namespace MultiSDIText
                 default:
                     break;
             }
+
+            if (Control.IsKeyLocked(Keys.CapsLock))
+            {
+                capsToolStripStatusLabel.Text = "CapsLock: ON";
+                capsToolStripStatusLabel.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+                capsToolStripStatusLabel.Text = "CapsLock: OFF";
+                capsToolStripStatusLabel.BackColor = this.BackColor;
+
+            }
+
         }
 
         private void docPictureBox_MouseDown(object sender, MouseEventArgs e)
