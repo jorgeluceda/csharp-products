@@ -106,6 +106,7 @@ namespace MultiSDIText
                 this.curText = doc.Find(coordinates);//change current text to the found object
                 return;
             }
+
             Storage.Text curText = new Storage.Text();
 
 
@@ -343,7 +344,7 @@ namespace MultiSDIText
             {
                 case 37:
                     //move current text object to left
-                    curText.locationX -=1;
+                    curText.locationX -= 4;
                     //this.doc.Add(curText);
 
                     //optionsForm.DataBindingSource.DataSource = doc.content;
@@ -351,7 +352,7 @@ namespace MultiSDIText
                     this.docPictureBox.Invalidate();
                     break;
                 case 38:
-                    curText.locationY -= 1;
+                    curText.locationY -= 4;
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
@@ -359,7 +360,7 @@ namespace MultiSDIText
                     break;
                 case 39:
                     //move current text object to right
-                    curText.locationX += 1;
+                    curText.locationX += 4;
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
@@ -367,7 +368,7 @@ namespace MultiSDIText
                     break;
                 case 40:
                     //move current text object downs
-                    curText.locationY += 1;
+                    curText.locationY += 4;
                     //move current text object up
                     this.optionsForm.RefreshItems();
                     this.docPictureBox.Invalidate();
