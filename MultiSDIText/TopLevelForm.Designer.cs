@@ -49,6 +49,7 @@
             this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.colorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.backToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -181,7 +182,8 @@
             this.statusToolStripStatusLabel,
             this.fontToolStripStatusLabel,
             this.colorToolStripStatusLabel,
-            this.backToolStripStatusLabel});
+            this.backToolStripStatusLabel,
+            this.capsToolStripStatusLabel});
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 302);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -225,6 +227,12 @@
             this.backToolStripStatusLabel.Name = "backToolStripStatusLabel";
             this.backToolStripStatusLabel.Size = new System.Drawing.Size(64, 17);
             this.backToolStripStatusLabel.Text = "ColorBack:";
+            // 
+            // capsToolStripStatusLabel
+            // 
+            this.capsToolStripStatusLabel.Name = "capsToolStripStatusLabel";
+            this.capsToolStripStatusLabel.Size = new System.Drawing.Size(64, 17);
+            this.capsToolStripStatusLabel.Text = "CapsLock: ";
             // 
             // TopLevelForm
             // 
@@ -272,6 +280,7 @@
         private System.Windows.Forms.ToolStripStatusLabel fontToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel colorToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel backToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel capsToolStripStatusLabel;
     }
 }
 
