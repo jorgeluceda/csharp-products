@@ -24,19 +24,20 @@ namespace MultiSDIText
 
 
 
-            helpItems.Add("New File Button", "Creates a New Blank Document. The New Document will open in a new Windows.");
-            helpItems.Add("Open File Button", "Allows opening an existing Document. It will pop up a Modal Window from where the user selects the file to open. ");
-            helpItems.Add("Save File Button", "It will save the current Document. It asks location and name of the file if it's saved by first time");
-            helpItems.Add("Print File Button", "Opens the Print Dialog. ");
-            helpItems.Add("Cut Text Button", "Cuts selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
-            helpItems.Add("Copy Text Button", "Copies selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
-            helpItems.Add("Paste Text Button", "Pastes text from the clipboard into the active Document");
-            helpItems.Add("Help Tooltip Button", "help tooltip description");
+            // helpItems.Add("New File Button", "Creates a New Blank Document. The New Document will open in a new Windows.");
+            //helpItems.Add("Open File Button", "Allows opening an existing Document. It will pop up a Modal Window from where the user selects the file to open. ");
+            //helpItems.Add("Save File Button", "It will save the current Document. It asks location and name of the file if it's saved by first time");
             helpItems.Add("File Menu ", "Provide some File related options like; New, Open, Save, Save As, Close ");
-            helpItems.Add("Edit Menu ", "Provides options to edit the Document like; Cut, Copy and Paste");
-            helpItems.Add("Preferences Menu ", "Provides multiple options to modify the Document like; Font, Background Color, Text Color, Document Size, Document Location, Document Title.");
+            helpItems.Add("Search Menu ", "Search files in the system");
+            helpItems.Add("Window Button", "Makes a window active. ");
+            helpItems.Add("Preferences Menu ", "Provides multiple options to modify the Document like; Font, Background Color, Text Color, Text Location.");
+            helpItems.Add("Add Text Menu ", "Open dialog to enter Plain Text");
             helpItems.Add("Help Menu ", "Opens Menu Dialog. It provides details regard the multiple actions the application performs in the Document");
 
+            helpItems.Add("Copy Text Button", "Copies selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
+            helpItems.Add("Cut Text Button", "Cuts selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
+            helpItems.Add("Paste Text Button", "Pastes text from the clipboard into the active Document");
+           
             //File Submenu
             helpItems.Add("New Submenu", "Creates a New Blank Document. The New Document will open in a new Windows.");
             helpItems.Add("Open Submenu", "Allows opening an existing Document. It will pop up a Modal Window from where the user selects the file to open. ");
@@ -45,9 +46,9 @@ namespace MultiSDIText
 
 
             //Edit Submenu
-            helpItems.Add("Cut Submenu", "Cuts selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
-            helpItems.Add("Copy Submenu", "Copies selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
-            helpItems.Add("Paste Submenu", "Pastes text from the clipboard into the active Document");
+            //helpItems.Add("Cut Submenu", "Cuts selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
+            //helpItems.Add("Copy Submenu", "Copies selected text from the document. It can be pasted by using the 'Paste Text Button' or the 'Paste' menu under the 'Edit Menu' ");
+            //helpItems.Add("Paste Submenu", "Pastes text from the clipboard into the active Document");
 
 
             //Preferences Submenu
