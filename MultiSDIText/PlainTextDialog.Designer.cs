@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,17 +29,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AddTextButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.PlainTextTextBox = new System.Windows.Forms.TextBox();
+            this.bsDocument = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
             this.SuspendLayout();
             // 
             // AddTextButton
             // 
             this.AddTextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddTextButton.Location = new System.Drawing.Point(379, 319);
+            this.AddTextButton.Location = new System.Drawing.Point(568, 498);
+            this.AddTextButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddTextButton.Name = "AddTextButton";
-            this.AddTextButton.Size = new System.Drawing.Size(128, 38);
+            this.AddTextButton.Size = new System.Drawing.Size(192, 59);
             this.AddTextButton.TabIndex = 0;
             this.AddTextButton.Text = "Add Text";
             this.AddTextButton.UseVisualStyleBackColor = true;
@@ -47,9 +52,10 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(526, 319);
+            this.CancelButton.Location = new System.Drawing.Point(789, 498);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(128, 38);
+            this.CancelButton.Size = new System.Drawing.Size(192, 59);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -57,26 +63,34 @@
             // 
             // PlainTextTextBox
             // 
+            this.PlainTextTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Content", true));
             this.PlainTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlainTextTextBox.Location = new System.Drawing.Point(12, 12);
+            this.PlainTextTextBox.Location = new System.Drawing.Point(18, 19);
+            this.PlainTextTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlainTextTextBox.Multiline = true;
             this.PlainTextTextBox.Name = "PlainTextTextBox";
-            this.PlainTextTextBox.Size = new System.Drawing.Size(651, 287);
+            this.PlainTextTextBox.Size = new System.Drawing.Size(974, 446);
             this.PlainTextTextBox.TabIndex = 2;
+            // 
+            // bsDocument
+            // 
+            this.bsDocument.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // PlainTextDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 369);
+            this.ClientSize = new System.Drawing.Size(1012, 577);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddTextButton);
             this.Controls.Add(this.PlainTextTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "PlainTextDialog";
             this.Text = "PlainTextDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlainTextDialog_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +101,6 @@
         private System.Windows.Forms.Button AddTextButton;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox PlainTextTextBox;
+        private System.Windows.Forms.BindingSource bsDocument;
     }
 }

@@ -14,6 +14,15 @@ namespace MultiSDIText
 {
     public partial class PlainTextDialog : Form
     {
+        BindingList<Storage.Text> bindingData = new BindingList<Storage.Text>();
+        public bool closeAccept = false;
+
+        public BindingSource DataBindingSource
+        {
+            get { return this.bsDocument; }
+            set { this.bsDocument = value; }
+        }
+
         public PlainTextDialog()
         {
             InitializeComponent();
@@ -24,10 +33,10 @@ namespace MultiSDIText
         /// </summary>
         /// <param name="p">The string to split into words</param>
         /// <returns>An array of words as Text object</returns>
-        public List<Text> TurnIntoTextObjects(String s)
+        public BindingList<Text> TurnIntoTextObjects(String s)
         {
             String[] words = s.Split(' ');
-            List<Text> texts = new List<Text>();
+            BindingList<Text> texts = new BindingList<Text>();
             for (int i = 0; i < words.Length; i++)
             {
                 Text text = new Text();
@@ -39,27 +48,32 @@ namespace MultiSDIText
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            closeAccept = false;
             this.Close();
         }
 
         private void AddTextButton_Click(object sender, EventArgs e)
         {
-            List<Text> list = TurnIntoTextObjects(this.PlainTextTextBox.Text);
-            Document doc = new Document(list);
+            closeAccept = true;
+            this.Close();
         }
 
         private void PlainTextDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!String.IsNullOrEmpty(this.PlainTextTextBox.Text) || !String.IsNullOrWhiteSpace(this.PlainTextTextBox.Text))
+            if (closeAccept == false)
             {
-                DialogResult result = MessageBox.Show("There's some text in the window, are you sure you'd" +
-                    "like to close?", "Text Present", MessageBoxButtons.YesNo);
-                
-                if (result == DialogResult.No)
+                if (!String.IsNullOrEmpty(this.PlainTextTextBox.Text) || !String.IsNullOrWhiteSpace(this.PlainTextTextBox.Text))
                 {
-                    e.Cancel = true;
+                    DialogResult result = MessageBox.Show("There's some text in the window, are you sure you'd" +
+                        "like to close?", "Text Present", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
                 }
             }
+
         }
     }
 }
