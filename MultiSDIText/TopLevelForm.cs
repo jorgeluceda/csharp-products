@@ -106,6 +106,7 @@ namespace MultiSDIText
             optionsForm.DataBindingSource.DataSource = doc.content;
             this.optionsForm.RefreshItems();
             this.docPictureBox.Invalidate();
+            this.curText = curText;
 
         }
 
@@ -307,6 +308,84 @@ namespace MultiSDIText
                 doc.Add(curText);
                 this.docPictureBox.Invalidate();
 
+            }
+        }
+
+        private void MainMenu_KeyDown(object sender, KeyEventArgs e)
+        {
+            // left arrow = 37
+            // up arrow = 38
+            // right arrow= 39
+            // down arrow = 40
+            switch ((int)e.KeyCode)
+            {
+                case 37:
+                    Console.WriteLine("left");
+                    //move current text object to left
+                    break;
+                case 38:
+                    Console.WriteLine("up");
+                    //move current text object up
+
+                    break;
+                case 39:
+                    Console.WriteLine("right");
+                    //move current text object to right
+
+                    break;
+                case 40:
+                    Console.WriteLine("down");
+                    //move current text object downs
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void docPictureBox_DragDrop(object sender, DragEventArgs e)
+        {
+            Console.WriteLine("drag");
+        }
+
+        private void TopLevelForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            Point coordinates = curText.Location;
+            coordinates.X += 1;
+
+            // left arrow = 37
+            // up arrow = 38
+            // right arrow= 39
+            // down arrow = 40
+            switch ((int)e.KeyCode)
+            {
+                case 37:
+                    Console.WriteLine("left");
+                    //move current text object to left
+                    curText.Location = coordinates;
+                    //this.doc.Add(curText);
+
+                    //optionsForm.DataBindingSource.DataSource = doc.content;
+                    this.optionsForm.RefreshItems();
+                    this.docPictureBox.Invalidate();
+                    break;
+                case 38:
+                    Console.WriteLine("up");
+                    //move current text object up
+                    ;
+                    break;
+                case 39:
+                    Console.WriteLine("right");
+                    //move current text object to right
+
+                    break;
+                case 40:
+                    Console.WriteLine("down");
+                    //move current text object downs
+
+                    break;
+                default:
+                    break;
             }
         }
     }
