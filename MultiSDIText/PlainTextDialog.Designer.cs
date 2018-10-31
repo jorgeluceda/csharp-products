@@ -33,22 +33,22 @@
             this.AddTextButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.PlainTextTextBox = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.plainTextToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.plainTextToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddTextButton
             // 
             this.AddTextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddTextButton.Location = new System.Drawing.Point(757, 618);
-            this.AddTextButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.AddTextButton.Location = new System.Drawing.Point(378, 319);
+            this.AddTextButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.AddTextButton.Name = "AddTextButton";
-            this.AddTextButton.Size = new System.Drawing.Size(256, 73);
+            this.AddTextButton.Size = new System.Drawing.Size(128, 38);
             this.AddTextButton.TabIndex = 0;
             this.AddTextButton.Text = "Add Text";
             this.AddTextButton.UseVisualStyleBackColor = true;
@@ -57,10 +57,10 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(1052, 618);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.CancelButton.Location = new System.Drawing.Point(526, 319);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(256, 73);
+            this.CancelButton.Size = new System.Drawing.Size(128, 38);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -71,33 +71,45 @@
             this.PlainTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlainTextTextBox.Location = new System.Drawing.Point(24, 77);
-            this.PlainTextTextBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.PlainTextTextBox.Location = new System.Drawing.Point(12, 40);
+            this.PlainTextTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.PlainTextTextBox.Multiline = true;
             this.PlainTextTextBox.Name = "PlainTextTextBox";
-            this.PlainTextTextBox.Size = new System.Drawing.Size(1297, 499);
+            this.PlainTextTextBox.Size = new System.Drawing.Size(650, 259);
             this.PlainTextTextBox.TabIndex = 2;
             // 
-            // toolStrip1
+            // plainTextToolStrip
             // 
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plainTextToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.plainTextToolStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.plainTextToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator,
             this.cutToolStripButton,
             this.copyToolStripButton,
             this.pasteToolStripButton,
             this.toolStripSeparator1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1349, 48);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
+            this.plainTextToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.plainTextToolStrip.Name = "plainTextToolStrip";
+            this.plainTextToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.plainTextToolStrip.Size = new System.Drawing.Size(674, 25);
+            this.plainTextToolStrip.TabIndex = 3;
+            this.plainTextToolStrip.Text = "toolStrip1";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 48);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // cutToolStripButton
+            // 
+            this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
+            this.cutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cutToolStripButton.Name = "cutToolStripButton";
+            this.cutToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.cutToolStripButton.Text = "C&ut";
+            this.cutToolStripButton.Click += new System.EventHandler(this.cutToolStripButton_Click);
             // 
             // copyToolStripButton
             // 
@@ -106,7 +118,7 @@
             this.copyToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
-            this.copyToolStripButton.Size = new System.Drawing.Size(23, 45);
+            this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.copyToolStripButton.Text = "&Copy";
             this.copyToolStripButton.Click += new System.EventHandler(this.copyToolStripButton_Click);
             // 
@@ -117,41 +129,30 @@
             this.pasteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripButton.Name = "pasteToolStripButton";
-            this.pasteToolStripButton.Size = new System.Drawing.Size(23, 45);
+            this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.pasteToolStripButton.Text = "&Paste";
             this.pasteToolStripButton.Click += new System.EventHandler(this.pasteToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 48);
-            // 
-            // cutToolStripButton
-            // 
-            this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
-            this.cutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripButton.Name = "cutToolStripButton";
-            this.cutToolStripButton.Size = new System.Drawing.Size(23, 45);
-            this.cutToolStripButton.Text = "C&ut";
-            this.cutToolStripButton.Click += new System.EventHandler(this.cutToolStripButton_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // PlainTextDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 715);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(674, 369);
+            this.Controls.Add(this.plainTextToolStrip);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddTextButton);
             this.Controls.Add(this.PlainTextTextBox);
-            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "PlainTextDialog";
             this.Text = "PlainTextDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlainTextDialog_FormClosing);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.plainTextToolStrip.ResumeLayout(false);
+            this.plainTextToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,12 +162,12 @@
 
         private System.Windows.Forms.Button AddTextButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.TextBox PlainTextTextBox;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip plainTextToolStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton cutToolStripButton;
+        public System.Windows.Forms.TextBox PlainTextTextBox;
     }
 }
