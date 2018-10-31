@@ -20,20 +20,19 @@ namespace MultiSDIText
         #region Member Variables and Properties
         string fileName;
 
-        private SearchDialog dlg;
         Point downPoint = Point.Empty;
-
-
-        public SearchDialog SearchDlg
-        {
-            get { return this.dlg; }
-            set { this.dlg = value; }
-        }
 
         //represents our document (a list of text objects and their functionality)
         Storage.Document doc = new Storage.Document();
 
         Storage.Text curText = new Storage.Text();
+
+        SearchDialog searchDialog;
+        public SearchDialog SearchDialog
+        {
+            get { return this.searchDialog; }
+            set { this.searchDialog = value; }
+        }
 
         /*
          * Ommit for data binding - don't want to directly modify
@@ -94,7 +93,6 @@ namespace MultiSDIText
                 if (me.Button.ToString() == "Right") //checks to see if a right click
                 {
                     this.optionsForm.ShowDialog();  //opens options if right click on a text object
-
 
                     if (this.optionsForm.closeAccept == true)
                     {
@@ -171,9 +169,7 @@ namespace MultiSDIText
         void OpenFile(string fileName)
         {
             this.fileName = fileName;
-            // TODO: Implement populating the TopLevelForm with the shapes from the saved document. This part will differ
-            // from the book, which reads text into the top level forms textbox. We, however, are not dealing with text, but
-            //  with shapes
+            
             // If fileName is not empty
             if (!string.IsNullOrEmpty(fileName))
             {
@@ -184,6 +180,8 @@ namespace MultiSDIText
 
             }
         }
+
+
         #endregion
 
 
@@ -216,83 +214,84 @@ namespace MultiSDIText
 
         }
 
-
+        #region Serialization Handlers
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // If the document is new, i.e. has never been saved before
-            //if (string.IsNullOrEmpty(this.document.DocumentTitle) || string.IsNullOrWhiteSpace(this.document.DocumentTitle))
-            //{
-            //    using (SaveFileDialog dlg = new SaveFileDialog())
-            //    {
-            //        if (dlg.ShowDialog() != DialogResult.OK) return;
+            if(this.Text != "Typography++")
+            {
+                using (Stream stream = new FileStream(this.Text, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, doc);
+                }
+            }
+            else
+            {
+                using (SaveFileDialog dlg = new SaveFileDialog())
+                {
+                    if (dlg.ShowDialog() != DialogResult.OK) return;
 
-            //        using (Stream stream =
-            //            new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
-            //        {
-            //            IFormatter formatter = new BinaryFormatter();
-
-            //            Documents.Drivers.FileSystemDocument document = new Documents.Drivers.FileSystemDocument();
-
-            //            document.Text = this.TextBox.Text;
-            //            document.BackColor = this.TextBox.BackColor;
-            //            document.TextColor = this.TextBox.ForeColor;
-            //            document.Font = this.TextBox.Font;
-            //            document.DocumentLocation = this.Location;
-            //            document.DocumentTitle = Path.GetFileName(dlg.FileName);
-            //            document.DocumentSize = this.Size;
-            //            document.FilePath = dlg.FileName;
-
-            //            formatter.Serialize(stream, document);
-            //            this.document = document;
-            //            changedText = false;
-            //            this.StatusLabel.Text = "Saved";
-            //        }
-
-            //    }
-
-            //    this.Text = this.document.DocumentTitle;
-            //}
-            //// If the document not new, and has been saved before
-            //else
-            //{
-            //    using (Stream stream = new FileStream(this.document.FilePath, FileMode.Create, FileAccess.Write))
-            //    {
-            //        IFormatter formatter = new BinaryFormatter();
-
-            //        this.document.Text = this.TextBox.Text;
-            //        this.document.BackColor = this.TextBox.BackColor;
-            //        this.document.TextColor = this.TextBox.ForeColor;
-            //        this.document.Font = this.TextBox.Font;
-            //        this.document.DocumentSize = this.Size;
-            //        this.document.DocumentLocation = this.Location;
-            //        this.document.DocumentTitle = Path.GetFileName(document.FilePath);
-
-            //        formatter.Serialize(stream, document);
-            //    }
-            //    changedText = false;
-            //    this.Text = this.document.DocumentTitle;
-
-            //    this.StatusLabel.Text = "Saved";
-            //}
+                    using (Stream stream = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        formatter.Serialize(stream, doc);
+                        this.Text = dlg.FileName;
+                    }
+                }
+            }
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (SaveFileDialog dlg = new SaveFileDialog())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK) return;
 
+                using (Stream stream =
+                    new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, doc);
+                    this.Text = dlg.FileName;
+                }
+            }
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+                using (Stream stream =
+                    new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    Document document = (Document)formatter.Deserialize(stream);
+                    TopLevelForm form = CreateTopLevelWindow(dlg.FileName);
+                    form.doc = document;
+                    form.Text = dlg.FileName;
+                }
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateTopLevelWindow(null);
+        }
+        #endregion
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(dlg == null)
+            this.searchDialog = new SearchDialog();
+
+            foreach(Form form in MultiSDITextApplication.Application.OpenForms)
             {
-                dlg = new SearchDialog();
-                dlg.MainForm = this;
-                dlg.Show();
+                if (form.Name == this.searchDialog.Name) {
+                    this.searchDialog.BringToFront();
+                    return;
+                }
             }
-            else
-            {
-                dlg.BringToFront();
-            }
+            this.searchDialog.Show();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -454,6 +453,34 @@ namespace MultiSDIText
         {
             aboutDialog dlg = new aboutDialog();
             dlg.Show();
+        }
+
+        private void importTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlainTextDialog dlg = new PlainTextDialog();
+            dlg.ShowDialog();
+
+            if (!String.IsNullOrEmpty(this.searchDialog.FileContents) && !String.IsNullOrWhiteSpace(this.searchDialog.FileContents))
+            {
+                dlg.PlainTextTextBox.Text = this.searchDialog.FileContents;
+            }
+
+            if (dlg.closeAccept == true)
+            {
+                foreach (Text textToAdd in dlg.plainTextDoc.content)
+                {
+                    textToAdd.ZOrder = Zorder;
+                    Zorder += 1;
+                    textToAdd.Color = Color.Blue;
+                    textToAdd.BackgroundColor = Color.Transparent;
+
+                    textToAdd.Font = new Font("Times New Roman", 12.0f);
+
+                    doc.Add(textToAdd);
+                }
+                this.docPictureBox.Invalidate();
+            }
+
         }
     }
 }

@@ -15,37 +15,13 @@ namespace MultiSDIText
 {
     public partial class PlainTextDialog : Form
     {
-        public Document plainTextDoc = new Document();
+        public Document plainTextDoc;
         public bool closeAccept = false;
 
 
         public PlainTextDialog()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Gets a string and returns an array of Text object representing each word.
-        /// </summary>
-        /// <param name="p">The string to split into words</param>
-        /// <returns>An array of words as Text object</returns>
-        public BindingList<Text> TurnIntoTextObjects(String s)
-        {
-            String[] words = Regex.Split(s, "\\s+");
-            BindingList<Text> texts = new BindingList<Text>();
-
-            int locationx = 50;
-            int locationy = 50;
-            for (int i = 0; i < words.Length; i++)
-            {
-                Text text = new Text();
-                text.Content = words[i];
-                text.Location = new Point(locationx, locationy);
-                locationx += 30;
-                locationy += 30;
-                texts.Add(text);
-            }
-            return texts;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -56,8 +32,7 @@ namespace MultiSDIText
 
         private void AddTextButton_Click(object sender, EventArgs e)
         {
-            plainTextDoc.content = TurnIntoTextObjects(PlainTextTextBox.Text);
-
+            plainTextDoc = new Document(PlainTextTextBox.Text);
             closeAccept = true;
             this.Close();
         }

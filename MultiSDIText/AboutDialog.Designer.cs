@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aboutDialog));
             this.aboutDescription = new System.Windows.Forms.Label();
             this.aboutInfo = new System.Windows.Forms.Label();
             this.middlePanel.SuspendLayout();
@@ -43,9 +44,9 @@
             // 
             this.aboutDescription.BackColor = System.Drawing.Color.Transparent;
             this.aboutDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aboutDescription.Location = new System.Drawing.Point(0, 0);
+            this.aboutDescription.Location = new System.Drawing.Point(0, 45);
             this.aboutDescription.Name = "aboutDescription";
-            this.aboutDescription.Size = new System.Drawing.Size(442, 353);
+            this.aboutDescription.Size = new System.Drawing.Size(442, 243);
             this.aboutDescription.TabIndex = 1;
             this.aboutDescription.Text = "A Multi-Document application that draws text, as text objects, using data binding" +
     " to connect to a text options dialog.";
@@ -58,8 +59,7 @@
             this.aboutInfo.Name = "aboutInfo";
             this.aboutInfo.Size = new System.Drawing.Size(442, 243);
             this.aboutInfo.TabIndex = 0;
-            this.aboutInfo.Text = "A Multi-Document application that draws text, as text objects, using data binding" +
-    " to connect to a text options dialog.";
+            this.aboutInfo.Text = resources.GetString("aboutInfo.Text");
             this.aboutInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // aboutDialog

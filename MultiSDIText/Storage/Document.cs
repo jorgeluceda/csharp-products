@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace MultiSDIText.Storage
 {
@@ -20,6 +21,11 @@ namespace MultiSDIText.Storage
         public Document(BindingList<Text> list)
         {
             this.content = list;
+        }
+
+        public Document(String s)
+        {
+            this.content = TurnIntoTextObjects(s);
         }
 
         /// <summary>
@@ -141,14 +147,20 @@ namespace MultiSDIText.Storage
         /// </summary>
         /// <param name="p">The string to split into words</param>
         /// <returns>An array of words as Text object</returns>
-        public List<Text> TurnIntoTextObjects(String s)
+        public BindingList<Text> TurnIntoTextObjects(String s)
         {
-            String[] words = s.Split(' ');
-            List<Text> texts = new List<Text>();
+            String[] words = Regex.Split(s, "\\s+");
+            BindingList<Text> texts = new BindingList<Text>();
+
+            int locationx = 50;
+            int locationy = 50;
             for (int i = 0; i < words.Length; i++)
             {
                 Text text = new Text();
                 text.Content = words[i];
+                text.Location = new Point(locationx, locationy);
+                locationx += 30;
+                locationy += 30;
                 texts.Add(text);
             }
             return texts;

@@ -16,16 +16,19 @@ namespace MultiSDIText
 {
     public partial class SearchDialog : Form
     {
-        private TopLevelForm form;
+        #region Member Variables/Properties
         bool pause = false;
         bool closingSearch = false;
-        ManualResetEvent pauseEvent = new ManualResetEvent(true); 
+        string doubleClickedContents;
+        SearchUserState state;
+        ManualResetEvent pauseEvent = new ManualResetEvent(true);
 
-        public TopLevelForm MainForm
+        public String FileContents
         {
-            get { return this.form; }
-            set { this.form = value; }
+            get { return this.doubleClickedContents; }
+            set { this.doubleClickedContents = value; }
         }
+        #endregion
 
         public SearchDialog()
         {
@@ -45,8 +48,6 @@ namespace MultiSDIText
             }
         }
         #endregion
-
-        SearchUserState state;
 
         #region Searching File System
     
@@ -296,35 +297,28 @@ namespace MultiSDIText
             {
                 pauseEvent.Set();       // Unpause if paused
                 this.SearchBackgroundWorker.CancelAsync();
-                this.MainForm.SearchDlg = null;
                 closingSearch = true;
                 e.Cancel = true;
             }
         }
-        #endregion
 
         private void Results_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(Results.SelectedIndex != -1)
+            if (Results.SelectedIndex != -1)
             {
                 Rectangle rect = Results.GetItemRectangle(Results.SelectedIndex);
                 if (rect.Contains(e.Location))
                 {
-                    OpenFileDialog dlg = new OpenFileDialog();
-                    dlg.FileName = (String)Results.SelectedItem;
-                    DialogResult result = dlg.ShowDialog();
-                    if(result == DialogResult.OK)
-                    {
-                        string file = dlg.FileName;
-                        Console.WriteLine(file);
-
-                        // TODO: (first remove the Console.WriteLine above, it was for testing only)
-                        // 1. Deserialize the file into a document
-                        // 2. Pass document to MainForm
-                        // 3. Draw all the stuff in the document onto Main Form
-                    }
+                    // Grab all the text in the file
+                    String filePath = (String)Results.SelectedItem;
+                    StreamReader sr = new StreamReader(filePath);
+                    String rawFileContent = sr.ReadToEnd();
+                    sr.Close();
+                    this.FileContents = rawFileContent.Replace('\0', ' ');
+                    MessageBox.Show("Copied contents of file. Import the contents back in main form.");
                 }
             }
         }
+        #endregion
     }
 }
