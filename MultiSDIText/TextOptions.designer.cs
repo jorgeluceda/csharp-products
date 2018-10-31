@@ -62,8 +62,10 @@ namespace MultiSDIText
             this.cancelOptionsButton = new System.Windows.Forms.Button();
             this.ZOrderTextBox = new System.Windows.Forms.TextBox();
             this.toToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.preferencesErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).BeginInit();
             this.groupBoxDisplayMember.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPosition
@@ -111,7 +113,7 @@ namespace MultiSDIText
             this.buttonLast.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonLast.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonLast.Location = new System.Drawing.Point(460, 33);
-            this.buttonLast.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonLast.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLast.Name = "buttonLast";
             this.buttonLast.Size = new System.Drawing.Size(60, 44);
             this.buttonLast.TabIndex = 28;
@@ -126,7 +128,7 @@ namespace MultiSDIText
             this.buttonNext.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonNext.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonNext.Location = new System.Drawing.Point(370, 33);
-            this.buttonNext.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(6);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(64, 44);
             this.buttonNext.TabIndex = 27;
@@ -141,7 +143,7 @@ namespace MultiSDIText
             this.buttonPrev.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonPrev.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonPrev.Location = new System.Drawing.Point(158, 33);
-            this.buttonPrev.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonPrev.Margin = new System.Windows.Forms.Padding(6);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(62, 44);
             this.buttonPrev.TabIndex = 26;
@@ -157,7 +159,7 @@ namespace MultiSDIText
             this.buttonFirst.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonFirst.FlatAppearance.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.buttonFirst.Location = new System.Drawing.Point(58, 33);
-            this.buttonFirst.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonFirst.Margin = new System.Windows.Forms.Padding(6);
             this.buttonFirst.Name = "buttonFirst";
             this.buttonFirst.Size = new System.Drawing.Size(66, 44);
             this.buttonFirst.TabIndex = 25;
@@ -196,11 +198,12 @@ namespace MultiSDIText
             this.textBoxLocation.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBoxLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Location", true));
             this.textBoxLocation.Location = new System.Drawing.Point(162, 345);
-            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxLocation.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxLocation.Name = "textBoxLocation";
             this.textBoxLocation.Size = new System.Drawing.Size(272, 31);
             this.textBoxLocation.TabIndex = 33;
             this.toToolTip.SetToolTip(this.textBoxLocation, "Location of member that can be changed");
+            this.textBoxLocation.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLocation_Validating);
             // 
             // textBoxContent
             // 
@@ -208,7 +211,7 @@ namespace MultiSDIText
             this.textBoxContent.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBoxContent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "Content", true));
             this.textBoxContent.Location = new System.Drawing.Point(162, 298);
-            this.textBoxContent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBoxContent.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxContent.Name = "textBoxContent";
             this.textBoxContent.Size = new System.Drawing.Size(272, 31);
             this.textBoxContent.TabIndex = 32;
@@ -222,7 +225,7 @@ namespace MultiSDIText
             this.listBoxDoc.FormattingEnabled = true;
             this.listBoxDoc.ItemHeight = 25;
             this.listBoxDoc.Location = new System.Drawing.Point(58, 100);
-            this.listBoxDoc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxDoc.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxDoc.Name = "listBoxDoc";
             this.listBoxDoc.Size = new System.Drawing.Size(458, 179);
             this.listBoxDoc.TabIndex = 36;
@@ -240,9 +243,9 @@ namespace MultiSDIText
             this.groupBoxDisplayMember.Controls.Add(this.radioButtonName);
             this.groupBoxDisplayMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxDisplayMember.Location = new System.Drawing.Point(562, 106);
-            this.groupBoxDisplayMember.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBoxDisplayMember.Margin = new System.Windows.Forms.Padding(6);
             this.groupBoxDisplayMember.Name = "groupBoxDisplayMember";
-            this.groupBoxDisplayMember.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBoxDisplayMember.Padding = new System.Windows.Forms.Padding(6);
             this.groupBoxDisplayMember.Size = new System.Drawing.Size(332, 173);
             this.groupBoxDisplayMember.TabIndex = 37;
             this.groupBoxDisplayMember.TabStop = false;
@@ -252,7 +255,7 @@ namespace MultiSDIText
             // 
             this.radioButtonBackgroundColor.AutoSize = true;
             this.radioButtonBackgroundColor.Location = new System.Drawing.Point(164, 116);
-            this.radioButtonBackgroundColor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonBackgroundColor.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonBackgroundColor.Name = "radioButtonBackgroundColor";
             this.radioButtonBackgroundColor.Size = new System.Drawing.Size(148, 29);
             this.radioButtonBackgroundColor.TabIndex = 6;
@@ -265,7 +268,7 @@ namespace MultiSDIText
             // 
             this.radioButtonTextColor.AutoSize = true;
             this.radioButtonTextColor.Location = new System.Drawing.Point(12, 116);
-            this.radioButtonTextColor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonTextColor.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonTextColor.Name = "radioButtonTextColor";
             this.radioButtonTextColor.Size = new System.Drawing.Size(142, 29);
             this.radioButtonTextColor.TabIndex = 5;
@@ -278,7 +281,7 @@ namespace MultiSDIText
             // 
             this.radioButtonTextFont.AutoSize = true;
             this.radioButtonTextFont.Location = new System.Drawing.Point(164, 75);
-            this.radioButtonTextFont.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonTextFont.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonTextFont.Name = "radioButtonTextFont";
             this.radioButtonTextFont.Size = new System.Drawing.Size(134, 29);
             this.radioButtonTextFont.TabIndex = 4;
@@ -291,7 +294,7 @@ namespace MultiSDIText
             // 
             this.radioButtonZOrder.AutoSize = true;
             this.radioButtonZOrder.Location = new System.Drawing.Point(164, 31);
-            this.radioButtonZOrder.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonZOrder.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonZOrder.Name = "radioButtonZOrder";
             this.radioButtonZOrder.Size = new System.Drawing.Size(110, 29);
             this.radioButtonZOrder.TabIndex = 3;
@@ -304,7 +307,7 @@ namespace MultiSDIText
             // 
             this.radioButtonLocation.AutoSize = true;
             this.radioButtonLocation.Location = new System.Drawing.Point(12, 75);
-            this.radioButtonLocation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonLocation.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonLocation.Name = "radioButtonLocation";
             this.radioButtonLocation.Size = new System.Drawing.Size(125, 29);
             this.radioButtonLocation.TabIndex = 2;
@@ -317,7 +320,7 @@ namespace MultiSDIText
             // 
             this.radioButtonName.AutoSize = true;
             this.radioButtonName.Location = new System.Drawing.Point(10, 31);
-            this.radioButtonName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.radioButtonName.Margin = new System.Windows.Forms.Padding(6);
             this.radioButtonName.Name = "radioButtonName";
             this.radioButtonName.Size = new System.Drawing.Size(118, 29);
             this.radioButtonName.TabIndex = 1;
@@ -328,12 +331,12 @@ namespace MultiSDIText
             // 
             // buttonSendToBack
             // 
-            this.buttonSendToBack.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
             this.buttonSendToBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSendToBack.AutoSize = true;
             this.buttonSendToBack.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonSendToBack.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
             this.buttonSendToBack.Location = new System.Drawing.Point(86, 464);
-            this.buttonSendToBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonSendToBack.Margin = new System.Windows.Forms.Padding(6);
             this.buttonSendToBack.Name = "buttonSendToBack";
             this.buttonSendToBack.Size = new System.Drawing.Size(168, 44);
             this.buttonSendToBack.TabIndex = 40;
@@ -343,11 +346,11 @@ namespace MultiSDIText
             // 
             // buttonBringToFront
             // 
-            this.buttonBringToFront.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
             this.buttonBringToFront.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonBringToFront.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonBringToFront.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
             this.buttonBringToFront.Location = new System.Drawing.Point(266, 464);
-            this.buttonBringToFront.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonBringToFront.Margin = new System.Windows.Forms.Padding(6);
             this.buttonBringToFront.Name = "buttonBringToFront";
             this.buttonBringToFront.Size = new System.Drawing.Size(168, 44);
             this.buttonBringToFront.TabIndex = 41;
@@ -440,12 +443,16 @@ namespace MultiSDIText
             this.ZOrderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsDocument, "ZOrder", true));
             this.ZOrderTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ZOrderTextBox.Location = new System.Drawing.Point(292, 414);
-            this.ZOrderTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ZOrderTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.ZOrderTextBox.Name = "ZOrderTextBox";
             this.ZOrderTextBox.ReadOnly = true;
             this.ZOrderTextBox.Size = new System.Drawing.Size(67, 31);
             this.ZOrderTextBox.TabIndex = 48;
             this.ZOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // preferencesErrorProvider
+            // 
+            this.preferencesErrorProvider.ContainerControl = this;
             // 
             // TextOptions
             // 
@@ -476,7 +483,7 @@ namespace MultiSDIText
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonFirst);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximumSize = new System.Drawing.Size(1396, 987);
             this.MinimumSize = new System.Drawing.Size(930, 627);
             this.Name = "TextOptions";
@@ -484,6 +491,7 @@ namespace MultiSDIText
             ((System.ComponentModel.ISupportInitialize)(this.bsDocument)).EndInit();
             this.groupBoxDisplayMember.ResumeLayout(false);
             this.groupBoxDisplayMember.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.preferencesErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,6 +531,7 @@ namespace MultiSDIText
         private System.Windows.Forms.RadioButton radioButtonTextColor;
         private System.Windows.Forms.RadioButton radioButtonTextFont;
         private System.Windows.Forms.ToolTip toToolTip;
+        private System.Windows.Forms.ErrorProvider preferencesErrorProvider;
         //private System.Collections.Generic.List<Storage.Text> textDoc = new System.Collections.Generic.List<Storage.Text>();
 
 

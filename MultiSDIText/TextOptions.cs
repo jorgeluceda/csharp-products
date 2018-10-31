@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ using MultiSDIText.Storage;
 
 namespace MultiSDIText
 {
-    public partial class TextOptions : Form, IBindingSource 
+    public partial class TextOptions : Form, IBindingSource
     {
         public bool closeAccept = false;
         public int bringToInt = 0; //0 -> none, 1-> send to back , 2 -> bring to front
@@ -21,15 +22,15 @@ namespace MultiSDIText
             get { return this.bsDocument; }
             set { this.bsDocument = value; }
         }
-        
+
         BindingManagerBase BindingManager
         {
-        
+
             get {
                 return this.BindingContext[this.bsDocument];
             }
         }
-        
+
 
         public TextOptions()
         {
@@ -176,7 +177,7 @@ namespace MultiSDIText
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 Font font = dlg.Font;
-                
+
                 this.textFontButton.Font = font;
             }
         }
@@ -185,8 +186,8 @@ namespace MultiSDIText
         {
             closeAccept = true;
             this.Close();
-        }   
-        
+        }
+
         private void cancelOptionsButton_Click(object sender, EventArgs e)
         {
             closeAccept = false;
@@ -205,6 +206,29 @@ namespace MultiSDIText
         {
             bringToInt = 2; //bring to front
             this.boundZOrder = (int)buttonBringToFront.Tag;
+
+        }
+
+        private void textBoxLocation_Validating(object sender, CancelEventArgs e)
+        {
+            int[] textMatches = new int[0];
+            try
+            {
+                textMatches = Array.ConvertAll<string, int>(textBoxLocation.Text.Split(','), Convert.ToInt32);
+            } catch (FormatException)
+            {
+                preferencesErrorProvider.SetError(textBoxLocation, "Please, enter a valid pair of coordinates: X, Y");
+
+
+            }
+
+
+            if (textBoxLocation.Text == null ||
+                textMatches.Count() < 2 ||
+                textMatches.Count() > 2)
+            {
+                 preferencesErrorProvider.SetError(textBoxLocation, "Please, enter a valid pair of coordinates: X, Y");
+            }
 
         }
     }
