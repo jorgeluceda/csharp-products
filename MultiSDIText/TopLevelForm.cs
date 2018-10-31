@@ -315,6 +315,46 @@ namespace MultiSDIText
                 this.docPictureBox.Invalidate();
             
             }
+            
+            if(this.optionsForm.bringToInt == 1) //send text to back
+            {
+                Text tempText = doc.content[this.optionsForm.boundZOrder];
+                doc.content.RemoveAt(this.optionsForm.boundZOrder);
+
+                tempText.ZOrder = 0;
+                doc.content.Insert(0, tempText);
+
+                int count = 0;
+                foreach (Text curText in doc.content)
+                {
+                    curText.ZOrder = count;
+                    count++;
+                    
+                }
+                
+
+
+            }
+
+            if (this.optionsForm.bringToInt == 2) //bring text to front
+            {
+                Text tempText = doc.content[this.optionsForm.boundZOrder];
+                doc.content.RemoveAt(this.optionsForm.boundZOrder);
+
+                tempText.ZOrder = (Zorder - 1); //zorder was previously incremented
+
+                foreach(Text curText in doc.content)
+                {
+                    if(curText.Content != tempText.Content || 
+                            curText.Location != tempText.Location)
+                    {
+                        curText.ZOrder--;
+
+                    }
+                }
+                doc.Add(tempText);
+
+            }
 
         }
 

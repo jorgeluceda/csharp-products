@@ -52,8 +52,8 @@ namespace MultiSDIText
             this.radioButtonZOrder = new System.Windows.Forms.RadioButton();
             this.radioButtonLocation = new System.Windows.Forms.RadioButton();
             this.radioButtonName = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSendToBack = new System.Windows.Forms.Button();
+            this.buttonBringToFront = new System.Windows.Forms.Button();
             this.locationLabel = new System.Windows.Forms.Label();
             this.textColorButton = new System.Windows.Forms.Button();
             this.backgroundColorButton = new System.Windows.Forms.Button();
@@ -326,30 +326,34 @@ namespace MultiSDIText
             this.radioButtonName.UseVisualStyleBackColor = true;
             this.radioButtonName.CheckedChanged += new System.EventHandler(this.radioButtonName_CheckedChanged);
             // 
-            // button3
+            // buttonSendToBack
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.button3.Location = new System.Drawing.Point(86, 464);
-            this.button3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(168, 44);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "Send to Back";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonSendToBack.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
+            this.buttonSendToBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSendToBack.AutoSize = true;
+            this.buttonSendToBack.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonSendToBack.Location = new System.Drawing.Point(86, 464);
+            this.buttonSendToBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonSendToBack.Name = "buttonSendToBack";
+            this.buttonSendToBack.Size = new System.Drawing.Size(168, 44);
+            this.buttonSendToBack.TabIndex = 40;
+            this.buttonSendToBack.Text = "Send to Back";
+            this.buttonSendToBack.UseVisualStyleBackColor = false;
+            this.buttonSendToBack.Click += new System.EventHandler(this.buttonSendToBack_Click);
             // 
-            // button4
+            // buttonBringToFront
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.button4.Location = new System.Drawing.Point(266, 464);
-            this.button4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(168, 44);
-            this.button4.TabIndex = 41;
-            this.button4.Text = "Bring to Front";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonBringToFront.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsDocument, "ZOrder", true));
+            this.buttonBringToFront.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonBringToFront.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonBringToFront.Location = new System.Drawing.Point(266, 464);
+            this.buttonBringToFront.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.buttonBringToFront.Name = "buttonBringToFront";
+            this.buttonBringToFront.Size = new System.Drawing.Size(168, 44);
+            this.buttonBringToFront.TabIndex = 41;
+            this.buttonBringToFront.Text = "Bring to Front";
+            this.buttonBringToFront.UseVisualStyleBackColor = false;
+            this.buttonBringToFront.Click += new System.EventHandler(this.buttonBringToFront_Click);
             // 
             // locationLabel
             // 
@@ -457,8 +461,8 @@ namespace MultiSDIText
             this.Controls.Add(this.backgroundColorButton);
             this.Controls.Add(this.textColorButton);
             this.Controls.Add(this.locationLabel);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonBringToFront);
+            this.Controls.Add(this.buttonSendToBack);
             this.Controls.Add(this.groupBoxDisplayMember);
             this.Controls.Add(this.listBoxDoc);
             this.Controls.Add(this.labelLocation);
@@ -504,8 +508,8 @@ namespace MultiSDIText
         private System.Windows.Forms.GroupBox groupBoxDisplayMember;
         private System.Windows.Forms.RadioButton radioButtonLocation;
         private System.Windows.Forms.RadioButton radioButtonName;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSendToBack;
+        private System.Windows.Forms.Button buttonBringToFront;
         private System.Windows.Forms.BindingSource bsDocument;
         private System.Windows.Forms.Label locationLabel;
         private System.Windows.Forms.Button textColorButton;

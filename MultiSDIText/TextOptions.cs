@@ -13,6 +13,8 @@ namespace MultiSDIText
     public partial class TextOptions : Form, IBindingSource 
     {
         public bool closeAccept = false;
+        public int bringToInt = 0; //0 -> none, 1-> send to back , 2 -> bring to front
+        public int boundZOrder;
 
         public BindingSource DataBindingSource
         {
@@ -183,13 +185,28 @@ namespace MultiSDIText
         {
             closeAccept = true;
             this.Close();
-        }        
+        }   
+        
         private void cancelOptionsButton_Click(object sender, EventArgs e)
         {
             closeAccept = false;
             this.Close();
         }
-        
+
+        private void buttonSendToBack_Click(object sender, EventArgs e)
+        {
+            bringToInt = 1; //send to back
+            this.boundZOrder = (int)buttonSendToBack.Tag;
+
+
+        }
+
+        private void buttonBringToFront_Click(object sender, EventArgs e)
+        {
+            bringToInt = 2; //bring to front
+            this.boundZOrder = (int)buttonBringToFront.Tag;
+
+        }
     }
 
 }
