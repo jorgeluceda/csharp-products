@@ -315,6 +315,7 @@ namespace MultiSDIText
                     String rawFileContent = sr.ReadToEnd();
                     sr.Close();
                     this.FileContents = rawFileContent.Replace('\0', ' ');
+                    Clipboard.SetText(this.FileContents); //to copy text in file
                     MessageBox.Show("Copied contents of file. Import the contents back in main form.");
                 }
             }
