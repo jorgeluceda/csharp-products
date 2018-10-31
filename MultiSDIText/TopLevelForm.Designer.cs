@@ -90,28 +90,33 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // searchToolStripMenuItem
@@ -205,14 +210,16 @@
             // colorToolStripStatusLabel
             // 
             this.colorToolStripStatusLabel.Name = "colorToolStripStatusLabel";
-            this.colorToolStripStatusLabel.Size = new System.Drawing.Size(48, 20);
-            this.colorToolStripStatusLabel.Text = "Color:";
+
+            this.colorToolStripStatusLabel.Size = new System.Drawing.Size(45, 20);
+            this.colorToolStripStatusLabel.Text = "Color";
             // 
             // backToolStripStatusLabel
             // 
             this.backToolStripStatusLabel.Name = "backToolStripStatusLabel";
-            this.backToolStripStatusLabel.Size = new System.Drawing.Size(79, 20);
-            this.backToolStripStatusLabel.Text = "ColorBack:";
+
+            this.backToolStripStatusLabel.Size = new System.Drawing.Size(76, 20);
+            this.backToolStripStatusLabel.Text = "ColorBack";
             // 
             // capsToolStripStatusLabel
             // 
@@ -228,10 +235,12 @@
             // 
             // docPictureBox
             // 
-            this.docPictureBox.Location = new System.Drawing.Point(0, 34);
+
+            this.docPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.docPictureBox.Location = new System.Drawing.Point(0, 32);
             this.docPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.docPictureBox.Name = "docPictureBox";
-            this.docPictureBox.Size = new System.Drawing.Size(637, 338);
+            this.docPictureBox.Size = new System.Drawing.Size(637, 367);
             this.docPictureBox.TabIndex = 6;
             this.docPictureBox.TabStop = false;
             this.docPictureBox.Click += new System.EventHandler(this.docPictureBox_Click);
