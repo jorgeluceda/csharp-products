@@ -132,6 +132,7 @@
             | System.Windows.Forms.Keys.C)));
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
