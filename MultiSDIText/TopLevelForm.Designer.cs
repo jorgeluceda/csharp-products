@@ -31,6 +31,7 @@
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@
             this.oathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.fontToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.colorToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,8 +52,6 @@
             this.capsToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.docPictureBox = new System.Windows.Forms.PictureBox();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -90,34 +90,37 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
-
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
-
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -185,6 +188,13 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // importTextToolStripMenuItem
+            // 
+            this.importTextToolStripMenuItem.Name = "importTextToolStripMenuItem";
+            this.importTextToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.importTextToolStripMenuItem.Text = "Import Text";
+            this.importTextToolStripMenuItem.Click += new System.EventHandler(this.importTextToolStripMenuItem_Click);
+            // 
             // mainStatusStrip
             // 
             this.mainStatusStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
@@ -210,14 +220,12 @@
             // colorToolStripStatusLabel
             // 
             this.colorToolStripStatusLabel.Name = "colorToolStripStatusLabel";
-
             this.colorToolStripStatusLabel.Size = new System.Drawing.Size(45, 20);
             this.colorToolStripStatusLabel.Text = "Color";
             // 
             // backToolStripStatusLabel
             // 
             this.backToolStripStatusLabel.Name = "backToolStripStatusLabel";
-
             this.backToolStripStatusLabel.Size = new System.Drawing.Size(76, 20);
             this.backToolStripStatusLabel.Text = "ColorBack";
             // 
@@ -235,7 +243,6 @@
             // 
             // docPictureBox
             // 
-
             this.docPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docPictureBox.Location = new System.Drawing.Point(0, 32);
             this.docPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -247,20 +254,6 @@
             this.docPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseDown);
             this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
             this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // importTextToolStripMenuItem
-            // 
-            this.importTextToolStripMenuItem.Name = "importTextToolStripMenuItem";
-            this.importTextToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
-            this.importTextToolStripMenuItem.Text = "Import Text";
-            this.importTextToolStripMenuItem.Click += new System.EventHandler(this.importTextToolStripMenuItem_Click);
             // 
             // TopLevelForm
             // 

@@ -284,6 +284,11 @@ namespace MultiSDIText
         {
             CreateTopLevelWindow(null);
         }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -488,5 +493,7 @@ namespace MultiSDIText
             }
 
         }
+
+        
     }
 }
