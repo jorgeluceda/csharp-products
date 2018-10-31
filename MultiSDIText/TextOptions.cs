@@ -183,12 +183,13 @@ namespace MultiSDIText
         {
             closeAccept = true;
             this.Close();
-        }
-
-        private void CancelOptionsButton_Click(object sender, EventArgs e)
+        }        
+        private void cancelOptionsButton_Click(object sender, EventArgs e)
         {
             closeAccept = false;
             this.Close();
         }
+        
     }
+
 }
