@@ -355,7 +355,7 @@ namespace MultiSDIText
             {
                 case 37:
                     //move current text object to left
-                    curText.locationX -= 1;
+                    curText.locationX -= 4;
                     //this.doc.Add(curText);
                     statusToolStripStatusLabel.Text = "Moving Left: " + curText.locationX;
 
@@ -364,7 +364,7 @@ namespace MultiSDIText
                     this.docPictureBox.Invalidate();
                     break;
                 case 38:
-                    curText.locationY -= 1;
+                    curText.locationY -= 4;
                     statusToolStripStatusLabel.Text = "Moving Up: " + curText.locationY;
 
                     //move current text object up
@@ -374,7 +374,7 @@ namespace MultiSDIText
                     break;
                 case 39:
                     //move current text object to right
-                    curText.locationX += 1;
+                    curText.locationX += 4;
                     statusToolStripStatusLabel.Text = "Moving Right: " + curText.locationX;
 
                     //move current text object up
@@ -384,7 +384,7 @@ namespace MultiSDIText
                     break;
                 case 40:
                     //move current text object downs
-                    curText.locationY += 1;
+                    curText.locationY += 4;
                     statusToolStripStatusLabel.Text = "Moving Down: " + curText.locationY;
 
                     //move current text object up
