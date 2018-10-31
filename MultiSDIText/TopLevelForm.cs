@@ -320,6 +320,46 @@ namespace MultiSDIText
                 this.docPictureBox.Invalidate();
             
             }
+            
+            if(this.optionsForm.bringToInt == 1) //send text to back
+            {
+                Text tempText = doc.content[this.optionsForm.boundZOrder];
+                doc.content.RemoveAt(this.optionsForm.boundZOrder);
+
+                tempText.ZOrder = 0;
+                doc.content.Insert(0, tempText);
+
+                int count = 0;
+                foreach (Text curText in doc.content)
+                {
+                    curText.ZOrder = count;
+                    count++;
+                    
+                }
+                
+
+
+            }
+
+            if (this.optionsForm.bringToInt == 2) //bring text to front
+            {
+                Text tempText = doc.content[this.optionsForm.boundZOrder];
+                doc.content.RemoveAt(this.optionsForm.boundZOrder);
+
+                tempText.ZOrder = (Zorder - 1); //zorder was previously incremented
+
+                foreach(Text curText in doc.content)
+                {
+                    if(curText.Content != tempText.Content || 
+                            curText.Location != tempText.Location)
+                    {
+                        curText.ZOrder--;
+
+                    }
+                }
+                doc.Add(tempText);
+
+            }
 
         }
 
@@ -468,28 +508,31 @@ namespace MultiSDIText
 
         private void importTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlainTextDialog dlg = new PlainTextDialog();
-            dlg.ShowDialog();
-
-            if (!String.IsNullOrEmpty(this.searchDialog.FileContents) && !String.IsNullOrWhiteSpace(this.searchDialog.FileContents))
+            if (searchDialog != null)
             {
-                dlg.PlainTextTextBox.Text = this.searchDialog.FileContents;
-            }
+                PlainTextDialog dlg = new PlainTextDialog();
+                dlg.ShowDialog();
 
-            if (dlg.closeAccept == true)
-            {
-                foreach (Text textToAdd in dlg.plainTextDoc.content)
+                if (!String.IsNullOrEmpty(this.searchDialog.FileContents) && !String.IsNullOrWhiteSpace(this.searchDialog.FileContents))
                 {
-                    textToAdd.ZOrder = Zorder;
-                    Zorder += 1;
-                    textToAdd.Color = Color.Blue;
-                    textToAdd.BackgroundColor = Color.Transparent;
-
-                    textToAdd.Font = new Font("Times New Roman", 12.0f);
-
-                    doc.Add(textToAdd);
+                    dlg.PlainTextTextBox.Text = this.searchDialog.FileContents;
                 }
-                this.docPictureBox.Invalidate();
+
+                if (dlg.closeAccept == true)
+                {
+                    foreach (Text textToAdd in dlg.plainTextDoc.content)
+                    {
+                        textToAdd.ZOrder = Zorder;
+                        Zorder += 1;
+                        textToAdd.Color = Color.Blue;
+                        textToAdd.BackgroundColor = Color.Transparent;
+
+                        textToAdd.Font = new Font("Times New Roman", 12.0f);
+
+                        doc.Add(textToAdd);
+                    }
+                    this.docPictureBox.Invalidate();
+                }
             }
 
         }
