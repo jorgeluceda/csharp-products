@@ -215,6 +215,7 @@
             // importTextToolStripMenuItem
             // 
             this.importTextToolStripMenuItem.Name = "importTextToolStripMenuItem";
+            this.importTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
             this.importTextToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.importTextToolStripMenuItem.Text = "Import Text";
             this.importTextToolStripMenuItem.Click += new System.EventHandler(this.importTextToolStripMenuItem_Click);

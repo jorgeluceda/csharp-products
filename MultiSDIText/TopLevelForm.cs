@@ -463,28 +463,31 @@ namespace MultiSDIText
 
         private void importTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PlainTextDialog dlg = new PlainTextDialog();
-            dlg.ShowDialog();
-
-            if (!String.IsNullOrEmpty(this.searchDialog.FileContents) && !String.IsNullOrWhiteSpace(this.searchDialog.FileContents))
+            if (this.searchDialog != null)
             {
-                dlg.PlainTextTextBox.Text = this.searchDialog.FileContents;
-            }
+                PlainTextDialog dlg = new PlainTextDialog();
+                dlg.ShowDialog();
 
-            if (dlg.closeAccept == true)
-            {
-                foreach (Text textToAdd in dlg.plainTextDoc.content)
+                if (!String.IsNullOrEmpty(this.searchDialog.FileContents) && !String.IsNullOrWhiteSpace(this.searchDialog.FileContents))
                 {
-                    textToAdd.ZOrder = Zorder;
-                    Zorder += 1;
-                    textToAdd.Color = Color.Blue;
-                    textToAdd.BackgroundColor = Color.Transparent;
-
-                    textToAdd.Font = new Font("Times New Roman", 12.0f);
-
-                    doc.Add(textToAdd);
+                    dlg.PlainTextTextBox.Text = this.searchDialog.FileContents;
                 }
-                this.docPictureBox.Invalidate();
+
+                if (dlg.closeAccept == true)
+                {
+                    foreach (Text textToAdd in dlg.plainTextDoc.content)
+                    {
+                        textToAdd.ZOrder = Zorder;
+                        Zorder += 1;
+                        textToAdd.Color = Color.Blue;
+                        textToAdd.BackgroundColor = Color.Transparent;
+
+                        textToAdd.Font = new Font("Times New Roman", 12.0f);
+
+                        doc.Add(textToAdd);
+                    }
+                    this.docPictureBox.Invalidate();
+                }
             }
 
         }
