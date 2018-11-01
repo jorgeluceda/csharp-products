@@ -140,6 +140,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\cur1157.ani" />
+    <None Include="Resources\electricCursor.ani" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

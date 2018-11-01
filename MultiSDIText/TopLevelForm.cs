@@ -544,10 +544,19 @@ namespace MultiSDIText
         static Cursor AnimatedCursor;
         static void AnimatedCursorForm()
         {
+            //Getting the path to the animated cursor from Resources
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string FileName = string.Format("{0}Resources\\electricCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+
             //Load Animated Cursor
-            IntPtr cursor = LoadCursorFromFile("fileNameGoesHere");
+            IntPtr cursor = LoadCursorFromFile(FileName);
 
             AnimatedCursor = new Cursor(cursor);
+        }
+
+        private void docPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = this.AnimatedCursor;
         }
     }
 }
