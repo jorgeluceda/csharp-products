@@ -11,6 +11,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using MultiSDIText.Storage;
+using System.Runtime.InteropServices;
 
 namespace MultiSDIText
 {
@@ -28,11 +29,27 @@ namespace MultiSDIText
             get { return this.doubleClickedContents; }
             set { this.doubleClickedContents = value; }
         }
+
+        //Using Interop to make a custom cursor called AnimatedCursor
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        static Cursor AnimatedCursor;
         #endregion
 
         public SearchDialog()
         {
             InitializeComponent();
+        }
+
+        //Static constructor to create the animated cursor
+        static SearchDialog()
+        {
+            //Getting the path to the animated cursor from Resources
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string FileName = string.Format("{0}Resources\\electricCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            //Load Animated Cursor
+            IntPtr cursor = LoadCursorFromFile(FileName);
+            AnimatedCursor = new Cursor(cursor);
         }
 
         #region UserState
@@ -178,6 +195,9 @@ namespace MultiSDIText
                     return;
                 }
 
+                // Change cursor
+                this.Cursor = AnimatedCursor;
+
                 // Tell user we're searching
                 this.StatusStripIndicator.Text = "Searching for files with the given extension...";
 
@@ -200,12 +220,18 @@ namespace MultiSDIText
                 pauseButton.Text = "Continue";
                 this.StatusStripIndicator.Text = "Paused";
                 pauseEvent.Reset();
+
+                // Change cursor back to normal
+                this.Cursor = Cursors.Default;
             }
             else
             {
                 pauseButton.Text = "Pause";
                 this.StatusStripIndicator.Text = "Searching for files with the given extension...";
                 pauseEvent.Set();
+
+                // Change cursor
+                this.Cursor = AnimatedCursor;
             }
         }
 
@@ -218,6 +244,9 @@ namespace MultiSDIText
                 this.stopButton.Visible = false;
                 this.startButton.Visible = true;
                 this.StatusStripIndicator.Text = "Ready";
+
+                // Change cursor back to normal
+                this.Cursor = Cursors.Default;
                 return;
             }
         }
@@ -271,6 +300,9 @@ namespace MultiSDIText
         private void SearchBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.StatusStripIndicator.Text = "Ready";   // Reset Status Strip
+
+            //change the cursor back to normal
+            this.Cursor = Cursors.Default;
 
             if(e.Error != null)
             {

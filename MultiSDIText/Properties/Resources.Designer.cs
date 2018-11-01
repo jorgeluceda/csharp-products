@@ -63,9 +63,29 @@ namespace MultiSDIText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] bookCursor {
+            get {
+                object obj = ResourceManager.GetObject("bookCursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] electricCursor {
             get {
                 object obj = ResourceManager.GetObject("electricCursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] spinCursor {
+            get {
+                object obj = ResourceManager.GetObject("spinCursor", resourceCulture);
                 return ((byte[])(obj));
             }
         }

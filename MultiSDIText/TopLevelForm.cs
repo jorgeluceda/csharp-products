@@ -78,6 +78,7 @@ namespace MultiSDIText
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
 
+        //Static constructor to create the animated cursor
         static TopLevelForm()
         {
             //Getting the path to the animated cursor from Resources

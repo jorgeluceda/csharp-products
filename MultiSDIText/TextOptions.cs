@@ -52,6 +52,7 @@ namespace MultiSDIText
             RefreshItems();
         }
 
+        //static constructor to create the colored cursor
         static TextOptions()
         {
             //Getting the path to the animated cursor from Resources
