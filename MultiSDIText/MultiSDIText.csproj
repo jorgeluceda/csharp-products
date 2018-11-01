@@ -140,6 +140,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\electricCursor.ani" />
+    <None Include="Resources\spinCursor.ani" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -149,6 +151,9 @@
       <Project>{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}</Project>
       <Name>CoreLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookCursor.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
 using MultiSDIText.Storage;
+using System.Runtime.InteropServices;
 
 namespace MultiSDIText
 {
@@ -55,6 +56,12 @@ namespace MultiSDIText
         {
             get { return this.fileName; }
         }
+
+        //Using Interop to make a custom cursor called AnimatedCursor
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        static Cursor AnimatedCursor;
+
         #endregion
         #region Constructor
         public TopLevelForm()
@@ -70,6 +77,18 @@ namespace MultiSDIText
             //Set the applications windowmenu
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
+
+        //Static constructor to create the animated cursor
+        static TopLevelForm()
+        {
+            //Getting the path to the animated cursor from Resources
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string FileName = string.Format("{0}Resources\\spinCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            //Load Animated Cursor
+            IntPtr cursor = LoadCursorFromFile(FileName);
+            AnimatedCursor = new Cursor(cursor);
+        }
+
         #endregion
 
         #region Helper Methods
@@ -537,6 +556,12 @@ namespace MultiSDIText
 
         }
 
-        
+        //When mouse is over the docPic area
+        private void docPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
+        }
+
     }
 }

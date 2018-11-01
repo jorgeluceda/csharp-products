@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 using MultiSDIText.Storage;
+using System.IO;
 
 namespace MultiSDIText
 {
@@ -16,6 +18,11 @@ namespace MultiSDIText
         public bool closeAccept = false;
         public int bringToInt = 0; //0 -> none, 1-> send to back , 2 -> bring to front
         public int boundZOrder;
+
+        //Using Interop to make a custom cursor called AnimatedCursor
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        static Cursor ColoredCursor;
 
         public BindingSource DataBindingSource
         {
@@ -43,6 +50,17 @@ namespace MultiSDIText
 
 
             RefreshItems();
+        }
+
+        //static constructor to create the colored cursor
+        static TextOptions()
+        {
+            //Getting the path to the animated cursor from Resources
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string FileName = string.Format("{0}Resources\\bookCursor.cur", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            //Load Animated Cursor
+            IntPtr cursor = LoadCursorFromFile(FileName);
+            ColoredCursor = new Cursor(cursor);
         }
 
         public void RefreshItems()
@@ -230,6 +248,13 @@ namespace MultiSDIText
                  preferencesErrorProvider.SetError(textBoxLocation, "Please, enter a valid pair of coordinates: X, Y");
             }
 
+        }
+
+        //WHen mouse is on the form's field
+        private void TextOptions_MouseEnter(object sender, EventArgs e)
+        {
+            //Changes cursor to the book cursor
+            this.Cursor = ColoredCursor;
         }
     }
 
