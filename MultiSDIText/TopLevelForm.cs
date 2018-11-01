@@ -56,6 +56,12 @@ namespace MultiSDIText
         {
             get { return this.fileName; }
         }
+
+        //Using Interop to make a custom cursor called AnimatedCursor
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        static Cursor AnimatedCursor;
+
         #endregion
         #region Constructor
         public TopLevelForm()
@@ -71,6 +77,17 @@ namespace MultiSDIText
             //Set the applications windowmenu
             MultiSDITextApplication.Application.AddWindowMenu(this.windowToolStripMenuItem);
         }
+
+        static TopLevelForm()
+        {
+            //Getting the path to the animated cursor from Resources
+            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            string FileName = string.Format("{0}Resources\\electricCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            //Load Animated Cursor
+            IntPtr cursor = LoadCursorFromFile(FileName);
+            AnimatedCursor = new Cursor(cursor);
+        }
+
         #endregion
 
         #region Helper Methods
@@ -538,25 +555,12 @@ namespace MultiSDIText
 
         }
 
-        //Using Interop to make a custom cursor
-        [DllImport("user32.dll")]
-        static extern IntPtr LoadCursorFromFile(string lpFileName);
-        static Cursor AnimatedCursor;
-        static void AnimatedCursorForm()
-        {
-            //Getting the path to the animated cursor from Resources
-            string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
-            string FileName = string.Format("{0}Resources\\electricCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-
-            //Load Animated Cursor
-            IntPtr cursor = LoadCursorFromFile(FileName);
-
-            AnimatedCursor = new Cursor(cursor);
-        }
-
+        //When mouse is over the docPic area
         private void docPictureBox_MouseEnter(object sender, EventArgs e)
         {
-            this.Cursor = this.AnimatedCursor;
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
         }
+
     }
 }
