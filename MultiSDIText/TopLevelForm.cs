@@ -82,7 +82,7 @@ namespace MultiSDIText
         {
             //Getting the path to the animated cursor from Resources
             string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
-            string FileName = string.Format("{0}Resources\\electricCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            string FileName = string.Format("{0}Resources\\spinCursor.ani", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
             //Load Animated Cursor
             IntPtr cursor = LoadCursorFromFile(FileName);
             AnimatedCursor = new Cursor(cursor);
