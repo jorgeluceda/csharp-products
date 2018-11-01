@@ -12,6 +12,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
 using MultiSDIText.Storage;
+using System.Runtime.InteropServices;
 
 namespace MultiSDIText
 {
@@ -537,6 +538,16 @@ namespace MultiSDIText
 
         }
 
-        
+        //Using Interop to make a custom cursor
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        static Cursor AnimatedCursor;
+        static void AnimatedCursorForm()
+        {
+            //Load Animated Cursor
+            IntPtr cursor = LoadCursorFromFile("fileNameGoesHere");
+
+            AnimatedCursor = new Cursor(cursor);
+        }
     }
 }
