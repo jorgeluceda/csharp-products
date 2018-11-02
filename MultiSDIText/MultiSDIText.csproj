@@ -53,6 +53,12 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridViewForm.Designer.cs">
+      <DependentUpon>GridViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridViewForm.resx">
+      <DependentUpon>GridViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpDialog.resx">
       <DependentUpon>HelpDialog.cs</DependentUpon>
