@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDocument = new System.Windows.Forms.DataGridView();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ZOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,15 +38,15 @@
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Font = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rotation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvDocument
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDocument.AutoGenerateColumns = false;
+            this.dgvDocument.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocument.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Content,
             this.ZOrder,
             this.Color,
@@ -54,13 +54,13 @@
             this.Location,
             this.Font,
             this.Rotation});
-            this.dataGridView1.DataSource = this.documentBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1007, 689);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDocument.DataSource = this.documentBindingSource;
+            this.dgvDocument.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDocument.Location = new System.Drawing.Point(0, 0);
+            this.dgvDocument.Name = "dgvDocument";
+            this.dgvDocument.RowTemplate.Height = 28;
+            this.dgvDocument.Size = new System.Drawing.Size(1007, 689);
+            this.dgvDocument.TabIndex = 0;
             // 
             // documentBindingSource
             // 
@@ -106,10 +106,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 689);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDocument);
             this.Name = "GridViewForm";
             this.Text = "GridViewForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -117,7 +117,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDocument;
         private System.Windows.Forms.BindingSource documentBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Content;
         private System.Windows.Forms.DataGridViewTextBoxColumn ZOrder;
