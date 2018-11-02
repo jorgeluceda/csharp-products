@@ -34,6 +34,8 @@ namespace MultiSDIText.Storage
             this.fontFamily = "Arial";
             this.fontSize = 12.0f;
             this.fontStyle = "R";
+
+            this.rotation = 0;
         }
 
         #endregion
