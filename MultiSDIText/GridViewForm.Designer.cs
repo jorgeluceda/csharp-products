@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BackgroundColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Font = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rotation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -39,6 +46,14 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Content,
+            this.ZOrder,
+            this.Color,
+            this.BackgroundColor,
+            this.Location,
+            this.Font,
+            this.Rotation});
             this.dataGridView1.DataSource = this.documentBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -50,6 +65,41 @@
             // documentBindingSource
             // 
             this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Document);
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "Content";
+            this.Content.Name = "Content";
+            // 
+            // ZOrder
+            // 
+            this.ZOrder.HeaderText = "Z-Order";
+            this.ZOrder.Name = "ZOrder";
+            // 
+            // Color
+            // 
+            this.Color.HeaderText = "Color";
+            this.Color.Name = "Color";
+            // 
+            // BackgroundColor
+            // 
+            this.BackgroundColor.HeaderText = "Background Color";
+            this.BackgroundColor.Name = "BackgroundColor";
+            // 
+            // Location
+            // 
+            this.Location.HeaderText = "Location";
+            this.Location.Name = "Location";
+            // 
+            // Font
+            // 
+            this.Font.HeaderText = "Font";
+            this.Font.Name = "Font";
+            // 
+            // Rotation
+            // 
+            this.Rotation.HeaderText = "Rotation";
+            this.Rotation.Name = "Rotation";
             // 
             // GridViewForm
             // 
@@ -69,5 +119,12 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource documentBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ZOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BackgroundColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Font;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rotation;
     }
 }
