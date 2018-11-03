@@ -568,6 +568,7 @@ namespace MultiSDIText
         private void gridViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.gridViewForm.ShowDialog();
+            this.docPictureBox.Invalidate();
         }
     }
 }

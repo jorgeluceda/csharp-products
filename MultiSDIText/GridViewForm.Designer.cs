@@ -37,11 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rotation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rotationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,20 +56,23 @@
             this.dgvDocument.AutoGenerateColumns = false;
             this.dgvDocument.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocument.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Content,
-            this.ZOrder,
-            this.Location,
-            this.Rotation});
+            this.contentDataGridViewTextBoxColumn,
+            this.zOrderDataGridViewTextBoxColumn,
+            this.colorDataGridViewTextBoxColumn,
+            this.backgroundColorDataGridViewTextBoxColumn,
+            this.locationDataGridViewTextBoxColumn,
+            this.fontDataGridViewTextBoxColumn,
+            this.rotationDataGridViewTextBoxColumn});
             this.dgvDocument.DataSource = this.documentBindingSource;
             this.dgvDocument.Location = new System.Drawing.Point(12, 12);
             this.dgvDocument.Name = "dgvDocument";
             this.dgvDocument.RowTemplate.Height = 28;
-            this.dgvDocument.Size = new System.Drawing.Size(562, 399);
+            this.dgvDocument.Size = new System.Drawing.Size(747, 399);
             this.dgvDocument.TabIndex = 0;
             // 
             // documentBindingSource
             // 
-            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Document);
+            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // label1
             // 
@@ -119,42 +125,64 @@
             this.btnFont.TabIndex = 6;
             this.btnFont.UseVisualStyleBackColor = true;
             // 
-            // Content
-            // 
-            this.Content.HeaderText = "Content";
-            this.Content.Name = "Content";
-            // 
-            // ZOrder
-            // 
-            this.ZOrder.HeaderText = "Z-Order";
-            this.ZOrder.Name = "ZOrder";
-            // 
-            // Location
-            // 
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            // 
-            // Rotation
-            // 
-            this.Rotation.HeaderText = "Rotation";
-            this.Rotation.Name = "Rotation";
-            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(466, 477);
+            this.button1.Location = new System.Drawing.Point(651, 477);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 38);
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // contentDataGridViewTextBoxColumn
+            // 
+            this.contentDataGridViewTextBoxColumn.DataPropertyName = "Content";
+            this.contentDataGridViewTextBoxColumn.HeaderText = "Content";
+            this.contentDataGridViewTextBoxColumn.Name = "contentDataGridViewTextBoxColumn";
+            // 
+            // zOrderDataGridViewTextBoxColumn
+            // 
+            this.zOrderDataGridViewTextBoxColumn.DataPropertyName = "ZOrder";
+            this.zOrderDataGridViewTextBoxColumn.HeaderText = "ZOrder";
+            this.zOrderDataGridViewTextBoxColumn.Name = "zOrderDataGridViewTextBoxColumn";
+            // 
+            // colorDataGridViewTextBoxColumn
+            // 
+            this.colorDataGridViewTextBoxColumn.DataPropertyName = "Color";
+            this.colorDataGridViewTextBoxColumn.HeaderText = "Color";
+            this.colorDataGridViewTextBoxColumn.Name = "colorDataGridViewTextBoxColumn";
+            // 
+            // backgroundColorDataGridViewTextBoxColumn
+            // 
+            this.backgroundColorDataGridViewTextBoxColumn.DataPropertyName = "BackgroundColor";
+            this.backgroundColorDataGridViewTextBoxColumn.HeaderText = "BackgroundColor";
+            this.backgroundColorDataGridViewTextBoxColumn.Name = "backgroundColorDataGridViewTextBoxColumn";
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
+            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            // 
+            // fontDataGridViewTextBoxColumn
+            // 
+            this.fontDataGridViewTextBoxColumn.DataPropertyName = "Font";
+            this.fontDataGridViewTextBoxColumn.HeaderText = "Font";
+            this.fontDataGridViewTextBoxColumn.Name = "fontDataGridViewTextBoxColumn";
+            // 
+            // rotationDataGridViewTextBoxColumn
+            // 
+            this.rotationDataGridViewTextBoxColumn.DataPropertyName = "Rotation";
+            this.rotationDataGridViewTextBoxColumn.HeaderText = "Rotation";
+            this.rotationDataGridViewTextBoxColumn.Name = "rotationDataGridViewTextBoxColumn";
+            // 
             // GridViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 527);
+            this.ClientSize = new System.Drawing.Size(771, 527);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFont);
             this.Controls.Add(this.btnBackgroundColor);
@@ -176,10 +204,6 @@
 
         private System.Windows.Forms.DataGridView dgvDocument;
         private System.Windows.Forms.BindingSource documentBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ZOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rotation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Label label2;
@@ -187,5 +211,12 @@
         private System.Windows.Forms.Button btnBackgroundColor;
         private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backgroundColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rotationDataGridViewTextBoxColumn;
     }
 }
