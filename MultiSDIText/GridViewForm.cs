@@ -94,8 +94,14 @@ namespace MultiSDIText
         {
             var text = new Text();
             text.Content = "text";
+            text.Color = Color.Blue;
 
             this.DataBindingSource.Add(text);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            this.DataBindingSource.Remove((Text)this.BindingManager.Current);
         }
     }
 }
