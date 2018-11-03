@@ -41,13 +41,13 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtZOrder = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLocation = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtRotation = new System.Windows.Forms.TextBox();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,12 +186,12 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Content:";
             // 
-            // textBox1
+            // txtContent
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 426);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(491, 26);
-            this.textBox1.TabIndex = 11;
+            this.txtContent.Location = new System.Drawing.Point(85, 426);
+            this.txtContent.Name = "txtContent";
+            this.txtContent.Size = new System.Drawing.Size(491, 26);
+            this.txtContent.TabIndex = 11;
             // 
             // label5
             // 
@@ -202,12 +202,12 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Z-Order";
             // 
-            // textBox2
+            // txtZOrder
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 511);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 26);
-            this.textBox2.TabIndex = 13;
+            this.txtZOrder.Location = new System.Drawing.Point(85, 511);
+            this.txtZOrder.Name = "txtZOrder";
+            this.txtZOrder.Size = new System.Drawing.Size(75, 26);
+            this.txtZOrder.TabIndex = 13;
             // 
             // label6
             // 
@@ -218,12 +218,12 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Location:";
             // 
-            // textBox3
+            // txtLocation
             // 
-            this.textBox3.Location = new System.Drawing.Point(323, 514);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(75, 26);
-            this.textBox3.TabIndex = 15;
+            this.txtLocation.Location = new System.Drawing.Point(323, 514);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(75, 26);
+            this.txtLocation.TabIndex = 15;
             // 
             // label7
             // 
@@ -234,12 +234,12 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Rotation:";
             // 
-            // textBox4
+            // txtRotation
             // 
-            this.textBox4.Location = new System.Drawing.Point(501, 511);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 26);
-            this.textBox4.TabIndex = 17;
+            this.txtRotation.Location = new System.Drawing.Point(501, 511);
+            this.txtRotation.Name = "txtRotation";
+            this.txtRotation.Size = new System.Drawing.Size(75, 26);
+            this.txtRotation.TabIndex = 17;
             // 
             // contentDataGridViewTextBoxColumn
             // 
@@ -295,13 +295,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 612);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtRotation);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtZOrder);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtContent);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -337,13 +337,13 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtZOrder;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtRotation;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
