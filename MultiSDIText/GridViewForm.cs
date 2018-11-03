@@ -16,7 +16,7 @@ namespace MultiSDIText
         {
             InitializeComponent();
 
-
+            InitializeManualBindings();
         }
 
         public BindingSource DataBindingSource
@@ -40,7 +40,7 @@ namespace MultiSDIText
         {
             this.btnColor.DataBindings.Add("BackColor", this.DataBindingSource, "Color");
             this.btnBackgroundColor.DataBindings.Add("BackColor", this.DataBindingSource, "BackgroundColor");
-            this.btnFont.DataBindings.Add("Font", this.DataBindingSource, "Font");
+            this.btnFontHidden.DataBindings.Add("Font", this.DataBindingSource, "Font");
         }
 
         #endregion

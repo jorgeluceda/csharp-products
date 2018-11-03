@@ -37,7 +37,6 @@
             this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,8 @@
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rotationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnFontHidden = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -133,10 +134,6 @@
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
-            // 
             // contentDataGridViewTextBoxColumn
             // 
             this.contentDataGridViewTextBoxColumn.DataPropertyName = "Content";
@@ -182,11 +179,26 @@
             this.rotationDataGridViewTextBoxColumn.HeaderText = "Rotation";
             this.rotationDataGridViewTextBoxColumn.Name = "rotationDataGridViewTextBoxColumn";
             // 
+            // documentBindingSource
+            // 
+            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
+            // 
+            // btnFontHidden
+            // 
+            this.btnFontHidden.Location = new System.Drawing.Point(471, 464);
+            this.btnFontHidden.Name = "btnFontHidden";
+            this.btnFontHidden.Size = new System.Drawing.Size(75, 23);
+            this.btnFontHidden.TabIndex = 8;
+            this.btnFontHidden.Text = "button2";
+            this.btnFontHidden.UseVisualStyleBackColor = true;
+            this.btnFontHidden.Visible = false;
+            // 
             // GridViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 527);
+            this.Controls.Add(this.btnFontHidden);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFont);
             this.Controls.Add(this.btnBackgroundColor);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rotationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnFontHidden;
     }
 }
