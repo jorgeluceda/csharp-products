@@ -39,6 +39,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +55,6 @@
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rotationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,13 +79,13 @@
             this.dgvDocument.Location = new System.Drawing.Point(12, 12);
             this.dgvDocument.Name = "dgvDocument";
             this.dgvDocument.RowTemplate.Height = 28;
-            this.dgvDocument.Size = new System.Drawing.Size(747, 399);
+            this.dgvDocument.Size = new System.Drawing.Size(566, 399);
             this.dgvDocument.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 428);
+            this.label1.Location = new System.Drawing.Point(29, 471);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 1;
@@ -85,7 +93,7 @@
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(68, 428);
+            this.btnColor.Location = new System.Drawing.Point(85, 471);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 2;
@@ -95,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 431);
+            this.label2.Location = new System.Drawing.Point(177, 472);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 20);
             this.label2.TabIndex = 3;
@@ -104,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 431);
+            this.label3.Location = new System.Drawing.Point(449, 472);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 20);
             this.label3.TabIndex = 4;
@@ -112,7 +120,7 @@
             // 
             // btnBackgroundColor
             // 
-            this.btnBackgroundColor.Location = new System.Drawing.Point(321, 427);
+            this.btnBackgroundColor.Location = new System.Drawing.Point(323, 471);
             this.btnBackgroundColor.Name = "btnBackgroundColor";
             this.btnBackgroundColor.Size = new System.Drawing.Size(75, 23);
             this.btnBackgroundColor.TabIndex = 5;
@@ -121,9 +129,10 @@
             // 
             // btnFont
             // 
-            this.btnFont.Location = new System.Drawing.Point(471, 424);
+            this.btnFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFont.Location = new System.Drawing.Point(501, 469);
             this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(95, 34);
+            this.btnFont.Size = new System.Drawing.Size(75, 23);
             this.btnFont.TabIndex = 6;
             this.btnFont.Text = "Change";
             this.btnFont.UseVisualStyleBackColor = true;
@@ -133,7 +142,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(651, 477);
+            this.button1.Location = new System.Drawing.Point(470, 562);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 38);
             this.button1.TabIndex = 7;
@@ -143,7 +152,7 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(560, 477);
+            this.btnAdd.Location = new System.Drawing.Point(379, 562);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 38);
             this.btnAdd.TabIndex = 8;
@@ -153,9 +162,10 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(16, 477);
+            this.btnDelete.Location = new System.Drawing.Point(15, 562);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 38);
             this.btnDelete.TabIndex = 9;
@@ -163,17 +173,87 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // documentBindingSource
+            // 
+            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 429);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Content:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(85, 426);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(491, 26);
+            this.textBox1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 514);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Z-Order";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(85, 511);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(75, 26);
+            this.textBox2.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(243, 514);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Location:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(323, 514);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(75, 26);
+            this.textBox3.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(421, 517);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Rotation:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(501, 511);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(75, 26);
+            this.textBox4.TabIndex = 17;
+            // 
             // contentDataGridViewTextBoxColumn
             // 
             this.contentDataGridViewTextBoxColumn.DataPropertyName = "Content";
             this.contentDataGridViewTextBoxColumn.HeaderText = "Content";
             this.contentDataGridViewTextBoxColumn.Name = "contentDataGridViewTextBoxColumn";
+            this.contentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // zOrderDataGridViewTextBoxColumn
             // 
             this.zOrderDataGridViewTextBoxColumn.DataPropertyName = "ZOrder";
             this.zOrderDataGridViewTextBoxColumn.HeaderText = "ZOrder";
             this.zOrderDataGridViewTextBoxColumn.Name = "zOrderDataGridViewTextBoxColumn";
+            this.zOrderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // colorDataGridViewTextBoxColumn
             // 
@@ -194,6 +274,7 @@
             this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
             this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
             this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            this.locationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fontDataGridViewTextBoxColumn
             // 
@@ -207,16 +288,21 @@
             this.rotationDataGridViewTextBoxColumn.DataPropertyName = "Rotation";
             this.rotationDataGridViewTextBoxColumn.HeaderText = "Rotation";
             this.rotationDataGridViewTextBoxColumn.Name = "rotationDataGridViewTextBoxColumn";
-            // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
+            this.rotationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // GridViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 527);
+            this.ClientSize = new System.Drawing.Size(590, 612);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.button1);
@@ -227,6 +313,7 @@
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDocument);
+            this.MinimumSize = new System.Drawing.Size(612, 668);
             this.Name = "GridViewForm";
             this.Text = "GridViewForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).EndInit();
@@ -247,6 +334,16 @@
         private System.Windows.Forms.Button btnBackgroundColor;
         private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
@@ -254,7 +351,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rotationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
     }
 }
