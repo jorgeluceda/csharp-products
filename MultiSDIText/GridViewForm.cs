@@ -42,8 +42,8 @@ namespace MultiSDIText
             this.btnColor.DataBindings.Add("BackColor", this.DataBindingSource, "Color");
             this.btnBackgroundColor.DataBindings.Add("BackColor", this.DataBindingSource, "BackgroundColor");
             this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "ZOrder");
-            this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "Location");
-            this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "Rotation");
+            this.txtLocation.DataBindings.Add("Text", this.DataBindingSource, "Location");
+            this.txtRotation.DataBindings.Add("Text", this.DataBindingSource, "Rotation");
         }
 
         private Color? ShowColorDialog()
