@@ -39,6 +39,7 @@ namespace MultiSDIText
 
         void InitializeManualBindings()
         {
+            this.txtContent.DataBindings.Add("Text", this.DataBindingSource, "Content");
             this.btnColor.DataBindings.Add("BackColor", this.DataBindingSource, "Color");
             this.btnBackgroundColor.DataBindings.Add("BackColor", this.DataBindingSource, "BackgroundColor");
             this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "ZOrder");
