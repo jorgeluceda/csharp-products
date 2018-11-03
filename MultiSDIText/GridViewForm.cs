@@ -18,6 +18,8 @@ namespace MultiSDIText
             InitializeComponent();
 
             InitializeManualBindings();
+
+            RefreshItems();
         }
 
         public BindingSource DataBindingSource
@@ -57,6 +59,11 @@ namespace MultiSDIText
             }
 
             return null;
+        }
+
+        void RefreshItems()
+        {
+            this.btnDelete.Enabled = this.BindingManager.Count > 0;
         }
 
         #endregion
@@ -101,11 +108,30 @@ namespace MultiSDIText
             text.Color = Color.Blue;
 
             this.DataBindingSource.Add(text);
+            RefreshItems();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             this.DataBindingSource.Remove((Text)this.BindingManager.Current);
+            RefreshItems();
+        }
+
+        private void txtLocation_TextChanged(object sender, EventArgs e)
+        {
+            int[] textMatches = new int[0];
+
+            try {
+                textMatches = Array.ConvertAll<string, int>(this.txtLocation.Text.Split(','), Convert.ToInt32);
+            }
+            catch (FormatException) {
+                this.gridViewErrorProvider.SetError(this.txtLocation, "Please, enter a valid pair of coordinates: X, Y");
+            }
+
+            if (this.txtLocation.Text == null || textMatches.Count() < 2 || textMatches.Count() > 2)
+            {
+                this.gridViewErrorProvider.SetError(this.txtLocation, "Please, enter a valid pair of coordinates: X, Y");
+            }
         }
     }
 }

@@ -39,7 +39,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.txtContent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,8 +54,11 @@
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rotationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDocument
@@ -173,10 +175,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -224,6 +222,7 @@
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(75, 26);
             this.txtLocation.TabIndex = 15;
+            this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
             // label7
             // 
@@ -290,6 +289,14 @@
             this.rotationDataGridViewTextBoxColumn.Name = "rotationDataGridViewTextBoxColumn";
             this.rotationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // documentBindingSource
+            // 
+            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
+            // 
+            // gridViewErrorProvider
+            // 
+            this.gridViewErrorProvider.ContainerControl = this;
+            // 
             // GridViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -318,6 +325,7 @@
             this.Text = "GridViewForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rotationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider gridViewErrorProvider;
     }
 }
