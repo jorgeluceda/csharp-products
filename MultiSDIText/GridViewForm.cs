@@ -43,6 +43,28 @@ namespace MultiSDIText
             this.btnFontHidden.DataBindings.Add("Font", this.DataBindingSource, "Font");
         }
 
+        private Color? ShowColorDialog()
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                return dlg.Color;
+            }
+
+            return null;
+        }
+
         #endregion
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            var color = this.ShowColorDialog();
+
+            if(color != null)
+            {
+                this.btnColor.BackColor = (Color)color;
+            }
+        }
     }
 }
