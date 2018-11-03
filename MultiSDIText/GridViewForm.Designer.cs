@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvDocument = new System.Windows.Forms.DataGridView();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnColor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,10 +69,6 @@
             this.dgvDocument.RowTemplate.Height = 28;
             this.dgvDocument.Size = new System.Drawing.Size(747, 399);
             this.dgvDocument.TabIndex = 0;
-            // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // label1
             // 
@@ -119,10 +115,11 @@
             // 
             // btnFont
             // 
-            this.btnFont.Location = new System.Drawing.Point(474, 428);
+            this.btnFont.Location = new System.Drawing.Point(471, 424);
             this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(75, 23);
+            this.btnFont.Size = new System.Drawing.Size(75, 34);
             this.btnFont.TabIndex = 6;
+            this.btnFont.Text = "Change";
             this.btnFont.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -135,6 +132,10 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // documentBindingSource
+            // 
+            this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
             // 
             // contentDataGridViewTextBoxColumn
             // 
@@ -153,12 +154,14 @@
             this.colorDataGridViewTextBoxColumn.DataPropertyName = "Color";
             this.colorDataGridViewTextBoxColumn.HeaderText = "Color";
             this.colorDataGridViewTextBoxColumn.Name = "colorDataGridViewTextBoxColumn";
+            this.colorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // backgroundColorDataGridViewTextBoxColumn
             // 
             this.backgroundColorDataGridViewTextBoxColumn.DataPropertyName = "BackgroundColor";
             this.backgroundColorDataGridViewTextBoxColumn.HeaderText = "BackgroundColor";
             this.backgroundColorDataGridViewTextBoxColumn.Name = "backgroundColorDataGridViewTextBoxColumn";
+            this.backgroundColorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // locationDataGridViewTextBoxColumn
             // 
@@ -171,6 +174,7 @@
             this.fontDataGridViewTextBoxColumn.DataPropertyName = "Font";
             this.fontDataGridViewTextBoxColumn.HeaderText = "Font";
             this.fontDataGridViewTextBoxColumn.Name = "fontDataGridViewTextBoxColumn";
+            this.fontDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // rotationDataGridViewTextBoxColumn
             // 

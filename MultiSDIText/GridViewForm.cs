@@ -15,6 +15,8 @@ namespace MultiSDIText
         public GridViewForm()
         {
             InitializeComponent();
+
+
         }
 
         public BindingSource DataBindingSource
@@ -31,5 +33,16 @@ namespace MultiSDIText
                 return this.BindingContext[this.documentBindingSource];
             }
         }
+
+        #region Helpers
+
+        void InitializeManualBindings()
+        {
+            this.btnColor.DataBindings.Add("BackColor", this.DataBindingSource, "Color");
+            this.btnBackgroundColor.DataBindings.Add("BackColor", this.DataBindingSource, "BackgroundColor");
+            this.btnFont.DataBindings.Add("Font", this.DataBindingSource, "Font");
+        }
+
+        #endregion
     }
 }
