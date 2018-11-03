@@ -570,5 +570,10 @@ namespace MultiSDIText
             this.gridViewForm.ShowDialog();
             this.docPictureBox.Invalidate();
         }
+
+        private void DragAndDrop()
+        {
+
+        }
     }
 }
