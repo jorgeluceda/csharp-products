@@ -37,7 +37,6 @@
             this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnFontHidden = new System.Windows.Forms.Button();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,10 +119,11 @@
             // 
             this.btnFont.Location = new System.Drawing.Point(471, 424);
             this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(75, 34);
+            this.btnFont.Size = new System.Drawing.Size(95, 34);
             this.btnFont.TabIndex = 6;
             this.btnFont.Text = "Change";
             this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
             // 
             // button1
             // 
@@ -135,16 +135,6 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnFontHidden
-            // 
-            this.btnFontHidden.Location = new System.Drawing.Point(471, 464);
-            this.btnFontHidden.Name = "btnFontHidden";
-            this.btnFontHidden.Size = new System.Drawing.Size(75, 23);
-            this.btnFontHidden.TabIndex = 8;
-            this.btnFontHidden.Text = "button2";
-            this.btnFontHidden.UseVisualStyleBackColor = true;
-            this.btnFontHidden.Visible = false;
             // 
             // contentDataGridViewTextBoxColumn
             // 
@@ -200,7 +190,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 527);
-            this.Controls.Add(this.btnFontHidden);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFont);
             this.Controls.Add(this.btnBackgroundColor);
@@ -236,6 +225,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rotationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnFontHidden;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultiSDIText.Storage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +41,6 @@ namespace MultiSDIText
         {
             this.btnColor.DataBindings.Add("BackColor", this.DataBindingSource, "Color");
             this.btnBackgroundColor.DataBindings.Add("BackColor", this.DataBindingSource, "BackgroundColor");
-            this.btnFontHidden.DataBindings.Add("Font", this.DataBindingSource, "Font");
         }
 
         private Color? ShowColorDialog()
@@ -74,6 +74,19 @@ namespace MultiSDIText
             if (color != null)
             {
                 this.btnBackgroundColor.BackColor = (Color)color;
+            }
+        }
+
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                Font font = dlg.Font;
+
+                var text = (Text)this.BindingManager.Current;
+                text.Font = font;
             }
         }
     }
