@@ -49,6 +49,7 @@ namespace MultiSDIText
         int Zorder = 0;
         //OptionsForm optionsForm = new OptionsForm();
         TextOptions optionsForm = new TextOptions();
+        GridViewForm gridViewForm = new GridViewForm();
 
 
         // Read Only FileName property
@@ -229,7 +230,8 @@ namespace MultiSDIText
             
             */
 
-            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.DataBindingSource.DataSource = doc.content;
+            this.gridViewForm.DataBindingSource.DataSource = doc.content;
             
             //.DataBindingSource.DataSource = doc.content;
 
@@ -563,5 +565,10 @@ namespace MultiSDIText
             this.Cursor = AnimatedCursor;
         }
 
+        private void gridViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.gridViewForm.ShowDialog();
+            this.docPictureBox.Invalidate();
+        }
     }
 }
