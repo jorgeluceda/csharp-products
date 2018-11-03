@@ -66,5 +66,15 @@ namespace MultiSDIText
                 this.btnColor.BackColor = (Color)color;
             }
         }
+
+        private void btnBackgroundColor_Click(object sender, EventArgs e)
+        {
+            var color = this.ShowColorDialog();
+
+            if (color != null)
+            {
+                this.btnBackgroundColor.BackColor = (Color)color;
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.btnFont = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnFontHidden = new System.Windows.Forms.Button();
             this.contentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +46,6 @@
             this.fontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rotationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnFontHidden = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +114,7 @@
             this.btnBackgroundColor.Size = new System.Drawing.Size(75, 23);
             this.btnBackgroundColor.TabIndex = 5;
             this.btnBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnBackgroundColor.Click += new System.EventHandler(this.btnBackgroundColor_Click);
             // 
             // btnFont
             // 
@@ -134,6 +135,16 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnFontHidden
+            // 
+            this.btnFontHidden.Location = new System.Drawing.Point(471, 464);
+            this.btnFontHidden.Name = "btnFontHidden";
+            this.btnFontHidden.Size = new System.Drawing.Size(75, 23);
+            this.btnFontHidden.TabIndex = 8;
+            this.btnFontHidden.Text = "button2";
+            this.btnFontHidden.UseVisualStyleBackColor = true;
+            this.btnFontHidden.Visible = false;
             // 
             // contentDataGridViewTextBoxColumn
             // 
@@ -183,16 +194,6 @@
             // documentBindingSource
             // 
             this.documentBindingSource.DataSource = typeof(MultiSDIText.Storage.Text);
-            // 
-            // btnFontHidden
-            // 
-            this.btnFontHidden.Location = new System.Drawing.Point(471, 464);
-            this.btnFontHidden.Name = "btnFontHidden";
-            this.btnFontHidden.Size = new System.Drawing.Size(75, 23);
-            this.btnFontHidden.TabIndex = 8;
-            this.btnFontHidden.Text = "button2";
-            this.btnFontHidden.UseVisualStyleBackColor = true;
-            this.btnFontHidden.Visible = false;
             // 
             // GridViewForm
             // 
