@@ -89,5 +89,13 @@ namespace MultiSDIText
                 text.Font = font;
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var text = new Text();
+            text.Content = "text";
+
+            this.DataBindingSource.Add(text);
+        }
     }
 }

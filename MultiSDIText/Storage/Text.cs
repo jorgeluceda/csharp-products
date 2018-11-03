@@ -31,7 +31,7 @@ namespace MultiSDIText.Storage
             this.locationX = 0;
             this.locationY = 0;
 
-            this.fontFamily = "Arial";
+            this.fontFamily = "Times New Roman";
             this.fontSize = 12.0f;
             this.fontStyle = "R";
 
