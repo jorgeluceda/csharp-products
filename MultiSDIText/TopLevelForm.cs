@@ -607,7 +607,43 @@ namespace MultiSDIText
 
         private void TopLevelForm_DragDrop(object sender, DragEventArgs e)
         {
-           
+            // Retrieve drag data
+            string sourceText = (string)e.Data.GetData(typeof(string));
+
+
+            DragEventArgs me = (DragEventArgs)e;
+            Point coordinates = this.PointToClient(new Point(e.X, e.Y));
+
+            if (doc.Find(coordinates) != null)  //check to see if click is inside a text object
+            {
+                backToolStripStatusLabel.BackColor = this.curText.BackgroundColor;
+                colorToolStripStatusLabel.BackColor = this.curText.Color;
+                fontToolStripStatusLabel.Text = "Font: " + this.curText.Font.Name;
+
+                this.curText = doc.Find(coordinates);//change current text to the found object
+                return;
+            }
+
+            Storage.Text curText = new Storage.Text();
+
+
+            curText.ZOrder = Zorder;
+            Zorder += 1;
+            curText.Content = sourceText;
+            curText.Color = Color.Blue;
+            curText.BackgroundColor = Color.Transparent;
+
+            curText.Location = coordinates;
+            curText.Font = new Font("Times New Roman", 12.0f);
+
+
+            this.doc.Add(curText);
+
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.RefreshItems();
+            this.docPictureBox.Invalidate();
+            this.curText = curText;                     //change the current text to the new object
         }
 
     }
