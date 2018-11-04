@@ -131,26 +131,8 @@ namespace MultiSDIText
                 return;
             }
 
-            Storage.Text curText = new Storage.Text();
+            InsertText("text", coordinates);
 
-
-            curText.ZOrder = Zorder;
-            Zorder += 1;
-            curText.Content = "text";
-            curText.Color = Color.Blue;
-            curText.BackgroundColor = Color.Transparent;
-
-            curText.Location = coordinates;
-            curText.Font = new Font("Times New Roman", 12.0f);
-
-
-            this.doc.Add(curText);
-
-
-            optionsForm.DataBindingSource.DataSource = doc.content;
-            this.optionsForm.RefreshItems();
-            this.docPictureBox.Invalidate();
-            this.curText = curText;                     //change the current text to the new object
 
         }
 
@@ -624,12 +606,20 @@ namespace MultiSDIText
                 return;
             }
 
+            InsertText(sourceText, coordinates);
+
+
+        }
+
+        private void InsertText(String insertText, Point coordinates)
+        {
+
             Storage.Text curText = new Storage.Text();
 
 
             curText.ZOrder = Zorder;
             Zorder += 1;
-            curText.Content = sourceText;
+            curText.Content = insertText;
             curText.Color = Color.Blue;
             curText.BackgroundColor = Color.Transparent;
 
@@ -644,6 +634,7 @@ namespace MultiSDIText
             this.optionsForm.RefreshItems();
             this.docPictureBox.Invalidate();
             this.curText = curText;                     //change the current text to the new object
+
         }
 
     }
