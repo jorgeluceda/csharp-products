@@ -575,5 +575,10 @@ namespace MultiSDIText
         {
 
         }
+
+        private void TopLevelForm_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }

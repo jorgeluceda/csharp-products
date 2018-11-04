@@ -304,6 +304,7 @@
             this.MinimumSize = new System.Drawing.Size(488, 337);
             this.Name = "TopLevelForm";
             this.Text = "Typography++";
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.TopLevelForm_DragEnter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TopLevelForm_KeyDown);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
