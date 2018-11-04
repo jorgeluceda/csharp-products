@@ -585,5 +585,10 @@ namespace MultiSDIText
         {
 
         }
+
+        private void TopLevelForm_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+
+        }
     }
 }
