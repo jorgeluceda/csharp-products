@@ -560,13 +560,15 @@ namespace MultiSDIText
 
         private void TopLevelForm_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(string)))
+            if (e.Data.GetDataPresent(typeof(string)) )
             {
                 e.Effect = DragDropEffects.Copy;
+
             }
             else
             {
                 e.Effect = DragDropEffects.None;
+
             }
         }
 
@@ -578,13 +580,16 @@ namespace MultiSDIText
         private void TopLevelForm_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
             // Get the current cursor position, relative to the form
-            Point cursorPosition = this.PointToClient(Cursor.Position);
+            //Point cursorPosition = this.PointToClient(Cursor.Position);
             // Cancel the drag and drop operation if the cursor
             // is dragged outside the form
-            //if (!this.docPictureBox.PointToClient(cursorPosition))
-            //{
-                //e.Action = DragAction.Cancel;
-            //}
+            //if (this.docPictureBox.Contains(this.PointToClient(Cursor.Position)))
+            if( this.docPictureBox.ClientRectangle.Contains(this.PointToClient(Cursor.Position)) )
+            {
+                e.Action = DragAction.Cancel;
+     
+            }
+            Console.WriteLine("Outside");
         }
 
         private void TopLevelForm_DragDrop(object sender, DragEventArgs e)
