@@ -578,12 +578,73 @@ namespace MultiSDIText
 
         private void TopLevelForm_DragEnter(object sender, DragEventArgs e)
         {
-
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
         }
 
         private void TopLevelForm_DragOver(object sender, DragEventArgs e)
         {
 
         }
+
+        private void TopLevelForm_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+            // Get the current cursor position, relative to the form
+            Point cursorPosition = this.PointToClient(Cursor.Position);
+            // Cancel the drag and drop operation if the cursor
+            // is dragged outside the form
+            //if (!this.docPictureBox.PointToClient(cursorPosition))
+            //{
+                //e.Action = DragAction.Cancel;
+            //}
+        }
+
+        private void TopLevelForm_DragDrop(object sender, DragEventArgs e)
+        {
+            // Retrieve drag data
+            string sourceText = (string)e.Data.GetData(typeof(string));
+
+
+            DragEventArgs me = (DragEventArgs)e;
+            Point coordinates = this.PointToClient(new Point(e.X, e.Y));
+
+            if (doc.Find(coordinates) != null)  //check to see if click is inside a text object
+            {
+                backToolStripStatusLabel.BackColor = this.curText.BackgroundColor;
+                colorToolStripStatusLabel.BackColor = this.curText.Color;
+                fontToolStripStatusLabel.Text = "Font: " + this.curText.Font.Name;
+
+                this.curText = doc.Find(coordinates);//change current text to the found object
+                return;
+            }
+
+            Storage.Text curText = new Storage.Text();
+
+
+            curText.ZOrder = Zorder;
+            Zorder += 1;
+            curText.Content = sourceText;
+            curText.Color = Color.Blue;
+            curText.BackgroundColor = Color.Transparent;
+
+            curText.Location = coordinates;
+            curText.Font = new Font("Times New Roman", 12.0f);
+
+
+            this.doc.Add(curText);
+
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.RefreshItems();
+            this.docPictureBox.Invalidate();
+            this.curText = curText;                     //change the current text to the new object
+        }
+
     }
 }
