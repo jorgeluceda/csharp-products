@@ -580,5 +580,10 @@ namespace MultiSDIText
         {
 
         }
+
+        private void TopLevelForm_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }

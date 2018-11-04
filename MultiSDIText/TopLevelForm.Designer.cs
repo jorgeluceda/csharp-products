@@ -305,6 +305,7 @@
             this.Name = "TopLevelForm";
             this.Text = "Typography++";
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.TopLevelForm_DragEnter);
+            this.DragOver += new System.Windows.Forms.DragEventHandler(this.TopLevelForm_DragOver);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TopLevelForm_KeyDown);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
