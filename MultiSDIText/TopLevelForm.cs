@@ -195,23 +195,6 @@ namespace MultiSDIText
 
         private void InitializeDS()
         {
-            /* Take a look at code below to understand the data binding */
-            
-
-            /*
-            Text text = new Text();
-            text.Content = "Hello";
-            text.Location = new Point(100, 200);
-            text.BackgroundColor = Color.White;
-            
-            Text text2 = new Text();
-            text2.Content = "Hello2";
-            text2.Location = new Point(100, 200);
-            doc.Add(text);
-            doc.Add(text2);
-            
-            */
-
             this.optionsForm.DataBindingSource.DataSource = doc.content;
             this.gridViewForm.DataBindingSource.DataSource = doc.content;
             
@@ -220,7 +203,6 @@ namespace MultiSDIText
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
 
             fontToolStripStatusLabel.Text =  "Times New Roman";
-
         }
 
         #region Serialization Handlers
@@ -642,5 +624,22 @@ namespace MultiSDIText
 
         }
 
+        public void SaveImage()
+        {
+            // The screen area we want to copy (Client Area = Graphic View)
+            Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y, 
+                this.Width, this.Height);      
+
+            Bitmap image = new Bitmap(this.Width, this.Height);
+           
+            this.DrawToBitmap(image, rect);
+
+            image.Save(@"C:\image6.png");
+        }
+
+        private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveImage();
+        }
     }
 }
