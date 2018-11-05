@@ -634,5 +634,22 @@ namespace MultiSDIText
             //Change cursor to the animated cursor
             this.Cursor = AnimatedCursor;
         }
+
+
+        public void SaveImage()
+        {
+            Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y,
+                this.Width, this.Height);
+
+            Bitmap image = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(image, rect);
+
+            image.Save(@"C:\image7.png");
+        }
+
+        private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveImage();
+        }
     }
 }
