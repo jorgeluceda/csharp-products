@@ -55,6 +55,7 @@
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.tfToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.saveViewAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -87,6 +88,7 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.saveViewAsImageToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
@@ -293,6 +295,13 @@
             this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
             this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
             // 
+            // saveViewAsImageToolStripMenuItem
+            // 
+            this.saveViewAsImageToolStripMenuItem.Name = "saveViewAsImageToolStripMenuItem";
+            this.saveViewAsImageToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.saveViewAsImageToolStripMenuItem.Text = "Save View As Image";
+            this.saveViewAsImageToolStripMenuItem.Click += new System.EventHandler(this.saveViewAsImageToolStripMenuItem_Click);
+            // 
             // TopLevelForm
             // 
             this.AllowDrop = true;
@@ -349,6 +358,7 @@
         private System.Windows.Forms.ToolStripMenuItem importTextToolStripMenuItem;
         private System.Windows.Forms.ToolTip tfToolTip;
         private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveViewAsImageToolStripMenuItem;
     }
 }
 
