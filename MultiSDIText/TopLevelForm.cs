@@ -637,7 +637,7 @@ namespace MultiSDIText
         }
 
 
-        public void SaveImage(String fileName, ImageFormat format)
+        private void SaveImage(String fileName, ImageFormat format)
         {
             Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y,
                 this.Width, this.Height);
@@ -671,6 +671,35 @@ namespace MultiSDIText
                 {
                     SaveImage(dlg.FileName, ImageFormat.Png);
                 }
+            }
+        }
+
+        private void OpenAndColorChange(String fileName)
+        {
+            using (Bitmap bmp = new Bitmap(@"" + fileName))
+            {
+
+            }
+
+
+            //this.docPictureBox.BackgroundImage = dumpImage;
+            //this.docPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void openImageToWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                String extension = Path.GetExtension(dlg.FileName);
+
+                if(extension != ".png")
+                {
+                    MessageBox.Show("Unfortunately, we can only perform this operation with PNG files.");
+                    return;
+                }
+
+                OpenAndColorChange(dlg.FileName);
             }
         }
     }

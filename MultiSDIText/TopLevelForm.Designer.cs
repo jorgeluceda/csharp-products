@@ -56,6 +56,7 @@
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.tfToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -86,6 +87,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.openImageToWindowToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.saveViewAsImageToolStripMenuItem,
@@ -133,8 +135,8 @@
             // saveViewAsImageToolStripMenuItem
             // 
             this.saveViewAsImageToolStripMenuItem.Name = "saveViewAsImageToolStripMenuItem";
-            this.saveViewAsImageToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.saveViewAsImageToolStripMenuItem.Text = "Save View As Image";
+            this.saveViewAsImageToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.saveViewAsImageToolStripMenuItem.Text = "Save Window As Image";
             this.saveViewAsImageToolStripMenuItem.Click += new System.EventHandler(this.saveViewAsImageToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
@@ -302,6 +304,13 @@
             this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
             this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
             // 
+            // openImageToWindowToolStripMenuItem
+            // 
+            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
+            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.openImageToWindowToolStripMenuItem.Text = "Open Image To Window";
+            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
+            // 
             // TopLevelForm
             // 
             this.AllowDrop = true;
@@ -359,6 +368,7 @@
         private System.Windows.Forms.ToolTip tfToolTip;
         private System.Windows.Forms.ToolStripMenuItem gridViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveViewAsImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openImageToWindowToolStripMenuItem;
     }
 }
 
