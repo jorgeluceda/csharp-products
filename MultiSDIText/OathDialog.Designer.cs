@@ -36,22 +36,26 @@
             // 
             this.middlePanel.BackColor = System.Drawing.Color.Transparent;
             this.middlePanel.Controls.Add(this.oathControl);
-            this.middlePanel.Size = new System.Drawing.Size(457, 253);
+            this.middlePanel.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.middlePanel.Size = new System.Drawing.Size(914, 490);
             // 
             // oathControl
             // 
-            this.oathControl.BackColor = System.Drawing.Color.Transparent;
+            this.oathControl.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.oathControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oathControl.ForeColor = System.Drawing.Color.DarkKhaki;
             this.oathControl.Location = new System.Drawing.Point(0, 0);
+            this.oathControl.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.oathControl.Name = "oathControl";
-            this.oathControl.Size = new System.Drawing.Size(457, 253);
+            this.oathControl.Size = new System.Drawing.Size(914, 490);
             this.oathControl.TabIndex = 0;
             // 
             // oathDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 363);
+            this.ClientSize = new System.Drawing.Size(914, 703);
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "oathDialog";

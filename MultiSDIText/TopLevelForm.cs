@@ -623,23 +623,16 @@ namespace MultiSDIText
             this.curText = curText;                     //change the current text to the new object
 
         }
-
-        public void SaveImage()
+        private void MainMenu_MouseEnter(object sender, EventArgs e)
         {
-            // The screen area we want to copy (Client Area = Graphic View)
-            Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y, 
-                this.Width, this.Height);      
-
-            Bitmap image = new Bitmap(this.Width, this.Height);
-           
-            this.DrawToBitmap(image, rect);
-
-            image.Save(@"C:\image6.png");
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
         }
 
-        private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mainStatusStrip_MouseEnter(object sender, EventArgs e)
         {
-            SaveImage();
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
         }
     }
 }

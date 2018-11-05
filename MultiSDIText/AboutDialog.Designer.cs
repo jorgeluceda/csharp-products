@@ -38,15 +38,17 @@
             // 
             this.middlePanel.BackColor = System.Drawing.Color.Transparent;
             this.middlePanel.Controls.Add(this.aboutInfo);
-            this.middlePanel.Size = new System.Drawing.Size(442, 243);
+            this.middlePanel.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.middlePanel.Size = new System.Drawing.Size(884, 471);
             // 
             // aboutDescription
             // 
             this.aboutDescription.BackColor = System.Drawing.Color.Transparent;
             this.aboutDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aboutDescription.Location = new System.Drawing.Point(0, 45);
+            this.aboutDescription.Location = new System.Drawing.Point(0, 87);
+            this.aboutDescription.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.aboutDescription.Name = "aboutDescription";
-            this.aboutDescription.Size = new System.Drawing.Size(442, 243);
+            this.aboutDescription.Size = new System.Drawing.Size(884, 471);
             this.aboutDescription.TabIndex = 1;
             this.aboutDescription.Text = "A Multi-Document application that draws text, as text objects, using data binding" +
     " to connect to a text options dialog.";
@@ -56,18 +58,20 @@
             // 
             this.aboutInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aboutInfo.Location = new System.Drawing.Point(0, 0);
+            this.aboutInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.aboutInfo.Name = "aboutInfo";
-            this.aboutInfo.Size = new System.Drawing.Size(442, 243);
+            this.aboutInfo.Size = new System.Drawing.Size(884, 471);
             this.aboutInfo.TabIndex = 0;
             this.aboutInfo.Text = resources.GetString("aboutInfo.Text");
             this.aboutInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // aboutDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 353);
+            this.ClientSize = new System.Drawing.Size(884, 684);
             this.Controls.Add(this.aboutDescription);
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "aboutDialog";

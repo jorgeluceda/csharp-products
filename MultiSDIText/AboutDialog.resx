@@ -120,6 +120,7 @@
   <data name="aboutInfo.Text" xml:space="preserve">
     <value>A Multi-Document application that draws text, as text objects, using data binding to connect to a text options dialog.
 There's also a Search function to search for files on the computer with a given extension, implemented with a worker
-thread.</value>
+thread. A custom dynamic cursor, image processing, drag and drop featur and grid view were added to this application.
+</value>
   </data>
 </root>
