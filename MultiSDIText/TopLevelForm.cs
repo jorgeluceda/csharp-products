@@ -642,5 +642,16 @@ namespace MultiSDIText
 
         }
 
+        private void MainMenu_MouseEnter(object sender, EventArgs e)
+        {
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
+        }
+
+        private void mainStatusStrip_MouseEnter(object sender, EventArgs e)
+        {
+            //Change cursor to the animated cursor
+            this.Cursor = AnimatedCursor;
+        }
     }
 }
