@@ -246,6 +246,7 @@
             this.mainStatusStrip.TabIndex = 6;
             this.mainStatusStrip.Text = "statusStrip1";
             this.tfToolTip.SetToolTip(this.mainStatusStrip, "Indicates selected font type, text color, back color, caps, and status");
+            this.mainStatusStrip.MouseEnter += new System.EventHandler(this.mainStatusStrip_MouseEnter);
             // 
             // fontToolStripStatusLabel
             // 
