@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using CoreLibrary;
 using MultiSDIText.Storage;
 using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
 
 namespace MultiSDIText
 {
@@ -636,7 +637,7 @@ namespace MultiSDIText
         }
 
 
-        public void SaveImage(String fileName)
+        public void SaveImage(String fileName, ImageFormat format)
         {
             Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y,
                 this.Width, this.Height);
@@ -644,15 +645,32 @@ namespace MultiSDIText
             Bitmap image = new Bitmap(this.Width, this.Height);
             this.DrawToBitmap(image, rect);
 
-            image.Save(@"" + fileName + ".png");
+            image.Save(fileName, format);
         }
 
         private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "PNG Files (*.png) | *.png | JPEG Files (*.jpeg) | *.jpeg | Bitmap Files (*.bmp) | *.bmp";
+            dlg.AddExtension = true;
             if(dlg.ShowDialog() == DialogResult.OK)
             {
-                SaveImage(dlg.FileName);
+                var extension = Path.GetExtension(dlg.FileName);
+
+                Console.WriteLine(extension);
+
+                if(extension == ".jpeg")
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Jpeg);
+                }
+                else if(extension == ".bmp")
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Bmp);
+                }
+                else
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Png);
+                }
             }
         }
     }
