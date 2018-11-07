@@ -676,24 +676,22 @@ namespace MultiSDIText
 
         private void OpenAndColorChange(String fileName)
         {
-            using (Bitmap bmp = new Bitmap(@"" + fileName))
-            {
-
-            }
-
-
-            //this.docPictureBox.BackgroundImage = dumpImage;
-            //this.docPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            ImageWindow window = new ImageWindow();
+            window.FileName = fileName;
+            window.Show();
+            
         }
 
         private void openImageToWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "PNG Files (*.png) | *.png";
+
             if(dlg.ShowDialog() == DialogResult.OK)
             {
                 String extension = Path.GetExtension(dlg.FileName);
 
-                if(extension != ".png")
+                if (extension != ".png")
                 {
                     MessageBox.Show("Unfortunately, we can only perform this operation with PNG files.");
                     return;
