@@ -33,6 +33,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveViewAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.statusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.docPictureBox = new System.Windows.Forms.PictureBox();
             this.tfToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docPictureBox)).BeginInit();
@@ -101,7 +101,7 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -110,16 +110,23 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // openImageToWindowToolStripMenuItem
+            // 
+            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
+            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.openImageToWindowToolStripMenuItem.Text = "Open Image To Window";
+            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -128,7 +135,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.A)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -144,7 +151,7 @@
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -303,13 +310,6 @@
             this.docPictureBox.MouseEnter += new System.EventHandler(this.docPictureBox_MouseEnter);
             this.docPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseMove);
             this.docPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.docPictureBox_MouseUp);
-            // 
-            // openImageToWindowToolStripMenuItem
-            // 
-            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
-            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
-            this.openImageToWindowToolStripMenuItem.Text = "Open Image To Window";
-            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
             // 
             // TopLevelForm
             // 
