@@ -13,6 +13,7 @@ namespace MultiSDIText
     public partial class ImageWindow : Form
     {
         private String fileName;
+        Point clickedPoint;
 
         public String FileName
         {
@@ -25,7 +26,12 @@ namespace MultiSDIText
             InitializeComponent();
         }
 
-        private void ImageWindow_Paint(object sender, PaintEventArgs e)
+        private void ImageWindow_Load(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
+
+        private void Panel_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
@@ -35,9 +41,11 @@ namespace MultiSDIText
             }
         }
 
-        private void ImageWindow_Load(object sender, EventArgs e)
+        private void Panel_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Invalidate();
+            Control control = (Control)sender;
+            Point clickPoint = control.PointToScreen(new Point(e.X, e.Y));
+            Point formPoint = PointToClient(clickPoint);
         }
     }
 }
