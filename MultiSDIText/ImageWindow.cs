@@ -17,6 +17,8 @@ namespace MultiSDIText
         private String fileName;
         Color oldColor = Color.Black;
         Color newColor = Color.Black;
+
+        List<int> imgColors = new List<int>();
         Bitmap bmp;
 
         int bmpWidth;
@@ -40,6 +42,33 @@ namespace MultiSDIText
             this.Invalidate();
             //make width and height slightly biggee than image
             bmp = new Bitmap(@"" + this.fileName);
+
+            Color nowColor = new Color();
+            Color tempColor = new Color();
+            bool alreadyExists;
+            //Iterate whole bitmap to findout the picked color
+            for (int i = 0; i < bmp.Height; i++)
+            {
+                for (int j = 0; j < bmp.Width; j++)
+                {
+                    //Get the color at each pixel
+                    nowColor = bmp.GetPixel(j, i);
+
+
+                    //only add to listif new temp color is different from previous
+                    if(tempColor != nowColor)
+                    {
+                        //only add if imgColors does not contain that value
+                        if ((alreadyExists = imgColors.Contains(nowColor.ToArgb())) == false)
+                        {
+                            imgColors.Add(nowColor.ToArgb());
+                        }
+                    }
+                    tempColor = nowColor;
+                    
+                }
+            }
+
             bmpWidth = bmp.Width + 100;
             bmpHeight = bmp.Height + 100;
             this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight)); this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight));
