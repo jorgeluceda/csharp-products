@@ -681,12 +681,13 @@ namespace MultiSDIText
 
         private void SaveImage(String fileName, ImageFormat format)
         {
-            Rectangle rect = new Rectangle(this.ClientRectangle.X, this.ClientRectangle.Y,
-                this.Width, this.Height);
+            Rectangle rect = new Rectangle(this.docPictureBox.ClientRectangle.X, this.docPictureBox.ClientRectangle.Y,
+                this.docPictureBox.Width, this.docPictureBox.Height);
+
 
             Bitmap image = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(image, rect);
-
+            this.docPictureBox.DrawToBitmap(image, rect);
+            
             image.Save(fileName, format);
         }
 
