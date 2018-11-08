@@ -18,7 +18,7 @@ namespace MultiSDIText
         Color oldColor = Color.Black;
         Color newColor = Color.Black;
 
-        List<int> imgColors = new List<int>();
+        public List<int> imgColors = new List<int>();
         Bitmap bmp;
 
         int bmpWidth;
@@ -179,7 +179,7 @@ namespace MultiSDIText
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeColorOptions colorChange = new ChangeColorOptions();
-
+            colorChange.oldColorButton.Tag = imgColors;
             colorChange.ShowDialog();
             if (colorChange.closeAccept == true)
             {
