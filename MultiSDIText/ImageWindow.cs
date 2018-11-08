@@ -46,6 +46,8 @@ namespace MultiSDIText
             Color nowColor = new Color();
             Color tempColor = new Color();
             bool alreadyExists;
+
+            int bmpDimensions = bmpWidth / 20;
             //Iterate whole bitmap to findout the picked color
             for (int i = 0; i < bmp.Height; i++)
             {
@@ -53,21 +55,23 @@ namespace MultiSDIText
                 {
                     //Get the color at each pixel
                     nowColor = bmp.GetPixel(j, i);
-
-
+                    
                     //only add to listif new temp color is different from previous
                     if(tempColor != nowColor)
                     {
                         //only add if imgColors does not contain that value
-                        if ((alreadyExists = imgColors.Contains(nowColor.ToArgb())) == false)
+                        if ((alreadyExists = imgColors.Contains(nowColor.ToArgb())) == false && 
+                            ColorsAreClose(tempColor, nowColor) == false)
                         {
-                            imgColors.Add(nowColor.ToArgb());
+                            imgColors.Add(ColorTranslator.ToWin32(nowColor));
                         }
                     }
                     tempColor = nowColor;
                     
                 }
             }
+
+            imgColors = imgColors.Distinct().ToList();
 
             bmpWidth = bmp.Width + 100;
             bmpHeight = bmp.Height + 100;
@@ -76,7 +80,15 @@ namespace MultiSDIText
             this.Width = bmpWidth;
             this.Height = bmpHeight;
         }
-        
+        bool ColorsAreClose(Color a, Color z, int threshold = 20)
+        {
+            int r = (int)a.R - z.R,
+                g = (int)a.G - z.G,
+                b = (int)a.B - z.B;
+            return (r * r + g * g + b * b) <= threshold * threshold;
+        }
+
+
 
         private void imgPictureBox_Paint(object sender, PaintEventArgs e)
         {
