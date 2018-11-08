@@ -14,8 +14,8 @@ namespace MultiSDIText
     public partial class ImageWindow : Form
     {
         private String fileName;
-        Point clickedPoint;
-        ChangeColorOptions colorChange = new ChangeColorOptions();
+        Color oldColor = Color.Black;
+        Color newColor = Color.Black;
 
         public String FileName
         {
@@ -44,11 +44,9 @@ namespace MultiSDIText
                 // Set the image attribute's color mappings
                 ColorMap[] colorMap = new ColorMap[1];
                 colorMap[0] = new ColorMap();
-                //
-                colorMap[0].OldColor = this.colorChange.oldColorButton.BackColor;
-                //colorMap[0].OldColor = Color.Blue;
-                //colorMap[0].NewColor = Color.Red;
-                colorMap[0].NewColor = this.colorChange.newColorButton.BackColor;
+                
+                colorMap[0].OldColor = oldColor;
+                colorMap[0].NewColor = newColor;
                 ImageAttributes attr = new ImageAttributes();
                 attr.SetRemapTable(colorMap);
                 // Draw using the color map
@@ -74,9 +72,12 @@ namespace MultiSDIText
         {
             ChangeColorOptions colorChange = new ChangeColorOptions();
 
-            if (colorChange.ShowDialog() == DialogResult.OK)
+            colorChange.ShowDialog();
+            if(colorChange.closeAccept == true)
             {
-                    this.Invalidate();
+                this.oldColor = colorChange.oldColorButton.BackColor;
+                this.newColor = colorChange.newColorButton.BackColor;
+                this.imgPictureBox.Invalidate();
             }
 
         }
