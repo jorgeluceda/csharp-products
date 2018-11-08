@@ -37,7 +37,7 @@ namespace MultiSDIText
 
             using (Bitmap image = new Bitmap(@"" + this.FileName))
             {
-                g.DrawImage(image, new Point(0, 0));
+                g.DrawImage(image, new Point(0, 0)); //draw image starting from the left 
             }
         }
 
@@ -46,6 +46,26 @@ namespace MultiSDIText
             Control control = (Control)sender;
             Point clickPoint = control.PointToScreen(new Point(e.X, e.Y));
             Point formPoint = PointToClient(clickPoint);
+        }
+
+        private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColorOptions colorChange = new ChangeColorOptions();
+
+            if (colorChange.ShowDialog() == DialogResult.OK)
+            {
+                if(colorChange.closeAccept == true)
+                {
+                  
+                    this.Invalidate();
+                }
+            }
+
         }
     }
 }
