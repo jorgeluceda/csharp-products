@@ -378,7 +378,7 @@ namespace MultiSDIText.Storage
             SolidBrush textBrush = new SolidBrush(this.Color);
 
             g.FillRectangle(rectBrush, new RectangleF(this.Location, stringSize));
-
+           // g.RotateTransform(this.Rotation);
             g.DrawString(this.content, this.Font, textBrush, this.Location);
             this.stringSize = stringSize;
 
