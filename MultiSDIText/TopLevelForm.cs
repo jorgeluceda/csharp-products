@@ -535,27 +535,18 @@ namespace MultiSDIText
         {
             this.gridViewForm.trackZOrder = Zorder;
 
+
+
             this.gridViewForm.dgvDocument.ClearSelection();
 
-            int nRowIndex = gridViewForm.dgvDocument.Rows.Count - 1;
-            int nColumnIndex = 1;
-            if(nRowIndex >= 0)
-            {
-                gridViewForm.dgvDocument.Rows[nRowIndex].Selected = true;
-                gridViewForm.dgvDocument.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
-
-                //In case if you want to scroll down as well.
-                gridViewForm.dgvDocument.FirstDisplayedScrollingRowIndex = nRowIndex;
-
-            }
+            //this.Zorder = Zorder + this.gridViewForm.trackAdds;
+            //this.Zorder = gridViewForm.trackZOrder;
 
 
 
             this.gridViewForm.ShowDialog();
 
-            //this.Zorder = Zorder + this.gridViewForm.trackAdds;
             this.Zorder = gridViewForm.trackZOrder;
-            
 
 
             this.docPictureBox.Invalidate();

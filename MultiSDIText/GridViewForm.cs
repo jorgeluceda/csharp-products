@@ -153,6 +153,8 @@ namespace MultiSDIText
             //text.Font 
 
             this.DataBindingSource.Add(text);
+
+
             RefreshItems();
         }
 
