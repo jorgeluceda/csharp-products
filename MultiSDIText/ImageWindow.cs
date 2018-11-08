@@ -17,6 +17,8 @@ namespace MultiSDIText
         private String fileName;
         Color oldColor = Color.Black;
         Color newColor = Color.Black;
+
+        public List<int> imgColors = new List<int>();
         Bitmap bmp;
 
         int bmpWidth;
@@ -40,6 +42,37 @@ namespace MultiSDIText
             this.Invalidate();
             //make width and height slightly biggee than image
             bmp = new Bitmap(@"" + this.fileName);
+
+            Color nowColor = new Color();
+            Color tempColor = new Color();
+            bool alreadyExists;
+
+            int bmpDimensions = bmpWidth / 20;
+            //Iterate whole bitmap to findout the picked color
+            for (int i = 0; i < bmp.Height; i++)
+            {
+                for (int j = 0; j < bmp.Width; j++)
+                {
+                    //Get the color at each pixel
+                    nowColor = bmp.GetPixel(j, i);
+                    
+                    //only add to listif new temp color is different from previous
+                    if(tempColor != nowColor)
+                    {
+                        //only add if imgColors does not contain that value
+                        if ((alreadyExists = imgColors.Contains(nowColor.ToArgb())) == false && 
+                            ColorsAreClose(tempColor, nowColor) == false)
+                        {
+                            imgColors.Add(ColorTranslator.ToWin32(nowColor));
+                        }
+                    }
+                    tempColor = nowColor;
+                    
+                }
+            }
+
+            imgColors = imgColors.Distinct().ToList();
+
             bmpWidth = bmp.Width + 100;
             bmpHeight = bmp.Height + 100;
             this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight)); this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight));
@@ -47,7 +80,15 @@ namespace MultiSDIText
             this.Width = bmpWidth;
             this.Height = bmpHeight;
         }
-        
+        bool ColorsAreClose(Color a, Color z, int threshold = 20)
+        {
+            int r = (int)a.R - z.R,
+                g = (int)a.G - z.G,
+                b = (int)a.B - z.B;
+            return (r * r + g * g + b * b) <= threshold * threshold;
+        }
+
+
 
         private void imgPictureBox_Paint(object sender, PaintEventArgs e)
         {
@@ -150,7 +191,7 @@ namespace MultiSDIText
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeColorOptions colorChange = new ChangeColorOptions();
-
+            colorChange.oldColorButton.Tag = imgColors;
             colorChange.ShowDialog();
             if (colorChange.closeAccept == true)
             {

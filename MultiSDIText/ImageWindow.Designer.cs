@@ -32,9 +32,9 @@
             this.imgPictureBox = new System.Windows.Forms.PictureBox();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveViewAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             this.MainMenu.SuspendLayout();
@@ -84,6 +84,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // openImageToWindowToolStripMenuItem
+            // 
+            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
+            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(369, 38);
+            this.openImageToWindowToolStripMenuItem.Text = "Open Image as Window";
+            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
+            // 
             // saveViewAsImageToolStripMenuItem
             // 
             this.saveViewAsImageToolStripMenuItem.Name = "saveViewAsImageToolStripMenuItem";
@@ -97,13 +104,6 @@
             this.editToolStripMenuItem.Size = new System.Drawing.Size(218, 38);
             this.editToolStripMenuItem.Text = "Change any Color";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // openImageToWindowToolStripMenuItem
-            // 
-            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
-            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(369, 38);
-            this.openImageToWindowToolStripMenuItem.Text = "Open Image as Window";
-            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
             // 
             // ImageWindow
             // 

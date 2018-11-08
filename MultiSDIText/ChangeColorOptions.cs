@@ -26,6 +26,8 @@ namespace MultiSDIText
         private void oldColorButton_Click(object sender, EventArgs e)
         {
             ColorDialog dlg = new ColorDialog();
+            int[] custColors = ((List<int>)oldColorButton.Tag).ToArray();
+            dlg.CustomColors = custColors;
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
