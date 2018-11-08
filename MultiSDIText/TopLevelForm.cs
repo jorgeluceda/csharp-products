@@ -580,6 +580,8 @@ namespace MultiSDIText
             // Retrieve drag data
             string sourceText = (string)e.Data.GetData(typeof(string));
 
+            BindingList<Text> sourceTextObjects = doc.TurnIntoTextObjects(sourceText);
+
 
             DragEventArgs me = (DragEventArgs)e;
             Point coordinates = this.PointToClient(new Point(e.X, e.Y));
@@ -594,8 +596,43 @@ namespace MultiSDIText
                 return;
             }
 
-            InsertText(sourceText, coordinates);
+            InsertText(sourceTextObjects, coordinates);
 
+
+        }
+
+        private void InsertText(BindingList<Storage.Text> insertText, Point coordinates)
+        {
+
+            int tempX = 0;
+            int tempY = 0;
+            foreach (Text textToAdd in insertText)
+            {
+
+                textToAdd.ZOrder = Zorder;
+                Zorder += 1;
+                textToAdd.Content = textToAdd.Content;
+                textToAdd.Color = Color.Blue;
+                textToAdd.BackgroundColor = Color.Transparent;
+
+                
+                textToAdd.Location = new Point(coordinates.X + tempX, coordinates.Y + tempY);
+                textToAdd.Font = new Font("Times New Roman", 12.0f);
+                this.curText = textToAdd; //change the current text to the new object
+
+                //increase text x and y coordinates so that they do not overlap
+
+                tempX += 40;
+                tempY += 40;
+                this.doc.Add(curText);
+
+
+
+            }
+
+            optionsForm.DataBindingSource.DataSource = doc.content;
+            this.optionsForm.RefreshItems();
+            this.docPictureBox.Invalidate();
 
         }
 
@@ -629,7 +666,7 @@ namespace MultiSDIText
             //Change cursor to the animated cursor
             this.Cursor = AnimatedCursor;
         }
-
+        
         private void mainStatusStrip_MouseEnter(object sender, EventArgs e)
         {
             //Change cursor to the animated cursor
