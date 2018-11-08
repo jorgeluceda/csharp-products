@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.Panel = new System.Windows.Forms.Panel();
+            this.imgPictureBox = new System.Windows.Forms.PictureBox();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveViewAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel
             // 
+            this.Panel.Controls.Add(this.imgPictureBox);
             this.Panel.Controls.Add(this.MainMenu);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 0);
@@ -46,8 +49,17 @@
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(1200, 703);
             this.Panel.TabIndex = 0;
-            this.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Paint);
             this.Panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseClick);
+            // 
+            // imgPictureBox
+            // 
+            this.imgPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgPictureBox.Location = new System.Drawing.Point(0, 48);
+            this.imgPictureBox.Name = "imgPictureBox";
+            this.imgPictureBox.Size = new System.Drawing.Size(1200, 655);
+            this.imgPictureBox.TabIndex = 7;
+            this.imgPictureBox.TabStop = false;
+            this.imgPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.imgPictureBox_Paint);
             // 
             // MainMenu
             // 
@@ -58,7 +70,7 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(9, 6, 0, 6);
-            this.MainMenu.Size = new System.Drawing.Size(1200, 50);
+            this.MainMenu.Size = new System.Drawing.Size(1200, 48);
             this.MainMenu.TabIndex = 6;
             this.MainMenu.Text = "MainMenu";
             // 
@@ -67,7 +79,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveViewAsImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveViewAsImageToolStripMenuItem
@@ -80,7 +92,7 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(218, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(218, 36);
             this.editToolStripMenuItem.Text = "Change any Color";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -96,6 +108,7 @@
             this.Load += new System.EventHandler(this.ImageWindow_Load);
             this.Panel.ResumeLayout(false);
             this.Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).EndInit();
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -109,5 +122,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveViewAsImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.PictureBox imgPictureBox;
     }
 }

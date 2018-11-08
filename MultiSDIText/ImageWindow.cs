@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace MultiSDIText
     {
         private String fileName;
         Point clickedPoint;
+        ChangeColorOptions colorChange = new ChangeColorOptions();
 
         public String FileName
         {
@@ -30,17 +32,32 @@ namespace MultiSDIText
         {
             this.Invalidate();
         }
+        
 
-        private void Panel_Paint(object sender, PaintEventArgs e)
+        private void imgPictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            using (Bitmap image = new Bitmap(@"" + this.FileName))
+            using (Bitmap bmp = new Bitmap(@"" + this.fileName))
             {
-                g.DrawImage(image, new Point(0, 0)); //draw image starting from the left 
+                //Code taken from example Image code given in video lecture
+                // Set the image attribute's color mappings
+                ColorMap[] colorMap = new ColorMap[1];
+                colorMap[0] = new ColorMap();
+                //
+                colorMap[0].OldColor = this.colorChange.oldColorButton.BackColor;
+                //colorMap[0].OldColor = Color.Blue;
+                //colorMap[0].NewColor = Color.Red;
+                colorMap[0].NewColor = this.colorChange.newColorButton.BackColor;
+                ImageAttributes attr = new ImageAttributes();
+                attr.SetRemapTable(colorMap);
+                // Draw using the color map
+                Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
             }
-        }
 
+
+        }
         private void Panel_MouseClick(object sender, MouseEventArgs e)
         {
             Control control = (Control)sender;
@@ -59,11 +76,7 @@ namespace MultiSDIText
 
             if (colorChange.ShowDialog() == DialogResult.OK)
             {
-                if(colorChange.closeAccept == true)
-                {
-                  
                     this.Invalidate();
-                }
             }
 
         }

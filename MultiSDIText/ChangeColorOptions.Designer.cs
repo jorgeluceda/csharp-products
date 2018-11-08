@@ -111,8 +111,8 @@ namespace MultiSDIText
 
         #endregion
 
-        private System.Windows.Forms.Button oldColorButton;
-        private System.Windows.Forms.Button newColorButton;
+        public System.Windows.Forms.Button oldColorButton;
+        public System.Windows.Forms.Button newColorButton;
         private System.Windows.Forms.Button okOptionsButton;
         private System.Windows.Forms.Button cancelOptionsButton;
         private TextBox arrowTextBox;

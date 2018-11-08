@@ -362,7 +362,7 @@ namespace MultiSDIText
                 {
                     textToAdd.ZOrder = Zorder;
                     Zorder += 1;
-                    textToAdd.Color = Color.Blue;
+                    textToAdd.Color = Color.Black;
                     textToAdd.BackgroundColor = Color.Transparent;
 
                     textToAdd.Font = new Font("Times New Roman", 12.0f);
@@ -510,7 +510,7 @@ namespace MultiSDIText
                     {
                         textToAdd.ZOrder = Zorder;
                         Zorder += 1;
-                        textToAdd.Color = Color.Blue;
+                        textToAdd.Color = Color.Black;
                         textToAdd.BackgroundColor = Color.Transparent;
 
                         textToAdd.Font = new Font("Times New Roman", 12.0f);
@@ -617,7 +617,7 @@ namespace MultiSDIText
                 textToAdd.ZOrder = Zorder;
                 Zorder += 1;
                 textToAdd.Content = textToAdd.Content;
-                textToAdd.Color = Color.Blue;
+                textToAdd.Color = Color.Black;
                 textToAdd.BackgroundColor = Color.Transparent;
 
                 
@@ -650,7 +650,7 @@ namespace MultiSDIText
             curText.ZOrder = Zorder;
             Zorder += 1;
             curText.Content = insertText;
-            curText.Color = Color.Blue;
+            curText.Color = Color.Black;
             curText.BackgroundColor = Color.Transparent;
 
             curText.Location = coordinates;
