@@ -19,6 +19,9 @@ namespace MultiSDIText
         Color newColor = Color.Black;
         Bitmap bmp;
 
+        int bmpWidth;
+        int bmpHeight;
+
         public String FileName
         {
             get { return this.fileName; }
@@ -36,8 +39,13 @@ namespace MultiSDIText
         {
             this.Invalidate();
             //make width and height slightly biggee than image
-            this.Width = bmp.Width + 20;
-            this.Height = bmp.Height + 20;
+            bmp = new Bitmap(@"" + this.fileName);
+            bmpWidth = bmp.Width + 100;
+            bmpHeight = bmp.Height + 100;
+            this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight)); this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight));
+            this.MaximumSize = new Size(new Point(bmpWidth, bmpHeight)); this.MinimumSize = new Size(new Point(bmpWidth, bmpHeight));
+            this.Width = bmpWidth;
+            this.Height = bmpHeight;
         }
         
 
@@ -45,7 +53,7 @@ namespace MultiSDIText
         {
             Graphics g = e.Graphics;
 
-            using (Bitmap bmp = new Bitmap(@"" + this.fileName))
+            using (bmp)
             {
                 //Code taken from example Image code given in video lecture
                 // Set the image attribute's color mappings
