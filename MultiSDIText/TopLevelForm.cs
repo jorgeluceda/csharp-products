@@ -694,7 +694,7 @@ namespace MultiSDIText
         private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG;*.png)|*.bmp;*.BMP;*.jpg;*.JPG;*.png;*.PNG|All files (*.*)|*.*";
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.png)|*.bmp;*.BMP;*.jpg;*.JPG;*.png;*.PNG|All files (*.*)|*.*";
             dlg.AddExtension = true;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -727,7 +727,7 @@ namespace MultiSDIText
         private void openImageToWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.bmp;*.BMP;*.jpg;*.JPG;|All files (*.*)|*.*";
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.png)|*.bmp;*.BMP;*.jpg;*.JPG;*.png;*.PNG|All files (*.*)|*.*";
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
