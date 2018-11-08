@@ -364,7 +364,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvDocument;
+        public System.Windows.Forms.DataGridView dgvDocument;
         private System.Windows.Forms.BindingSource documentBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnColor;

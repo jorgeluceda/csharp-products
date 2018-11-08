@@ -47,7 +47,7 @@ namespace MultiSDIText
 
         //represents our current text to be added to the document
         //Storage.Text curText = new Storage.Text();
-        int Zorder = 0;
+        public int Zorder = 0;
         //OptionsForm optionsForm = new OptionsForm();
         TextOptions optionsForm = new TextOptions();
         GridViewForm gridViewForm = new GridViewForm();
@@ -198,7 +198,8 @@ namespace MultiSDIText
         {
             this.optionsForm.DataBindingSource.DataSource = doc.content;
             this.gridViewForm.DataBindingSource.DataSource = doc.content;
-            
+            this.gridViewForm.trackAdds = 0;
+
             //.DataBindingSource.DataSource = doc.content;
 
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
@@ -532,7 +533,31 @@ namespace MultiSDIText
 
         private void gridViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.gridViewForm.trackZOrder = Zorder;
+
+            this.gridViewForm.dgvDocument.ClearSelection();
+
+            int nRowIndex = gridViewForm.dgvDocument.Rows.Count - 1;
+            int nColumnIndex = 1;
+            if(nRowIndex >= 0)
+            {
+                gridViewForm.dgvDocument.Rows[nRowIndex].Selected = true;
+                gridViewForm.dgvDocument.Rows[nRowIndex].Cells[nColumnIndex].Selected = true;
+
+                //In case if you want to scroll down as well.
+                gridViewForm.dgvDocument.FirstDisplayedScrollingRowIndex = nRowIndex;
+
+            }
+
+
+
             this.gridViewForm.ShowDialog();
+
+            //this.Zorder = Zorder + this.gridViewForm.trackAdds;
+            this.Zorder = gridViewForm.trackZOrder;
+            
+
+
             this.docPictureBox.Invalidate();
         }
 

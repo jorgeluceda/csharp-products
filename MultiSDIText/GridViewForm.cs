@@ -13,6 +13,9 @@ namespace MultiSDIText
 {
     public partial class GridViewForm : Form, IBindingSource
     {
+        Point addCoordinates = new Point(0, 0);
+        public int trackAdds = 0; //0 objects have been added at the start
+        public int trackZOrder;
         // KeyState
         [FlagsAttribute]
         enum KeyState
@@ -30,7 +33,6 @@ namespace MultiSDIText
             InitializeComponent();
 
             InitializeManualBindings();
-
             RefreshItems();
         }
 
@@ -39,6 +41,13 @@ namespace MultiSDIText
             get { return this.documentBindingSource; }
             set { this.documentBindingSource = value; }
         }
+
+        public BindingSource ZOrderBindingSource
+        {
+            get { return this.documentBindingSource; }
+            set { this.documentBindingSource = value; }
+        }
+
 
         BindingManagerBase BindingManager
         {
@@ -59,8 +68,9 @@ namespace MultiSDIText
             this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "ZOrder");
             this.txtLocation.DataBindings.Add("Text", this.DataBindingSource, "Location");
             this.txtRotation.DataBindings.Add("Text", this.DataBindingSource, "Rotation");
-        }
+            this.btnAdd.DataBindings.Add("Tag", this.DataBindingSource, "ZOrder");
 
+        }
         private Color? ShowColorDialog()
         {
             ColorDialog dlg = new ColorDialog();
@@ -114,10 +124,33 @@ namespace MultiSDIText
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
+        {  
+            
+            if(btnAdd.Tag == System.DBNull.Value)
+            {
+                this.trackZOrder = 0;
+
+            } else if (trackAdds <= (int)btnAdd.Tag)
+            {
+                trackAdds = (int)btnAdd.Tag;
+                trackAdds++;
+            }
+
             var text = new Text();
             text.Content = "text";
             text.Color = Color.Blue;
+
+
+            text.ZOrder = trackZOrder;
+            
+            trackZOrder++;
+
+            text.Rotation = 0;
+
+            int truncatedX = (int)Math.Truncate(Math.Sqrt((trackAdds * 3000.00)));
+            text.Location = new Point(addCoordinates.X + truncatedX, 
+                                        addCoordinates.Y  + truncatedX); 
+            //text.Font 
 
             this.DataBindingSource.Add(text);
             RefreshItems();
