@@ -13,6 +13,10 @@ namespace MultiSDIText
 {
     public partial class GridViewForm : Form, IBindingSource
     {
+        Point addCoordinates = new Point(0, 0);
+        public bool wasDelete = false;
+        public int trackZOrder;
+        public int removedZOrder;
         // KeyState
         [FlagsAttribute]
         enum KeyState
@@ -30,7 +34,6 @@ namespace MultiSDIText
             InitializeComponent();
 
             InitializeManualBindings();
-
             RefreshItems();
         }
 
@@ -39,6 +42,13 @@ namespace MultiSDIText
             get { return this.documentBindingSource; }
             set { this.documentBindingSource = value; }
         }
+
+        public BindingSource ZOrderBindingSource
+        {
+            get { return this.documentBindingSource; }
+            set { this.documentBindingSource = value; }
+        }
+
 
         BindingManagerBase BindingManager
         {
@@ -59,8 +69,9 @@ namespace MultiSDIText
             this.txtZOrder.DataBindings.Add("Text", this.DataBindingSource, "ZOrder");
             this.txtLocation.DataBindings.Add("Text", this.DataBindingSource, "Location");
             this.txtRotation.DataBindings.Add("Text", this.DataBindingSource, "Rotation");
-        }
+            this.btnAdd.DataBindings.Add("Tag", this.DataBindingSource, "ZOrder");
 
+        }
         private Color? ShowColorDialog()
         {
             ColorDialog dlg = new ColorDialog();
@@ -114,18 +125,41 @@ namespace MultiSDIText
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
+        {  
+            
+            if(btnAdd.Tag == System.DBNull.Value)
+            {
+                this.trackZOrder = 0;
+
+            }
+
             var text = new Text();
             text.Content = "text";
             text.Color = Color.Blue;
 
+            text.ZOrder = trackZOrder;
+            
+            trackZOrder++;
+
+            text.Rotation = 0;
+
+            int truncatedX = (int)Math.Truncate(Math.Sqrt((trackZOrder * 3000.00)));
+            text.Location = new Point(addCoordinates.X + truncatedX, 
+                                        addCoordinates.Y  + truncatedX); 
+            //text.Font 
+
             this.DataBindingSource.Add(text);
+
+
             RefreshItems();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.DataBindingSource.Remove((Text)this.BindingManager.Current);
+            this.DataBindingSource.RemoveAt(this.trackZOrder - 1);
+            wasDelete = true;
+
+            trackZOrder--;
             RefreshItems();
         }
 

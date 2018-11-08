@@ -47,7 +47,7 @@ namespace MultiSDIText
 
         //represents our current text to be added to the document
         //Storage.Text curText = new Storage.Text();
-        int Zorder = 0;
+        public int Zorder = 0;
         //OptionsForm optionsForm = new OptionsForm();
         TextOptions optionsForm = new TextOptions();
         GridViewForm gridViewForm = new GridViewForm();
@@ -198,7 +198,7 @@ namespace MultiSDIText
         {
             this.optionsForm.DataBindingSource.DataSource = doc.content;
             this.gridViewForm.DataBindingSource.DataSource = doc.content;
-            
+
             //.DataBindingSource.DataSource = doc.content;
 
             docPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.docPictureBox_Paint);
@@ -532,7 +532,21 @@ namespace MultiSDIText
 
         private void gridViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.gridViewForm.trackZOrder = Zorder;
+
             this.gridViewForm.ShowDialog();
+
+            int amountDeleted = gridViewForm.trackZOrder - Zorder;
+            this.Zorder = gridViewForm.trackZOrder;
+
+            if(gridViewForm.wasDelete == true)
+            {
+                foreach(Text text in doc.content)
+                {
+
+                }
+            }
+
             this.docPictureBox.Invalidate();
         }
 
