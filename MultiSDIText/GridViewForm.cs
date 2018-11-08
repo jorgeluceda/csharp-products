@@ -14,8 +14,9 @@ namespace MultiSDIText
     public partial class GridViewForm : Form, IBindingSource
     {
         Point addCoordinates = new Point(0, 0);
-        public int trackAdds = 0; //0 objects have been added at the start
+        public bool wasDelete = false;
         public int trackZOrder;
+        public int removedZOrder;
         // KeyState
         [FlagsAttribute]
         enum KeyState
@@ -130,16 +131,11 @@ namespace MultiSDIText
             {
                 this.trackZOrder = 0;
 
-            } else if (trackAdds <= (int)btnAdd.Tag)
-            {
-                trackAdds = (int)btnAdd.Tag;
-                trackAdds++;
             }
 
             var text = new Text();
             text.Content = "text";
             text.Color = Color.Blue;
-
 
             text.ZOrder = trackZOrder;
             
@@ -147,7 +143,7 @@ namespace MultiSDIText
 
             text.Rotation = 0;
 
-            int truncatedX = (int)Math.Truncate(Math.Sqrt((trackAdds * 3000.00)));
+            int truncatedX = (int)Math.Truncate(Math.Sqrt((trackZOrder * 3000.00)));
             text.Location = new Point(addCoordinates.X + truncatedX, 
                                         addCoordinates.Y  + truncatedX); 
             //text.Font 
@@ -160,7 +156,10 @@ namespace MultiSDIText
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.DataBindingSource.Remove((Text)this.BindingManager.Current);
+            this.DataBindingSource.RemoveAt(this.trackZOrder - 1);
+            wasDelete = true;
+
+            trackZOrder--;
             RefreshItems();
         }
 

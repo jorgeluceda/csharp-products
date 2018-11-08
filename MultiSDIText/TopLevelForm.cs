@@ -198,7 +198,6 @@ namespace MultiSDIText
         {
             this.optionsForm.DataBindingSource.DataSource = doc.content;
             this.gridViewForm.DataBindingSource.DataSource = doc.content;
-            this.gridViewForm.trackAdds = 0;
 
             //.DataBindingSource.DataSource = doc.content;
 
@@ -535,19 +534,18 @@ namespace MultiSDIText
         {
             this.gridViewForm.trackZOrder = Zorder;
 
-
-
-            this.gridViewForm.dgvDocument.ClearSelection();
-
-            //this.Zorder = Zorder + this.gridViewForm.trackAdds;
-            //this.Zorder = gridViewForm.trackZOrder;
-
-
-
             this.gridViewForm.ShowDialog();
 
+            int amountDeleted = gridViewForm.trackZOrder - Zorder;
             this.Zorder = gridViewForm.trackZOrder;
 
+            if(gridViewForm.wasDelete == true)
+            {
+                foreach(Text text in doc.content)
+                {
+
+                }
+            }
 
             this.docPictureBox.Invalidate();
         }
