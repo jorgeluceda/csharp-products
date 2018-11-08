@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace MultiSDIText
         private String fileName;
         Color oldColor = Color.Black;
         Color newColor = Color.Black;
+        Bitmap bmp;
 
         public String FileName
         {
@@ -26,11 +28,16 @@ namespace MultiSDIText
         public ImageWindow()
         {
             InitializeComponent();
+
+            
         }
 
         private void ImageWindow_Load(object sender, EventArgs e)
         {
             this.Invalidate();
+            //make width and height slightly biggee than image
+            this.Width = bmp.Width + 20;
+            this.Height = bmp.Height + 20;
         }
         
 
@@ -65,7 +72,41 @@ namespace MultiSDIText
 
         private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "PNG Files (*.png) | *.png | JPEG Files (*.jpeg) | *.jpeg | Bitmap Files (*.bmp) | *.bmp";
+            dlg.AddExtension = true;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var extension = Path.GetExtension(dlg.FileName);
+
+                Console.WriteLine(extension);
+
+                if (extension == ".jpeg")
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Jpeg);
+                }
+                else if (extension == ".bmp")
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Bmp);
+                }
+                else
+                {
+                    SaveImage(dlg.FileName, ImageFormat.Png);
+                }
+            }
+        }
+
+
+        private void SaveImage(String fileName, ImageFormat format)
+        {
+            Rectangle rect = new Rectangle(this.imgPictureBox.ClientRectangle.X, this.imgPictureBox.ClientRectangle.Y,
+                this.imgPictureBox.Width, this.imgPictureBox.Height);
+
+
+            Bitmap image = new Bitmap(this.Width, this.Height);
+            this.imgPictureBox.DrawToBitmap(image, rect);
+
+            image.Save(fileName, format);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
