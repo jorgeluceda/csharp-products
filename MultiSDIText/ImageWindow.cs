@@ -53,19 +53,19 @@ namespace MultiSDIText
         {
             Graphics g = e.Graphics;
 
-            using (bmp)
+            using (Bitmap newBmp = new Bitmap(@"" + this.fileName))
             {
                 //Code taken from example Image code given in video lecture
                 // Set the image attribute's color mappings
                 ColorMap[] colorMap = new ColorMap[1];
                 colorMap[0] = new ColorMap();
-                
+
                 colorMap[0].OldColor = oldColor;
                 colorMap[0].NewColor = newColor;
                 ImageAttributes attr = new ImageAttributes();
                 attr.SetRemapTable(colorMap);
                 // Draw using the color map
-                Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+                Rectangle rect = new Rectangle(0, 0, newBmp.Width, newBmp.Height);
                 g.DrawImage(bmp, rect, 0, 0, rect.Width, rect.Height, GraphicsUnit.Pixel, attr);
             }
 
@@ -81,7 +81,7 @@ namespace MultiSDIText
         private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "PNG Files (*.png) | *.png | JPEG Files (*.jpeg) | *.jpeg | Bitmap Files (*.bmp) | *.bmp";
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.bmp;*.BMP;*.jpg;*.JPG;|All files (*.*)|*.*";
             dlg.AddExtension = true;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -89,7 +89,7 @@ namespace MultiSDIText
 
                 Console.WriteLine(extension);
 
-                if (extension == ".jpeg")
+                if (extension == ".jpg")
                 {
                     SaveImage(dlg.FileName, ImageFormat.Jpeg);
                 }
@@ -111,18 +111,48 @@ namespace MultiSDIText
                 this.imgPictureBox.Width, this.imgPictureBox.Height);
 
 
-            Bitmap image = new Bitmap(this.Width, this.Height);
+            Bitmap image = new Bitmap(this.imgPictureBox.Width, this.imgPictureBox.Height);
             this.imgPictureBox.DrawToBitmap(image, rect);
 
             image.Save(fileName, format);
         }
 
+        private void openImageToWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.bmp;*.BMP;*.jpg;*.JPG;|All files (*.*)|*.*";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                String extension = Path.GetExtension(dlg.FileName);
+
+                if (extension != ".png" && extension != ".PNG" && extension != ".jpg" && extension != ".JPG" &&
+                        extension != ".bmp" && extension != ".BMP")
+                {
+                    MessageBox.Show("Unfortunately, we can only perform this operation with " +
+                        " PNG, BMP, or JPG image files.");
+                    return;
+                }
+
+                OpenAndColorChange(dlg.FileName);
+            }
+            
+        }
+
+        private void OpenAndColorChange(String fileName)
+        {
+            ImageWindow window = new ImageWindow();
+            window.FileName = fileName;
+            window.Show();
+
+        }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeColorOptions colorChange = new ChangeColorOptions();
 
             colorChange.ShowDialog();
-            if(colorChange.closeAccept == true)
+            if (colorChange.closeAccept == true)
             {
                 this.oldColor = colorChange.oldColorButton.BackColor;
                 this.newColor = colorChange.newColorButton.BackColor;

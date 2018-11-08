@@ -34,6 +34,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveViewAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             this.MainMenu.SuspendLayout();
@@ -54,9 +55,9 @@
             // imgPictureBox
             // 
             this.imgPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imgPictureBox.Location = new System.Drawing.Point(0, 48);
+            this.imgPictureBox.Location = new System.Drawing.Point(0, 50);
             this.imgPictureBox.Name = "imgPictureBox";
-            this.imgPictureBox.Size = new System.Drawing.Size(1200, 655);
+            this.imgPictureBox.Size = new System.Drawing.Size(1200, 653);
             this.imgPictureBox.TabIndex = 7;
             this.imgPictureBox.TabStop = false;
             this.imgPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.imgPictureBox_Paint);
@@ -70,31 +71,39 @@
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Padding = new System.Windows.Forms.Padding(9, 6, 0, 6);
-            this.MainMenu.Size = new System.Drawing.Size(1200, 48);
+            this.MainMenu.Size = new System.Drawing.Size(1200, 50);
             this.MainMenu.TabIndex = 6;
             this.MainMenu.Text = "MainMenu";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openImageToWindowToolStripMenuItem,
             this.saveViewAsImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // saveViewAsImageToolStripMenuItem
             // 
             this.saveViewAsImageToolStripMenuItem.Name = "saveViewAsImageToolStripMenuItem";
-            this.saveViewAsImageToolStripMenuItem.Size = new System.Drawing.Size(363, 38);
+            this.saveViewAsImageToolStripMenuItem.Size = new System.Drawing.Size(369, 38);
             this.saveViewAsImageToolStripMenuItem.Text = "Save Window As Image";
             this.saveViewAsImageToolStripMenuItem.Click += new System.EventHandler(this.saveViewAsImageToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(218, 36);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(218, 38);
             this.editToolStripMenuItem.Text = "Change any Color";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // openImageToWindowToolStripMenuItem
+            // 
+            this.openImageToWindowToolStripMenuItem.Name = "openImageToWindowToolStripMenuItem";
+            this.openImageToWindowToolStripMenuItem.Size = new System.Drawing.Size(369, 38);
+            this.openImageToWindowToolStripMenuItem.Text = "Open Image as Window";
+            this.openImageToWindowToolStripMenuItem.Click += new System.EventHandler(this.openImageToWindowToolStripMenuItem_Click);
             // 
             // ImageWindow
             // 
@@ -123,5 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveViewAsImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.PictureBox imgPictureBox;
+        private System.Windows.Forms.ToolStripMenuItem openImageToWindowToolStripMenuItem;
     }
 }

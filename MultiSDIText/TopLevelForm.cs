@@ -685,7 +685,7 @@ namespace MultiSDIText
                 this.docPictureBox.Width, this.docPictureBox.Height);
 
 
-            Bitmap image = new Bitmap(this.Width, this.Height);
+            Bitmap image = new Bitmap(this.docPictureBox.Width, this.docPictureBox.Height);
             this.docPictureBox.DrawToBitmap(image, rect);
             
             image.Save(fileName, format);
@@ -694,19 +694,19 @@ namespace MultiSDIText
         private void saveViewAsImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "PNG Files (*.png) | *.png | JPEG Files (*.jpeg) | *.jpeg | Bitmap Files (*.bmp) | *.bmp";
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.bmp;*.BMP;*.jpg;*.JPG;|All files (*.*)|*.*";
             dlg.AddExtension = true;
-            if(dlg.ShowDialog() == DialogResult.OK)
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
                 var extension = Path.GetExtension(dlg.FileName);
 
                 Console.WriteLine(extension);
 
-                if(extension == ".jpeg")
+                if (extension == ".jpg")
                 {
                     SaveImage(dlg.FileName, ImageFormat.Jpeg);
                 }
-                else if(extension == ".bmp")
+                else if (extension == ".bmp")
                 {
                     SaveImage(dlg.FileName, ImageFormat.Bmp);
                 }
@@ -724,20 +724,20 @@ namespace MultiSDIText
             window.Show();
             
         }
-
         private void openImageToWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "PNG Files (*.png) | *.png";
+            dlg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.bmp;*.BMP;*.jpg;*.JPG;|All files (*.*)|*.*";
 
-            if(dlg.ShowDialog() == DialogResult.OK)
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
                 String extension = Path.GetExtension(dlg.FileName);
 
-                if (extension != ".png")
+                if (extension != ".png" && extension != ".PNG" && extension != ".jpg" && extension != ".JPG" &&
+                      extension != ".bmp" && extension != ".BMP")
                 {
-                    MessageBox.Show("Unfortunately, we can only perform this operation with PNG files.");
-                    return;
+                    MessageBox.Show("Unfortunately, we can only perform this operation with " +
+                        " PNG, BMP, or JPG image files."); return;
                 }
 
                 OpenAndColorChange(dlg.FileName);
