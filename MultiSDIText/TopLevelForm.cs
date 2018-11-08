@@ -536,16 +536,7 @@ namespace MultiSDIText
 
             this.gridViewForm.ShowDialog();
 
-            int amountDeleted = gridViewForm.trackZOrder - Zorder;
             this.Zorder = gridViewForm.trackZOrder;
-
-            if(gridViewForm.wasDelete == true)
-            {
-                foreach(Text text in doc.content)
-                {
-
-                }
-            }
 
             this.docPictureBox.Invalidate();
         }
