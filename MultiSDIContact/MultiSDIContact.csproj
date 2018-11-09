@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactDetailsForm.Designer.cs">
+      <DependentUpon>ContactDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContactDirectoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     <Compile Include="MultiSDIContactApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ContactDetailsForm.resx">
+      <DependentUpon>ContactDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactDirectoryForm.resx">
       <DependentUpon>ContactDirectoryForm.cs</DependentUpon>
     </EmbeddedResource>
