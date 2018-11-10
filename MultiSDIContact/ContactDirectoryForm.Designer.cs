@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.contactDirectoryStatusBar = new System.Windows.Forms.StatusBar();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.contactDataGrid = new System.Windows.Forms.DataGridView();
-            this.directoryMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.oathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directoryToolBar = new System.Windows.Forms.ToolBar();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.fileMenuItem = new System.Windows.Forms.MenuItem();
+            this.helpMenuItem = new System.Windows.Forms.MenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.MenuItem();
+            this.helpInfoMenuItem = new System.Windows.Forms.MenuItem();
+            this.oathMenuItem = new System.Windows.Forms.MenuItem();
+            this.saveMenuItem = new System.Windows.Forms.MenuItem();
+            this.loadMenuItem = new System.Windows.Forms.MenuItem();
+            this.rawMenuItem = new System.Windows.Forms.MenuItem();
+            this.exitMenuItem = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
-            this.directoryMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
             // 
-            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 389);
+            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 378);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
             this.contactDirectoryStatusBar.Size = new System.Drawing.Size(653, 22);
             this.contactDirectoryStatusBar.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 360);
+            this.addButton.Location = new System.Drawing.Point(12, 349);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(93, 360);
+            this.editButton.Location = new System.Drawing.Point(93, 349);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(566, 360);
+            this.deleteButton.Location = new System.Drawing.Point(566, 349);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 3;
@@ -86,111 +86,96 @@
             // contactDataGrid
             // 
             this.contactDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.contactDataGrid.Location = new System.Drawing.Point(12, 91);
+            this.contactDataGrid.Location = new System.Drawing.Point(12, 80);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
             this.contactDataGrid.Size = new System.Drawing.Size(629, 263);
             this.contactDataGrid.TabIndex = 4;
             // 
-            // directoryMenuStrip
+            // directoryToolBar
             // 
-            this.directoryMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.directoryMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.directoryMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.directoryMenuStrip.Name = "directoryMenuStrip";
-            this.directoryMenuStrip.Size = new System.Drawing.Size(653, 28);
-            this.directoryMenuStrip.TabIndex = 5;
-            this.directoryMenuStrip.Text = "Directory Menu Strip";
+            this.directoryToolBar.DropDownArrows = true;
+            this.directoryToolBar.Location = new System.Drawing.Point(0, 0);
+            this.directoryToolBar.Name = "directoryToolBar";
+            this.directoryToolBar.ShowToolTips = true;
+            this.directoryToolBar.Size = new System.Drawing.Size(653, 42);
+            this.directoryToolBar.TabIndex = 6;
             // 
-            // fileToolStripMenuItem
+            // mainMenu1
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.loadToolStripMenuItem,
-            this.rawToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
-            this.fileToolStripMenuItem.Text = "File";
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.fileMenuItem,
+            this.helpMenuItem});
             // 
-            // helpToolStripMenuItem
+            // fileMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.helpToolStripMenuItem1,
-            this.oathToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.fileMenuItem.Index = 0;
+            this.fileMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.saveMenuItem,
+            this.loadMenuItem,
+            this.rawMenuItem,
+            this.exitMenuItem});
+            this.fileMenuItem.Text = "File";
             // 
-            // aboutToolStripMenuItem
+            // helpMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.helpMenuItem.Index = 1;
+            this.helpMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.aboutMenuItem,
+            this.helpInfoMenuItem,
+            this.oathMenuItem});
+            this.helpMenuItem.Text = "Help";
             // 
-            // helpToolStripMenuItem1
+            // aboutMenuItem
             // 
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
-            this.helpToolStripMenuItem1.Text = "Help";
+            this.aboutMenuItem.Index = 0;
+            this.aboutMenuItem.Text = "About";
             // 
-            // oathToolStripMenuItem
+            // helpInfoMenuItem
             // 
-            this.oathToolStripMenuItem.Name = "oathToolStripMenuItem";
-            this.oathToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.oathToolStripMenuItem.Text = "Oath";
+            this.helpInfoMenuItem.Index = 1;
+            this.helpInfoMenuItem.Text = "Help";
             // 
-            // saveToolStripMenuItem
+            // oathMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.oathMenuItem.Index = 2;
+            this.oathMenuItem.Text = "Oath";
             // 
-            // saveAsToolStripMenuItem
+            // saveMenuItem
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveMenuItem.Index = 0;
+            this.saveMenuItem.Text = "Save";
             // 
-            // loadToolStripMenuItem
+            // loadMenuItem
             // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.loadToolStripMenuItem.Text = "Load";
+            this.loadMenuItem.Index = 1;
+            this.loadMenuItem.Text = "Load";
             // 
-            // rawToolStripMenuItem
+            // rawMenuItem
             // 
-            this.rawToolStripMenuItem.Name = "rawToolStripMenuItem";
-            this.rawToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.rawToolStripMenuItem.Text = "Raw";
+            this.rawMenuItem.Index = 2;
+            this.rawMenuItem.Text = "Raw";
             // 
-            // exitToolStripMenuItem
+            // exitMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitMenuItem.Index = 3;
+            this.exitMenuItem.Text = "Exit";
             // 
             // ContactDIrectoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 411);
+            this.ClientSize = new System.Drawing.Size(653, 400);
+            this.Controls.Add(this.directoryToolBar);
             this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactDirectoryStatusBar);
-            this.Controls.Add(this.directoryMenuStrip);
-            this.MainMenuStrip = this.directoryMenuStrip;
+            this.Menu = this.mainMenu1;
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
-            this.directoryMenuStrip.ResumeLayout(false);
-            this.directoryMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,17 +188,17 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridView contactDataGrid;
-        private System.Windows.Forms.MenuStrip directoryMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rawToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem oathToolStripMenuItem;
+        private System.Windows.Forms.ToolBar directoryToolBar;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem fileMenuItem;
+        private System.Windows.Forms.MenuItem saveMenuItem;
+        private System.Windows.Forms.MenuItem loadMenuItem;
+        private System.Windows.Forms.MenuItem rawMenuItem;
+        private System.Windows.Forms.MenuItem exitMenuItem;
+        private System.Windows.Forms.MenuItem helpMenuItem;
+        private System.Windows.Forms.MenuItem aboutMenuItem;
+        private System.Windows.Forms.MenuItem helpInfoMenuItem;
+        private System.Windows.Forms.MenuItem oathMenuItem;
     }
 }
 
