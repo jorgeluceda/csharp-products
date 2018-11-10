@@ -32,8 +32,8 @@
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.contactDataGrid = new System.Windows.Forms.DataGridView();
+            this.directoryMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +44,8 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
+            this.directoryMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
@@ -83,26 +83,26 @@
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // contactDataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 91);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(629, 263);
-            this.dataGridView1.TabIndex = 4;
+            this.contactDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contactDataGrid.Location = new System.Drawing.Point(12, 91);
+            this.contactDataGrid.Name = "contactDataGrid";
+            this.contactDataGrid.RowTemplate.Height = 24;
+            this.contactDataGrid.Size = new System.Drawing.Size(629, 263);
+            this.contactDataGrid.TabIndex = 4;
             // 
-            // menuStrip1
+            // directoryMenuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.directoryMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.directoryMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(653, 28);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            this.directoryMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.directoryMenuStrip.Name = "directoryMenuStrip";
+            this.directoryMenuStrip.Size = new System.Drawing.Size(653, 28);
+            this.directoryMenuStrip.TabIndex = 5;
+            this.directoryMenuStrip.Text = "Directory Menu Strip";
             // 
             // fileToolStripMenuItem
             // 
@@ -179,18 +179,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 411);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactDirectoryStatusBar);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.directoryMenuStrip);
+            this.MainMenuStrip = this.directoryMenuStrip;
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
+            this.directoryMenuStrip.ResumeLayout(false);
+            this.directoryMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +202,8 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.DataGridView contactDataGrid;
+        private System.Windows.Forms.MenuStrip directoryMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
