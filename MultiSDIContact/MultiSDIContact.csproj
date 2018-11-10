@@ -59,6 +59,12 @@
     <Compile Include="ContactDirectoryForm.Designer.cs">
       <DependentUpon>ContactDirectoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MultiSDIContactApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactDirectoryForm.resx">
       <DependentUpon>ContactDirectoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpDialog.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

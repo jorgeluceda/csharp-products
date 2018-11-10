@@ -136,16 +136,19 @@
             // 
             this.aboutMenuItem.Index = 0;
             this.aboutMenuItem.Text = "About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
             // helpInfoMenuItem
             // 
             this.helpInfoMenuItem.Index = 1;
-            this.helpInfoMenuItem.Text = "Help";
+            this.helpInfoMenuItem.Text = "Help Info";
+            this.helpInfoMenuItem.Click += new System.EventHandler(this.helpInfoMenuItem_Click);
             // 
             // oathMenuItem
             // 
             this.oathMenuItem.Index = 2;
             this.oathMenuItem.Text = "Oath";
+            this.oathMenuItem.Click += new System.EventHandler(this.oathMenuItem_Click);
             // 
             // saveMenuItem
             // 
@@ -166,6 +169,7 @@
             // 
             this.exitMenuItem.Index = 3;
             this.exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // ContactDIrectoryForm
             // 

@@ -90,5 +90,37 @@ namespace MultiSDIContact
         }
         #endregion
 
+        #region Form Methods
+
+        //Closing the form
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //To display the about dialog
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            /*aboutDialog about = new aboutDialog();
+            about.Show();*/
+        }
+
+        //To display the help info for this form
+        private void helpInfoMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpDialog help = new HelpDialog();
+            help.Show();
+        }
+
+        //To dipslay the oath dialog
+        private void oathMenuItem_Click(object sender, EventArgs e)
+        {
+            /*oathDialog oath = new oathDialog();
+            oath.Show();*/
+        }
+
+        #endregion
+
+
     }
 }
