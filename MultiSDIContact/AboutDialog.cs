@@ -25,7 +25,7 @@ namespace MultiSDIContact
             using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.OrangeRed, Color.LightYellow, LinearGradientMode.Vertical))
             {
                 ColorBlend blend = new ColorBlend();
-                blend.Colors = new Color[] { Color.Red, Color.Yellow, Color.Orange };
+                blend.Colors = new Color[] { Color.Yellow, Color.Orange, Color.Red };
                 blend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
                 brush.InterpolationColors = blend;
                 Pen pen = new Pen(brush, 30.0f);

@@ -35,7 +35,7 @@
             // 
             // teamDescription
             // 
-            this.teamDescription.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.teamDescription.BackColor = System.Drawing.Color.MediumPurple;
             this.teamDescription.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.teamDescription.Location = new System.Drawing.Point(0, 272);
             this.teamDescription.Name = "teamDescription";
@@ -48,16 +48,16 @@
             this.courseControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseControl1.Location = new System.Drawing.Point(0, 0);
             this.courseControl1.Name = "courseControl1";
-            this.courseControl1.Size = new System.Drawing.Size(455, 54);
+            this.courseControl1.Size = new System.Drawing.Size(455, 57);
             this.courseControl1.TabIndex = 1;
             // 
             // oathControl
             // 
             this.oathControl.BackColor = System.Drawing.Color.Transparent;
             this.oathControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oathControl.Location = new System.Drawing.Point(0, 54);
+            this.oathControl.Location = new System.Drawing.Point(0, 57);
             this.oathControl.Name = "oathControl";
-            this.oathControl.Size = new System.Drawing.Size(455, 218);
+            this.oathControl.Size = new System.Drawing.Size(455, 215);
             this.oathControl.TabIndex = 2;
             // 
             // oathDialog
