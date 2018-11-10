@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDI", "MultiSDI\MultiS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDIText", "MultiSDIText\MultiSDIText.csproj", "{D0D141E1-C8AC-43A5-AA86-79373F859349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDIContact", "MultiSDIContact\MultiSDIContact.csproj", "{67F47377-8948-4FA6-8836-36CA239A2BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D0D141E1-C8AC-43A5-AA86-79373F859349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0D141E1-C8AC-43A5-AA86-79373F859349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0D141E1-C8AC-43A5-AA86-79373F859349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F47377-8948-4FA6-8836-36CA239A2BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F47377-8948-4FA6-8836-36CA239A2BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F47377-8948-4FA6-8836-36CA239A2BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F47377-8948-4FA6-8836-36CA239A2BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
