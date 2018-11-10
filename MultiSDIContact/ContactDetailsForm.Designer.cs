@@ -254,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 500);
+            this.ClientSize = new System.Drawing.Size(376, 500);
             this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countryLabel);
@@ -279,6 +279,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
