@@ -51,11 +51,13 @@
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.countryLabel = new System.Windows.Forms.Label();
             this.countryTextBox = new System.Windows.Forms.TextBox();
+            this.contactPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(12, 489);
+            this.okButton.Location = new System.Drawing.Point(11, 469);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
@@ -64,7 +66,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(109, 489);
+            this.cancelButton.Location = new System.Drawing.Point(109, 469);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -73,7 +75,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(298, 489);
+            this.deleteButton.Location = new System.Drawing.Point(289, 469);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 2;
@@ -83,7 +85,7 @@
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(204, 35);
+            this.firstNameLabel.Location = new System.Drawing.Point(204, 15);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(80, 17);
             this.firstNameLabel.TabIndex = 3;
@@ -91,7 +93,7 @@
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(207, 55);
+            this.firstNameTextBox.Location = new System.Drawing.Point(207, 35);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(157, 22);
             this.firstNameTextBox.TabIndex = 4;
@@ -99,7 +101,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(204, 107);
+            this.lastNameLabel.Location = new System.Drawing.Point(204, 87);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(80, 17);
             this.lastNameLabel.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(207, 127);
+            this.lastNameTextBox.Location = new System.Drawing.Point(207, 107);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(157, 22);
             this.lastNameTextBox.TabIndex = 6;
@@ -115,7 +117,7 @@
             // homePhoneLabel
             // 
             this.homePhoneLabel.AutoSize = true;
-            this.homePhoneLabel.Location = new System.Drawing.Point(203, 186);
+            this.homePhoneLabel.Location = new System.Drawing.Point(203, 166);
             this.homePhoneLabel.Name = "homePhoneLabel";
             this.homePhoneLabel.Size = new System.Drawing.Size(94, 17);
             this.homePhoneLabel.TabIndex = 7;
@@ -123,7 +125,7 @@
             // 
             // homeTextBox
             // 
-            this.homeTextBox.Location = new System.Drawing.Point(206, 210);
+            this.homeTextBox.Location = new System.Drawing.Point(206, 190);
             this.homeTextBox.Name = "homeTextBox";
             this.homeTextBox.Size = new System.Drawing.Size(157, 22);
             this.homeTextBox.TabIndex = 8;
@@ -131,7 +133,7 @@
             // cellPhoneLabel
             // 
             this.cellPhoneLabel.AutoSize = true;
-            this.cellPhoneLabel.Location = new System.Drawing.Point(11, 186);
+            this.cellPhoneLabel.Location = new System.Drawing.Point(11, 166);
             this.cellPhoneLabel.Name = "cellPhoneLabel";
             this.cellPhoneLabel.Size = new System.Drawing.Size(80, 17);
             this.cellPhoneLabel.TabIndex = 9;
@@ -139,7 +141,7 @@
             // 
             // cellPhoneTextBox
             // 
-            this.cellPhoneTextBox.Location = new System.Drawing.Point(11, 210);
+            this.cellPhoneTextBox.Location = new System.Drawing.Point(11, 190);
             this.cellPhoneTextBox.Name = "cellPhoneTextBox";
             this.cellPhoneTextBox.Size = new System.Drawing.Size(157, 22);
             this.cellPhoneTextBox.TabIndex = 10;
@@ -147,7 +149,7 @@
             // address1Label
             // 
             this.address1Label.AutoSize = true;
-            this.address1Label.Location = new System.Drawing.Point(11, 254);
+            this.address1Label.Location = new System.Drawing.Point(11, 234);
             this.address1Label.Name = "address1Label";
             this.address1Label.Size = new System.Drawing.Size(76, 17);
             this.address1Label.TabIndex = 11;
@@ -155,7 +157,7 @@
             // 
             // address1TextBox
             // 
-            this.address1TextBox.Location = new System.Drawing.Point(14, 275);
+            this.address1TextBox.Location = new System.Drawing.Point(14, 255);
             this.address1TextBox.Name = "address1TextBox";
             this.address1TextBox.Size = new System.Drawing.Size(349, 22);
             this.address1TextBox.TabIndex = 12;
@@ -163,7 +165,7 @@
             // address2Label
             // 
             this.address2Label.AutoSize = true;
-            this.address2Label.Location = new System.Drawing.Point(14, 313);
+            this.address2Label.Location = new System.Drawing.Point(14, 293);
             this.address2Label.Name = "address2Label";
             this.address2Label.Size = new System.Drawing.Size(76, 17);
             this.address2Label.TabIndex = 13;
@@ -171,7 +173,7 @@
             // 
             // address2TextBox
             // 
-            this.address2TextBox.Location = new System.Drawing.Point(14, 334);
+            this.address2TextBox.Location = new System.Drawing.Point(14, 314);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(349, 22);
             this.address2TextBox.TabIndex = 14;
@@ -179,7 +181,7 @@
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(14, 371);
+            this.cityLabel.Location = new System.Drawing.Point(14, 351);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(35, 17);
             this.cityLabel.TabIndex = 15;
@@ -187,14 +189,14 @@
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(14, 392);
+            this.cityTextBox.Location = new System.Drawing.Point(14, 372);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(134, 22);
             this.cityTextBox.TabIndex = 16;
             // 
             // stateTextBox
             // 
-            this.stateTextBox.Location = new System.Drawing.Point(165, 392);
+            this.stateTextBox.Location = new System.Drawing.Point(165, 372);
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(53, 22);
             this.stateTextBox.TabIndex = 17;
@@ -202,7 +204,7 @@
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(162, 371);
+            this.stateLabel.Location = new System.Drawing.Point(162, 351);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(45, 17);
             this.stateLabel.TabIndex = 18;
@@ -211,7 +213,7 @@
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(236, 372);
+            this.zipLabel.Location = new System.Drawing.Point(236, 352);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(32, 17);
             this.zipLabel.TabIndex = 19;
@@ -219,7 +221,7 @@
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(239, 392);
+            this.zipTextBox.Location = new System.Drawing.Point(239, 372);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(125, 22);
             this.zipTextBox.TabIndex = 20;
@@ -227,7 +229,7 @@
             // countryLabel
             // 
             this.countryLabel.AutoSize = true;
-            this.countryLabel.Location = new System.Drawing.Point(14, 423);
+            this.countryLabel.Location = new System.Drawing.Point(14, 403);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(57, 17);
             this.countryLabel.TabIndex = 21;
@@ -235,16 +237,25 @@
             // 
             // countryTextBox
             // 
-            this.countryTextBox.Location = new System.Drawing.Point(14, 444);
+            this.countryTextBox.Location = new System.Drawing.Point(14, 424);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(349, 22);
             this.countryTextBox.TabIndex = 22;
+            // 
+            // contactPictureBox
+            // 
+            this.contactPictureBox.Location = new System.Drawing.Point(11, 15);
+            this.contactPictureBox.Name = "contactPictureBox";
+            this.contactPictureBox.Size = new System.Drawing.Size(173, 136);
+            this.contactPictureBox.TabIndex = 23;
+            this.contactPictureBox.TabStop = false;
             // 
             // ContactDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 524);
+            this.ClientSize = new System.Drawing.Size(385, 500);
+            this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.zipTextBox);
@@ -274,6 +285,7 @@
             this.Name = "ContactDetailsForm";
             this.ShowIcon = false;
             this.Text = "Contact Details";
+            ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +316,6 @@
         private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.PictureBox contactPictureBox;
     }
 }
