@@ -57,34 +57,38 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(11, 469);
+            this.okButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.okButton.Location = new System.Drawing.Point(12, 452);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(85, 40);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "Ok";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.UseVisualStyleBackColor = false;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(109, 469);
+            this.cancelButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cancelButton.Location = new System.Drawing.Point(103, 452);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(82, 40);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(289, 469);
+            this.deleteButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.deleteButton.Location = new System.Drawing.Point(271, 452);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.Size = new System.Drawing.Size(93, 40);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.UseVisualStyleBackColor = false;
             // 
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.firstNameLabel.Location = new System.Drawing.Point(204, 15);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(80, 17);
@@ -93,6 +97,7 @@
             // 
             // firstNameTextBox
             // 
+            this.firstNameTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.firstNameTextBox.Location = new System.Drawing.Point(207, 35);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(157, 22);
@@ -101,6 +106,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.lastNameLabel.Location = new System.Drawing.Point(204, 87);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(80, 17);
@@ -109,6 +115,7 @@
             // 
             // lastNameTextBox
             // 
+            this.lastNameTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lastNameTextBox.Location = new System.Drawing.Point(207, 107);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(157, 22);
@@ -117,6 +124,7 @@
             // homePhoneLabel
             // 
             this.homePhoneLabel.AutoSize = true;
+            this.homePhoneLabel.BackColor = System.Drawing.Color.Transparent;
             this.homePhoneLabel.Location = new System.Drawing.Point(203, 166);
             this.homePhoneLabel.Name = "homePhoneLabel";
             this.homePhoneLabel.Size = new System.Drawing.Size(94, 17);
@@ -125,6 +133,7 @@
             // 
             // homeTextBox
             // 
+            this.homeTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.homeTextBox.Location = new System.Drawing.Point(206, 190);
             this.homeTextBox.Name = "homeTextBox";
             this.homeTextBox.Size = new System.Drawing.Size(157, 22);
@@ -133,6 +142,7 @@
             // cellPhoneLabel
             // 
             this.cellPhoneLabel.AutoSize = true;
+            this.cellPhoneLabel.BackColor = System.Drawing.Color.Transparent;
             this.cellPhoneLabel.Location = new System.Drawing.Point(11, 166);
             this.cellPhoneLabel.Name = "cellPhoneLabel";
             this.cellPhoneLabel.Size = new System.Drawing.Size(80, 17);
@@ -141,6 +151,7 @@
             // 
             // cellPhoneTextBox
             // 
+            this.cellPhoneTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cellPhoneTextBox.Location = new System.Drawing.Point(11, 190);
             this.cellPhoneTextBox.Name = "cellPhoneTextBox";
             this.cellPhoneTextBox.Size = new System.Drawing.Size(157, 22);
@@ -149,6 +160,7 @@
             // address1Label
             // 
             this.address1Label.AutoSize = true;
+            this.address1Label.BackColor = System.Drawing.Color.Transparent;
             this.address1Label.Location = new System.Drawing.Point(11, 234);
             this.address1Label.Name = "address1Label";
             this.address1Label.Size = new System.Drawing.Size(76, 17);
@@ -157,6 +169,7 @@
             // 
             // address1TextBox
             // 
+            this.address1TextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.address1TextBox.Location = new System.Drawing.Point(14, 255);
             this.address1TextBox.Name = "address1TextBox";
             this.address1TextBox.Size = new System.Drawing.Size(349, 22);
@@ -165,6 +178,7 @@
             // address2Label
             // 
             this.address2Label.AutoSize = true;
+            this.address2Label.BackColor = System.Drawing.Color.Transparent;
             this.address2Label.Location = new System.Drawing.Point(14, 293);
             this.address2Label.Name = "address2Label";
             this.address2Label.Size = new System.Drawing.Size(76, 17);
@@ -173,6 +187,7 @@
             // 
             // address2TextBox
             // 
+            this.address2TextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.address2TextBox.Location = new System.Drawing.Point(14, 314);
             this.address2TextBox.Name = "address2TextBox";
             this.address2TextBox.Size = new System.Drawing.Size(349, 22);
@@ -181,7 +196,8 @@
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(14, 351);
+            this.cityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cityLabel.Location = new System.Drawing.Point(14, 346);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(35, 17);
             this.cityLabel.TabIndex = 15;
@@ -189,14 +205,16 @@
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(14, 372);
+            this.cityTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cityTextBox.Location = new System.Drawing.Point(14, 367);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(134, 22);
             this.cityTextBox.TabIndex = 16;
             // 
             // stateTextBox
             // 
-            this.stateTextBox.Location = new System.Drawing.Point(165, 372);
+            this.stateTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.stateTextBox.Location = new System.Drawing.Point(165, 367);
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(53, 22);
             this.stateTextBox.TabIndex = 17;
@@ -204,7 +222,8 @@
             // stateLabel
             // 
             this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(162, 351);
+            this.stateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.stateLabel.Location = new System.Drawing.Point(162, 346);
             this.stateLabel.Name = "stateLabel";
             this.stateLabel.Size = new System.Drawing.Size(45, 17);
             this.stateLabel.TabIndex = 18;
@@ -213,7 +232,8 @@
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(236, 352);
+            this.zipLabel.BackColor = System.Drawing.Color.Transparent;
+            this.zipLabel.Location = new System.Drawing.Point(236, 347);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(32, 17);
             this.zipLabel.TabIndex = 19;
@@ -221,7 +241,8 @@
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(239, 372);
+            this.zipTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.zipTextBox.Location = new System.Drawing.Point(239, 367);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(125, 22);
             this.zipTextBox.TabIndex = 20;
@@ -229,7 +250,8 @@
             // countryLabel
             // 
             this.countryLabel.AutoSize = true;
-            this.countryLabel.Location = new System.Drawing.Point(14, 403);
+            this.countryLabel.BackColor = System.Drawing.Color.Transparent;
+            this.countryLabel.Location = new System.Drawing.Point(14, 397);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(57, 17);
             this.countryLabel.TabIndex = 21;
@@ -237,7 +259,8 @@
             // 
             // countryTextBox
             // 
-            this.countryTextBox.Location = new System.Drawing.Point(14, 424);
+            this.countryTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.countryTextBox.Location = new System.Drawing.Point(14, 417);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(349, 22);
             this.countryTextBox.TabIndex = 22;
@@ -254,6 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(376, 500);
             this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.countryTextBox);

@@ -59,6 +59,18 @@
     <Compile Include="ContactDirectoryForm.Designer.cs">
       <DependentUpon>ContactDirectoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OathDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OathDialog.Designer.cs">
+      <DependentUpon>OathDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,11 +80,17 @@
     <Compile Include="MultiSDIContactApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactDetailsForm.resx">
       <DependentUpon>ContactDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContactDirectoryForm.resx">
       <DependentUpon>ContactDirectoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OathDialog.resx">
+      <DependentUpon>OathDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpDialog.resx">
       <DependentUpon>HelpDialog.cs</DependentUpon>
@@ -98,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreLibrary\CoreLibrary.csproj">
+      <Project>{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}</Project>
+      <Name>CoreLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

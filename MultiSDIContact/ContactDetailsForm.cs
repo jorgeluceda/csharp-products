@@ -24,23 +24,5 @@ namespace MultiSDIContact
         }
         #endregion
 
-        #region Drawing Background
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            //Creating the LinearGradientBrush to be use
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.OrangeRed, Color.SeaGreen, LinearGradientMode.ForwardDiagonal))
-            {
-                ColorBlend blend = new ColorBlend();
-                blend.Colors = new Color[] { Color.Red, Color.Orange, Color.Yellow };
-                blend.Positions = new float[] { 0.0f, 0.5f, 1.0f };
-                brush.InterpolationColors = blend;
-                Pen pen = new Pen(brush, 30.0f);
-                e.Graphics.FillRectangle(new SolidBrush(Color.LightSteelBlue), this.ClientRectangle);
-                e.Graphics.DrawRectangle(pen, this.ClientRectangle);
-            }
-        }
-        #endregion
-
     }
 }

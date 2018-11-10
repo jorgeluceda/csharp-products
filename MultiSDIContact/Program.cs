@@ -15,7 +15,6 @@ namespace MultiSDIContact
         static void Main(String[] args)
         {
             Application.EnableVisualStyles();
-            Application.Run(new ContactDetailsForm());//Testing
             MultiSDIContactApplication.Application.Run(args);
         }
     }

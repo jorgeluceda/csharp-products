@@ -101,8 +101,8 @@ namespace MultiSDIContact
         //To display the about dialog
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
-            /*aboutDialog about = new aboutDialog();
-            about.Show();*/
+            aboutDialog about = new aboutDialog();
+            about.Show();
         }
 
         //To display the help info for this form
@@ -115,12 +115,28 @@ namespace MultiSDIContact
         //To dipslay the oath dialog
         private void oathMenuItem_Click(object sender, EventArgs e)
         {
-            /*oathDialog oath = new oathDialog();
-            oath.Show();*/
+            oathDialog oath = new oathDialog();
+            oath.Show();
         }
 
-        #endregion
+        //To load contacts
+        private void loadMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        //To display a string text of the contact list
+        private void rawMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //To save contact list
+        private void saveMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
     }
 }

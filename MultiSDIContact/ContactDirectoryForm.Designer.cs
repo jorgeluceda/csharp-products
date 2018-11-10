@@ -37,14 +37,14 @@
             this.directoryToolBar = new System.Windows.Forms.ToolBar();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.fileMenuItem = new System.Windows.Forms.MenuItem();
-            this.helpMenuItem = new System.Windows.Forms.MenuItem();
-            this.aboutMenuItem = new System.Windows.Forms.MenuItem();
-            this.helpInfoMenuItem = new System.Windows.Forms.MenuItem();
-            this.oathMenuItem = new System.Windows.Forms.MenuItem();
             this.saveMenuItem = new System.Windows.Forms.MenuItem();
             this.loadMenuItem = new System.Windows.Forms.MenuItem();
             this.rawMenuItem = new System.Windows.Forms.MenuItem();
             this.exitMenuItem = new System.Windows.Forms.MenuItem();
+            this.helpMenuItem = new System.Windows.Forms.MenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.MenuItem();
+            this.helpInfoMenuItem = new System.Windows.Forms.MenuItem();
+            this.oathMenuItem = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +123,30 @@
             this.exitMenuItem});
             this.fileMenuItem.Text = "File";
             // 
+            // saveMenuItem
+            // 
+            this.saveMenuItem.Index = 0;
+            this.saveMenuItem.Text = "Save";
+            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            // 
+            // loadMenuItem
+            // 
+            this.loadMenuItem.Index = 1;
+            this.loadMenuItem.Text = "Load";
+            this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
+            // 
+            // rawMenuItem
+            // 
+            this.rawMenuItem.Index = 2;
+            this.rawMenuItem.Text = "Raw";
+            this.rawMenuItem.Click += new System.EventHandler(this.rawMenuItem_Click);
+            // 
+            // exitMenuItem
+            // 
+            this.exitMenuItem.Index = 3;
+            this.exitMenuItem.Text = "Exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            // 
             // helpMenuItem
             // 
             this.helpMenuItem.Index = 1;
@@ -149,27 +173,6 @@
             this.oathMenuItem.Index = 2;
             this.oathMenuItem.Text = "Oath";
             this.oathMenuItem.Click += new System.EventHandler(this.oathMenuItem_Click);
-            // 
-            // saveMenuItem
-            // 
-            this.saveMenuItem.Index = 0;
-            this.saveMenuItem.Text = "Save";
-            // 
-            // loadMenuItem
-            // 
-            this.loadMenuItem.Index = 1;
-            this.loadMenuItem.Text = "Load";
-            // 
-            // rawMenuItem
-            // 
-            this.rawMenuItem.Index = 2;
-            this.rawMenuItem.Text = "Raw";
-            // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.Index = 3;
-            this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // ContactDIrectoryForm
             // 
