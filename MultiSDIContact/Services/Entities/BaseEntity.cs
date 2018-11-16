@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MultiSDIContact.Services.Entities
 {
-    public class BaseEntity : INotifyPropertyChanged
+    abstract public class BaseEntity : INotifyPropertyChanged
     {
         #region DataBinding
 
