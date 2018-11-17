@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultiSDIContact.Services.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -10,6 +11,19 @@ namespace MultiSDIContact.Services.Entities
     [Serializable]
     public class Contact: BaseEntity, ISerializable
     {
+        #region Constructor
+
+        /// <summary>
+        /// Simple constrcutor so complex databinding works well
+        /// </summary>
+        public Contact()
+        {
+            this.FirstName = DefaultValues.FirstName;
+            this.LastName = DefaultValues.LastName;
+        }
+
+        #endregion
+
         #region Properties
 
         #region FirstName
