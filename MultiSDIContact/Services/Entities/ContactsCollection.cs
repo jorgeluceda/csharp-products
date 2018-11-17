@@ -9,6 +9,26 @@ namespace MultiSDIContact.Services.Entities
 {
     public class ContactsCollection
     {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ContactsCollection(BindingList<Contact> contacts)
+        {
+            this.Contacts = contacts;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public ContactsCollection() : this(new BindingList<Contact>())
+        {
+
+        }
+
+        #endregion
+
         #region Constacts
 
         /// <summary>
