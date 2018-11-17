@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MultiSDIContact.Services.Entities
 {
-    public class Contact: BaseEntity
+    [Serializable]
+    public class Contact: BaseEntity, ISerializable
     {
+        #region Properties
+
         #region FirstName
 
         /// <summary>
@@ -224,6 +228,50 @@ namespace MultiSDIContact.Services.Entities
                 this.country = value;
                 this.PropertyChange("Country");
             }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region ISerializable
+
+        /// <summary>
+        /// Desirializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected Contact(SerializationInfo info, StreamingContext context)
+        {
+            this.firstName = info.GetString("firstName");
+            this.lastName = info.GetString("lastName");
+            this.cellPhone = info.GetString("cellPhone");
+            this.homePhone = info.GetString("homePhone");
+            this.address1 = info.GetString("address1");
+            this.address2 = info.GetString("address2");
+            this.city = info.GetString("city");
+            this.state = info.GetString("state");
+            this.zip = info.GetString("zip");
+            this.country = info.GetString("country");
+        }
+
+        /// <summary>
+        /// Serializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("firstName", this.firstName);
+            info.AddValue("lastName", this.lastName);
+            info.AddValue("cellPhone", this.cellPhone);
+            info.AddValue("homePhone", this.homePhone);
+            info.AddValue("address1", this.address1);
+            info.AddValue("address2", this.address2);
+            info.AddValue("city", this.city);
+            info.AddValue("state", this.state);
+            info.AddValue("zip", this.zip);
+            info.AddValue("country", this.country);
         }
 
         #endregion
