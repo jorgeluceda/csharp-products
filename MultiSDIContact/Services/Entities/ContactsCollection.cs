@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MultiSDIContact.Services.Entities
 {
-    public class ContactsCollection
+    [Serializable]
+    public class ContactsCollection: ISerializable
     {
         #region Constructor
 
@@ -43,6 +45,30 @@ namespace MultiSDIContact.Services.Entities
         {
             get { return this.contacts; }
             set { this.contacts = value; }
+        }
+
+        #endregion
+
+        #region ISerializable
+
+        /// <summary>
+        /// Desirializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected ContactsCollection(SerializationInfo info, StreamingContext context)
+        {
+            this.contacts = (BindingList<Contact>)info.GetValue("contacts", typeof(BindingList<Contact>));
+        }
+
+        /// <summary>
+        /// Serializes the object
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("contacts", this.contacts, typeof(List<Contact>));
         }
 
         #endregion
