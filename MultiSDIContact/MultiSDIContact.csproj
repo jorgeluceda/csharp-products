@@ -80,6 +80,7 @@
     <Compile Include="MultiSDIContactApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Core\DefaultValues.cs" />
     <Compile Include="Services\Entities\BaseEntity.cs" />
     <Compile Include="Services\Entities\Contact.cs" />
     <Compile Include="Services\Entities\ContactsCollection.cs" />
