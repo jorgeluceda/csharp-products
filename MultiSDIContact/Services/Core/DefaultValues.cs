@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MultiSDIContact.Services.Core
 {
-    class DefaultValues
+    public class DefaultValues
     {
         /// <summary>
         /// The default first name used when creating a new contact
