@@ -15,6 +15,7 @@ namespace MultiSDIContact
 {
     public partial class ContactDetailsForm : Form, IBindingSource
     {
+        public bool deleteClicked = false;
         public bool canDelete = false;
         public bool closeAccept = false;
 
@@ -37,7 +38,7 @@ namespace MultiSDIContact
             this.stateTextBox.DataBindings.Add("Text", this.contactBindingSource, "state");
             this.zipTextBox.DataBindings.Add("Text", this.contactBindingSource, "zip");
             this.countryTextBox.DataBindings.Add("Text", this.contactBindingSource, "country");
-        }
+        } 
         #endregion
 
         #region Contructor
@@ -47,6 +48,9 @@ namespace MultiSDIContact
 
             InitializeComponent();
 
+            //two modes - edit or add mode
+            //add mode cannot delete a contact
+            //allow deletion based on mode
             deleteButton.Enabled = canDelete;
 
             InitializeManualBindings();
@@ -62,6 +66,12 @@ namespace MultiSDIContact
         private void cancelButton_Click(object sender, EventArgs e)
         {
             closeAccept = false;
+            this.Close();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            deleteClicked = true;
             this.Close();
         }
     }
