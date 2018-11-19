@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,8 +36,9 @@ namespace MultiSDIContact
         }
         void RefreshItems()
         {
-            //delete button implementation
-            //this.btnDelete.Enabled = this.BindingManager.Count > 0;
+            //if there are more than 0 objects, enable delete and edit buttons
+            this.deleteButton.Enabled = this.BindingManager.Count > 0;
+            this.editButton.Enabled = this.BindingManager.Count > 0;
         }
         
         #endregion
@@ -174,7 +176,7 @@ namespace MultiSDIContact
             // META data binding source - modify newContact without the 
             // need to pass it directly ;)
             dirForm.DataBindingSource.DataSource = newContact;
-            dirForm.canDelete = true;
+            dirForm.canDelete = false;
             dirForm.ShowDialog(); //show model contact details form
             
             if(dirForm.closeAccept == true)
@@ -182,7 +184,32 @@ namespace MultiSDIContact
                 DataBindingSource.Add(newContact);
                 RefreshItems(); //since new contact added, refresh the items in grid view
             }
+        }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            Int32 selectedIndex = contactDataGrid.CurrentRow.Index;
+
+            Contact currentContact = (Contact)contactDataGrid.CurrentRow.DataBoundItem;
+
+            ContactDetailsForm dirForm = new ContactDetailsForm();
+            
+            // META data binding source - modify newContact without the 
+            // need to pass it directly ;)
+            dirForm.DataBindingSource.DataSource = currentContact;
+            dirForm.canDelete = true;
+            dirForm.ShowDialog(); //show model contact details form
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            Int32 selectedIndex = contactDataGrid.CurrentRow.Index;
+
+            DataBindingSource.RemoveAt(selectedIndex);
+
+            // refresh items in case item count is 0 
+            // to disable the edit and delete buttons
+            RefreshItems(); 
         }
     }
-}
+    }
