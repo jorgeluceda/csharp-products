@@ -85,8 +85,8 @@ namespace MultiSDIContact
         public void AddContactDirectoryForm(Form form)
         {
             // Add handlers for the form's Activated and FormClosed events
-            form.Activated += Form_Activated;
-            form.FormClosed += Form_FormClosed;
+            form.Activated += formActivated;
+            form.FormClosed += formClosed;
 
             // If there's only one OpenForm, make it the MainForm
             if (this.OpenForms.Count == 1)
@@ -108,19 +108,19 @@ namespace MultiSDIContact
          *  Activated event handler for ContactDirectoryForm. Sets the application's MainForm to the 
          *  ContactDirectoryForm that was Activated.
          */
-        void Form_Activated(object sender, EventArgs e)
+        void formActivated(object sender, EventArgs e)
         {
             this.MainForm = (Form)sender;
         }
 
         /**
-         *  FormClosed event handler for ContactDirectoryForm. Checks if the ContactDirectoryForm that was closed 
+         *  formClosed event handler for ContactDirectoryForm. Checks if the ContactDirectoryForm that was closed 
          *  is the MainForm AND there are more forms in this Application instance. If yes, then we set 
          *  this Application instance's MainForm to the first form in OpenForms. We also remove the
          *  form that was closed from the list of form's whose Activated/FormClosed events are handled
          *  by the handlers.
          */
-        void Form_FormClosed(object sender, EventArgs e)
+        void formClosed(object sender, EventArgs e)
         {
             // Set a new MainForm if necessary
             if (((Form)sender == this.MainForm) && (this.OpenForms.Count > 0))
@@ -129,8 +129,8 @@ namespace MultiSDIContact
             // Take the sender (form that was closed) and remove it from the list of forms whose Activated/FormClosed 
             // event is handled by those handlers
             Form form = sender as Form;
-            form.Activated -= Form_Activated;
-            form.FormClosed -= Form_FormClosed;
+            form.Activated -= formActivated;
+            form.FormClosed -= formClosed;
         }
 
         /**
@@ -156,7 +156,7 @@ namespace MultiSDIContact
                 item.Text = form.Text;
                 item.Tag = form;
                 menu.DropDownItems.Add(item);
-                item.Click += WindowMenuItem_Click;
+                item.Click += windowMenuItemClick;
 
                 // Check menu item that represents currently active window
                 if (form == this.MainForm)
@@ -167,7 +167,7 @@ namespace MultiSDIContact
         /**
          *  Click handler for a WindowMenuItem. When Window->Item (ContactDirectoryForm) is clicked, we activate that form. 
          */
-        void WindowMenuItem_Click(object sender, EventArgs e)
+        void windowMenuItemClick(object sender, EventArgs e)
         {
             // Activate ContactDirectoryForm based on selection
             ((Form)((ToolStripMenuItem)sender).Tag).Activate();

@@ -8,15 +8,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MultiSDIContact.Services.Entities;
 namespace MultiSDIContact
 {
-    public partial class ContactDIrectoryForm : Form
+    public partial class ContactDIrectoryForm : Form, IBindingSource
     {
         #region Member Variables and Properties
         string fileName;
 
 
+        #endregion
+
+        #region Data Binding
+        public BindingSource DataBindingSource
+        {
+            get { return this.bsContacts; }
+            set { bsContacts = value; }
+        }
+
+        BindingManagerBase BindingManager
+        {
+
+            get
+            {
+                return this.BindingContext[this.bsContacts];
+            }
+        }
+        void RefreshItems()
+        {
+            //delete button implementation
+            //this.btnDelete.Enabled = this.BindingManager.Count > 0;
+        }
+        
         #endregion
 
         #region Getters
@@ -32,7 +55,11 @@ namespace MultiSDIContact
         public ContactDIrectoryForm()
         {
             InitializeComponent();
+
+            RefreshItems(); //refresh items on construction
+
         }
+        
         #endregion
 
         #region Helper Methods
@@ -197,5 +224,22 @@ namespace MultiSDIContact
         }*/
 
         #endregion
+
+        private void addButton_Click(object sender, EventArgs e) {
+
+            //make new contacts object and add it to bindingSource
+            Contact newContact = new Contact();
+            ContactDetailsForm dirForm = new ContactDetailsForm();
+
+            // META data binding source - modify newContact without the 
+            // need to pass it directly ;)
+            dirForm.DataBindingSource.DataSource = newContact;
+
+            dirForm.ShowDialog(); //show model contact details form
+            
+            DataBindingSource.Add(newContact);
+            
+            RefreshItems(); //since new contact added, refresh the items in grid view
+        }
     }
 }

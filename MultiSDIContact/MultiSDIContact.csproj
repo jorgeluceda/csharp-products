@@ -65,6 +65,7 @@
     <Compile Include="AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="IBindingSource.cs" />
     <Compile Include="OathDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +109,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MultiSDIContact.Services.Entities.Contact.datasource" />
+    <None Include="MultiSDIContact.Services.Entities.ContactsCollection.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
