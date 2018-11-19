@@ -186,6 +186,7 @@
             // 
             this.menuItem1.Index = 3;
             this.menuItem1.Text = "Print";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
             // ContactDIrectoryForm
             // 

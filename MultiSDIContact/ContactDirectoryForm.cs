@@ -136,7 +136,13 @@ namespace MultiSDIContact
         {
 
         }
-        #endregion
 
+        // To print the contacts list
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }
