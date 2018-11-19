@@ -45,12 +45,7 @@ namespace MultiSDIContact
             
             InitializeComponent();
 
-
             InitializeManualBindings();
-
-            //change default first and last name values to empty string
-            this.firstNameTextBox.Text = ""; 
-            this.lastNameTextBox.Text = "";
         }
         #endregion
 
