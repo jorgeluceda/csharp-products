@@ -45,12 +45,22 @@
             this.aboutMenuItem = new System.Windows.Forms.MenuItem();
             this.helpInfoMenuItem = new System.Windows.Forms.MenuItem();
             this.oathMenuItem = new System.Windows.Forms.MenuItem();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsContacts = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
             // 
-            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 591);
+            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 551);
             this.contactDirectoryStatusBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
             this.contactDirectoryStatusBar.Size = new System.Drawing.Size(980, 34);
@@ -60,18 +70,19 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addButton.Location = new System.Drawing.Point(18, 545);
+            this.addButton.Location = new System.Drawing.Point(18, 505);
             this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(112, 36);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editButton.Location = new System.Drawing.Point(140, 545);
+            this.editButton.Location = new System.Drawing.Point(140, 505);
             this.editButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(112, 36);
@@ -82,7 +93,7 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(849, 545);
+            this.deleteButton.Location = new System.Drawing.Point(849, 505);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(112, 36);
@@ -95,12 +106,23 @@
             this.contactDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.contactDataGrid.AutoGenerateColumns = false;
             this.contactDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contactDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.cellPhoneDataGridViewTextBoxColumn,
+            this.address1DataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.zipDataGridViewTextBoxColumn,
+            this.countryDataGridViewTextBoxColumn});
+            this.contactDataGrid.DataSource = this.bsContacts;
             this.contactDataGrid.Location = new System.Drawing.Point(18, 125);
             this.contactDataGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
-            this.contactDataGrid.Size = new System.Drawing.Size(944, 411);
+            this.contactDataGrid.Size = new System.Drawing.Size(944, 371);
             this.contactDataGrid.TabIndex = 4;
             // 
             // directoryToolBar
@@ -180,11 +202,63 @@
             this.oathMenuItem.Text = "Oath";
             this.oathMenuItem.Click += new System.EventHandler(this.oathMenuItem_Click);
             // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // cellPhoneDataGridViewTextBoxColumn
+            // 
+            this.cellPhoneDataGridViewTextBoxColumn.DataPropertyName = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.HeaderText = "CellPhone";
+            this.cellPhoneDataGridViewTextBoxColumn.Name = "cellPhoneDataGridViewTextBoxColumn";
+            // 
+            // address1DataGridViewTextBoxColumn
+            // 
+            this.address1DataGridViewTextBoxColumn.DataPropertyName = "Address1";
+            this.address1DataGridViewTextBoxColumn.HeaderText = "Address1";
+            this.address1DataGridViewTextBoxColumn.Name = "address1DataGridViewTextBoxColumn";
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // zipDataGridViewTextBoxColumn
+            // 
+            this.zipDataGridViewTextBoxColumn.DataPropertyName = "Zip";
+            this.zipDataGridViewTextBoxColumn.HeaderText = "Zip";
+            this.zipDataGridViewTextBoxColumn.Name = "zipDataGridViewTextBoxColumn";
+            // 
+            // countryDataGridViewTextBoxColumn
+            // 
+            this.countryDataGridViewTextBoxColumn.DataPropertyName = "Country";
+            this.countryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.countryDataGridViewTextBoxColumn.Name = "countryDataGridViewTextBoxColumn";
+            // 
+            // bsContacts
+            // 
+            this.bsContacts.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
+            // 
             // ContactDIrectoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 625);
+            this.ClientSize = new System.Drawing.Size(980, 585);
             this.Controls.Add(this.directoryToolBar);
             this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
@@ -196,6 +270,7 @@
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +294,15 @@
         private System.Windows.Forms.MenuItem aboutMenuItem;
         private System.Windows.Forms.MenuItem helpInfoMenuItem;
         private System.Windows.Forms.MenuItem oathMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsContacts;
     }
 }
 
