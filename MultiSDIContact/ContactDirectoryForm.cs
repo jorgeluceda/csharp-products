@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -142,6 +143,58 @@ namespace MultiSDIContact
         {
 
         }
+
+        #endregion
+
+        #region Print
+
+        /*private PrintDocument printDocument;
+        private int currentContact = 0;
+        private int contactsPerPage = 10;
+
+        public void Print()
+        {
+
+        }
+
+        private void InitializePrintingfunctionality()
+        {
+            this.printDocument = new PrintDocument();
+
+            this.printDocument.BeginPrint += PrintDocument_BeginPrint;
+            this.printDocument.PrintPage += PrintDocument_PrintPage;
+        }
+
+        private void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
+        {
+            this.currentContact = 0;
+
+            if (this.Contacts.Count < 1)
+                e.Cancel = true;
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Draw to the e.Graphics object that wraps the print target 
+            Graphics g = e.Graphics;
+
+            using (Font font = new Font("Arial", 16))
+            {
+                int localCount = 0;
+
+                while (localCount < this.contactsPerPage && this.currentContact < this.Contacts.Count)
+                {
+                    Contact currentContact = this.Contacts.ElementAt(this.currentContact);
+
+                    g.DrawString(currentContact.ToString(), font, Brushes.Black, g.VisibleClipBounds);
+
+                    this.currentContact++;
+                    localCount++;
+                }
+            }
+
+            e.HasMorePages = (this.currentContact < this.Contacts.Count);
+        }*/
 
         #endregion
     }

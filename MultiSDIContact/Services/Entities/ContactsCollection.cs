@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -21,7 +19,6 @@ namespace MultiSDIContact.Services.Entities
         public ContactsCollection(BindingList<Contact> contacts)
         {
             this.Contacts = contacts;
-            this.InitializePrintingfunctionality();
         }
 
         /// <summary>
@@ -62,7 +59,6 @@ namespace MultiSDIContact.Services.Entities
         protected ContactsCollection(SerializationInfo info, StreamingContext context)
         {
             this.contacts = (BindingList<Contact>)info.GetValue("contacts", typeof(BindingList<Contact>));
-            this.InitializePrintingfunctionality();
         }
 
         /// <summary>
@@ -77,42 +73,6 @@ namespace MultiSDIContact.Services.Entities
 
         #endregion
 
-        #region Print
-
-        private PrintDocument printDocument;
-        private int currentContact = 0;
-        private int contactsPerPage = 10;
-        private int startPage = 0;
-        private int endPage = 0;
-        private string fileName = "contacts.txt";
-
-        public void Print()
-        {
-
-        }
-
-        private void InitializePrintingfunctionality()
-        {
-            this.printDocument = new PrintDocument();
-
-            this.printDocument.PrintPage += PrintDocument_PrintPage;
-        }
-
-        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Draw to the e.Graphics object that wraps the print target 
-            Graphics g = e.Graphics;
-
-            using (Font font = new Font("Arial", 16))
-            {
-                string contact = "";
-
-                contact += "";
-
-                g.DrawString("Hello,\nPrinter", font, Brushes.Black, g.VisibleClipBounds);
-            }
-        }
-
-        #endregion
+        
     }
 }
