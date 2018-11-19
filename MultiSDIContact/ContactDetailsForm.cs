@@ -15,6 +15,7 @@ namespace MultiSDIContact
 {
     public partial class ContactDetailsForm : Form, IBindingSource
     {
+        public bool closeAccept = false;
 
         #region Data Binding
         public BindingSource DataBindingSource
@@ -49,5 +50,16 @@ namespace MultiSDIContact
         }
         #endregion
 
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            this.closeAccept = true;
+            this.Close();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            closeAccept = false;
+            this.Close();
+        }
     }
 }

@@ -177,9 +177,13 @@ namespace MultiSDIContact
 
             dirForm.ShowDialog(); //show model contact details form
             
-            DataBindingSource.Add(newContact);
-            
-            RefreshItems(); //since new contact added, refresh the items in grid view
+            if(dirForm.closeAccept == true)
+            {
+                DataBindingSource.Add(newContact);
+                RefreshItems(); //since new contact added, refresh the items in grid view
+
+            }
+
         }
     }
 }
