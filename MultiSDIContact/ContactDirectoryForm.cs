@@ -234,12 +234,15 @@ namespace MultiSDIContact
             // META data binding source - modify newContact without the 
             // need to pass it directly ;)
             dirForm.DataBindingSource.DataSource = newContact;
-
+            dirForm.canDelete = true;
             dirForm.ShowDialog(); //show model contact details form
             
-            DataBindingSource.Add(newContact);
-            
-            RefreshItems(); //since new contact added, refresh the items in grid view
+            if(dirForm.closeAccept == true)
+            {
+                DataBindingSource.Add(newContact);
+                RefreshItems(); //since new contact added, refresh the items in grid view
+            }
+
         }
     }
 }
