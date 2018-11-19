@@ -8,19 +8,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MultiSDIContact.Services.Entities;
+
 
 namespace MultiSDIContact
 {
-    public partial class ContactDetailsForm : Form
+    public partial class ContactDetailsForm : Form, IBindingSource
     {
-        #region Variables
 
+        #region Data Binding
+        public BindingSource DataBindingSource
+        {
+            get { return this.contactBindingSource; }
+            set { this.contactBindingSource = value; }
+        }
+
+        void InitializeManualBindings()
+        {
+            this.firstNameTextBox.DataBindings.Add("Text", this.contactBindingSource, "firstName");
+            this.lastNameTextBox.DataBindings.Add("Text", this.contactBindingSource, "lastName");
+            this.address1TextBox.DataBindings.Add("Text", this.contactBindingSource, "address1");
+            this.address2TextBox.DataBindings.Add("Text", this.contactBindingSource, "address2");
+            this.homeTextBox.DataBindings.Add("Text", this.contactBindingSource, "homePhone");
+            this.cellPhoneTextBox.DataBindings.Add("Text", this.contactBindingSource, "cellPhone");
+            this.cityTextBox.DataBindings.Add("Text", this.contactBindingSource, "city");
+            this.stateTextBox.DataBindings.Add("Text", this.contactBindingSource, "state");
+            this.zipTextBox.DataBindings.Add("Text", this.contactBindingSource, "zip");
+            this.countryTextBox.DataBindings.Add("Text", this.contactBindingSource, "country");
+        }
         #endregion
 
         #region Contructor
+
         public ContactDetailsForm()
         {
+            
             InitializeComponent();
+
+
+            InitializeManualBindings();
+
+            //change default first and last name values to empty string
+            this.firstNameTextBox.Text = ""; 
+            this.lastNameTextBox.Text = "";
         }
         #endregion
 

@@ -171,13 +171,15 @@ namespace MultiSDIContact
             Contact newContact = new Contact();
             ContactDetailsForm dirForm = new ContactDetailsForm();
 
+            // META data binding source - modify newContact without the 
+            // need to pass it directly ;)
+            dirForm.DataBindingSource.DataSource = newContact;
+
             dirForm.ShowDialog(); //show model contact details form
-            // META data source - modify newContact without the need to pass it directly ;)
-            //dirForm.DataBindingSource.DataSource = newContact;
- 
-            this.DataBindingSource.Add(newContact);
             
-            RefreshItems();
+            DataBindingSource.Add(newContact);
+            
+            RefreshItems(); //since new contact added, refresh the items in grid view
         }
     }
 }
