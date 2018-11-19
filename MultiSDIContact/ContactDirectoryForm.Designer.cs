@@ -45,6 +45,7 @@
             this.aboutMenuItem = new System.Windows.Forms.MenuItem();
             this.helpInfoMenuItem = new System.Windows.Forms.MenuItem();
             this.oathMenuItem = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,6 +149,7 @@
             this.saveMenuItem,
             this.loadMenuItem,
             this.rawMenuItem,
+            this.menuItem1,
             this.exitMenuItem});
             this.fileMenuItem.Text = "File";
             // 
@@ -171,7 +173,7 @@
             // 
             // exitMenuItem
             // 
-            this.exitMenuItem.Index = 3;
+            this.exitMenuItem.Index = 4;
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -202,6 +204,17 @@
             this.oathMenuItem.Text = "Oath";
             this.oathMenuItem.Click += new System.EventHandler(this.oathMenuItem_Click);
             // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 3;
+            this.menuItem1.Text = "Print";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            // 
+            // ContactDIrectoryForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(735, 500);
             // firstNameDataGridViewTextBoxColumn
             // 
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
@@ -294,6 +307,7 @@
         private System.Windows.Forms.MenuItem aboutMenuItem;
         private System.Windows.Forms.MenuItem helpInfoMenuItem;
         private System.Windows.Forms.MenuItem oathMenuItem;
+        private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cellPhoneDataGridViewTextBoxColumn;

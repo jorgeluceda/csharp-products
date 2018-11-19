@@ -289,5 +289,10 @@ namespace MultiSDIContact.Services.Entities
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return this.FirstName + " " + this.LastName + " - " + this.CellPhone;
+        }
     }
 }
