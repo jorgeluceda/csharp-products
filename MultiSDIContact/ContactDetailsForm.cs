@@ -15,6 +15,7 @@ namespace MultiSDIContact
 {
     public partial class ContactDetailsForm : Form, IBindingSource
     {
+        public bool canDelete = false;
         public bool closeAccept = false;
 
         #region Data Binding
@@ -43,8 +44,10 @@ namespace MultiSDIContact
 
         public ContactDetailsForm()
         {
-            
+
             InitializeComponent();
+
+            deleteButton.Enabled = canDelete;
 
             InitializeManualBindings();
         }
