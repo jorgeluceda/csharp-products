@@ -168,12 +168,6 @@ namespace MultiSDIContact
 
         }
 
-        // To print the contacts list
-        private void menuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region Print
@@ -181,15 +175,17 @@ namespace MultiSDIContact
         private PrintDocument printDocument;
         private PrintPreviewDialog printPreviewDialog;
         private int currentContact = 0;
-        private int contactsPerPage = 10;
+        private int contactsPerPage = 2;
 
-        public void Print()
+        private void printMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.ShowDialog();
         }
 
         private void InitializePrintingFunctionality()
         {
+            this.printPreviewDialog = new PrintPreviewDialog();
             this.printDocument = new PrintDocument();
 
             this.printDocument.BeginPrint += PrintDocument_BeginPrint;
@@ -212,16 +208,19 @@ namespace MultiSDIContact
             using (Font font = new Font("Arial", 16))
             {
                 int localCount = 0;
+                string result = "";
 
                 while (localCount < this.contactsPerPage && this.currentContact < this.bsContacts.Count)
                 {
                     Contact currentContact = (Contact)this.bsContacts[this.currentContact];
 
-                    g.DrawString(currentContact.ToString(), font, Brushes.Black, g.VisibleClipBounds);
+                    result += currentContact.ToString() + "\n";
 
                     this.currentContact++;
                     localCount++;
                 }
+
+                g.DrawString(result, font, Brushes.Black, g.VisibleClipBounds);
             }
 
             e.HasMorePages = (this.currentContact < this.bsContacts.Count);
@@ -272,6 +271,6 @@ namespace MultiSDIContact
             // refresh items in case item count is 0 
             // to disable the edit and delete buttons
             RefreshItems(); 
-        }
+        }   
     }
-    }
+}
