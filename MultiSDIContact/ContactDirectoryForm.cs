@@ -181,7 +181,6 @@ namespace MultiSDIContact
         private Font printFooterFont;
         private int currentPrintingContact = 0;
         private int currentPrintingPage = 1;
-        private int printContactsPerPage = 2;
 
         private void printMenuItem_Click(object sender, EventArgs e)
         {
@@ -237,21 +236,43 @@ namespace MultiSDIContact
         {
             // Draw to the e.Graphics object that wraps the print target 
             Graphics g = e.Graphics;
-            
-            int localCount = 0;
-            string result = "";
 
-            while (localCount < this.printContactsPerPage && this.currentPrintingContact < this.bsContacts.Count)
+            // START - Print page header
+            string headerText = "Page " + this.currentPrintingPage;
+            Rectangle marginBounds = e.MarginBounds;
+            RectangleF headerArea = new RectangleF(marginBounds.Left, 0, marginBounds.Width, marginBounds.Top);
+            using (StringFormat format = new StringFormat())
+            {
+                format.LineAlignment = StringAlignment.Center;
+                g.DrawString(headerText, this.printHeaderFont, Brushes.Black, headerArea, format);
+            }
+            // END - Print page body
+
+            // START - Print page header
+            // Print page text
+            Rectangle printableArea = e.MarginBounds;
+
+            while (this.currentPrintingContact < this.bsContacts.Count)
             {
                 Contact currentContact = (Contact)this.bsContacts[this.currentPrintingContact];
+                string line = currentContact.ToString();
 
-                result += currentContact.ToString() + "\n";
+                // Get size for word wrap
+                SizeF printSize = g.MeasureString(line, this.printBodyFont, printableArea.Width);
 
-                this.currentPrintingContact++;
-                localCount++;
+                if (printableArea.Height > printSize.Height)
+                { // Print line
+                    g.DrawString(line, this.printBodyFont, Brushes.Black, printableArea);
+                    // Calculate and reduce remaining printable area 
+                    printableArea.Y += (int)printSize.Height;
+                    printableArea.Height -= (int)printSize.Height;
+
+                    this.currentPrintingContact++;
+                }
+                else
+                    break;
             }
-
-            g.DrawString(result, this.printBodyFont, Brushes.Black, e.MarginBounds);
+            // END - Print page body
             
             this.currentPrintingPage++;
             e.HasMorePages = (this.currentPrintingContact < this.bsContacts.Count);
