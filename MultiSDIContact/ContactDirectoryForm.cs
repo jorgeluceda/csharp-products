@@ -60,6 +60,7 @@ namespace MultiSDIContact
 
             RefreshItems(); //refresh items on construction
 
+            InitializePrintingFunctionality();
         }
         
         #endregion
@@ -177,7 +178,8 @@ namespace MultiSDIContact
 
         #region Print
 
-        /*private PrintDocument printDocument;
+        private PrintDocument printDocument;
+        private PrintPreviewDialog printPreviewDialog;
         private int currentContact = 0;
         private int contactsPerPage = 10;
 
@@ -186,7 +188,7 @@ namespace MultiSDIContact
 
         }
 
-        private void InitializePrintingfunctionality()
+        private void InitializePrintingFunctionality()
         {
             this.printDocument = new PrintDocument();
 
@@ -198,7 +200,7 @@ namespace MultiSDIContact
         {
             this.currentContact = 0;
 
-            if (this.Contacts.Count < 1)
+            if (this.bsContacts.Count < 1)
                 e.Cancel = true;
         }
 
@@ -211,9 +213,9 @@ namespace MultiSDIContact
             {
                 int localCount = 0;
 
-                while (localCount < this.contactsPerPage && this.currentContact < this.Contacts.Count)
+                while (localCount < this.contactsPerPage && this.currentContact < this.bsContacts.Count)
                 {
-                    Contact currentContact = this.Contacts.ElementAt(this.currentContact);
+                    Contact currentContact = (Contact)this.bsContacts[this.currentContact];
 
                     g.DrawString(currentContact.ToString(), font, Brushes.Black, g.VisibleClipBounds);
 
@@ -222,8 +224,8 @@ namespace MultiSDIContact
                 }
             }
 
-            e.HasMorePages = (this.currentContact < this.Contacts.Count);
-        }*/
+            e.HasMorePages = (this.currentContact < this.bsContacts.Count);
+        }
 
         #endregion
 
