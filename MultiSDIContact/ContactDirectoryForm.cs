@@ -174,12 +174,18 @@ namespace MultiSDIContact
 
         private PrintDocument printDocument;
         private PrintPreviewDialog printPreviewDialog;
+        private PrintDialog printDialog;
         private int currentContact = 0;
         private int contactsPerPage = 2;
 
         private void printMenuItem_Click(object sender, EventArgs e)
         {
-            
+            this.printDialog.Document = this.printDocument;
+            if (this.printDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.printDocument.DocumentName = this.fileName;
+                this.printDocument.Print();
+            }
         }
 
         private void printPreviewMenuItem_Click(object sender, EventArgs e)
@@ -191,6 +197,7 @@ namespace MultiSDIContact
         private void InitializePrintingFunctionality()
         {
             this.printPreviewDialog = new PrintPreviewDialog();
+            this.printDialog = new PrintDialog();
             this.printDocument = new PrintDocument();
 
             this.printDocument.BeginPrint += PrintDocument_BeginPrint;
