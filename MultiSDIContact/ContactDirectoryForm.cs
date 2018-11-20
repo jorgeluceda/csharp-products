@@ -225,7 +225,7 @@ namespace MultiSDIContact
                     localCount++;
                 }
 
-                g.DrawString(result, font, Brushes.Black, g.VisibleClipBounds);
+                g.DrawString(result, font, Brushes.Black, e.MarginBounds);
             }
 
             e.HasMorePages = (this.currentContact < this.bsContacts.Count);

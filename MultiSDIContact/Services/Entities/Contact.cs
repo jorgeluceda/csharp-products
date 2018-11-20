@@ -292,7 +292,7 @@ namespace MultiSDIContact.Services.Entities
 
         public override string ToString()
         {
-            return this.FirstName + " " + this.LastName + " - " + this.CellPhone;
+            return "First Name: " + this.FirstName + " - Last Name: " + this.LastName + " - Cell Phone: " + this.CellPhone;
         }
     }
 }
