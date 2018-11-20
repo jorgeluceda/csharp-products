@@ -179,6 +179,11 @@ namespace MultiSDIContact
 
         private void printMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void printPreviewMenuItem_Click(object sender, EventArgs e)
+        {
             this.printPreviewDialog.Document = this.printDocument;
             this.printPreviewDialog.ShowDialog();
         }
@@ -271,6 +276,6 @@ namespace MultiSDIContact
             // refresh items in case item count is 0 
             // to disable the edit and delete buttons
             RefreshItems(); 
-        }   
+        }
     }
 }
