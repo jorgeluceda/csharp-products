@@ -175,8 +175,13 @@ namespace MultiSDIContact
         private PrintDocument printDocument;
         private PrintPreviewDialog printPreviewDialog;
         private PrintDialog printDialog;
-        private int currentContact = 0;
-        private int contactsPerPage = 2;
+
+        private Font printBodyFont;
+        private Font printHeaderFont;
+        private Font printFooterFont;
+        private int currentPrintingContact = 0;
+        private int currentPrintingPage = 1;
+        private int printContactsPerPage = 2;
 
         private void printMenuItem_Click(object sender, EventArgs e)
         {
@@ -201,41 +206,55 @@ namespace MultiSDIContact
             this.printDocument = new PrintDocument();
 
             this.printDocument.BeginPrint += PrintDocument_BeginPrint;
+            this.printDocument.EndPrint += PrintDocument_EndPrint;
             this.printDocument.PrintPage += PrintDocument_PrintPage;
         }
 
         private void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
-            this.currentContact = 0;
+            this.printBodyFont = new Font("Arial", 16);
+            this.printHeaderFont = new Font("Arial", 25);
+            this.printFooterFont = new Font("Arial", 12);
+            this.currentPrintingContact = 0;
+            this.currentPrintingPage = 1;
 
             if (this.bsContacts.Count < 1)
                 e.Cancel = true;
+        }
+
+        private void PrintDocument_EndPrint(object sender, PrintEventArgs e)
+        {
+            this.printBodyFont.Dispose();
+            this.printHeaderFont.Dispose();
+            this.printFooterFont.Dispose();
+
+            this.printBodyFont = null;
+            this.printHeaderFont = null;
+            this.printFooterFont = null;
         }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             // Draw to the e.Graphics object that wraps the print target 
             Graphics g = e.Graphics;
+            
+            int localCount = 0;
+            string result = "";
 
-            using (Font font = new Font("Arial", 16))
+            while (localCount < this.printContactsPerPage && this.currentPrintingContact < this.bsContacts.Count)
             {
-                int localCount = 0;
-                string result = "";
+                Contact currentContact = (Contact)this.bsContacts[this.currentPrintingContact];
 
-                while (localCount < this.contactsPerPage && this.currentContact < this.bsContacts.Count)
-                {
-                    Contact currentContact = (Contact)this.bsContacts[this.currentContact];
+                result += currentContact.ToString() + "\n";
 
-                    result += currentContact.ToString() + "\n";
-
-                    this.currentContact++;
-                    localCount++;
-                }
-
-                g.DrawString(result, font, Brushes.Black, e.MarginBounds);
+                this.currentPrintingContact++;
+                localCount++;
             }
 
-            e.HasMorePages = (this.currentContact < this.bsContacts.Count);
+            g.DrawString(result, this.printBodyFont, Brushes.Black, e.MarginBounds);
+            
+            this.currentPrintingPage++;
+            e.HasMorePages = (this.currentPrintingContact < this.bsContacts.Count);
         }
 
         #endregion
