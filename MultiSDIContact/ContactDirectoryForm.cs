@@ -269,7 +269,7 @@ namespace MultiSDIContact
             while (this.currentPrintingContact < this.bsContacts.Count)
             {
                 Contact currentContact = (Contact)this.bsContacts[this.currentPrintingContact];
-                string line = currentContact.ToString();
+                string line = currentContact.ToString() + "\n\n";
 
                 // Get size for word wrap
                 SizeF printSize = g.MeasureString(line, this.printBodyFont, printableArea.Width);
