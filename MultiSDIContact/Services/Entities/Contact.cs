@@ -20,6 +20,14 @@ namespace MultiSDIContact.Services.Entities
         {
             this.FirstName = DefaultValues.FirstName;
             this.LastName = DefaultValues.LastName;
+            this.CellPhone = "";
+            this.HomePhone = "";
+            this.Address1 = "";
+            this.Address2 = "";
+            this.City = "";
+            this.State = "";
+            this.Zip = "";
+            this.Country = "";
         }
 
         #endregion
@@ -292,7 +300,12 @@ namespace MultiSDIContact.Services.Entities
 
         public override string ToString()
         {
-            return this.FirstName + " " + this.LastName + " - " + this.CellPhone;
+            return "Full Name: " + this.FirstName + " " + this.LastName + "\n" +
+                "Cell Phone: " + (this.CellPhone.Length > 0 ? this.CellPhone : "N/A") + " - Home Phone: " + (this.HomePhone.Length > 0 ? this.HomePhone : "N/A") + "\n" +
+                "Address 1: " + (this.Address1.Length > 0 ? this.Address1 : "N/A") + "\n" +
+                "Address 2: " + (this.Address2.Length > 0 ? this.Address2 : "N/A") + "\n" +
+                "City: " + (this.City.Length > 0 ? this.City : "N/A") + " - State: " + (this.State.Length > 0 ? this.State : "N/A") + " - Zip: " + (this.Zip.Length > 0 ? this.Zip : "N/A") + "\n" +
+                "Country: " + (this.Country.Length > 0 ? this.Country : "N/A");
         }
     }
 }

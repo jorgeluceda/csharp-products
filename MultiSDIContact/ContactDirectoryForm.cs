@@ -60,6 +60,7 @@ namespace MultiSDIContact
 
             RefreshItems(); //refresh items on construction
 
+            InitializePrintingFunctionality();
         }
         
         #endregion
@@ -167,63 +168,129 @@ namespace MultiSDIContact
 
         }
 
-        // To print the contacts list
-        private void menuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region Print
 
-        /*private PrintDocument printDocument;
-        private int currentContact = 0;
-        private int contactsPerPage = 10;
+        private PrintDocument printDocument;
+        private PrintPreviewDialog printPreviewDialog;
+        private PrintDialog printDialog;
 
-        public void Print()
+        private Font printBodyFont;
+        private Font printHeaderFont;
+        private Font printFooterFont;
+        private int currentPrintingContact = 0;
+        private int currentPrintingPage = 1;
+
+        private void printMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.printDialog.Document = this.printDocument;
+            if (this.printDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.printDocument.DocumentName = this.fileName;
+                this.printDocument.Print();
+            }
         }
 
-        private void InitializePrintingfunctionality()
+        private void printPreviewMenuItem_Click(object sender, EventArgs e)
         {
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.ShowDialog();
+        }
+
+        private void InitializePrintingFunctionality()
+        {
+            this.printPreviewDialog = new PrintPreviewDialog();
+            this.printDialog = new PrintDialog();
             this.printDocument = new PrintDocument();
 
             this.printDocument.BeginPrint += PrintDocument_BeginPrint;
+            this.printDocument.EndPrint += PrintDocument_EndPrint;
             this.printDocument.PrintPage += PrintDocument_PrintPage;
         }
 
         private void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
-            this.currentContact = 0;
+            this.printBodyFont = new Font("Arial", 16);
+            this.printHeaderFont = new Font("Arial", 25);
+            this.printFooterFont = new Font("Arial", 12);
+            this.currentPrintingContact = 0;
+            this.currentPrintingPage = 1;
 
-            if (this.Contacts.Count < 1)
+            if (this.bsContacts.Count < 1)
                 e.Cancel = true;
+        }
+
+        private void PrintDocument_EndPrint(object sender, PrintEventArgs e)
+        {
+            this.printBodyFont.Dispose();
+            this.printHeaderFont.Dispose();
+            this.printFooterFont.Dispose();
+
+            this.printBodyFont = null;
+            this.printHeaderFont = null;
+            this.printFooterFont = null;
         }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             // Draw to the e.Graphics object that wraps the print target 
             Graphics g = e.Graphics;
+            Rectangle printableArea = e.MarginBounds;
 
-            using (Font font = new Font("Arial", 16))
+            // START - Print page header
+            if (this.currentPrintingPage == 1)
             {
-                int localCount = 0;
-
-                while (localCount < this.contactsPerPage && this.currentContact < this.Contacts.Count)
+                string headerText = "Contacts Directory\n\n";
+                SizeF headerPrintSize = g.MeasureString(headerText, this.printHeaderFont, printableArea.Width);
+                using (StringFormat format = new StringFormat())
                 {
-                    Contact currentContact = this.Contacts.ElementAt(this.currentContact);
-
-                    g.DrawString(currentContact.ToString(), font, Brushes.Black, g.VisibleClipBounds);
-
-                    this.currentContact++;
-                    localCount++;
+                    format.Alignment = StringAlignment.Center;
+                    g.DrawString(headerText, this.printHeaderFont, Brushes.Black, printableArea, format);
                 }
+                printableArea.Y += (int)headerPrintSize.Height;
+                printableArea.Height -= (int)headerPrintSize.Height;
             }
+            // END - Print page body
 
-            e.HasMorePages = (this.currentContact < this.Contacts.Count);
-        }*/
+            // START - Print page footer
+            string footerText = "Page " + this.currentPrintingPage;
+            SizeF footerPrintSize = g.MeasureString(footerText, this.printFooterFont, printableArea.Width);
+            RectangleF footerArea = new RectangleF(printableArea.Left, printableArea.Bottom - (int)footerPrintSize.Height, printableArea.Width, footerPrintSize.Height);
+            using (StringFormat format = new StringFormat())
+            {
+                format.Alignment = StringAlignment.Far;
+                g.DrawString(footerText, this.printFooterFont, Brushes.Black, footerArea, format);
+            }
+            printableArea.Height -= (int)footerPrintSize.Height;
+            // END - Print page footer
+
+            // START - Print page body
+            while (this.currentPrintingContact < this.bsContacts.Count)
+            {
+                Contact currentContact = (Contact)this.bsContacts[this.currentPrintingContact];
+                string line = currentContact.ToString() + "\n\n";
+
+                // Get size for word wrap
+                SizeF printSize = g.MeasureString(line, this.printBodyFont, printableArea.Width);
+
+                if (printableArea.Height > printSize.Height)
+                { // Print line
+                    g.DrawString(line, this.printBodyFont, Brushes.Black, printableArea);
+                    // Calculate and reduce remaining printable area 
+                    printableArea.Y += (int)printSize.Height;
+                    printableArea.Height -= (int)printSize.Height;
+
+                    this.currentPrintingContact++;
+                }
+                else
+                    break;
+            }
+            // END - Print page body
+            
+            this.currentPrintingPage++;
+            e.HasMorePages = (this.currentPrintingContact < this.bsContacts.Count);
+        }
 
         #endregion
 
@@ -272,4 +339,4 @@ namespace MultiSDIContact
             RefreshItems(); 
         }
     }
-    }
+}
