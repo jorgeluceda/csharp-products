@@ -236,22 +236,36 @@ namespace MultiSDIContact
         {
             // Draw to the e.Graphics object that wraps the print target 
             Graphics g = e.Graphics;
+            Rectangle printableArea = e.MarginBounds;
 
             // START - Print page header
-            string headerText = "Page " + this.currentPrintingPage;
-            Rectangle marginBounds = e.MarginBounds;
-            RectangleF headerArea = new RectangleF(marginBounds.Left, 0, marginBounds.Width, marginBounds.Top);
-            using (StringFormat format = new StringFormat())
+            if (this.currentPrintingPage == 1)
             {
-                format.LineAlignment = StringAlignment.Center;
-                g.DrawString(headerText, this.printHeaderFont, Brushes.Black, headerArea, format);
+                string headerText = "Contacts Directory\n\n";
+                SizeF headerPrintSize = g.MeasureString(headerText, this.printHeaderFont, printableArea.Width);
+                using (StringFormat format = new StringFormat())
+                {
+                    format.Alignment = StringAlignment.Center;
+                    g.DrawString(headerText, this.printHeaderFont, Brushes.Black, printableArea, format);
+                }
+                printableArea.Y += (int)headerPrintSize.Height;
+                printableArea.Height -= (int)headerPrintSize.Height;
             }
             // END - Print page body
 
-            // START - Print page header
-            // Print page text
-            Rectangle printableArea = e.MarginBounds;
+            // START - Print page footer
+            string footerText = "Page " + this.currentPrintingPage;
+            SizeF footerPrintSize = g.MeasureString(footerText, this.printFooterFont, printableArea.Width);
+            RectangleF footerArea = new RectangleF(printableArea.Left, printableArea.Bottom - (int)footerPrintSize.Height, printableArea.Width, footerPrintSize.Height);
+            using (StringFormat format = new StringFormat())
+            {
+                format.Alignment = StringAlignment.Far;
+                g.DrawString(footerText, this.printFooterFont, Brushes.Black, footerArea, format);
+            }
+            printableArea.Height -= (int)footerPrintSize.Height;
+            // END - Print page footer
 
+            // START - Print page body
             while (this.currentPrintingContact < this.bsContacts.Count)
             {
                 Contact currentContact = (Contact)this.bsContacts[this.currentPrintingContact];
