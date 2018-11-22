@@ -177,10 +177,14 @@ namespace MultiSDIContact
                     Contact[] contactList = (Contact[])formatter.Deserialize(stream);
                     ContactDIrectoryForm form = CreateContactDirectoryWindow(dlg.FileName);
                     form.Text = dlg.FileName;
-                    while (currentLoadingContact < contactList.Length)
+                    //Check first to see if DataBindingSource count 0, as in the file is not open
+                    if (form.DataBindingSource.Count == 0)
                     {
-                        form.DataBindingSource.Add(contactList[currentLoadingContact]);
-                        currentLoadingContact++;
+                        while (currentLoadingContact < contactList.Length)
+                        {
+                            form.DataBindingSource.Add(contactList[currentLoadingContact]);
+                            currentLoadingContact++;
+                        }
                     }
                 }
             }
