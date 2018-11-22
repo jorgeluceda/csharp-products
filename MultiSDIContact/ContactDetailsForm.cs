@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MultiSDIContact.Services.Entities;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 
 namespace MultiSDIContact
@@ -18,6 +21,7 @@ namespace MultiSDIContact
         public bool deleteClicked = false;
         public bool canDelete = false;
         public bool closeAccept = false;
+        string defaultPath = "C:\\buffer";
 
         #region Data Binding
         public BindingSource DataBindingSource
@@ -73,6 +77,89 @@ namespace MultiSDIContact
         {
             deleteClicked = true;
             this.Close();
+        }
+
+        private void cutContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 'Cut' the contact
+            string rawContactData =
+                   "" + this.firstNameTextBox.Text + "\\"
+                   + this.lastNameTextBox.Text + "\\"
+                   + this.cellPhoneTextBox.Text + "\\"
+                   + this.homeTextBox.Text + "\\"
+                   + this.address1TextBox.Text + "\\"
+                   + this.address2TextBox.Text + "\\"
+                   + this.cityTextBox.Text + "\\"
+                   + this.stateTextBox.Text + "\\"
+                   + this.zipTextBox.Text + "\\"
+                   + this.countryTextBox.Text;
+
+            this.firstNameTextBox.Text = "";
+            this.lastNameTextBox.Text = "";
+            this.cellPhoneTextBox.Text = "";
+            this.homeTextBox.Text = "";
+            this.address1TextBox.Text = "";
+            this.address2TextBox.Text = "";
+            this.cityTextBox.Text = "";
+            this.stateTextBox.Text = "";
+            this.zipTextBox.Text = "";
+            this.countryTextBox.Text = "";
+
+            using (Stream stream = new FileStream(defaultPath, FileMode.Create, FileAccess.Write))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, rawContactData);
+            }
+        }
+
+        private void copyContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 'Cut' the contact
+            string rawContactData =
+                   "" + this.firstNameTextBox.Text + "\\"
+                   + this.lastNameTextBox.Text + "\\"
+                   + this.cellPhoneTextBox.Text + "\\"
+                   + this.homeTextBox.Text + "\\"
+                   + this.address1TextBox.Text + "\\"
+                   + this.address2TextBox.Text + "\\"
+                   + this.cityTextBox.Text + "\\"
+                   + this.stateTextBox.Text + "\\"
+                   + this.zipTextBox.Text + "\\"
+                   + this.countryTextBox.Text;
+
+            using (Stream stream = new FileStream(defaultPath, FileMode.Create, FileAccess.Write))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, rawContactData);
+            }
+        }
+
+        private void pasteContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Stream stream = new FileStream(defaultPath, FileMode.Open, FileAccess.Read))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                string rawContactData = (string)formatter.Deserialize(stream);
+
+                string[] contactData = parseString(rawContactData);
+
+                this.firstNameTextBox.Text = contactData[0];
+                this.lastNameTextBox.Text = contactData[1];
+                this.cellPhoneTextBox.Text = contactData[2];
+                this.homeTextBox.Text = contactData[3];
+                this.address1TextBox.Text = contactData[4];
+                this.address2TextBox.Text = contactData[5];
+                this.cityTextBox.Text = contactData[6];
+                this.stateTextBox.Text = contactData[7];
+                this.zipTextBox.Text = contactData[8];
+                this.countryTextBox.Text = contactData[9];
+            }
+        }
+
+        private static string[] parseString(string s)
+        {
+            string[] tokens = s.Split('\\');
+            return tokens;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MultiSDIContact
         #region Member Variables and Properties
         string fileName;
 
+        Contact contactBuffer;
 
         #endregion
 
@@ -44,12 +45,18 @@ namespace MultiSDIContact
         
         #endregion
 
-        #region Getters
+        #region Getters/Setters
 
         // Read Only FileName property
         string FileName
         {
             get { return this.fileName; }
+        }
+
+        Contact ContactBuffer
+        {
+            get { return this.contactBuffer; }
+            set { this.contactBuffer = value; }
         }
         #endregion
 
