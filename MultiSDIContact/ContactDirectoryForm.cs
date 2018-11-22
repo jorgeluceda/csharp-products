@@ -186,10 +186,43 @@ namespace MultiSDIContact
             }
         }
 
-        //To display a string text of the contact list
+        //To save a string text of the contact list as a csv
         private void rawMenuItem_Click(object sender, EventArgs e)
         {
+            //Collect all the contacts to save
+            StringBuilder csv = new StringBuilder();
+            csv.AppendLine("");
+            int currentSavingContact = 0;
+            Contact[] contactList = new Contact[this.bsContacts.Count];
+            while (currentSavingContact < this.bsContacts.Count)
+            {
+                contactList[currentSavingContact] = (Contact)this.bsContacts[currentSavingContact];
+                string firstname = contactList[currentSavingContact].FirstName;
+                string lastname = contactList[currentSavingContact].LastName;
+                string cellphone = contactList[currentSavingContact].CellPhone;
+                string homephone = contactList[currentSavingContact].HomePhone;
+                string address1 = contactList[currentSavingContact].Address1;
+                string address2 = contactList[currentSavingContact].Address2;
+                string city = contactList[currentSavingContact].City;
+                string state = contactList[currentSavingContact].State;
+                string zip = contactList[currentSavingContact].Zip;
+                string country = contactList[currentSavingContact].Country;
+                var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}", firstname, lastname,
+                    cellphone, homephone, address1, address2, city, state, zip, country);
+                csv.AppendLine(newLine);
+                currentSavingContact++;
+            }
 
+            using (SaveFileDialog dlg = new SaveFileDialog())
+            {
+                dlg.Filter = "Comma-Separated Values|*.csv";
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+                using (Stream stream = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, csv.ToString());
+                }
+            }
         }
 
         //To save contact list
