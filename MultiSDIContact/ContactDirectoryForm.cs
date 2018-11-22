@@ -5,7 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -160,7 +163,25 @@ namespace MultiSDIContact
         //To load contacts
         private void loadMenuItem_Click(object sender, EventArgs e)
         {
-
+            int currentLoadingContact = 0;
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "Contact List Files|*.clf";
+                if (dlg.ShowDialog() != DialogResult.OK) return;
+                using (Stream stream =
+                    new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    Contact[] contactList = (Contact[])formatter.Deserialize(stream);
+                    ContactDIrectoryForm form = CreateContactDirectoryWindow(dlg.FileName);
+                    form.Text = dlg.FileName;
+                    while (currentLoadingContact < contactList.Length)
+                    {
+                        form.DataBindingSource.Add(contactList[currentLoadingContact]);
+                        currentLoadingContact++;
+                    }
+                }
+            }
         }
 
         //To display a string text of the contact list
@@ -172,7 +193,38 @@ namespace MultiSDIContact
         //To save contact list
         private void saveMenuItem_Click(object sender, EventArgs e)
         {
+            //Collect all the contacts to save
+            int currentSavingContact = 0;
+            Contact[] contactList = new Contact[this.bsContacts.Count];
+            while (currentSavingContact < this.bsContacts.Count)
+            {
+                contactList[currentSavingContact] = (Contact)this.bsContacts[currentSavingContact];
+                currentSavingContact++;
+            }
 
+            if (this.Text != "Contact Directory")
+            {
+                using (Stream stream = new FileStream(this.Text, FileMode.Create, FileAccess.Write))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, contactList);
+                }
+            }
+            else
+            {
+                using (SaveFileDialog dlg = new SaveFileDialog())
+                {
+                    dlg.Filter = "Contact List Files|*.clf";
+                    if (dlg.ShowDialog() != DialogResult.OK) return;
+
+                    using (Stream stream = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        formatter.Serialize(stream, contactList);
+                        this.Text = dlg.FileName;
+                    }
+                }
+            }
         }
 
         #endregion
