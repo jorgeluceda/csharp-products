@@ -57,13 +57,14 @@
             this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsContacts = new System.Windows.Forms.BindingSource(this.components);
+            this.saveAsMenuItem = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
             // 
-            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 344);
+            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 318);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
             this.contactDirectoryStatusBar.Size = new System.Drawing.Size(680, 22);
             this.contactDirectoryStatusBar.TabIndex = 0;
@@ -72,7 +73,7 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addButton.Location = new System.Drawing.Point(12, 315);
+            this.addButton.Location = new System.Drawing.Point(12, 289);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 1;
@@ -83,7 +84,7 @@
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editButton.Location = new System.Drawing.Point(93, 315);
+            this.editButton.Location = new System.Drawing.Point(93, 289);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 2;
@@ -94,7 +95,7 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(593, 315);
+            this.deleteButton.Location = new System.Drawing.Point(593, 289);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 3;
@@ -122,7 +123,7 @@
             this.contactDataGrid.Location = new System.Drawing.Point(12, 80);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
-            this.contactDataGrid.Size = new System.Drawing.Size(656, 229);
+            this.contactDataGrid.Size = new System.Drawing.Size(656, 203);
             this.contactDataGrid.TabIndex = 4;
             // 
             // directoryToolBar
@@ -146,6 +147,7 @@
             this.fileMenuItem.Index = 0;
             this.fileMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.saveMenuItem,
+            this.saveAsMenuItem,
             this.loadMenuItem,
             this.rawMenuItem,
             this.exitMenuItem});
@@ -159,19 +161,19 @@
             // 
             // loadMenuItem
             // 
-            this.loadMenuItem.Index = 1;
+            this.loadMenuItem.Index = 2;
             this.loadMenuItem.Text = "Load";
             this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
             // 
             // rawMenuItem
             // 
-            this.rawMenuItem.Index = 2;
+            this.rawMenuItem.Index = 3;
             this.rawMenuItem.Text = "Raw";
             this.rawMenuItem.Click += new System.EventHandler(this.rawMenuItem_Click);
             // 
             // exitMenuItem
             // 
-            this.exitMenuItem.Index = 3;
+            this.exitMenuItem.Index = 4;
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -274,11 +276,17 @@
             // 
             this.bsContacts.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
             // 
+            // saveAsMenuItem
+            // 
+            this.saveAsMenuItem.Index = 1;
+            this.saveAsMenuItem.Text = "Save As";
+            this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
+            // 
             // ContactDIrectoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 366);
+            this.ClientSize = new System.Drawing.Size(680, 340);
             this.Controls.Add(this.directoryToolBar);
             this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
@@ -325,6 +333,7 @@
         private System.Windows.Forms.BindingSource bsContacts;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem printPreviewMenuItem;
+        private System.Windows.Forms.MenuItem saveAsMenuItem;
     }
 }
 
