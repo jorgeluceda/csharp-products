@@ -31,7 +31,7 @@ namespace MultiSDIContact.Services.Entities
 
         #endregion
 
-        #region Constacts
+        #region Contacts
 
         /// <summary>
         /// The contacts list
