@@ -57,6 +57,7 @@
             this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsContacts = new System.Windows.Forms.BindingSource(this.components);
+            this.saveAsMenuItem = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.fileMenuItem.Index = 0;
             this.fileMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.saveMenuItem,
+            this.saveAsMenuItem,
             this.loadMenuItem,
             this.rawMenuItem,
             this.exitMenuItem});
@@ -159,19 +161,19 @@
             // 
             // loadMenuItem
             // 
-            this.loadMenuItem.Index = 1;
+            this.loadMenuItem.Index = 2;
             this.loadMenuItem.Text = "Load";
             this.loadMenuItem.Click += new System.EventHandler(this.loadMenuItem_Click);
             // 
             // rawMenuItem
             // 
-            this.rawMenuItem.Index = 2;
+            this.rawMenuItem.Index = 3;
             this.rawMenuItem.Text = "Raw";
             this.rawMenuItem.Click += new System.EventHandler(this.rawMenuItem_Click);
             // 
             // exitMenuItem
             // 
-            this.exitMenuItem.Index = 3;
+            this.exitMenuItem.Index = 4;
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
@@ -274,6 +276,12 @@
             // 
             this.bsContacts.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
             // 
+            // saveAsMenuItem
+            // 
+            this.saveAsMenuItem.Index = 1;
+            this.saveAsMenuItem.Text = "Save As";
+            this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
+            // 
             // ContactDIrectoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,6 +333,7 @@
         private System.Windows.Forms.BindingSource bsContacts;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem printPreviewMenuItem;
+        private System.Windows.Forms.MenuItem saveAsMenuItem;
     }
 }
 
