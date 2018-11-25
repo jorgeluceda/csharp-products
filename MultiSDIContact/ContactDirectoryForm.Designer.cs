@@ -292,7 +292,6 @@
             // directoryNotifyIcon
             // 
             this.directoryNotifyIcon.Text = "Contact Directory";
-            this.directoryNotifyIcon.Visible = true;
             // 
             // ContactDIrectoryForm
             // 
