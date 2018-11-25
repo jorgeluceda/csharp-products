@@ -480,5 +480,20 @@ namespace MultiSDIContact
             this.WindowState = FormWindowState.Normal;
             this.Show();
         }
+
+        private void ContactDIrectoryForm_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void ContactDIrectoryForm_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void ContactDIrectoryForm_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
     }
 }

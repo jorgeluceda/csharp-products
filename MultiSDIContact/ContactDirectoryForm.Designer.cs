@@ -312,6 +312,9 @@
             this.Menu = this.mainMenu1;
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.ContactDIrectoryForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.ContactDIrectoryForm_DragEnter);
+            this.DragOver += new System.Windows.Forms.DragEventHandler(this.ContactDIrectoryForm_DragOver);
             this.Resize += new System.EventHandler(this.ContactDIrectoryForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).EndInit();
