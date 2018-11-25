@@ -467,6 +467,11 @@ namespace MultiSDIContact
                 directoryNotifyIcon.Visible = true;
             }
 
+            if (WindowState == FormWindowState.Normal)
+            {
+                directoryNotifyIcon.Visible = false;
+            }
+
         }
     }
 }

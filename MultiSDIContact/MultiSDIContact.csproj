@@ -108,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="MultiSDIContact.Services.Entities.Contact.datasource" />
     <None Include="MultiSDIContact.Services.Entities.ContactsCollection.datasource" />
@@ -129,6 +130,15 @@
       <Project>{F4E15C18-5A39-49DB-B07C-B08D22F31B6A}</Project>
       <Name>CoreLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifyIconImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\directory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NotifyIconImage.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
