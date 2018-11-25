@@ -71,8 +71,21 @@ namespace MultiSDIContact
             RefreshItems(); //refresh items on construction
 
             InitializePrintingFunctionality();
+
+            Console.WriteLine("Drag & Drop Format");
+            Console.WriteLine("Lazaro Alvarez");
+            Console.WriteLine("786 444 5555");
+            Console.WriteLine("305 444 5555");
+            Console.WriteLine("12355 SW 333rd st");
+            Console.WriteLine("Miami");
+            Console.WriteLine("Fl");
+            Console.WriteLine("33126");
+            Console.WriteLine("USA");
+
+
+
         }
-        
+
         #endregion
 
         #region Helper Methods
@@ -481,17 +494,63 @@ namespace MultiSDIContact
             this.Show();
         }
 
-        private void ContactDIrectoryForm_DragDrop(object sender, DragEventArgs e)
+        
+        private void contactDataGrid_DragDrop(object sender, DragEventArgs e)
+        {
+            string sourceText = (string)e.Data.GetData(typeof(string));
+            string[] terms = sourceText.Split('\n');
+
+            //make new contacts object and add it to bindingSource
+            Contact newContact = new Contact();
+            newContact.FirstName = (terms.Length >= 1) ? terms[0].Split(' ')[0] : newContact.FirstName;
+            newContact.LastName = (terms.Length >= 1) ? (terms[0].Split(' ').Length > 1)? terms[0].Split(' ')[1] : newContact.LastName : newContact.LastName;
+            newContact.CellPhone = (terms.Length >= 2) ? terms[1] : newContact.CellPhone;
+            newContact.HomePhone = (terms.Length >= 3) ? terms[2] : newContact.HomePhone;
+            newContact.Address1 = (terms.Length >= 4)? terms[3]: newContact.Address1;
+            newContact.City = (terms.Length >= 5) ? terms[4] : newContact.City;
+            newContact.State = (terms.Length >= 6) ? terms[5] : newContact.State;
+            newContact.Zip = (terms.Length >= 7) ? terms[6] : newContact.Zip;
+            newContact.Country = (terms.Length >= 8) ? terms[7] : newContact.Country;
+
+
+
+            ContactDetailsForm dirForm = new ContactDetailsForm();
+
+
+
+            // META data binding source - modify newContact without the 
+            // need to pass it directly ;)
+            dirForm.DataBindingSource.DataSource = newContact;
+            dirForm.canDelete = false;
+            dirForm.ShowDialog(); //show model contact details form
+
+            if (dirForm.closeAccept == true)
+            {
+                DataBindingSource.Add(newContact);
+                RefreshItems(); //since new contact added, refresh the items in grid view
+            }
+        }
+
+        private void contactDataGrid_DragEnter(object sender, DragEventArgs e)
         {
 
         }
 
-        private void ContactDIrectoryForm_DragEnter(object sender, DragEventArgs e)
+        private void contactDataGrid_DragOver(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Copy;
 
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+
+            }
         }
 
-        private void ContactDIrectoryForm_DragOver(object sender, DragEventArgs e)
+        private void contactDataGrid_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
 
         }
