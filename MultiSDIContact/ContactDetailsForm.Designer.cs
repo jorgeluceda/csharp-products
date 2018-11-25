@@ -383,6 +383,8 @@
             this.Name = "ContactDetailsForm";
             this.ShowIcon = false;
             this.Text = "Contact Details";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.ContactDetailsForm_DragDrop);
+            this.DragOver += new System.Windows.Forms.DragEventHandler(this.ContactDetailsForm_DragOver);
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).EndInit();
             this.EditContactsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).EndInit();
