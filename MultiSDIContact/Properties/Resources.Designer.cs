@@ -73,9 +73,9 @@ namespace MultiSDIContact.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon NotifyIconImage {
+        internal static System.Drawing.Icon IconImage {
             get {
-                object obj = ResourceManager.GetObject("NotifyIconImage", resourceCulture);
+                object obj = ResourceManager.GetObject("IconImage", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

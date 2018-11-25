@@ -140,5 +140,8 @@
   <ItemGroup>
     <None Include="Resources\NotifyIconImage.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Martz90-Circle-Addon1-Task-manager.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
