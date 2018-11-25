@@ -71,8 +71,21 @@ namespace MultiSDIContact
             RefreshItems(); //refresh items on construction
 
             InitializePrintingFunctionality();
+
+            Console.WriteLine("Drag & Drop Format");
+            Console.WriteLine("Lazaro Alvarez");
+            Console.WriteLine("786 444 5555");
+            Console.WriteLine("305 444 5555");
+            Console.WriteLine("12355 SW 333rd st");
+            Console.WriteLine("Miami");
+            Console.WriteLine("Fl");
+            Console.WriteLine("33126");
+            Console.WriteLine("USA");
+
+
+
         }
-        
+
         #endregion
 
         #region Helper Methods
@@ -485,15 +498,21 @@ namespace MultiSDIContact
         private void contactDataGrid_DragDrop(object sender, DragEventArgs e)
         {
             string sourceText = (string)e.Data.GetData(typeof(string));
-            string[] terms = sourceText.Split(' ');
+            string[] terms = sourceText.Split('\n');
 
             //make new contacts object and add it to bindingSource
             Contact newContact = new Contact();
-            newContact.FirstName = (terms.Length >= 1) ? terms[0] : "";
-            newContact.LastName = (terms.Length >= 2) ? terms[1] : "";
-            newContact.CellPhone = (terms.Length >= 3) ? terms[2] : "";
-            newContact.HomePhone = (terms.Length >= 4) ? terms[3] : "";
-            newContact.Address1 = (terms.Length >= 5)? terms[4]: "";
+            newContact.FirstName = (terms.Length >= 1) ? terms[0].Split(' ')[0] : newContact.FirstName;
+            newContact.LastName = (terms.Length >= 1) ? (terms[0].Split(' ').Length > 1)? terms[0].Split(' ')[1] : newContact.LastName : newContact.LastName;
+            newContact.CellPhone = (terms.Length >= 2) ? terms[1] : newContact.CellPhone;
+            newContact.HomePhone = (terms.Length >= 3) ? terms[2] : newContact.HomePhone;
+            newContact.Address1 = (terms.Length >= 4)? terms[3]: newContact.Address1;
+            newContact.City = (terms.Length >= 5) ? terms[4] : newContact.City;
+            newContact.State = (terms.Length >= 6) ? terms[5] : newContact.State;
+            newContact.Zip = (terms.Length >= 7) ? terms[6] : newContact.Zip;
+            newContact.Country = (terms.Length >= 8) ? terms[7] : newContact.Country;
+
+
 
             ContactDetailsForm dirForm = new ContactDetailsForm();
 
