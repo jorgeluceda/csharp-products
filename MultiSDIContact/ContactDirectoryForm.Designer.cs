@@ -66,7 +66,7 @@
             // contactDirectoryStatusBar
             // 
             this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 258);
-            this.contactDirectoryStatusBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contactDirectoryStatusBar.Margin = new System.Windows.Forms.Padding(2);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
             this.contactDirectoryStatusBar.Size = new System.Drawing.Size(510, 18);
             this.contactDirectoryStatusBar.TabIndex = 0;
@@ -76,7 +76,7 @@
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addButton.Location = new System.Drawing.Point(9, 235);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(56, 19);
             this.addButton.TabIndex = 1;
@@ -88,7 +88,7 @@
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editButton.Location = new System.Drawing.Point(70, 235);
-            this.editButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(56, 19);
             this.editButton.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteButton.Location = new System.Drawing.Point(445, 235);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(56, 19);
             this.deleteButton.TabIndex = 3;
@@ -126,7 +126,7 @@
             this.countryDataGridViewTextBoxColumn});
             this.contactDataGrid.DataSource = this.bsContacts;
             this.contactDataGrid.Location = new System.Drawing.Point(9, 65);
-            this.contactDataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contactDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
             this.contactDataGrid.Size = new System.Drawing.Size(492, 165);
@@ -188,7 +188,7 @@
             // 
             this.directoryToolBar.DropDownArrows = true;
             this.directoryToolBar.Location = new System.Drawing.Point(0, 0);
-            this.directoryToolBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.directoryToolBar.Margin = new System.Windows.Forms.Padding(2);
             this.directoryToolBar.Name = "directoryToolBar";
             this.directoryToolBar.ShowToolTips = true;
             this.directoryToolBar.Size = new System.Drawing.Size(510, 42);
@@ -304,10 +304,11 @@
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactDirectoryStatusBar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Menu = this.mainMenu1;
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
+            this.Resize += new System.EventHandler(this.ContactDIrectoryForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).EndInit();
             this.ResumeLayout(false);

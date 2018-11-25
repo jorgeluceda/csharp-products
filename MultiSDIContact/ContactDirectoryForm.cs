@@ -460,6 +460,13 @@ namespace MultiSDIContact
             RefreshItems(); 
         }
 
-        
+        private void ContactDIrectoryForm_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                directoryNotifyIcon.Visible = true;
+            }
+
+        }
     }
 }
