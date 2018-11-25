@@ -481,17 +481,57 @@ namespace MultiSDIContact
             this.Show();
         }
 
-        private void ContactDIrectoryForm_DragDrop(object sender, DragEventArgs e)
+        
+        private void contactDataGrid_DragDrop(object sender, DragEventArgs e)
+        {
+            string sourceText = (string)e.Data.GetData(typeof(string));
+            string[] terms = sourceText.Split(' ');
+
+            //make new contacts object and add it to bindingSource
+            Contact newContact = new Contact();
+            newContact.FirstName = (terms.Length >= 1) ? terms[0] : "";
+            newContact.LastName = (terms.Length >= 2) ? terms[1] : "";
+            newContact.CellPhone = (terms.Length >= 3) ? terms[2] : "";
+            newContact.HomePhone = (terms.Length >= 4) ? terms[3] : "";
+            newContact.Address1 = (terms.Length >= 5)? terms[4]: "";
+
+            ContactDetailsForm dirForm = new ContactDetailsForm();
+
+
+
+            // META data binding source - modify newContact without the 
+            // need to pass it directly ;)
+            dirForm.DataBindingSource.DataSource = newContact;
+            dirForm.canDelete = false;
+            dirForm.ShowDialog(); //show model contact details form
+
+            if (dirForm.closeAccept == true)
+            {
+                DataBindingSource.Add(newContact);
+                RefreshItems(); //since new contact added, refresh the items in grid view
+            }
+        }
+
+        private void contactDataGrid_DragEnter(object sender, DragEventArgs e)
         {
 
         }
 
-        private void ContactDIrectoryForm_DragEnter(object sender, DragEventArgs e)
+        private void contactDataGrid_DragOver(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Copy;
 
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+
+            }
         }
 
-        private void ContactDIrectoryForm_DragOver(object sender, DragEventArgs e)
+        private void contactDataGrid_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
 
         }
