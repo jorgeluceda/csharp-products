@@ -61,6 +61,7 @@
             this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsContacts = new System.Windows.Forms.BindingSource(this.components);
+            this.editToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
@@ -96,6 +97,7 @@
             this.editButton.Size = new System.Drawing.Size(149, 45);
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Edit";
+            this.editToolTip.SetToolTip(this.editButton, "Edit the currently selected contact");
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -307,6 +309,10 @@
             // 
             this.bsContacts.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
             // 
+            // editToolTip
+            // 
+            this.editToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // ContactDIrectoryForm
             // 
             this.AllowDrop = true;
@@ -365,6 +371,7 @@
         private System.Windows.Forms.MenuItem saveAsMenuItem;
         private System.Windows.Forms.NotifyIcon directoryNotifyIcon;
         private System.Windows.Forms.ToolTip addToolTip;
+        private System.Windows.Forms.ToolTip editToolTip;
     }
 }
 
