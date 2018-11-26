@@ -59,7 +59,6 @@
             this.pasteContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             this.EditContactsMenu.SuspendLayout();
@@ -357,16 +356,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(630, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // contactBindingSource
             // 
             this.contactBindingSource.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
@@ -379,7 +368,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(771, 978);
             this.ContextMenuStrip = this.EditContactsMenu;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countryLabel);
@@ -456,6 +444,5 @@
         private System.Windows.Forms.ToolStripMenuItem pasteContactToolStripMenuItem;
         private System.Windows.Forms.ToolTip contactsToolTip;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button button1;
     }
 }
