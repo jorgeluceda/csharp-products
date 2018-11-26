@@ -52,6 +52,7 @@
             this.printMenuItem = new System.Windows.Forms.MenuItem();
             this.directoryNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.addToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.editToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,14 +62,14 @@
             this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsContacts = new System.Windows.Forms.BindingSource(this.components);
-            this.editToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.deleteToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
             // 
-            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 379);
+            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 329);
             this.contactDirectoryStatusBar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
             this.contactDirectoryStatusBar.Size = new System.Drawing.Size(1408, 43);
@@ -78,7 +79,7 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addButton.Location = new System.Drawing.Point(24, 325);
+            this.addButton.Location = new System.Drawing.Point(24, 275);
             this.addButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(149, 45);
@@ -91,7 +92,7 @@
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editButton.Location = new System.Drawing.Point(187, 325);
+            this.editButton.Location = new System.Drawing.Point(187, 275);
             this.editButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(149, 45);
@@ -104,12 +105,13 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(1235, 325);
+            this.deleteButton.Location = new System.Drawing.Point(1235, 275);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(149, 45);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete";
+            this.deleteToolTip.SetToolTip(this.deleteButton, "Delete the currently selected contact");
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -135,7 +137,7 @@
             this.contactDataGrid.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
-            this.contactDataGrid.Size = new System.Drawing.Size(1360, 172);
+            this.contactDataGrid.Size = new System.Drawing.Size(1360, 122);
             this.contactDataGrid.TabIndex = 4;
             this.contactDataGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.contactDataGrid_DragDrop);
             this.contactDataGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.contactDataGrid_DragEnter);
@@ -257,6 +259,10 @@
             // 
             this.addToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // editToolTip
+            // 
+            this.editToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // firstNameDataGridViewTextBoxColumn
             // 
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
@@ -309,16 +315,16 @@
             // 
             this.bsContacts.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
             // 
-            // editToolTip
+            // deleteToolTip
             // 
-            this.editToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.deleteToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // ContactDIrectoryForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 422);
+            this.ClientSize = new System.Drawing.Size(1408, 372);
             this.Controls.Add(this.directoryToolBar);
             this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
@@ -372,6 +378,7 @@
         private System.Windows.Forms.NotifyIcon directoryNotifyIcon;
         private System.Windows.Forms.ToolTip addToolTip;
         private System.Windows.Forms.ToolTip editToolTip;
+        private System.Windows.Forms.ToolTip deleteToolTip;
     }
 }
 
