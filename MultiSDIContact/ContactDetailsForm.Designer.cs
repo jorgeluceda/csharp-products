@@ -57,10 +57,13 @@
             this.cutContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contactsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.contactBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).BeginInit();
             this.EditContactsMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +125,8 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(311, 38);
             this.firstNameTextBox.TabIndex = 4;
+            this.contactsToolTip.SetToolTip(this.firstNameTextBox, "Contact\'s first name");
+            this.firstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameTextBox_Validating);
             // 
             // lastNameLabel
             // 
@@ -142,6 +147,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(311, 38);
             this.lastNameTextBox.TabIndex = 6;
+            this.lastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameTextBox_Validating);
             // 
             // homePhoneLabel
             // 
@@ -343,13 +349,27 @@
             this.pasteContactToolStripMenuItem.Text = "Paste Contact";
             this.pasteContactToolStripMenuItem.Click += new System.EventHandler(this.pasteContactToolStripMenuItem_Click);
             // 
-            // contactBindingSource
-            // 
-            this.contactBindingSource.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
-            // 
             // contactsToolTip
             // 
             this.contactsToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(630, 330);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // contactBindingSource
+            // 
+            this.contactBindingSource.DataSource = typeof(MultiSDIContact.Services.Entities.Contact);
             // 
             // ContactDetailsForm
             // 
@@ -359,6 +379,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(771, 978);
             this.ContextMenuStrip = this.EditContactsMenu;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.contactPictureBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countryLabel);
@@ -395,6 +416,7 @@
             this.DragOver += new System.Windows.Forms.DragEventHandler(this.ContactDetailsForm_DragOver);
             ((System.ComponentModel.ISupportInitialize)(this.contactPictureBox)).EndInit();
             this.EditContactsMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -433,5 +455,7 @@
         private System.Windows.Forms.ToolStripMenuItem copyContactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteContactToolStripMenuItem;
         private System.Windows.Forms.ToolTip contactsToolTip;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button1;
     }
 }

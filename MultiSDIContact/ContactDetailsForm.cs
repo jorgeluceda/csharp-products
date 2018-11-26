@@ -195,5 +195,37 @@ namespace MultiSDIContact
 
             }
         }
+
+        private void firstNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(firstNameTextBox.Text, "^[a-zA-Z ]"))
+            {
+                this.errorProvider1.SetError(this.firstNameTextBox, "Please only enter alphabetical charecters");
+                firstNameTextBox.Text.Remove(firstNameTextBox.Text.Length - 1);
+            }
+            else
+            {
+                this.errorProvider1.Dispose();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.closeAccept = true;
+            this.Close();
+        }
+
+        private void lastNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(firstNameTextBox.Text, "^[a-zA-Z ]"))
+            {
+                this.errorProvider1.SetError(this.firstNameTextBox, "Please only enter alphabetical charecters");
+                firstNameTextBox.Text.Remove(firstNameTextBox.Text.Length - 1);
+            }
+            else
+            {
+                this.errorProvider1.Dispose();
+            }
+        }
     }
 }
