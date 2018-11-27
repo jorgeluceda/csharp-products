@@ -138,26 +138,6 @@ namespace MultiSDIContact
             }
         }
 
-        private void pasteContactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (Stream stream = new FileStream(defaultPath, FileMode.Open, FileAccess.Read))
-            {
-                IFormatter formatter = new BinaryFormatter();
-                Contact x = (Contact)formatter.Deserialize(stream);
-
-                this.firstNameTextBox.Text = x.FirstName;
-                this.lastNameTextBox.Text = x.LastName;
-                this.cellPhoneTextBox.Text = x.CellPhone;
-                this.homeTextBox.Text = x.HomePhone;
-                this.address1TextBox.Text = x.Address1;
-                this.address2TextBox.Text = x.Address2;
-                this.cityTextBox.Text = x.City;
-                this.stateTextBox.Text = x.State;
-                this.zipTextBox.Text = x.Zip;
-                this.countryTextBox.Text = x.Country;
-            }
-        }
-
         private static string[] parseString(string s)
         {
             string[] tokens = s.Split('\\');

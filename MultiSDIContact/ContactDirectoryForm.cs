@@ -22,6 +22,8 @@ namespace MultiSDIContact
 
         Contact contactBuffer;
 
+        string defaultPath = "C:\\buffer";
+
         #endregion
 
         #region Data Binding
@@ -444,6 +446,27 @@ namespace MultiSDIContact
             {
                 DataBindingSource.Add(newContact);
                 RefreshItems(); //since new contact added, refresh the items in grid view
+            }
+        }
+
+        private void addFromCutCopy_Click(object sender, EventArgs e)
+        {
+            using (Stream stream = new FileStream(defaultPath, FileMode.Open, FileAccess.Read))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Contact x = (Contact)formatter.Deserialize(stream);
+                ContactDetailsForm dirForm = new ContactDetailsForm();
+
+                dirForm.DataBindingSource.DataSource = x;
+                dirForm.canDelete = false;
+                dirForm.ShowDialog();
+
+                if(dirForm.closeAccept == true)
+                {
+                    DataBindingSource.Add(x);
+                    RefreshItems();
+                }
+
             }
         }
 
