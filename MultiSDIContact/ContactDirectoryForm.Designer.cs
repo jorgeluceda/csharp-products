@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactDIrectoryForm));
             this.contactDirectoryStatusBar = new System.Windows.Forms.StatusBar();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -59,63 +58,53 @@
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.printPreviewMenuItem = new System.Windows.Forms.MenuItem();
             this.printMenuItem = new System.Windows.Forms.MenuItem();
-            this.directoryNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.addToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).BeginInit();
             this.SuspendLayout();
             // 
             // contactDirectoryStatusBar
             // 
-            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 336);
-            this.contactDirectoryStatusBar.Margin = new System.Windows.Forms.Padding(5);
+            this.contactDirectoryStatusBar.Location = new System.Drawing.Point(0, 402);
             this.contactDirectoryStatusBar.Name = "contactDirectoryStatusBar";
-            this.contactDirectoryStatusBar.Size = new System.Drawing.Size(1408, 43);
+            this.contactDirectoryStatusBar.Size = new System.Drawing.Size(740, 22);
             this.contactDirectoryStatusBar.TabIndex = 0;
             this.contactDirectoryStatusBar.Text = "Contact Directory Status";
             // 
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addButton.Location = new System.Drawing.Point(24, 282);
-            this.addButton.Margin = new System.Windows.Forms.Padding(5);
+            this.addButton.Location = new System.Drawing.Point(12, 373);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(149, 45);
+            this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add";
-            this.addToolTip.SetToolTip(this.addButton, "Adds a contact to the contact directory");
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editButton.Location = new System.Drawing.Point(187, 282);
-            this.editButton.Margin = new System.Windows.Forms.Padding(5);
+            this.editButton.Location = new System.Drawing.Point(93, 373);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(149, 45);
+            this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 2;
             this.editButton.Text = "Edit";
-            this.addToolTip.SetToolTip(this.editButton, "Edit the currently selected contact");
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteButton.Location = new System.Drawing.Point(1235, 282);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(5);
+            this.deleteButton.Location = new System.Drawing.Point(653, 373);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(149, 45);
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete";
-            this.addToolTip.SetToolTip(this.deleteButton, "Delete the currently selected contact");
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // contactDataGrid
             // 
-            this.contactDataGrid.AllowDrop = true;
             this.contactDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -131,16 +120,11 @@
             this.zipDataGridViewTextBoxColumn,
             this.countryDataGridViewTextBoxColumn});
             this.contactDataGrid.DataSource = this.bsContacts;
-            this.contactDataGrid.Location = new System.Drawing.Point(24, 143);
-            this.contactDataGrid.Margin = new System.Windows.Forms.Padding(5);
+            this.contactDataGrid.Location = new System.Drawing.Point(12, 80);
             this.contactDataGrid.Name = "contactDataGrid";
             this.contactDataGrid.RowTemplate.Height = 24;
-            this.contactDataGrid.Size = new System.Drawing.Size(1360, 129);
+            this.contactDataGrid.Size = new System.Drawing.Size(716, 278);
             this.contactDataGrid.TabIndex = 4;
-            this.contactDataGrid.DragDrop += new System.Windows.Forms.DragEventHandler(this.contactDataGrid_DragDrop);
-            this.contactDataGrid.DragEnter += new System.Windows.Forms.DragEventHandler(this.contactDataGrid_DragEnter);
-            this.contactDataGrid.DragOver += new System.Windows.Forms.DragEventHandler(this.contactDataGrid_DragOver);
-            this.contactDataGrid.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.contactDataGrid_QueryContinueDrag);
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -198,10 +182,9 @@
             // 
             this.directoryToolBar.DropDownArrows = true;
             this.directoryToolBar.Location = new System.Drawing.Point(0, 0);
-            this.directoryToolBar.Margin = new System.Windows.Forms.Padding(5);
             this.directoryToolBar.Name = "directoryToolBar";
             this.directoryToolBar.ShowToolTips = true;
-            this.directoryToolBar.Size = new System.Drawing.Size(1408, 42);
+            this.directoryToolBar.Size = new System.Drawing.Size(740, 42);
             this.directoryToolBar.TabIndex = 6;
             // 
             // mainMenu1
@@ -299,34 +282,20 @@
             this.printMenuItem.Text = "Print";
             this.printMenuItem.Click += new System.EventHandler(this.printMenuItem_Click);
             // 
-            // directoryNotifyIcon
-            // 
-            this.directoryNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("directoryNotifyIcon.Icon")));
-            this.directoryNotifyIcon.Text = "Contact Directory";
-            this.directoryNotifyIcon.Click += new System.EventHandler(this.directoryNotifyIcon_Click);
-            // 
-            // addToolTip
-            // 
-            this.addToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
             // ContactDIrectoryForm
             // 
-            this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 379);
+            this.ClientSize = new System.Drawing.Size(740, 424);
             this.Controls.Add(this.directoryToolBar);
             this.Controls.Add(this.contactDataGrid);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactDirectoryStatusBar);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.Menu = this.mainMenu1;
             this.Name = "ContactDIrectoryForm";
             this.Text = "Contact Directory";
-            this.Resize += new System.EventHandler(this.ContactDIrectoryForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.contactDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsContacts)).EndInit();
             this.ResumeLayout(false);
@@ -365,8 +334,6 @@
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem printPreviewMenuItem;
         private System.Windows.Forms.MenuItem saveAsMenuItem;
-        private System.Windows.Forms.NotifyIcon directoryNotifyIcon;
-        private System.Windows.Forms.ToolTip addToolTip;
     }
 }
 

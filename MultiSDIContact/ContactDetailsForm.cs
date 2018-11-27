@@ -82,17 +82,17 @@ namespace MultiSDIContact
         private void cutContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 'Cut' the contact
-            string rawContactData =
-                   "" + this.firstNameTextBox.Text + "\\"
-                   + this.lastNameTextBox.Text + "\\"
-                   + this.cellPhoneTextBox.Text + "\\"
-                   + this.homeTextBox.Text + "\\"
-                   + this.address1TextBox.Text + "\\"
-                   + this.address2TextBox.Text + "\\"
-                   + this.cityTextBox.Text + "\\"
-                   + this.stateTextBox.Text + "\\"
-                   + this.zipTextBox.Text + "\\"
-                   + this.countryTextBox.Text;
+            Contact cutContact = new Contact();
+            cutContact.FirstName = this.firstNameTextBox.Text;
+            cutContact.LastName = this.lastNameTextBox.Text;
+            cutContact.CellPhone = this.cellPhoneTextBox.Text;
+            cutContact.HomePhone = this.homeTextBox.Text;
+            cutContact.Address1 = this.address1TextBox.Text;
+            cutContact.Address2 = this.address2TextBox.Text;
+            cutContact.City = this.cityTextBox.Text;
+            cutContact.State = this.stateTextBox.Text;
+            cutContact.Zip = this.zipTextBox.Text;
+            cutContact.Country = this.countryTextBox.Text;
 
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
@@ -105,32 +105,36 @@ namespace MultiSDIContact
             this.zipTextBox.Text = "";
             this.countryTextBox.Text = "";
 
+            Contact x = (Contact)cutContact.Clone();
+
             using (Stream stream = new FileStream(defaultPath, FileMode.Create, FileAccess.Write))
             {
                 IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, rawContactData);
+                formatter.Serialize(stream, x);
             }
         }
 
         private void copyContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // 'Cut' the contact
-            string rawContactData =
-                   "" + this.firstNameTextBox.Text + "\\"
-                   + this.lastNameTextBox.Text + "\\"
-                   + this.cellPhoneTextBox.Text + "\\"
-                   + this.homeTextBox.Text + "\\"
-                   + this.address1TextBox.Text + "\\"
-                   + this.address2TextBox.Text + "\\"
-                   + this.cityTextBox.Text + "\\"
-                   + this.stateTextBox.Text + "\\"
-                   + this.zipTextBox.Text + "\\"
-                   + this.countryTextBox.Text;
+            Contact cutContact = new Contact();
+            cutContact.FirstName = this.firstNameTextBox.Text;
+            cutContact.LastName = this.lastNameTextBox.Text;
+            cutContact.CellPhone = this.cellPhoneTextBox.Text;
+            cutContact.HomePhone = this.homeTextBox.Text;
+            cutContact.Address1 = this.address1TextBox.Text;
+            cutContact.Address2 = this.address2TextBox.Text;
+            cutContact.City = this.cityTextBox.Text;
+            cutContact.State = this.stateTextBox.Text;
+            cutContact.Zip = this.zipTextBox.Text;
+            cutContact.Country = this.countryTextBox.Text;
+
+            Contact x = (Contact)cutContact.Clone();
 
             using (Stream stream = new FileStream(defaultPath, FileMode.Create, FileAccess.Write))
             {
                 IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, rawContactData);
+                formatter.Serialize(stream, x);
             }
         }
 
@@ -139,20 +143,18 @@ namespace MultiSDIContact
             using (Stream stream = new FileStream(defaultPath, FileMode.Open, FileAccess.Read))
             {
                 IFormatter formatter = new BinaryFormatter();
-                string rawContactData = (string)formatter.Deserialize(stream);
+                Contact x = (Contact)formatter.Deserialize(stream);
 
-                string[] contactData = parseString(rawContactData);
-
-                this.firstNameTextBox.Text = contactData[0];
-                this.lastNameTextBox.Text = contactData[1];
-                this.cellPhoneTextBox.Text = contactData[2];
-                this.homeTextBox.Text = contactData[3];
-                this.address1TextBox.Text = contactData[4];
-                this.address2TextBox.Text = contactData[5];
-                this.cityTextBox.Text = contactData[6];
-                this.stateTextBox.Text = contactData[7];
-                this.zipTextBox.Text = contactData[8];
-                this.countryTextBox.Text = contactData[9];
+                this.firstNameTextBox.Text = x.FirstName;
+                this.lastNameTextBox.Text = x.LastName;
+                this.cellPhoneTextBox.Text = x.CellPhone;
+                this.homeTextBox.Text = x.HomePhone;
+                this.address1TextBox.Text = x.Address1;
+                this.address2TextBox.Text = x.Address2;
+                this.cityTextBox.Text = x.City;
+                this.stateTextBox.Text = x.State;
+                this.zipTextBox.Text = x.Zip;
+                this.countryTextBox.Text = x.Country;
             }
         }
 
