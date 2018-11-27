@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleDocumentInterface", "SingleDocumentInterface.csproj", "{DD67FFB9-F538-44CB-BB2C-388753906828}"
 EndProject
@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDIText", "MultiSDIText\MultiSDIText.csproj", "{D0D141E1-C8AC-43A5-AA86-79373F859349}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSDIContact", "MultiSDIContact\MultiSDIContact.csproj", "{67F47377-8948-4FA6-8836-36CA239A2BE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC3BED0C-5CB9-4234-880A-C67AAF25C4AB}"
+	ProjectSection(SolutionItems) = preProject
+		..\directory.png = ..\directory.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

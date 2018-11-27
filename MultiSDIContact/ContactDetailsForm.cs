@@ -161,5 +161,71 @@ namespace MultiSDIContact
             string[] tokens = s.Split('\\');
             return tokens;
         }
+
+        private void ContactDetailsForm_DragDrop(object sender, DragEventArgs e)
+        {
+
+            string sourceText = (string)e.Data.GetData(typeof(string));
+            string[] terms = sourceText.Split('\n');
+
+            //make new contacts object and add it to bindingSource
+            Contact newContact = new Contact();
+            this.firstNameTextBox.Text = (terms.Length >= 1) ? terms[0].Split(' ')[0] : newContact.FirstName;
+            this.lastNameTextBox.Text = (terms.Length >= 1) ? (terms[0].Split(' ').Length > 1) ? terms[0].Split(' ')[1] : newContact.LastName : newContact.LastName;
+            this.cellPhoneTextBox.Text = (terms.Length >= 2) ? terms[1] : newContact.CellPhone;
+            this.homeTextBox.Text = (terms.Length >= 3) ? terms[2] : newContact.HomePhone;
+            this.address1TextBox.Text = (terms.Length >= 4) ? terms[3] : newContact.Address1;
+            this.cityTextBox.Text = (terms.Length >= 5) ? terms[4] : newContact.City;
+            this.stateTextBox.Text = (terms.Length >= 6) ? terms[5] : newContact.State;
+            this.zipTextBox.Text = (terms.Length >= 7) ? terms[6] : newContact.Zip;
+            this.countryTextBox.Text = (terms.Length >= 8) ? terms[7] : newContact.Country;
+
+        }
+
+        private void ContactDetailsForm_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Copy;
+
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+
+            }
+        }
+
+        private void firstNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(firstNameTextBox.Text, "^[a-zA-Z ]"))
+            {
+                this.errorProvider1.SetError(this.firstNameTextBox, "Please only enter alphabetical charecters");
+                firstNameTextBox.Text.Remove(firstNameTextBox.Text.Length - 1);
+            }
+            else
+            {
+                this.errorProvider1.Dispose();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.closeAccept = true;
+            this.Close();
+        }
+
+        private void lastNameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(firstNameTextBox.Text, "^[a-zA-Z ]"))
+            {
+                this.errorProvider1.SetError(this.firstNameTextBox, "Please only enter alphabetical charecters");
+                firstNameTextBox.Text.Remove(firstNameTextBox.Text.Length - 1);
+            }
+            else
+            {
+                this.errorProvider1.Dispose();
+            }
+        }
     }
 }
