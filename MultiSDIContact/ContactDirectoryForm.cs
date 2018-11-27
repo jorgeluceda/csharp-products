@@ -477,19 +477,19 @@ namespace MultiSDIContact
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                this.directoryNotifyIcon.Visible = true;
+                //this.directoryNotifyIcon.Visible = true;
             }
 
             if (WindowState == FormWindowState.Normal)
             {
-                this.directoryNotifyIcon.Visible = false;
+                //this.directoryNotifyIcon.Visible = false;
             }
 
         }
 
         private void directoryNotifyIcon_Click(object sender, EventArgs e)
         {
-            this.directoryNotifyIcon.Visible = false;
+            //this.directoryNotifyIcon.Visible = false;
             this.WindowState = FormWindowState.Normal;
             this.Show();
         }

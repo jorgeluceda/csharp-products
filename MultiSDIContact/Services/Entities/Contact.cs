@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MultiSDIContact.Services.Entities
 {
     [Serializable]
-    public class Contact: BaseEntity, ISerializable
+    public class Contact: BaseEntity, ISerializable, ICloneable
     {
         #region Constructor
 
@@ -307,5 +307,24 @@ namespace MultiSDIContact.Services.Entities
                 "City: " + (this.City.Length > 0 ? this.City : "N/A") + " - State: " + (this.State.Length > 0 ? this.State : "N/A") + " - Zip: " + (this.Zip.Length > 0 ? this.Zip : "N/A") + "\n" +
                 "Country: " + (this.Country.Length > 0 ? this.Country : "N/A");
         }
+
+        #region ICloneable
+        public object Clone()
+        {
+            Contact x = new Contact();
+            x.FirstName = this.FirstName;
+            x.LastName = this.LastName;
+            x.CellPhone = this.CellPhone;
+            x.HomePhone = this.HomePhone;
+            x.Address1 = this.Address1;
+            x.Address2 = this.Address2;
+            x.City = this.City;
+            x.State = this.State;
+            x.Country = this.Country;
+            x.Zip = this.Zip;
+
+            return x;
+        }
+        #endregion
     }
 }
